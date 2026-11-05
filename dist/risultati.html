@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Risultati · Aniene Water Lab · A SUD</title>
+  <meta name="description" content="I risultati del monitoraggio civico dell'Aniene in sei domande: ossigeno, conducibilità, nutrienti, ammonio ed Escherichia coli da Subiaco al Tevere.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800;900&family=Barlow+Condensed:wght@700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="home.css">
+  <link rel="stylesheet" href="aniene.css">
+  <script defer src="vendor/chart.umd.min.js"></script>
+  <script type="module" src="results.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Vai al contenuto principale</a>
+  <header class="home-nav">
+    <div class="home-nav-inner">
+      <a class="nav-brand" href="index.html">
+        <img src="logo_asud.png" alt="Logo A SUD" class="nav-logo-img">
+        <div class="brand-text"><span class="brand-title">Aniene Water Lab</span><span class="brand-sub">Citizen Science · Qualità delle acque</span></div>
+      </a>
+      <nav aria-label="Navigazione principale">
+        <ul class="nav-links">
+          <li><a href="index.html#progetto">Il progetto</a></li>
+          <li><a href="index.html#strumenti">Strumenti</a></li>
+          <li><a href="index.html#parametri">Parametri</a></li>
+          <li><a href="risultati.html" aria-current="page">Risultati</a></li>
+          <li><a href="index.html#metodologia">Metodologia</a></li>
+        </ul>
+      </nav>
+      <a href="dashboard.html" class="nav-cta-btn">Apri Dashboard ↗</a>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="home-hero" aria-label="Sintesi dei risultati">
+      <div class="hero-glow-1" aria-hidden="true"></div>
+      <div class="hero-glow-2" aria-hidden="true"></div>
+      <div class="hero-container">
+        <h1 class="hero-main-title">Da acqua di montagna a fiume <span>sotto pressione</span></h1>
+        <p class="hero-subtitle" style="margin-bottom:1.25rem">Scendendo verso Roma l'acqua dell'Aniene perde qualità: a Subiaco è in classe elevata, nelle ultime stazioni prima del Tevere è spesso scarsa. Ecco che cosa hanno trovato i volontari in sei domande.</p>
+        <nav class="toc" aria-label="Indice dei risultati">
+          <a href="#equilibrio">1 · Temperatura e pH</a><a href="#ossigeno">2 · Ossigeno</a><a href="#conducibilita">3 · Conducibilità</a><a href="#nutrienti">4 · Nutrienti</a><a href="#ammonio">5 · Ammonio</a><a href="#ecoli">6 · E. coli</a><a href="#immissioni">Le immissioni</a><a href="#sintesi">In sintesi</a>
+        </nav>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="title-quadro">
+      <div class="section-container">
+        <div class="section-header">
+          <span class="section-tag">Il quadro d'insieme</span>
+          <h2 class="section-title" id="title-quadro">Il fiume in una striscia</h2>
+          <p class="section-lead">Il LIMeco indicativo riassume in un punteggio ossigeno, ammonio, azoto nitrico e fosforo. Sotto trovi la media di ogni stazione tra dicembre 2023 e ottobre 2024, da monte a valle. È una stima e non una classificazione ufficiale.</p>
+        </div>
+        <div class="river-strip" id="riverStrip" aria-label="LIMeco indicativo medio per stazione, da monte a valle"></div>
+        <div class="river-ends"><span>Monte · Subiaco</span><span>Valle · Tevere</span></div>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="equilibrio" aria-labelledby="title-equilibrio">
+      <div class="section-container">
+        <div class="section-header"><span class="section-tag">Domanda 1</span><h2 class="section-title" id="title-equilibrio">Temperatura e pH sono nella norma?</h2></div>
+        <div class="story">
+          <div class="story-text">
+            <div class="big-number"><div><b>9,2–23 °C</b><span>Minimo a Tivoli in gennaio, massimo a Ponte Salario in luglio</span></div><div><b>7,2–8,7</b><span>pH misurato, sempre dentro l'intervallo ottimale 6,5–9</span></div></div>
+            <p><strong>Sì.</strong> La temperatura segue le stagioni e sale gradualmente da monte a valle, da una media di 12,7 °C a Subiaco a 17,5 °C a Ponte Salario. Non compaiono picchi anomali né segni di inquinamento termico.</p>
+            <p>Il pH è stabile in tutte le stazioni. Questi due parametri dicono che il fiume non subisce alterazioni grossolane: per trovare i problemi bisogna guardare altrove.</p>
+          </div>
+          <div class="story-chart"><h4>Temperatura media per stazione</h4><p class="sub">Dicembre 2023 – ottobre 2024, °C. Vicovaro e Subiaco hanno solo i mesi da aprile a ottobre.</p><div class="canvas"><canvas id="figT" role="img" aria-label="Temperatura media per stazione: cresce da 12,7 gradi a Subiaco a 17,5 gradi a Ponte Salario."></canvas></div><a class="open-link" href="dashboard.html?param=t&view=trend">Apri nella dashboard →</a></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="ossigeno" aria-labelledby="title-ossigeno">
+      <div class="section-container">
+        <div class="section-header"><span class="section-tag">Domanda 2</span><h2 class="section-title" id="title-ossigeno">C'è abbastanza ossigeno per la vita del fiume?</h2></div>
+        <div class="story flip">
+          <div class="story-text">
+            <div class="big-number"><div><b>9,6 mg/L</b><span>Media a Vicovaro, la più alta</span></div><div><b>3,5 mg/L</b><span>Minimo a Ponte Mammolo, giugno 2024</span></div></div>
+            <p><strong>A monte sì, in città meno.</strong> Solo Vicovaro e Subiaco restano sempre sopra 8 mg/L, il livello che serve a specie esigenti come le trote.</p>
+            <p>I tratti più critici sono <strong>Casa del Parco</strong> (media 5,5 mg/L, sotto 6 in 7 campagne su 11) e <strong>Ponte Mammolo</strong> (media 5,4 mg/L). Sotto 6 mg/L molti pesci iniziano a soffrire, e sotto 4 mg/L la situazione è critica per quasi tutti gli organismi.</p>
+            <p>L'ossigeno cala soprattutto d'estate, quando l'acqua è più calda e ne trattiene meno.</p>
+          </div>
+          <div class="story-chart"><h4>Ossigeno disciolto medio per stazione</h4><p class="sub">Dicembre 2023 – ottobre 2024, mg/L. Il colore è la classe della media.</p><div class="canvas"><canvas id="figOd" role="img" aria-label="Ossigeno disciolto medio per stazione: oltre 9 milligrammi per litro a Subiaco e Vicovaro, circa 5,5 a Ponte Mammolo e Casa del Parco."></canvas></div><a class="open-link" href="dashboard.html?param=od&view=matrix">Apri la matrice nella dashboard →</a></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="conducibilita" aria-labelledby="title-cond">
+      <div class="section-container">
+        <div class="section-header"><span class="section-tag">Domanda 3</span><h2 class="section-title" id="title-cond">Dove cambia il carattere dell'acqua?</h2></div>
+        <div class="story">
+          <div class="story-text">
+            <div class="big-number"><div><b>589</b><span>µS/cm in media a Tivoli</span></div><div><b>1.301</b><span>µS/cm in media a Ponte Lucano, pochi chilometri più a valle</span></div></div>
+            <p><strong>Tra Tivoli e Ponte Lucano.</strong> La conducibilità misura i sali disciolti: in quel tratto più che raddoppia. Il dato è il più netto dell'intero monitoraggio.</p>
+            <p>Secondo la relazione una delle cause è probabilmente la presenza di cave in quel tratto.</p>
+            <p>Nelle aree calcaree un valore normale sta tra 250 e 800 µS/cm. Oltre 1.000 si parla di forte attività antropica o evaporazione, e oltre 1.500 di un dato da approfondire: nel 2023/24 è successo in 23 misure su 91. Nelle 5 stazioni più a valle le medie dei due periodi sono molto simili.</p>
+          </div>
+          <div class="story-chart"><h4>Conducibilità media per stazione</h4><p class="sub">µS/cm nei due periodi. Il 2022/23 riguarda solo le 5 stazioni più a valle.</p><div class="canvas"><canvas id="figCond" role="img" aria-label="Conducibilità media per stazione: circa 400 a Subiaco, 589 a Tivoli, 1301 a Ponte Lucano, circa 1500 nelle stazioni urbane."></canvas></div><a class="open-link" href="dashboard.html?param=cond&view=river">Apri nella dashboard →</a></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="nutrienti" aria-labelledby="title-nutrienti">
+      <div class="section-container">
+        <div class="section-header"><span class="section-tag">Domanda 4</span><h2 class="section-title" id="title-nutrienti">Quanti nutrienti arrivano al fiume?</h2>
+          <p class="section-lead"><strong>Troppi nelle stazioni urbane, ma meno che nel primo anno.</strong> Azoto e fosforo in eccesso nutrono alghe e piante, e la loro decomposizione consuma ossigeno. Dal 2022/23 al 2023/24, nelle 5 stazioni comuni, l'azoto nitrico medio scende da 1,49 a 1,10 mg/L e il fosforo da 0,24 a 0,19 mg/L.</p></div>
+        <div class="story">
+          <div class="story-text">
+            <h3>Azoto nitrico</h3>
+            <p>Il picco è a <strong>Ponte Salario nel dicembre 2022</strong>, con 5–10 mg/L di azoto nitrico, circa 33 mg/L di nitrati. Nel 2023/24 i valori sono più contenuti: Casa del Parco e Ponte Mammolo sono in classe sufficiente, tutte le altre stazioni in classe buona o elevata.</p>
+            <p>Il salto più forte è tra Vicovaro e Tivoli. Secondo la relazione il quadro è compatibile con il dilavamento dei campi coltivati.</p>
+            <h3>Fosforo ortofosfato</h3>
+            <p>Nelle 4 stazioni da Subiaco a Ponte Lucano le medie 2023/24 restano sotto 0,06 mg/L. Il salto è <strong>tra Casale Caletto e Ponte Mammolo</strong>, dove si passa da circa 0,10 a 0,22 mg/L, e i valori restano alti fino al Tevere.</p>
+            <p>A Ponte Salario, Ponte delle Valli e Ponte Mammolo le medie del 2022/23 sono vicine a 0,30 mg/L, da approfondire secondo la relazione. L'origine andrebbe cercata a valle di Casale Caletto.</p>
+          </div>
+          <div>
+            <div class="story-chart"><h4>Azoto nitrico medio</h4><p class="sub">mg/L con le classi LIMeco.</p><div class="canvas"><canvas id="figN" role="img" aria-label="Azoto nitrico medio per stazione nei due periodi, più alto a Ponte Salario nel 2022/23."></canvas></div><a class="open-link" href="dashboard.html?param=n&view=river">Apri nella dashboard →</a></div>
+            <div class="story-chart"><h4>Fosforo ortofosfato medio</h4><p class="sub">mg/L. Classi del fosforo totale, solo a titolo indicativo.</p><div class="canvas"><canvas id="figP" role="img" aria-label="Fosforo ortofosfato medio per stazione nei due periodi: basso a monte, circa 0,2 a 0,3 milligrammi per litro da Ponte Mammolo al Tevere."></canvas></div><a class="open-link" href="dashboard.html?param=p&view=river">Apri nella dashboard →</a></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="ammonio" aria-labelledby="title-ammonio">
+      <div class="section-container">
+        <div class="section-header"><span class="section-tag">Domanda 5</span><h2 class="section-title" id="title-ammonio">Ci sono segni di scarichi organici?</h2></div>
+        <div class="story flip">
+          <div class="story-text">
+            <div class="big-number"><div><b>0,52 → 0,31</b><span>mg/L, media delle 5 stazioni comuni nei due periodi</span></div><div><b>2,73 mg/L</b><span>Massimo a Casale Caletto, giugno 2022</span></div></div>
+            <p><strong>Sì, e non in modo sporadico.</strong> In natura l'ammonio resta in genere sotto 0,2 mg/L. A giugno 2022, 4 stazioni su 5 hanno superato 1 mg/L, e tra giugno e agosto 2024 valori simili sono tornati a Ponte Mammolo, Casale Caletto e Casa del Parco. A Tivoli c'è stato un picco isolato di 2,1 mg/L nel gennaio 2024.</p>
+            <p>La media più alta è a <strong>Casale Caletto nel 2022/23</strong> (0,71 mg/L) e a <strong>Ponte Mammolo nel 2023/24</strong> (0,47 mg/L). La relazione ipotizza uno scarico importante a monte di Casale Caletto. La mancata diluizione più a valle fa pensare ad altri scarichi o a carenza di ossigeno.</p>
+          </div>
+          <div class="story-chart"><h4>Ammonio medio per stazione</h4><p class="sub">mg/L con le classi LIMeco.</p><div class="canvas"><canvas id="figNh" role="img" aria-label="Ammonio medio per stazione nei due periodi: quasi assente a Subiaco, massimo a Casale Caletto nel 2022/23."></canvas></div><a class="open-link" href="dashboard.html?param=nh&view=matrix">Apri la matrice nella dashboard →</a></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="ecoli" aria-labelledby="title-ecoli">
+      <div class="section-container">
+        <div class="section-header"><span class="section-tag">Domanda 6</span><h2 class="section-title" id="title-ecoli">L'acqua è contaminata da batteri fecali?</h2></div>
+        <div class="story">
+          <div class="story-text">
+            <div class="big-number"><div><b>4.300</b><span>UFC/100 ml, valore mediano nelle stazioni 1–4 fino ad agosto 2024</span></div><div><b>154.000</b><span>UFC/100 ml a Ponte delle Valli, settembre 2024</span></div></div>
+            <p><strong>Sì, e nel settembre 2024 è successo qualcosa.</strong> Fino ad agosto i valori sono stati relativamente contenuti, salvo Ponte Salario, tre volte oltre 20.000 UFC/100 ml.</p>
+            <p>Tra settembre e ottobre 2024 le stazioni da 1 a 4 sono salite <strong>tra 61.000 e 154.000 UFC/100 ml</strong>. La relazione la definisce una situazione critica, che richiede una verifica delle cause. Nel 2022/23 nessun valore aveva superato 20.000.</p>
+            <p>Solo a Subiaco l'acqua è rimasta sempre entro 1.000 UFC/100 ml. L'Aniene non è un fiume classificato come balneabile.</p>
+          </div>
+          <div class="story-chart"><h4>Escherichia coli campagna per campagna</h4><p class="sub">UFC/100 ml, dicembre 2023 – ottobre 2024. Scala logaritmica: ogni tacca vale dieci volte la precedente.</p><div class="canvas"><canvas id="figEc" role="img" aria-label="Escherichia coli nel tempo per stazione: valori stabili fino ad agosto 2024, poi forte aumento a settembre e ottobre nelle stazioni urbane."></canvas></div><a class="open-link" href="dashboard.html?param=ec&view=map">Guardalo sulla mappa →</a></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="immissioni" aria-labelledby="title-immissioni">
+      <div class="section-container">
+        <div class="section-header"><span class="section-tag">Approfondimento</span><h2 class="section-title" id="title-immissioni">Le immissioni controllate nel 2024</h2>
+          <p class="section-lead">L'8 giugno e il 20 settembre 2024 sono stati controllati anche punti di immissione nel tratto urbano, fuori dal percorso regolare. Sono rilievi singoli: fotografano un momento e non bastano a descrivere un punto. Il dato più forte è alla Confluenza Poligrafico l'8 giugno: ossigeno a 1 mg/L, ammonio a 9,9 mg/L ed E. coli a 200.000 UFC/100 ml.</p></div>
+        <div class="threshold-table-wrap"><table class="threshold-table extra-table"><thead><tr><th scope="col">Punto</th><th scope="col">Data</th><th scope="col">Ossigeno mg/L</th><th scope="col">Ammonio mg/L</th><th scope="col">Fosforo mg/L</th><th scope="col">Azoto nitrico mg/L</th><th scope="col">E. coli UFC/100 ml</th></tr></thead><tbody id="extraRows"></tbody></table></div>
+        <p class="threshold-legend">I punti non compaiono sulla mappa perché le loro coordinate nell'Excel sono da verificare. «—» indica un dato non rilevato.</p>
+      </div>
+    </section>
+
+    <section class="section" id="sintesi" aria-labelledby="title-sintesi">
+      <div class="section-container">
+        <div class="section-header"><span class="section-tag">In sintesi</span><h2 class="section-title" id="title-sintesi">Tre fiumi in uno</h2></div>
+        <div class="zone-grid">
+          <article class="zone-card" style="--zone:var(--l1)"><h3>Alto corso</h3><p class="zone-where">Stazione 9 · LIMeco indicativo 0,88</p><p>Acqua fresca e ossigenata, pochi nutrienti, E. coli basso. Le sorgenti carsiche e la tutela del parco fanno la differenza.</p></article>
+          <article class="zone-card" style="--zone:var(--l2)"><h3>Medio corso</h3><p class="zone-where">Stazioni 8 e 7 · LIMeco indicativo 0,64 e 0,57</p><p>La qualità peggiora leggermente: l'azoto nitrico sale tra Vicovaro e Tivoli, ma il tratto resta in classe buona.</p></article>
+          <article class="zone-card" style="--zone:var(--l4)"><h3>Basso corso</h3><p class="zone-where">Stazioni da 6 a 1 · LIMeco indicativo da 0,52 a 0,26</p><p>Conducibilità alta, fosforo e ammonio elevati, ossigeno ridotto e batteri fecali. Pressioni diverse si sommano fino al Tevere.</p></article>
+        </div>
+        <div class="method-card" style="margin-top:2rem">
+          <h3>Che cosa resta da capire</h3>
+          <ul>
+            <li>Perché E. coli è esploso tra settembre e ottobre 2024 nel tratto urbano</li>
+            <li>Dove si trova l'origine dell'aumento di fosforo a valle di Casale Caletto</li>
+            <li>Quanto pesano le cave nel salto di conducibilità tra Tivoli e Ponte Lucano</li>
+          </ul>
+          <p style="margin-top:1rem">Sono domande per chi gestisce il fiume e per chi continua a monitorarlo. I dati di citizen science indicano dove guardare e non sostituiscono le analisi ufficiali.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="final-cta-section" aria-label="Invito all'esplorazione">
+      <div class="final-cta-card"><div class="final-cta-inner">
+        <span class="final-cta-tag">Tocca a te</span>
+        <h2 class="final-cta-title">Controlla i numeri con i tuoi occhi</h2>
+        <p class="final-cta-desc">Nella dashboard puoi filtrare stazioni e periodi, vedere ogni misura e scaricare i dati.</p>
+        <a href="dashboard.html" class="btn-large-cta">Apri la Dashboard ↗</a>
+      </div></div>
+    </section>
+  </main>
+
+  <footer class="home-footer">
+    <div class="footer-bottom">
+      <span>Aniene Water Lab · A SUD · Interpretazione tratta dalla relazione di Bruna Gumiero (4 dicembre 2024)</span>
+      <span><a href="aniene_dati.csv" download>Scarica tutti i dati (CSV)</a> · <a href="index.html#metodologia">Metodologia</a></span>
+    </div>
+  </footer>
+</body>
+</html>

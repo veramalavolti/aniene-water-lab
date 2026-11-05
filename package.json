@@ -1,0 +1,1 @@
+{"name":"aniene-water-lab","version":"1.0.0","private":true,"scripts":{"build":"echo 'Static build ready'","start":"python3 -m http.server 4173 --directory dist","test":"python3 scripts/test_data.py"}}

@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Dashboard · Aniene Water Lab · A SUD</title>
+  <meta name="description" content="Esplora sulla mappa e nei grafici le misure di citizen science sul fiume Aniene: 9 stazioni, 22 campagne, tra aprile 2022 e ottobre 2024.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800;900&family=Barlow+Condensed:wght@700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="vendor/leaflet.css">
+  <link rel="stylesheet" href="reference.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="aniene.css">
+  <script defer src="vendor/chart.umd.min.js"></script>
+  <script defer src="vendor/leaflet.js"></script>
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#explore">Vai ai dati</a>
+<header class="topnav">
+  <div class="nav-brand">
+    <a href="index.html" class="nav-brand-link" title="Torna alla Home"><img src="logo_asud.png" alt="A SUD" class="nav-logo-img"></a>
+    <a href="index.html" class="nav-home-btn">← Home</a>
+    <a href="risultati.html" class="nav-home-btn">Risultati</a>
+    <span class="nav-title">Aniene Water Lab · Dashboard</span>
+  </div>
+  <div class="nav-right">
+    <span class="nav-year">2022 – 2024</span>
+    <button class="info-btn" id="info" aria-label="Scheda informativa">▤<span class="info-btn-text"> Scheda informativa</span></button>
+  </div>
+</header>
+<main>
+  <section class="hero">
+    <div class="hero-left">
+      <div class="hero-label" id="heroGroup">Stato di base</div>
+      <h1 class="hero-title" id="heroTitle">Escherichia coli</h1>
+      <p class="hero-sub" id="heroSub">Monitoraggio civico del fiume Aniene, da Subiaco alla confluenza nel Tevere</p>
+      <div class="unit-tag" id="unitBadge"></div>
+    </div>
+    <div class="hero-right">
+      <label class="hero-select-label" for="paramSelect">Scegli che cosa guardare</label>
+      <div class="hero-select-wrap">
+        <select id="paramSelect" class="hero-select"></select>
+        <span class="hero-select-arrow" aria-hidden="true">▾</span>
+      </div>
+    </div>
+  </section>
+  <section class="metrics-strip" aria-label="Riepilogo della selezione" aria-live="polite">
+    <div class="metric-card"><div class="metric-label">Misure</div><div class="metric-value" id="mCount">—</div><div class="metric-sub" id="mCountSub">nella selezione</div></div>
+    <div class="metric-card"><div class="metric-label">Valore medio</div><div class="metric-value" id="mMean">—</div><div class="metric-sub" id="mMeanSub">—</div></div>
+    <div class="metric-card"><div class="metric-label">Valore mediano</div><div class="metric-value" id="mMedian">—</div><div class="metric-sub">metà delle misure sta sotto</div></div>
+    <div class="metric-card"><div class="metric-label">Minimo</div><div class="metric-value" id="mMin">—</div><div class="metric-sub" id="mMinSub">—</div></div>
+    <div class="metric-card"><div class="metric-label">Massimo</div><div class="metric-value lime" id="mMax">—</div><div class="metric-sub" id="mMaxSub">—</div></div>
+  </section>
+  <section class="content" id="explore">
+    <div id="status" role="status">Caricamento dei dati…</div>
+    <div class="filters">
+      <label>Periodo<select id="period"><option value="all">Tutti i periodi</option><option value="22/23">Aprile 2022 – marzo 2023</option><option value="23/24">Dicembre 2023 – ottobre 2024</option></select></label>
+      <label>Tratto del fiume<select id="zone"><option value="all">Tutto il fiume</option><option value="alto">Alto corso</option><option value="medio">Medio corso</option><option value="basso">Basso corso</option></select></label>
+      <div class="filter-actions"><button class="text-button" id="reset">Ripristina filtri</button><button class="download-btn" id="download">↓ Scarica CSV</button></div>
+    </div>
+    <div class="station-chips" id="stationChips" role="group" aria-label="Stazioni visibili"></div>
+    <div class="tabs-bar" role="tablist" aria-label="Vista dei dati">
+      <button class="tab-btn active" id="tab-map" role="tab" aria-selected="true" aria-controls="panel" data-view="map">◉ Mappa</button>
+      <button class="tab-btn" id="tab-river" role="tab" aria-selected="false" tabindex="-1" aria-controls="panel" data-view="river">▥ Da monte a valle</button>
+      <button class="tab-btn" id="tab-trend" role="tab" aria-selected="false" tabindex="-1" aria-controls="panel" data-view="trend">↗ Andamento</button>
+      <button class="tab-btn" id="tab-matrix" role="tab" aria-selected="false" tabindex="-1" aria-controls="panel" data-view="matrix">▦ Matrice</button>
+      <button class="tab-btn" id="tab-stats" role="tab" aria-selected="false" tabindex="-1" aria-controls="panel" data-view="stats">⌁ Statistiche</button>
+    </div>
+    <div id="panel" role="tabpanel" aria-labelledby="tab-map">
+      <article class="chart-card">
+        <div class="chart-card-header"><div><h2 class="chart-card-title" id="chartTitle"></h2><p class="chart-card-desc" id="chartDesc"></p></div></div>
+        <div class="chart-guide param-guide" id="guide"></div>
+        <div class="warn-note" id="warn"></div>
+        <div id="mapView">
+          <div class="map-layout">
+            <div id="map" role="application" aria-label="Mappa delle stazioni. Gli stessi valori sono elencati nella lista accanto."></div>
+            <div class="map-side"><ul class="map-list" id="mapList"></ul></div>
+          </div>
+          <div class="timeline">
+            <button class="play-btn" id="play" aria-pressed="false">▶ Scorri</button>
+            <input type="range" id="timeline" min="0" max="0" value="0" aria-label="Campagna di monitoraggio">
+            <output id="timelineLabel" for="timeline">Media del periodo</output>
+          </div>
+        </div>
+        <div id="chartView" hidden>
+          <div class="chart-body"><div class="chart-wrap"><canvas id="chart" role="img" aria-label="Grafico dei valori selezionati. Gli stessi dati sono nella tabella sotto il grafico."></canvas><div id="empty" hidden>Nessun dato per questa selezione. Prova un altro periodo o riattiva una stazione.</div></div></div>
+        </div>
+        <div id="matrixView" class="matrix-wrap" hidden></div>
+        <div id="statsView" class="stats-scroll" hidden></div>
+        <div class="map-legend legend-row" id="legend"></div>
+        <div class="chart-foot"><span id="coverage"></span><span class="chart-options"><label id="logLabel"><input type="checkbox" id="log"> Scala logaritmica</label></span></div>
+      </article>
+    </div>
+    <details class="raw-data">
+      <summary>Tutte le misure della selezione <span id="rawCount"></span></summary>
+      <p class="data-note">Per ogni misura trovi il valore usato nella piattaforma e il valore scritto nell'Excel. Il CSV contiene tutte le righe della selezione.</p>
+      <div class="stats-scroll"><table class="stats-table"><thead><tr><th>Campagna</th><th>Stazione</th><th>Valore usato</th><th>Valore nell'Excel</th><th>Classe</th><th>Fonte</th></tr></thead><tbody id="rawBody"></tbody></table></div>
+      <div class="pagination"><button id="prev">← Precedenti</button><span id="pageInfo"></span><button id="next">Successive →</button></div>
+    </details>
+    <p class="method-note" id="methodNote"></p>
+    <footer><span>Aniene Water Lab · A SUD</span><span>1.041 misure · 9 stazioni · 22 campagne</span><button id="sources" class="text-button">Fonti e metodo ↗</button></footer>
+  </section>
+</main>
+<dialog id="infoDialog" aria-labelledby="infoTitle">
+  <div class="modal-topbar"><h2 id="infoTitle">Scheda informativa</h2><button id="closeInfo" class="modal-close" aria-label="Chiudi scheda">✕</button></div>
+  <div class="modal-body">
+    <section class="scheda-section"><span class="scheda-section-label">Il monitoraggio</span><h3>Due periodi, nove stazioni</h3><p>Cittadine e cittadini formati hanno misurato la qualità dell'acqua dell'Aniene in due periodi. Da aprile 2022 a marzo 2023 sono state seguite 5 stazioni. Da dicembre 2023 a ottobre 2024 le stazioni sono state 7, e 9 da aprile 2024 con Vicovaro e Subiaco.</p><div class="highlight-row"><div class="highlight-pill"><div class="hp-num">1.041</div><div class="hp-label">Misure</div></div><div class="highlight-pill"><div class="hp-num">146</div><div class="hp-label">Campioni</div></div><div class="highlight-pill"><div class="hp-num">22</div><div class="hp-label">Campagne</div></div></div></section>
+    <section class="scheda-section"><span class="scheda-section-label">Le fonti</span><h3>Excel e relazione</h3><p>Le campagne 2023/24 vengono dall'Excel «Dataset definitivo dati monitoraggio AnieneWaterLab 23_24». Le campagne 2022/23 non sono nell'Excel: i valori sono ricostruiti dai punti dei grafici della relazione di Bruna Gumiero, e per quel periodo mancano temperatura, ossigeno, pH e torbidità.</p></section>
+    <section class="scheda-section"><span class="scheda-section-label">Il metodo</span><h3>Come sono trattati i numeri</h3><p>Nitrati e fosfati vengono da un kit che restituisce intervalli: ogni misura è rappresentata dal punto medio, come nella relazione. Dove l'Excel riporta valori arrotondati o gli estremi di classe, è stato usato il valore completo dei grafici della relazione. Il valore dell'Excel resta visibile nella tabella e nel CSV.</p><p>La saturazione di ossigeno è calcolata da ossigeno, temperatura e pressione. Il LIMeco indicativo è la media dei punteggi di saturazione, ammonio, azoto nitrico e fosforo: usa l'ortofosfato al posto del fosforo totale, quindi va letto come una stima ottimistica.</p><p>La torbidità sotto 14 NTU non è distinguibile: vale 14 nei calcoli. Le linee dei grafici collegano le campagne e non rappresentano misure continue.</p></section>
+    <section class="scheda-section"><span class="scheda-section-label">Come leggere</span><h3>Cautela nelle conclusioni</h3><p>Sono dati di citizen science: utili per capire tendenze e differenze, non sostituiscono le analisi ufficiali. Un valore in classe bassa segnala un dato da approfondire e non identifica da solo la causa. Le medie confrontano le campagne disponibili, che non sono uguali per tutte le stazioni.</p></section>
+  </div>
+</dialog>
+<noscript><p>Attiva JavaScript per esplorare mappa e grafici.</p></noscript>
+</body>
+</html>
