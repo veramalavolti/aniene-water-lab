@@ -1,4 +1,4 @@
-import {LEVELS, PERIOD_COLORS, PERIOD_LABELS, STATION_COLORS, ZONES, chartDefaults, classify, fmt, fmtDate, fmtInt, fmtMonth, loadData, logTick, referenceLines, summarize, unit} from './model.js';
+import {LEVELS, PERIODS, PERIOD_COLORS, PERIOD_LABELS, SOURCE_LABELS, STATION_COLORS, ZONES, chartDefaults, classify, fmt, fmtDate, fmtInt, fmtMonth, isGap, loadData, logTick, referenceLines, summarize, unit} from './model.js';
 
 const $ = id => document.getElementById(id);
 const PAGE_SIZE = 20;
@@ -52,16 +52,18 @@ function renderHeader(rows) {
   guide.replaceChildren(el('p', '', p.what), el('p', '', p.why), el('p', 'ref', p.ref));
   const notes = [];
   if (p.proxy) notes.push('Le classi riguardano il fosforo totale: per l’ortofosfato il confronto è solo indicativo.');
-  if (p.id === 'lim') notes.push('Stima non ufficiale, disponibile solo per il periodo 2023/24.');
-  if (['t', 'od', 'sat', 'ph', 'turb', 'lim'].includes(p.id) && state.period !== '23/24') notes.push('Questo parametro è stato rilevato con costanza solo nel periodo 2023/24.');
-  if (['cond', 'n', 'p', 'nh', 'ec'].includes(p.id) && state.period !== '23/24') notes.push('I valori 2022/23 sono ricostruiti dai grafici della relazione.');
+  if (p.id === 'lim') notes.push('Stima non ufficiale, non disponibile per il 2022/23.');
+  if (['t', 'od', 'sat', 'ph', 'turb'].includes(p.id) && ['all', '22/23'].includes(state.period)) notes.push('Questo parametro non è stato rilevato con costanza nel 2022/23.');
+  if (['cond', 'n', 'p', 'nh', 'ec'].includes(p.id) && ['all', '22/23'].includes(state.period)) notes.push('I valori 2022/23 sono ricostruiti dai grafici della relazione.');
+  if (['all', '25'].includes(state.period)) notes.push('Il 2025 comprende solo tre campagne autunnali: le sue medie non equivalgono a quelle di un anno intero.');
+  if (p.id === 'ec' && ['all', '25'].includes(state.period)) notes.push('Per Vicovaro E. coli 2025 manca: nel file le etichette sono invertite ed è da verificare.');
   if (p.range) notes.push('Il kit restituisce un intervallo: il valore mostrato ne è il punto medio.');
   if (p.id === 'turb') notes.push('Il tubo di Secchi non distingue i valori sotto 14 NTU: valgono 14, quindi le medie sono un valore massimo.');
   $('warn').textContent = notes.join(' ');
   $('logLabel').hidden = !['river', 'trend'].includes(state.view);
   $('log').checked = state.log;
   $('coverage').textContent = stats ? `Selezione: ${visibleStations().length} stazioni · ${campaigns(rows).map(fmtMonth).slice(0, 1)} – ${campaigns(rows).map(fmtMonth).slice(-1)}` : '';
-  $('methodNote').textContent = 'Le stazioni sono numerate da valle (1) a monte (9). Le medie sono aritmetiche e confrontano le campagne disponibili, che non sono uguali per tutte le stazioni.';
+  $('methodNote').textContent = 'Le stazioni sono numerate da valle (1) a monte (9). La stazione 10, Tenuta del Cavaliere, si è aggiunta nel 2025 tra Ponte Lucano e Casale Caletto. Le medie sono aritmetiche e confrontano le campagne disponibili, che non sono uguali per tutte le stazioni.';
 }
 
 function renderLegend() {
@@ -153,7 +155,7 @@ function togglePlay(force) {
 
 /* Grafici */
 function baseOptions(p, logScale) {
-  const canLog = logScale && selection().every(r => r.v[p.id] > 0);
+  const canLog = logScale;
   return {
     responsive: true, maintainAspectRatio: false, interaction: {mode: 'nearest', intersect: false},
     plugins: {
@@ -174,7 +176,7 @@ function drawChart(config) {
 }
 function renderRiver() {
   const p = param(), rows = selection(), stations = visibleStations();
-  const periods = ['22/23', '23/24'].filter(per => rows.some(r => r.period === per));
+  const periods = PERIODS.filter(per => rows.some(r => r.period === per));
   const datasets = periods.map(per => ({
     label: PERIOD_LABELS[per],
     data: stations.map(s => summarize(rows.filter(r => r.st === s.id && r.period === per).map(r => r.v[p.id]))?.mean ?? null),
@@ -186,12 +188,15 @@ function renderTrend() {
   const p = param(), rows = selection(), months = campaigns(rows);
   const labels = [];
   months.forEach((m, i) => {
-    if (i && m > '2023-06' && months[i - 1] < '2023-06') labels.push(null);
+    if (i && isGap(months[i - 1], m)) labels.push(null);
     labels.push(m);
   });
   const datasets = visibleStations().filter(s => rows.some(r => r.st === s.id)).map(s => ({
     label: `${s.id} · ${s.name}`,
-    data: labels.map(m => m ? rows.find(r => r.st === s.id && r.month === m)?.v[p.id] ?? null : null),
+    data: labels.map(m => {
+      const value = m ? rows.find(r => r.st === s.id && r.month === m)?.v[p.id] ?? null : null;
+      return value === 0 && state.log && p.log ? null : value;       // lo zero non esiste su scala logaritmica
+    }),
     borderColor: STATION_COLORS[s.id], backgroundColor: STATION_COLORS[s.id], borderWidth: 2, pointRadius: 2.5, pointHoverRadius: 5, tension: .15,
   }));
   drawChart({type: 'line', data: {labels: labels.map(m => m ? fmtMonth(m) : ''), datasets}, options: baseOptions(p, state.log && p.log)});
@@ -203,7 +208,7 @@ function renderMatrix() {
   const table = el('table', 'matrix'), head = el('tr');
   head.append(el('th', 'row', 'Stazione'));
   months.forEach((m, i) => {
-    if (i && m > '2023-06' && months[i - 1] < '2023-06') head.append(el('th', 'gap'));
+    if (i && isGap(months[i - 1], m)) head.append(el('th', 'gap'));
     head.append(el('th', '', fmtMonth(m)));
   });
   const thead = el('thead'), tbody = el('tbody');
@@ -213,7 +218,7 @@ function renderMatrix() {
     const tr = el('tr');
     tr.append(el('th', 'row', `${s.id} · ${s.name}`));
     months.forEach((m, i) => {
-      if (i && m > '2023-06' && months[i - 1] < '2023-06') tr.append(el('td', 'gap'));
+      if (i && isGap(months[i - 1], m)) tr.append(el('td', 'gap'));
       const value = rows.find(r => r.st === s.id && r.month === m)?.v[p.id];
       const td = el('td');
       if (value === undefined) { td.className = 'none'; td.textContent = '·'; }
@@ -238,12 +243,12 @@ function renderStats() {
   const table = el('table', 'stats-table'), thead = el('thead'), head = el('tr'), tbody = el('tbody');
   ['Stazione', 'Periodo', 'Misure', 'Media', 'Mediana', 'Minimo', 'Massimo', 'Classe della media'].forEach(t => head.append(el('th', '', t)));
   thead.append(head);
-  visibleStations().forEach(s => ['22/23', '23/24'].forEach(per => {
+  visibleStations().forEach(s => PERIODS.forEach(per => {
     const stats = summarize(rows.filter(r => r.st === s.id && r.period === per).map(r => r.v[p.id]));
     if (!stats) return;
     const band = classify(p, stats.mean), tr = el('tr'), classCell = el('td');
     if (band) { const chip = el('span', 'class-chip', band.label); levelStyle(chip, band); classCell.append(chip); } else classCell.textContent = '—';
-    tr.append(el('td', '', `${s.id} · ${s.name}`), el('td', '', per), el('td', 'num', fmtInt(stats.n)), el('td', 'num', fmt(stats.mean, p)), el('td', 'num', fmt(stats.median, p)), el('td', 'num', fmt(stats.min, p)), el('td', 'num', fmt(stats.max, p)), classCell);
+    tr.append(el('td', '', `${s.id} · ${s.name}`), el('td', '', per === '25' ? '2025' : per), el('td', 'num', fmtInt(stats.n)), el('td', 'num', fmt(stats.mean, p)), el('td', 'num', fmt(stats.median, p)), el('td', 'num', fmt(stats.min, p)), el('td', 'num', fmt(stats.max, p)), classCell);
     tbody.append(tr);
   }));
   table.append(thead, tbody);
@@ -258,7 +263,7 @@ function renderRaw(rows) {
   $('rawBody').replaceChildren(...shown.map(r => {
     const tr = el('tr'), band = classify(p, r.v[p.id]);
     const original = p.derived ? 'calcolato' : (r.raw[p.id] ?? '—');
-    tr.append(el('td', '', fmtDate(r)), el('td', '', `${r.st} · ${nameOf(r.st)}`), el('td', '', `${fmt(r.v[p.id], p)}${unit(p)}`), el('td', '', original), el('td', '', band ? band.label : '—'), el('td', '', r.src === 'relazione' ? 'Grafico della relazione' : 'Excel 23/24'));
+    tr.append(el('td', '', fmtDate(r)), el('td', '', `${r.st} · ${nameOf(r.st)}`), el('td', '', `${fmt(r.v[p.id], p)}${unit(p)}`), el('td', '', original), el('td', '', band ? band.label : '—'), el('td', '', SOURCE_LABELS[r.src]));
     return tr;
   }));
   $('rawCount').textContent = `(${fmtInt(rows.length)})`;
@@ -272,7 +277,7 @@ function downloadCsv() {
   const lines = [['periodo', 'campagna', 'data', 'stazione', 'nome', 'parametro', 'unita', 'valore', 'valore_excel', 'classe', 'fonte'].join(';')];
   selection().forEach(r => {
     const band = classify(p, r.v[p.id]);
-    lines.push([r.period, r.month, r.date || '', r.st, nameOf(r.st), p.name, p.unit, String(r.v[p.id]).replace('.', ','), r.raw[p.id] ?? '', band ? band.label : '', r.src === 'relazione' ? 'grafico relazione' : 'excel 23/24'].map(x => `"${String(x).replaceAll('"', '""')}"`).join(';'));
+    lines.push([r.period, r.month, r.date || '', r.st, nameOf(r.st), p.name, p.unit, String(r.v[p.id]).replace('.', ','), r.raw[p.id] ?? '', band ? band.label : '', SOURCE_LABELS[r.src]].map(x => `"${String(x).replaceAll('"', '""')}"`).join(';'));
   });
   const link = el('a');
   link.href = URL.createObjectURL(new Blob(['﻿' + lines.join('\n')], {type: 'text/csv;charset=utf-8'}));

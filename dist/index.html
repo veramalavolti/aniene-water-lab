@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Aniene Water Lab · Citizen Science sulla qualità del fiume · A SUD</title>
-  <meta name="description" content="Piattaforma pubblica per esplorare il monitoraggio civico del fiume Aniene: 1.041 misure in 9 stazioni, da Subiaco alla confluenza nel Tevere, tra aprile 2022 e ottobre 2024.">
+  <meta name="description" content="Piattaforma pubblica per esplorare il monitoraggio civico del fiume Aniene: 1.281 misure in 10 stazioni, da Subiaco alla confluenza nel Tevere, tra aprile 2022 e dicembre 2025.">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -52,11 +52,11 @@
           <a href="dashboard.html" class="btn-secondary-hero">Esplora i dati sulla mappa ↗</a>
         </div>
         <div class="hero-metrics-grid" aria-label="Indicatori sintetici del monitoraggio">
-          <div class="metric-box"><div class="metric-num">1.041</div><div class="metric-title">Misure</div><div class="metric-desc">Su 146 campioni di stazione</div></div>
-          <div class="metric-box"><div class="metric-num">9</div><div class="metric-title">Stazioni</div><div class="metric-desc">Da Subiaco a Ponte Salario</div></div>
-          <div class="metric-box"><div class="metric-num">22</div><div class="metric-title">Campagne</div><div class="metric-desc">Aprile 2022 – ottobre 2024</div></div>
+          <div class="metric-box"><div class="metric-num">1.281</div><div class="metric-title">Misure</div><div class="metric-desc">Su 173 campioni di stazione</div></div>
+          <div class="metric-box"><div class="metric-num">10</div><div class="metric-title">Stazioni</div><div class="metric-desc">Da Subiaco a Ponte Salario</div></div>
+          <div class="metric-box"><div class="metric-num">25</div><div class="metric-title">Campagne</div><div class="metric-desc">Aprile 2022 – dicembre 2025</div></div>
           <div class="metric-box"><div class="metric-num">9</div><div class="metric-title">Parametri misurati</div><div class="metric-desc">Dall'ossigeno a E. coli</div></div>
-          <div class="metric-box"><div class="metric-num">6</div><div class="metric-title">Punti straordinari</div><div class="metric-desc">Immissioni controllate nel 2024</div></div>
+          <div class="metric-box"><div class="metric-num">11</div><div class="metric-title">Rilievi straordinari</div><div class="metric-desc">Giugno e settembre 2024</div></div>
         </div>
       </div>
     </section>
@@ -73,14 +73,14 @@
             <h3>Perché la Citizen Science</h3>
             <p>I fiumi urbani sono sotto una pressione crescente e chi li gestisce deve prendere decisioni difficili. <strong>Con metodi scientifici semplificati e validati</strong>, le persone che vivono il territorio possono raccogliere dati che altrimenti non esisterebbero.</p>
             <div class="highlight-box">La conoscenza locale entra nel progetto fin dall'inizio, il monitoraggio può durare nel tempo e chi partecipa ritrova un legame con il proprio fiume.</div>
-            <p>Il monitoraggio si è svolto in due periodi. <strong>Da aprile 2022 a marzo 2023</strong> sono state controllate 5 stazioni, da Casale Caletto a Ponte Salario. <strong>Da dicembre 2023 a ottobre 2024</strong> le stazioni sono diventate 7 e poi 9, con Vicovaro e Subiaco da aprile 2024.</p>
+            <p>Il monitoraggio si è svolto in tre periodi. <strong>Da aprile 2022 a marzo 2023</strong> sono state controllate 5 stazioni, da Casale Caletto a Ponte Salario. <strong>Da dicembre 2023 a ottobre 2024</strong> le stazioni sono diventate 7 e poi 9, con Vicovaro e Subiaco da aprile 2024. <strong>Da ottobre a dicembre 2025</strong> sono state fatte tre campagne in 9 stazioni, con Tenuta del Cavaliere al posto di Casa del Parco.</p>
             <p>Questa piattaforma nasce dalla relazione scientifica di Bruna Gumiero (4 dicembre 2024) e dal dataset del monitoraggio. Non sostituisce i controlli ufficiali: li affianca con uno sguardo in più.</p>
           </div>
           <div class="stations-card-wrap">
             <article class="station-card">
               <span class="station-badge s1">Dove si misura</span>
-              <h3 class="station-title">9 stazioni, numerate da valle a monte</h3>
-              <p class="station-desc">La stazione 1 è l'ultima prima del Tevere, la 9 è la più a monte. La striscia riporta il LIMeco indicativo medio del periodo 2023/24, un punteggio che riassume ossigeno e nutrienti.</p>
+              <h3 class="station-title">10 stazioni, numerate da valle a monte</h3>
+              <p class="station-desc">La stazione 1 è l'ultima prima del Tevere, la 9 è la più a monte. La 10, Tenuta del Cavaliere, si è aggiunta nel 2025 tra Ponte Lucano e Casale Caletto. La striscia riporta il LIMeco indicativo medio del periodo 2023/24, un punteggio che riassume ossigeno e nutrienti.</p>
               <div class="river-strip" id="riverStrip" aria-label="LIMeco indicativo medio per stazione, da monte a valle"></div>
               <div class="river-ends"><span>Monte</span><span>Valle</span></div>
             </article>
@@ -89,7 +89,7 @@
         <div class="zone-grid" style="margin-top:2rem">
           <article class="zone-card" style="--zone:var(--l1)"><h3>Alto corso</h3><p class="zone-where">Monti Simbruini · stazione 9</p><p>Boschi, sorgenti carsiche e poche pressioni. Il tratto è in buona parte tutelato dal Parco regionale dei Monti Simbruini.</p></article>
           <article class="zone-card" style="--zone:var(--l2)"><h3>Medio corso</h3><p class="zone-where">Da Subiaco a Tivoli · stazioni 8 e 7</p><p>I campi si fanno più estesi verso valle e compaiono piccoli centri abitati. La portata varia molto, specie nei periodi di siccità.</p></article>
-          <article class="zone-card" style="--zone:var(--l4)"><h3>Basso corso</h3><p class="zone-where">Da Tivoli al Tevere · stazioni da 6 a 1</p><p>Le aree naturali quasi scompaiono. Agricoltura, cave, industrie e scarichi urbani si sommano fino alla città di Roma.</p></article>
+          <article class="zone-card" style="--zone:var(--l4)"><h3>Basso corso</h3><p class="zone-where">Da Tivoli al Tevere · stazioni da 6 a 1 e 10</p><p>Le aree naturali quasi scompaiono. Agricoltura, cave, industrie e scarichi urbani si sommano fino alla città di Roma.</p></article>
         </div>
       </div>
     </section>
@@ -204,6 +204,7 @@
           <article class="method-card">
             <h3>Le fonti</h3>
             <ul>
+              <li><strong>Ottobre – dicembre 2025:</strong> Excel «Dati campionamento Aniene 2025-2026», 27 campioni in 9 stazioni. Non c'è ancora una relazione su questi dati.</li>
               <li><strong>Dicembre 2023 – ottobre 2024:</strong> Excel «Dataset definitivo dati monitoraggio AnieneWaterLab 23_24», 91 campioni in 9 stazioni e 11 rilievi straordinari.</li>
               <li><strong>Aprile 2022 – marzo 2023:</strong> i dati non sono nell'Excel. Sono stati ricostruiti dai punti dei grafici della relazione: 55 campioni in 5 stazioni, per conducibilità, nutrienti, ammonio ed E. coli.</li>
               <li><strong>Interpretazione:</strong> relazione «Risultati monitoraggio della qualità dell'acqua 22/23 e 23/24» di Bruna Gumiero.</li>
@@ -211,8 +212,9 @@
           </article>
           <article class="method-card">
             <h3>Cosa abbiamo sistemato</h3>
-            <p>Nell'Excel diversi valori di fosfati, nitrati e ammonio sono arrotondati a una cifra o riportano l'estremo della classe del kit. I grafici della relazione conservano il valore completo, e abbiamo usato quello.</p>
+            <p>Nell'Excel 2023/24 diversi valori di fosfati, nitrati e ammonio sono arrotondati a una cifra o riportano l'estremo della classe del kit. I grafici della relazione conservano il valore completo, e abbiamo usato quello.</p>
             <ul>
+              <li>Per il 2025 non ci sono grafici di controllo: i valori sono quelli scritti nel file</li>
               <li>Il valore originale resta visibile nella dashboard e nel CSV</li>
               <li>Gli intervalli del kit sono rappresentati dal loro punto medio, come nella relazione</li>
               <li>Le medie sono aritmetiche e non hanno pesi</li>
@@ -224,12 +226,12 @@
               <li>Sono misure di citizen science con strumenti semplificati: valgono per capire tendenze e differenze, non come analisi di laboratorio</li>
               <li>Il LIMeco qui è <strong>indicativo</strong>: non è una classificazione ufficiale dello stato del fiume</li>
               <li>Un valore fuori classe segnala un dato da approfondire e non dice da solo qual è la causa</li>
-              <li>Stazioni e periodi non hanno lo stesso numero di campagne: Vicovaro e Subiaco hanno solo i mesi da aprile a ottobre</li>
+              <li>Stazioni e periodi non hanno lo stesso numero di campagne: nel 2023/24 Vicovaro e Subiaco hanno solo i mesi da aprile a ottobre, e il 2025 solo tre campagne autunnali</li>
             </ul>
           </article>
         </div>
         <details class="fold">
-          <summary>Registro delle modifiche rispetto all'Excel <span id="corrCount"></span></summary>
+          <summary>Registro delle modifiche rispetto ai file Excel <span id="corrCount"></span></summary>
           <div class="fold-body"><table class="threshold-table corr-list"><thead><tr><th scope="col">Tipo</th><th scope="col">Quanti valori</th><th scope="col">Che cosa significa</th></tr></thead><tbody id="corrRows"></tbody></table></div>
         </details>
       </div>

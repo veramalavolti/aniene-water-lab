@@ -6,7 +6,8 @@ const CORRECTION_TEXT = {
   discrepanza: 'Excel e relazione non coincidono: usato il grafico della relazione. Da verificare.',
   refuso: 'Errore di battitura o cella convertita da Excel, corretta.',
   integrazione: 'Valore assente nel foglio Dati e presente nel foglio Dataset dello stesso file.',
-  esclusione: 'Misura scartata: secondo la nota di campo fu presa accanto a una pianta acquatica.',
+  esclusione: "Misura scartata: ossigeno preso accanto a una pianta acquatica (nota di campo) oppure E. coli di Vicovaro 2025, con etichette invertite nel file e da verificare.",
+  'limite strumento': 'Valore oltre il fondo scala dello strumento: nel calcolo vale il limite.',
 };
 
 function el(tag, className, text) {
@@ -20,6 +21,7 @@ function riverStrip(data) {
   const lim = data.paramById.lim;
   $('riverStrip').replaceChildren(...data.stations.map(station => {
     const stats = stationMean(data, 'lim', station.id, '23/24');
+    if (!stats) return null;
     const band = classify(lim, stats.mean);
     const cell = el('a', 'river-cell');
     cell.href = `dashboard.html?param=lim&view=river`;
@@ -28,7 +30,7 @@ function riverStrip(data) {
     cell.title = `${station.name}: LIMeco indicativo ${fmt(stats.mean, lim)}, ${band.label}`;
     cell.append(el('b', '', String(station.id)), el('span', '', station.name), el('em', '', band.label));
     return cell;
-  }));
+  }).filter(Boolean));
 }
 
 function paramCards(data) {

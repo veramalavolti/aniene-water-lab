@@ -5,7 +5,8 @@ Fonti
   1. Excel "Dataset definitivo dati monitoraggio AnieneWaterLab 23_24.xlsx", foglio Dati (2023/24).
      Il foglio Dataset serve solo per riempire i vuoti: è una copia appiattita con più errori.
   2. data/grafici_relazione.json: punti dei grafici della relazione (2022/23 e controllo 2023/24).
-Uso: python3 scripts/import_data.py "percorso/del/file.xlsx"     (richiede openpyxl)
+  3. Excel "Dati campionamento Aniene 2025-2026.xlsx", foglio Dati 9 punti: solo le tre campagne del 2025.
+Uso: python3 scripts/import_data.py "dataset_23_24.xlsx" "dati_2025_2026.xlsx"     (richiede openpyxl)
 """
 import csv, datetime, json, math, re, sys
 from collections import Counter
@@ -22,6 +23,7 @@ STATIONS = [
  dict(id=8,name='Vicovaro',lat=42.013276,lon=12.893538,zone='medio',since='aprile 2024'),
  dict(id=7,name='Tivoli',full='Tivoli – lungoaniene Peppino Impastato',lat=41.956734,lon=12.807158,zone='medio',since='dicembre 2023'),
  dict(id=6,name='Ponte Lucano',lat=41.954809,lon=12.761799,zone='basso',since='dicembre 2023'),
+ dict(id=10,name='Tenuta del Cavaliere',lat=41.92726,lon=12.66764,zone='basso',since='ottobre 2025'),
  dict(id=5,name='Casale Caletto',lat=41.923756,lon=12.608191,zone='basso',since='aprile 2022'),
  dict(id=4,name='Ponte Mammolo',lat=41.923199,lon=12.567930,zone='basso',since='aprile 2022'),
  dict(id=3,name='Casa del Parco',full='Attracco Casa del Parco',lat=41.931552,lon=12.546583,zone='basso',since='aprile 2022'),
@@ -29,9 +31,14 @@ STATIONS = [
  dict(id=1,name='Ponte Salario',lat=41.942530,lon=12.501150,zone='basso',since='aprile 2022'),
 ]
 BLOCKS = {1:(4,15),2:(20,31),3:(35,46),4:(51,62),5:(66,77),6:(81,92),7:(96,107),8:(111,122),9:(126,137)}
-EXTRA = {'A':(143,156,'Riva dx monte Lanificio / Acea Montenevoso'),'B':(162,173,'Vigna Mangani / Pietralata'),
-         'C':(181,192,"Fosso Val Melaina – collettore Val D'Ala"),'D':(198,209,'Confluenza Poligrafico'),
-         'E':(215,226,'Scolmatore Fosso Casal de Pazzi'),'F':(231,242,'Ponte Acea / via Benigni')}
+# Stesse lettere, luoghi diversi: le coordinate valgono per l'8 giugno, i nomi per il 20 settembre.
+EXTRA = {'A':(143,156,'Riva dx monte Lanificio / Acea Montenevoso',(41.95208,12.75836)),'B':(162,173,'Vigna Mangani / Pietralata',(41.94464,12.74167)),
+         'C':(181,192,"Fosso Val Melaina – collettore Val D'Ala",(41.92972,12.71722)),'D':(198,209,'Confluenza Poligrafico',(41.93792,12.70022)),
+         'E':(215,226,'Scolmatore Fosso Casal de Pazzi',(41.92719,12.66775)),'F':(231,242,'Ponte Acea / via Benigni',None)}
+# Campagne 2025: nel file il punto 3 è Tenuta del Cavaliere, non Casa del Parco.
+BLOCKS_2025 = {1:(4,16),2:(20,32),10:(36,48),4:(52,64),5:(68,80),6:(84,96),7:(100,112),8:(116,128),9:(132,144)}
+M2025 = ['2025-10','2025-11','2025-12']
+DATES_2025 = ['2025-10-21','2025-11-18','2025-12-16']
 LABELS = [('pres','Pressione'),('cond','Conducibilità'),('t','Temperatura'),('od','Ossigeno'),('turb','Torbidità'),
           ('p','Fosfato'),('n','Nitrato'),('nh','Ammonio'),('ph','PH'),('ec','Escherichia')]
 DATASET_COL = {'cond':6,'t':7,'od':8,'turb':9,'p':10,'n':11,'ph':12,'nh':13,'ec':14}
@@ -98,7 +105,7 @@ def read_block(grid, a, b, cols):
         row = grid[r-1]
         lab = str(row[0] or '').strip()
         for key, prefix in LABELS:
-            if lab.startswith(prefix):
+            if lab.lower().startswith(prefix.lower()):
                 out[key] = [row[c] for c in cols]
     return out
 
@@ -128,7 +135,39 @@ def harmonize(param, st, month, cell):
             log('discrepanza', st, month, param, cell, used, 'Excel e grafico della relazione non coincidono; usato il grafico')
     return used, excel
 
-def main(path):
+def read_2025(path):
+    grid = [list(r) for r in openpyxl.load_workbook(path, data_only=True)['Dati 9 punti'].iter_rows(values_only=True)]
+    out = []
+    for st, (a, b) in BLOCKS_2025.items():
+        block = read_block(grid, a, b, (1, 2, 3))
+        for i, month in enumerate(M2025):
+            cells = {k: block[k][i] for k in block}
+            v, cens = {}, []
+            for key in ('cond','t','od','turb','p','n','nh','ph','ec'):
+                cell = cells.get(key)
+                if isinstance(cell, datetime.time):            # 0,05 diventato 00:05 in Excel
+                    v[key] = cell.minute/100
+                    log('refuso', st, month, key, cell, v[key], 'Cella convertita da Excel in orario')
+                elif excel_date_range(cell):
+                    v[key] = 3.5
+                    log('refuso', st, month, key, cell, 3.5, "Intervallo 2-5 convertito da Excel in data; usato il punto medio")
+                elif isinstance(cell, str) and cell.strip().startswith('>'):
+                    v[key] = num(cell.strip()[1:])
+                    cens.append(key)
+                    log('limite strumento', st, month, key, cell, v[key], 'Valore oltre il fondo scala: nel calcolo vale il limite')
+                else:
+                    v[key] = num(cell)
+            if st == 8:
+                log('esclusione', st, month, 'ec', cells.get('ec'), None, "Etichette invertite: la riga E. coli è indicata come colonie rosse, ma E. coli forma colonie blu. Da verificare")
+                v['ec'] = None
+            v['sat'] = round(o2_saturation(v['od'], v['t'], num(cells.get('pres'))), 1) if None not in (v['od'], v['t']) else None
+            v['lim'] = limeco(v)
+            clock = grid[a-1][1+i]
+            out.append(dict(st=st, month=month, date=DATES_2025[i], time=str(clock)[:5].rstrip(':') if clock else None, period='25', v=v,
+                            raw={k: (None if c is None else str(c)) for k, c in cells.items() if k != 'pres'}, cens=cens, src='excel25'))
+    return out
+
+def main(path, path_2025):
     wb = openpyxl.load_workbook(path, data_only=True)
     grid = [list(r) for r in wb['Dati'].iter_rows(values_only=True)]
     flat = [r for r in wb['Dataset'].iter_rows(min_row=2, values_only=True) if r[0]]
@@ -201,9 +240,11 @@ def main(path):
             if any(x is not None for x in v.values()):
                 samples.append(dict(st=st, month=month, date=None, time=None, period='22/23', v=v, raw={}, cens=[], src='relazione'))
 
-    # Punti straordinari A–F (8 giugno e 20 settembre 2024)
+    samples += read_2025(path_2025)
+
+    # Rilievi straordinari: 5 punti l'8 giugno e 6 punti il 20 settembre 2024
     extras = []
-    for pid, (a, b, name) in EXTRA.items():
+    for pid, (a, b, name, coords) in EXTRA.items():
         block = read_block(grid, a, b, (1, 2))
         for i, (date, month) in enumerate((('2024-06-08','2024-06'),('2024-09-20','2024-09'))):
             v, raw = {}, {}
@@ -215,9 +256,12 @@ def main(path):
                 v['ec'] = 17200.0
                 log('refuso', pid, month, 'ec', block['ec'][i], 17200.0, 'Cella interpretata da Excel come orario; valore dal foglio Dataset')
             if any(x is not None for x in v.values()):
-                extras.append(dict(id=pid, name=name, month=month, date=date, v=v, raw=raw))
+                june = i == 0
+                extras.append(dict(id=pid, name=f'Punto {pid}' if june else name, month=month, date=date, v=v, raw=raw,
+                                   lat=coords[0] if june else None, lon=coords[1] if june else None))
 
-    samples.sort(key=lambda s: (s['month'], -s['st']))
+    order = [s['id'] for s in STATIONS]
+    samples.sort(key=lambda s: (s['month'], order.index(s['st'])))
     data = dict(meta=meta(samples, extras), stations=STATIONS, params=PARAMS, samples=samples, extras=extras,
                 corrections=corrections, excel_limeco=excel_limeco)
     (ROOT/'dist'/'data.json').write_text(json.dumps(data, ensure_ascii=False, separators=(',',':')))
@@ -226,8 +270,8 @@ def main(path):
 
 def meta(samples, extras):
     measures = sum(1 for s in samples for k, x in s['v'].items() if x is not None and k not in ('sat','lim'))
-    return dict(samples=len(samples), measures=measures, campaigns=len({s['month'] for s in samples}), stations=9,
-                extras=len(extras), by_period={p: sum(1 for s in samples if s['period'] == p) for p in ('22/23','23/24')})
+    return dict(samples=len(samples), measures=measures, campaigns=len({s['month'] for s in samples}), stations=len(STATIONS),
+                extras=len(extras), by_period={p: sum(1 for s in samples if s['period'] == p) for p in ('22/23','23/24','25')})
 
 def write_csv(samples, extras):
     names = {s['id']: s['name'] for s in STATIONS}
@@ -239,14 +283,14 @@ def write_csv(samples, extras):
                 x = s['v'].get(p['id'])
                 if x is None:
                     continue
-                source = 'calcolato' if p['id'] in ('sat','lim') else ('grafico relazione' if s['src'] == 'relazione' else 'excel 23/24')
+                source = 'calcolato' if p['id'] in ('sat','lim') else {'relazione':'grafico relazione','excel':'excel 23/24','excel25':'excel 25/26'}[s['src']]
                 w.writerow([s['period'], s['month'], s['date'] or '', s['st'], names[s['st']], p['name'], p['unit'], str(x).replace('.', ','),
                             s['raw'].get(p['id']) or '', source, 'sì' if p['id'] in s['cens'] else ''])
         for e in extras:
             for p in PARAMS:
                 x = e['v'].get(p['id'])
                 if x is not None:
-                    w.writerow(['23/24 straordinario', e['month'], e['date'], e['id'], e['name'], p['name'], p['unit'], str(x).replace('.', ','), e['raw'].get(p['id']) or '', 'excel 23/24', ''])
+                    w.writerow(['23/24 straordinario', e['month'], e['date'], f"{e['id']} {e['date']}", e['name'], p['name'], p['unit'], str(x).replace('.', ','), e['raw'].get(p['id']) or '', 'excel 23/24', ''])
 
 LIMECO_LABELS = ['Elevato','Buono','Sufficiente','Scarso','Cattivo']
 def bands(cuts, labels=LIMECO_LABELS):
@@ -303,4 +347,5 @@ PARAMS = [
 ]
 
 if __name__ == '__main__':
-    main(sys.argv[1] if len(sys.argv) > 1 else str(ROOT.parent/'Dataset definitivo dati monitoraggio AnieneWaterLab 23_24.xlsx'))
+    main(sys.argv[1] if len(sys.argv) > 1 else str(ROOT.parent/'Dataset definitivo dati monitoraggio AnieneWaterLab 23_24.xlsx'),
+         sys.argv[2] if len(sys.argv) > 2 else str(ROOT.parent/'Dati campionamento Aniene 2025-2026.xlsx'))

@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Dashboard · Aniene Water Lab · A SUD</title>
-  <meta name="description" content="Esplora sulla mappa e nei grafici le misure di citizen science sul fiume Aniene: 9 stazioni, 22 campagne, tra aprile 2022 e ottobre 2024.">
+  <meta name="description" content="Esplora sulla mappa e nei grafici le misure di citizen science sul fiume Aniene: 10 stazioni, 25 campagne, tra aprile 2022 e dicembre 2025.">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800;900&family=Barlow+Condensed:wght@700;800;900&display=swap" rel="stylesheet">
@@ -26,7 +26,7 @@
     <span class="nav-title">Aniene Water Lab · Dashboard</span>
   </div>
   <div class="nav-right">
-    <span class="nav-year">2022 – 2024</span>
+    <span class="nav-year">2022 – 2025</span>
     <button class="info-btn" id="info" aria-label="Scheda informativa">▤<span class="info-btn-text"> Scheda informativa</span></button>
   </div>
 </header>
@@ -56,7 +56,7 @@
   <section class="content" id="explore">
     <div id="status" role="status">Caricamento dei dati…</div>
     <div class="filters">
-      <label>Periodo<select id="period"><option value="all">Tutti i periodi</option><option value="22/23">Aprile 2022 – marzo 2023</option><option value="23/24">Dicembre 2023 – ottobre 2024</option></select></label>
+      <label>Periodo<select id="period"><option value="all">Tutti i periodi</option><option value="22/23">Aprile 2022 – marzo 2023</option><option value="23/24">Dicembre 2023 – ottobre 2024</option><option value="25">Ottobre – dicembre 2025</option></select></label>
       <label>Tratto del fiume<select id="zone"><option value="all">Tutto il fiume</option><option value="alto">Alto corso</option><option value="medio">Medio corso</option><option value="basso">Basso corso</option></select></label>
       <div class="filter-actions"><button class="text-button" id="reset">Ripristina filtri</button><button class="download-btn" id="download">↓ Scarica CSV</button></div>
     </div>
@@ -100,15 +100,15 @@
       <div class="pagination"><button id="prev">← Precedenti</button><span id="pageInfo"></span><button id="next">Successive →</button></div>
     </details>
     <p class="method-note" id="methodNote"></p>
-    <footer><span>Aniene Water Lab · A SUD</span><span>1.041 misure · 9 stazioni · 22 campagne</span><button id="sources" class="text-button">Fonti e metodo ↗</button></footer>
+    <footer><span>Aniene Water Lab · A SUD</span><span>1.281 misure · 10 stazioni · 25 campagne</span><button id="sources" class="text-button">Fonti e metodo ↗</button></footer>
   </section>
 </main>
 <dialog id="infoDialog" aria-labelledby="infoTitle">
   <div class="modal-topbar"><h2 id="infoTitle">Scheda informativa</h2><button id="closeInfo" class="modal-close" aria-label="Chiudi scheda">✕</button></div>
   <div class="modal-body">
-    <section class="scheda-section"><span class="scheda-section-label">Il monitoraggio</span><h3>Due periodi, nove stazioni</h3><p>Cittadine e cittadini formati hanno misurato la qualità dell'acqua dell'Aniene in due periodi. Da aprile 2022 a marzo 2023 sono state seguite 5 stazioni. Da dicembre 2023 a ottobre 2024 le stazioni sono state 7, e 9 da aprile 2024 con Vicovaro e Subiaco.</p><div class="highlight-row"><div class="highlight-pill"><div class="hp-num">1.041</div><div class="hp-label">Misure</div></div><div class="highlight-pill"><div class="hp-num">146</div><div class="hp-label">Campioni</div></div><div class="highlight-pill"><div class="hp-num">22</div><div class="hp-label">Campagne</div></div></div></section>
-    <section class="scheda-section"><span class="scheda-section-label">Le fonti</span><h3>Excel e relazione</h3><p>Le campagne 2023/24 vengono dall'Excel «Dataset definitivo dati monitoraggio AnieneWaterLab 23_24». Le campagne 2022/23 non sono nell'Excel: i valori sono ricostruiti dai punti dei grafici della relazione di Bruna Gumiero, e per quel periodo mancano temperatura, ossigeno, pH e torbidità.</p></section>
-    <section class="scheda-section"><span class="scheda-section-label">Il metodo</span><h3>Come sono trattati i numeri</h3><p>Nitrati e fosfati vengono da un kit che restituisce intervalli: ogni misura è rappresentata dal punto medio, come nella relazione. Dove l'Excel riporta valori arrotondati o gli estremi di classe, è stato usato il valore completo dei grafici della relazione. Il valore dell'Excel resta visibile nella tabella e nel CSV.</p><p>La saturazione di ossigeno è calcolata da ossigeno, temperatura e pressione. Il LIMeco indicativo è la media dei punteggi di saturazione, ammonio, azoto nitrico e fosforo: usa l'ortofosfato al posto del fosforo totale, quindi va letto come una stima ottimistica.</p><p>La torbidità sotto 14 NTU non è distinguibile: vale 14 nei calcoli. Le linee dei grafici collegano le campagne e non rappresentano misure continue.</p></section>
+    <section class="scheda-section"><span class="scheda-section-label">Il monitoraggio</span><h3>Tre periodi, dieci stazioni</h3><p>Cittadine e cittadini formati hanno misurato la qualità dell'acqua dell'Aniene in tre periodi. Da aprile 2022 a marzo 2023 sono state seguite 5 stazioni. Da dicembre 2023 a ottobre 2024 le stazioni sono state 7, e 9 da aprile 2024 con Vicovaro e Subiaco. Da ottobre a dicembre 2025 sono state 9: si aggiunge Tenuta del Cavaliere e non compare Casa del Parco.</p><div class="highlight-row"><div class="highlight-pill"><div class="hp-num">1.281</div><div class="hp-label">Misure</div></div><div class="highlight-pill"><div class="hp-num">173</div><div class="hp-label">Campioni</div></div><div class="highlight-pill"><div class="hp-num">25</div><div class="hp-label">Campagne</div></div></div></section>
+    <section class="scheda-section"><span class="scheda-section-label">Le fonti</span><h3>Excel e relazione</h3><p>Le campagne 2023/24 vengono dall'Excel «Dataset definitivo dati monitoraggio AnieneWaterLab 23_24». Le campagne 2022/23 non sono nell'Excel: i valori sono ricostruiti dai punti dei grafici della relazione di Bruna Gumiero, e per quel periodo mancano temperatura, ossigeno, pH e torbidità. Le tre campagne del 2025 vengono dall'Excel «Dati campionamento Aniene 2025-2026» e non hanno ancora una relazione di riferimento.</p></section>
+    <section class="scheda-section"><span class="scheda-section-label">Il metodo</span><h3>Come sono trattati i numeri</h3><p>Nitrati e fosfati vengono da un kit che restituisce intervalli: ogni misura è rappresentata dal punto medio, come nella relazione. Dove l'Excel 23/24 riporta valori arrotondati o gli estremi di classe, è stato usato il valore completo dei grafici della relazione. Per il 2025 i valori sono quelli scritti nel file. Il valore dell'Excel resta visibile nella tabella e nel CSV.</p><p>La saturazione di ossigeno è calcolata da ossigeno, temperatura e pressione. Il LIMeco indicativo è la media dei punteggi di saturazione, ammonio, azoto nitrico e fosforo: usa l'ortofosfato al posto del fosforo totale, quindi va letto come una stima ottimistica.</p><p>La torbidità sotto 14 NTU non è distinguibile: vale 14 nei calcoli. Le linee dei grafici collegano le campagne e non rappresentano misure continue.</p></section>
     <section class="scheda-section"><span class="scheda-section-label">Come leggere</span><h3>Cautela nelle conclusioni</h3><p>Sono dati di citizen science: utili per capire tendenze e differenze, non sostituiscono le analisi ufficiali. Un valore in classe bassa segnala un dato da approfondire e non identifica da solo la causa. Le medie confrontano le campagne disponibili, che non sono uguali per tutte le stazioni.</p></section>
   </div>
 </dialog>

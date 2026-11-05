@@ -12,7 +12,9 @@ function el(tag, className, text) {
 function riverStrip(data) {
   const lim = data.paramById.lim;
   $('riverStrip').replaceChildren(...data.stations.map(station => {
-    const mean = stationMean(data, 'lim', station.id, '23/24').mean;
+    const stats = stationMean(data, 'lim', station.id, '23/24');
+    if (!stats) return null;
+    const mean = stats.mean;
     const band = classify(lim, mean);
     const cell = el('a', 'river-cell');
     cell.href = 'dashboard.html?param=lim&view=river';
@@ -20,7 +22,7 @@ function riverStrip(data) {
     cell.style.color = LEVELS[band.level].fg;
     cell.append(el('b', '', fmt(mean, lim)), el('span', '', `${station.id} · ${station.name}`), el('em', '', band.label));
     return cell;
-  }));
+  }).filter(Boolean));
 }
 
 function options(param, {log = false, lines = referenceLines(param), legend = true} = {}) {
@@ -40,7 +42,7 @@ function options(param, {log = false, lines = referenceLines(param), legend = tr
 
 function riverChart(data, canvas, paramId, {periods = ['22/23', '23/24'], byClass = false, lines} = {}) {
   const param = data.paramById[paramId];
-  const stations = data.stations;
+  const stations = data.stations.filter(s => periods.some(period => stationMean(data, paramId, s.id, period)));
   const datasets = periods.map(period => {
     const means = stations.map(s => stationMean(data, paramId, s.id, period)?.mean ?? null);
     return {
@@ -59,7 +61,7 @@ function ecoliChart(data) {
   const param = data.paramById.ec;
   const rows = data.samples.filter(s => s.period === '23/24');
   const months = [...new Set(rows.map(r => r.month))].sort();
-  const datasets = data.stations.map(s => ({
+  const datasets = data.stations.filter(s => rows.some(r => r.st === s.id)).map(s => ({
     label: `${s.id} · ${s.name}`,
     data: months.map(m => rows.find(r => r.st === s.id && r.month === m)?.v.ec ?? null),
     borderColor: STATION_COLORS[s.id], backgroundColor: STATION_COLORS[s.id], borderWidth: 2, pointRadius: 2.5, tension: .15, spanGaps: true,
@@ -73,11 +75,26 @@ function ecoliChart(data) {
 function extras(data) {
   const fmtV = (value, id) => (value === null || value === undefined ? '—' : fmt(value, data.paramById[id]));
   const date = {'2024-06-08': '8 giu 2024', '2024-09-20': '20 set 2024'};
-  $('extraRows').replaceChildren(...data.extras.map(e => {
+  const coords = e => `${e.lat.toFixed(3).replace('.', ',')} N, ${e.lon.toFixed(3).replace('.', ',')} E`;
+  const rows = [...data.extras].sort((a, b) => a.date.localeCompare(b.date) || a.id.localeCompare(b.id));
+  $('extraRows').replaceChildren(...rows.map(e => {
     const row = el('tr');
-    row.append(el('td', 'name', `${e.id} · ${e.name}`), el('td', '', date[e.date]), ...['od', 'nh', 'p', 'n', 'ec'].map(id => el('td', 'num', fmtV(e.v[id], id))));
+    row.append(el('td', '', date[e.date]), el('td', 'name', e.lat ? `${e.name} · ${coords(e)}` : `${e.id} · ${e.name}`), ...['od', 'nh', 'p', 'n', 'ec'].map(id => el('td', 'num', fmtV(e.v[id], id))));
     return row;
   }));
+}
+
+// Stesso mese in due anni: l'unico confronto equo con le tre campagne del 2025.
+function octoberChart(data) {
+  const param = data.paramById.ec;
+  const value = (station, month) => data.samples.find(s => s.st === station.id && s.month === month)?.v.ec ?? null;
+  const stations = data.stations.filter(s => value(s, '2024-10') !== null && value(s, '2025-10') !== null);
+  const datasets = [['2024-10', 'Ottobre 2024', PERIOD_COLORS['23/24']], ['2025-10', 'Ottobre 2025', PERIOD_COLORS['25']]].map(([month, label, color]) => ({
+    label, data: stations.map(s => value(s, month)), backgroundColor: color, borderRadius: 2, maxBarThickness: 40,
+  }));
+  const config = options(param, {log: true, lines: [{value: 20000, level: 5, label: 'Oltre 20.000: cattivo'}]});
+  config.scales.y.min = 10;                                    // altrimenti il valore 100 di Subiaco non ha barra
+  return new Chart($('figOct'), {type: 'bar', data: {labels: stations.map(s => s.name), datasets}, options: config});
 }
 
 function init() {
@@ -92,6 +109,7 @@ function init() {
     riverChart(data, 'figP', 'p');
     riverChart(data, 'figNh', 'nh');
     ecoliChart(data);
+    octoberChart(data);
   }).catch(error => {
     $('riverStrip').textContent = 'Non è stato possibile caricare i dati. Ricarica la pagina per riprovare.';
     console.error(error);

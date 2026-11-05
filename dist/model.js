@@ -7,9 +7,11 @@ export const LEVELS = {
   5: {bg: '#B03A2E', fg: '#FFFFFF'},
 };
 // Ordine da monte a valle: il colore segue la posizione lungo il fiume.
-export const STATION_COLORS = {9: '#8CA918', 8: '#5C9A3C', 7: '#2F8A5B', 6: '#1F7F78', 5: '#2D7A9A', 4: '#2D586E', 3: '#4A4F8C', 2: '#5E3F86', 1: '#2A1F45'};
-export const PERIOD_COLORS = {'22/23': '#2D586E', '23/24': '#B8D432'};
-export const PERIOD_LABELS = {'22/23': 'Aprile 2022 – marzo 2023', '23/24': 'Dicembre 2023 – ottobre 2024'};
+export const STATION_COLORS = {9: '#8CA918', 8: '#5C9A3C', 7: '#2F8A5B', 6: '#1F7F78', 10: '#B8862B', 5: '#2D7A9A', 4: '#2D586E', 3: '#4A4F8C', 2: '#5E3F86', 1: '#2A1F45'};
+export const PERIODS = ['22/23', '23/24', '25'];
+export const PERIOD_COLORS = {'22/23': '#2D586E', '23/24': '#B8D432', '25': '#5E3F86'};
+export const PERIOD_LABELS = {'22/23': 'Aprile 2022 – marzo 2023', '23/24': 'Dicembre 2023 – ottobre 2024', '25': 'Ottobre – dicembre 2025'};
+export const SOURCE_LABELS = {relazione: 'Grafico della relazione', excel: 'Excel 23/24', excel25: 'Excel 25/26'};
 export const ZONES = {alto: 'Alto corso', medio: 'Medio corso', basso: 'Basso corso'};
 const MONTHS = ['gen', 'feb', 'mar', 'apr', 'mag', 'giu', 'lug', 'ago', 'set', 'ott', 'nov', 'dic'];
 
@@ -31,6 +33,11 @@ export const fmtInt = value => new Intl.NumberFormat('it-IT', {useGrouping: 'alw
 export function fmtMonth(month) {
   const [year, m] = month.split('-');
   return `${MONTHS[Number(m) - 1]} ${year.slice(2)}`;
+}
+// Vero tra due campagne separate da una pausa del monitoraggio.
+export function isGap(previous, next) {
+  const index = month => Number(month.slice(0, 4)) * 12 + Number(month.slice(5));
+  return index(next) - index(previous) > 3;
 }
 export function fmtDate(sample) {
   if (!sample.date) return fmtMonth(sample.month);
