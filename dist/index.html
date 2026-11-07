@@ -3,15 +3,15 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Aniene Water Lab · Citizen Science sulla qualità del fiume · A SUD</title>
-  <meta name="description" content="Piattaforma pubblica per esplorare il monitoraggio civico del fiume Aniene: 1.281 misure in 10 stazioni, da Subiaco alla confluenza nel Tevere, tra aprile 2022 e dicembre 2025.">
+  <title>Aniene Water Lab · Il fiume Aniene monitorato da chi lo vive</title>
+  <meta name="description" content="Aniene Water Lab: il monitoraggio civico della qualità delle acque del fiume Aniene, dal 2021 a oggi. Contesto, progetto, citizen science e i dati delle campagne di monitoraggio.">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800;900&family=Barlow+Condensed:wght@700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="home.css">
   <link rel="stylesheet" href="aniene.css">
-  <script type="module" src="home.js"></script>
+  <link rel="stylesheet" href="site.css">
 </head>
 <body>
   <a class="skip-link" href="#main-content">Vai al contenuto principale</a>
@@ -19,7 +19,6 @@
   <header class="home-nav">
     <div class="home-nav-inner">
       <a class="nav-brand" href="index.html">
-        <img src="logo_asud.png" alt="Logo A SUD" class="nav-logo-img">
         <div class="brand-text">
           <span class="brand-title">Aniene Water Lab</span>
           <span class="brand-sub">Citizen Science · Qualità delle acque</span>
@@ -27,11 +26,11 @@
       </a>
       <nav aria-label="Navigazione principale">
         <ul class="nav-links">
+          <li><a href="#contesto">Contesto</a></li>
           <li><a href="#progetto">Il progetto</a></li>
-          <li><a href="#strumenti">Strumenti</a></li>
-          <li><a href="#parametri">Parametri</a></li>
+          <li><a href="#citizen-science">Citizen science</a></li>
           <li><a href="risultati.html">Risultati</a></li>
-          <li><a href="#metodologia">Metodologia</a></li>
+          <li><a href="#ringraziamenti">Ringraziamenti</a></li>
         </ul>
       </nav>
       <a href="dashboard.html" class="nav-cta-btn">Apri Dashboard ↗</a>
@@ -39,245 +38,245 @@
   </header>
 
   <main id="main-content">
-    <section class="home-hero" aria-label="Introduzione al monitoraggio">
+    <section class="home-hero" aria-label="Introduzione">
       <div class="hero-glow-1" aria-hidden="true"></div>
       <div class="hero-glow-2" aria-hidden="true"></div>
       <div class="hero-container">
-        <h1 class="hero-main-title">Il fiume <span>Aniene</span> misurato da chi lo vive</h1>
-        <p class="hero-subtitle">
-          Cittadine e cittadini formati hanno misurato la qualità dell'acqua dell'Aniene, da Subiaco al Tevere. Qui trovi tutti quei dati in forma aperta: <strong>cosa è stato misurato, con quali strumenti e che cosa racconta il fiume</strong>, stazione per stazione.
-        </p>
-        <div class="hero-actions">
-          <a href="risultati.html" class="btn-primary-hero">Leggi i risultati →</a>
-          <a href="dashboard.html" class="btn-secondary-hero">Esplora i dati sulla mappa ↗</a>
-        </div>
+        <h1 class="hero-main-title">Il fiume <span>Aniene</span> monitorato da chi lo vive</h1>
+        <p class="hero-subtitle">Dal 2021 associazioni, volontarie e volontari, scuole e ricercatrici monitorano la qualità dell'acqua dell'Aniene, da Subiaco alla confluenza nel Tevere. Qui trovi il percorso, il metodo e tutti i dati raccolti, in forma aperta.</p>
+
+        <nav class="campaign-nav" aria-label="Campagne di monitoraggio">
+          <a class="campaign-btn" href="dashboard.html?period=22%2F23&amp;view=river&amp;param=cond">
+            <span class="campaign-years">2021 – 2023</span>
+            <span class="campaign-name">Walk Up Aniene e RomaUP</span>
+            <span class="campaign-desc">5 stazioni nel tratto urbano</span>
+          </a>
+          <a class="campaign-btn" href="dashboard.html?period=23%2F24&amp;view=map&amp;param=lim">
+            <span class="campaign-years">2023 – 2024</span>
+            <span class="campaign-name">Aniene WaterLab</span>
+            <span class="campaign-desc">9 stazioni da Subiaco al Tevere</span>
+          </a>
+          <a class="campaign-btn" href="dashboard.html?period=25&amp;view=matrix&amp;param=ec">
+            <span class="campaign-years">2025 – 2026</span>
+            <span class="campaign-name">Aniene WaterLab</span>
+            <span class="campaign-desc">9 punti fissi e discese in gommone</span>
+          </a>
+        </nav>
+
         <div class="hero-metrics-grid" aria-label="Indicatori sintetici del monitoraggio">
           <div class="metric-box"><div class="metric-num">1.281</div><div class="metric-title">Misure</div><div class="metric-desc">Su 173 campioni di stazione</div></div>
           <div class="metric-box"><div class="metric-num">10</div><div class="metric-title">Stazioni</div><div class="metric-desc">Da Subiaco a Ponte Salario</div></div>
           <div class="metric-box"><div class="metric-num">25</div><div class="metric-title">Campagne</div><div class="metric-desc">Aprile 2022 – dicembre 2025</div></div>
-          <div class="metric-box"><div class="metric-num">9</div><div class="metric-title">Parametri misurati</div><div class="metric-desc">Dall'ossigeno a E. coli</div></div>
-          <div class="metric-box"><div class="metric-num">11</div><div class="metric-title">Rilievi straordinari</div><div class="metric-desc">Giugno e settembre 2024</div></div>
+          <div class="metric-box"><div class="metric-num">9</div><div class="metric-title">Parametri</div><div class="metric-desc">Dall'ossigeno a E. coli</div></div>
+          <div class="metric-box"><div class="metric-num">800</div><div class="metric-title">Studenti</div><div class="metric-desc">Coinvolti nel 2023/24</div></div>
         </div>
       </div>
     </section>
 
-    <section class="section" id="progetto" aria-labelledby="title-progetto">
+    <!-- CONTESTO E PROGETTO -->
+    <section class="section" aria-label="Contesto e progetto">
       <div class="section-container">
-        <div class="section-header">
-          <span class="section-tag">Il contesto</span>
-          <h2 class="section-title" id="title-progetto">Un fiume che cambia lungo il suo corso</h2>
-          <p class="section-lead">L'Aniene è il principale affluente del Tevere. Nasce tra i Monti Simbruini, attraversa colline e pianure e arriva a Roma: un bacino di circa 1.400 km² in cui boschi, campi, cave e città lasciano un segno nell'acqua.</p>
+        <div class="duo-card">
+          <article class="duo-col" id="contesto" aria-labelledby="title-contesto">
+            <span class="section-tag">Il contesto</span>
+            <h2 class="duo-title" id="title-contesto">Un fiume tra montagna e città</h2>
+            <p>L'Aniene è il principale affluente del Tevere. Nasce sui Monti Simbruini e in 98,5 km attraversa 17 comuni prima di entrare a Roma e confluire nel Tevere vicino a Ponte Salario. Il bacino misura circa 1.400 km².</p>
+            <p>Nel suo corso cambia volto. In alto scorre tra boschi e sorgenti carsiche, protetto dal Parco dei Monti Simbruini. Da Subiaco a Tivoli i campi si fanno più estesi. Da Tivoli in giù le aree naturali quasi scompaiono tra cave, industrie, scarichi e periferie, in territori molto urbanizzati e socialmente frammentati.</p>
+            <p>Nel tratto romano il fiume è anche un corridoio ecologico: la Riserva Naturale Valle dell'Aniene protegge 620 ettari tra il Grande Raccordo Anulare e la foce, a cavallo dei Municipi II, III, IV e V.</p>
+            <div class="highlight-box">I dati ambientali ufficiali sono spesso pochi, frammentati o difficili da trovare. Senza dati, chi vive lungo il fiume non può riconoscere i problemi né chiedere che vengano affrontati.</div>
+            <p class="eu-note"><strong>La cornice europea.</strong> Il percorso nasce con <em>Walk Up Aniene</em> (2021), sostenuto dal programma europeo di citizen science <strong>ACTION – Horizon 2020</strong>. Il riferimento normativo è la Direttiva Quadro sulle Acque 2000/60/CE: da Tivoli alla confluenza l'Aniene non raggiunge gli standard di qualità ecologica che la direttiva richiede.</p>
+          </article>
+
+          <article class="duo-col" id="progetto" aria-labelledby="title-progetto">
+            <span class="section-tag">Il progetto</span>
+            <h2 class="duo-title" id="title-progetto">Dalle passeggiate a una rete di monitoraggio</h2>
+            <ol class="timeline-list">
+              <li><b>2021 · Walk Up Aniene</b>Il progetto pilota di A Sud e Insieme per l'Aniene mappa con strumenti GIS le criticità e i punti di pregio ecologico del basso corso, con persone esperte e non.</li>
+              <li><b>2022 – 2023 · RomaUP</b>Il progetto di A Sud, sostenuto da Periferiacapitale, monitora il Tevere e dal 2022 anche l'Aniene, in 5 stazioni urbane da Casale Caletto a Ponte Salario. Con il kit FreshWater Watch si fanno circa 230 campionamenti.</li>
+              <li><b>2023 – 2024 · Aniene WaterLab</b>Coordinato da Insieme per l'Aniene, il monitoraggio mensile esce dalla città: 9 stazioni da Subiaco al Tevere, tre discese in gommone e una rete di associazioni stabile.</li>
+              <li><b>2025 – 2026 · Aniene WaterLab</b>Da ottobre 2025 il monitoraggio riprende in 9 punti fissi, con nuove discese in gommone per campionare le immissioni dal fiume.</li>
+            </ol>
+
+            <h3 class="duo-sub">Chi ne fa parte</h3>
+            <p>La rete è cambiata di campagna in campagna. Nel tempo ne hanno fatto parte <strong>Insieme per l'Aniene APS</strong>, <strong>A Sud</strong>, <strong>Retake Roma Sacco Pastore</strong>, <strong>A.D.A. APS</strong>, <strong>Roma Adventure ASD</strong>, <strong>Il Cammino dell'Aniene</strong>, il <strong>Collettivo L'Aquila Reale ETS</strong> e la <strong>Rete Orti in Comune</strong>. La supervisione scientifica è di <strong>Bruna Gumiero</strong>, ecologa fluviale dell'Università di Bologna.</p>
+
+            <h3 class="duo-sub">Cosa facciamo</h3>
+            <ul class="tick-list">
+              <li><b>Raccolta dati sul campo.</b> Ogni mese, nello stesso giorno, gruppi locali campionano l'acqua nelle stazioni fisse. Le discese in gommone raggiungono scarichi e immissioni che da terra non si vedono.</li>
+              <li><b>Laboratori nelle scuole.</b> Studentesse e studenti partecipano ai campionamenti e alle analisi: nel 2023/24 sono stati 800, da scuole come il Liceo Scientifico L. Spallanzani di Tivoli, l'Istituto Comprensivo Angelucci di Subiaco e la scuola di Vicovaro.</li>
+              <li><b>Restituzione pubblica.</b> I dati vengono validati, raccolti in un report e presentati alla cittadinanza e alle istituzioni.</li>
+            </ul>
+          </article>
         </div>
-        <div class="overview-grid">
-          <div class="narrative-card">
-            <h3>Perché la Citizen Science</h3>
-            <p>I fiumi urbani sono sotto una pressione crescente e chi li gestisce deve prendere decisioni difficili. <strong>Con metodi scientifici semplificati e validati</strong>, le persone che vivono il territorio possono raccogliere dati che altrimenti non esisterebbero.</p>
-            <div class="highlight-box">La conoscenza locale entra nel progetto fin dall'inizio, il monitoraggio può durare nel tempo e chi partecipa ritrova un legame con il proprio fiume.</div>
-            <p>Il monitoraggio si è svolto in tre periodi. <strong>Da aprile 2022 a marzo 2023</strong> sono state controllate 5 stazioni, da Casale Caletto a Ponte Salario. <strong>Da dicembre 2023 a ottobre 2024</strong> le stazioni sono diventate 7 e poi 9, con Vicovaro e Subiaco da aprile 2024. <strong>Da ottobre a dicembre 2025</strong> sono state fatte tre campagne in 9 stazioni, con Tenuta del Cavaliere al posto di Casa del Parco.</p>
-            <p>Questa piattaforma nasce dalla relazione scientifica di Bruna Gumiero (4 dicembre 2024) e dal dataset del monitoraggio. Non sostituisce i controlli ufficiali: li affianca con uno sguardo in più.</p>
+
+        <article class="cdf-card" id="contratto-di-fiume" aria-labelledby="title-cdf">
+          <div>
+            <span class="section-tag">Il Contratto di Fiume</span>
+            <h2 class="duo-title" id="title-cdf">Un accordo nato dal basso</h2>
+            <p>Il Contratto di Fiume è un accordo volontario tra chi gestisce e usa le acque, pianifica il territorio e tutela l'ambiente. Serve a programmare insieme la tutela del fiume, la gestione dell'acqua e la valorizzazione del territorio fluviale.</p>
+            <p>Il Contratto di Fiume Aniene è uno dei pochi nati interamente dal basso, spinto per oltre vent'anni da associazioni come Insieme per l'Aniene, Roma Adventure e la rete V.A.R.A. È stato firmato il <strong>25 febbraio 2022</strong> da circa 80 soggetti pubblici e privati, con più di 90 azioni proposte. Oggi ha una segreteria tecnica e tre tavoli territoriali, per la bassa, la media e l'alta valle, e dal 2024 è gestito dalla Città metropolitana di Roma Capitale.</p>
           </div>
-          <div class="stations-card-wrap">
-            <article class="station-card">
-              <span class="station-badge s1">Dove si misura</span>
-              <h3 class="station-title">10 stazioni, numerate da valle a monte</h3>
-              <p class="station-desc">La stazione 1 è l'ultima prima del Tevere, la 9 è la più a monte. La 10, Tenuta del Cavaliere, si è aggiunta nel 2025 tra Ponte Lucano e Casale Caletto. La striscia riporta il LIMeco indicativo medio del periodo 2023/24, un punteggio che riassume ossigeno e nutrienti.</p>
-              <div class="river-strip" id="riverStrip" aria-label="LIMeco indicativo medio per stazione, da monte a valle"></div>
-              <div class="river-ends"><span>Monte</span><span>Valle</span></div>
-            </article>
+          <div class="cdf-facts">
+            <div><b>25/02/2022</b><span>Firma del Contratto</span></div>
+            <div><b>≈ 80</b><span>Soggetti firmatari</span></div>
+            <div><b>93</b><span>Azioni previste</span></div>
+            <div class="cdf-wide"><b>Roma Capitale</b><span>Nel Manifesto d'intenti, tra gli enti chiamati a sottoscrivere, ci sono il Comune di Roma con i Municipi II, III, IV e VI, la Città metropolitana e i comuni del bacino, da Subiaco a Tivoli e Guidonia Montecelio</span></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- CITIZEN SCIENCE -->
+    <section class="section section-alt" id="citizen-science" aria-labelledby="title-cs">
+      <div class="section-container">
+        <div class="section-header">
+          <span class="section-tag">La citizen science</span>
+          <h2 class="section-title" id="title-cs">La scienza fatta insieme</h2>
+          <p class="section-lead">Citizen science significa coinvolgere volontari e scienziati in una ricerca comune, che produce conoscenza basata su evidenze. Chiunque può contribuire: non servono titoli, servono formazione, costanza e strumenti adatti.</p>
+        </div>
+
+        <div class="cs-grid">
+          <div class="cs-text">
+            <p>La scienza partecipata rende la conoscenza un bene comune. I dati raccolti dal basso aiutano a capire come sta il fiume, ma servono anche a far crescere il legame con il territorio e a chiedere conto di chi lo danneggia. I monitoraggi civici possono diventare la base di vertenze e istanze per la giustizia ambientale.</p>
+
+            <h3 class="duo-sub" id="metodologia">La metodologia di azione</h3>
+            <ol class="step-list">
+              <li><b>Formazione a cascata.</b> Le prime persone vengono formate da chi ha esperienza, e a loro volta formano altri volontari, studenti e referenti locali.</li>
+              <li><b>Gruppi autonomi sul territorio.</b> Ogni tratto del fiume ha un gruppo con il suo referente e un kit completo per le analisi.</li>
+              <li><b>Stesso giorno, stesso metodo.</b> Ogni mese tutte le stazioni vengono campionate nello stesso giorno, con le stesse procedure.</li>
+              <li><b>Dati condivisi e validati.</b> I risultati vengono annotati su schede di campo e caricati su FreshWater Watch, poi controllati dalla supervisione scientifica.</li>
+            </ol>
+
+            <div class="limits-box">
+              <h3>I limiti, detti chiaramente</h3>
+              <p>Sono misure fatte con kit semplici e a basso costo, spesso da persone che non sono tecniche di laboratorio. Per questo hanno un margine di errore più ampio delle analisi ufficiali:</p>
+              <ul>
+                <li>Per nitrati e fosfati il kit indica un intervallo di valori, non un numero esatto.</li>
+                <li>La torbidità sotto 14 NTU non si distingue.</li>
+                <li>Ogni campione fotografa un momento: pioggia, ora e portata del fiume cambiano i risultati.</li>
+              </ul>
+              <p>I dati servono a vedere tendenze e differenze tra i punti, non a sostituire i controlli ufficiali.</p>
+            </div>
+          </div>
+
+          <div class="cs-photos" aria-label="Gli strumenti usati sul campo">
+            <figure class="ph-wide"><img src="img/cs/secchio-tubo.jpg" alt="Due volontari versano l'acqua del fiume da un secchio nel tubo di Secchi per misurare la torbidità" loading="lazy" width="1400" height="933"><figcaption>Il secchio e il tubo di Secchi per la torbidità</figcaption></figure>
+            <figure><img src="img/cs/schede-fww.jpg" alt="Le schede colore FreshWater Watch per fosfati e nitrati accanto a una scheda di campo" loading="lazy" width="1400" height="934"><figcaption>Le schede colore FreshWater Watch</figcaption></figure>
+            <figure><img src="img/cs/ossigeno.jpg" alt="Mani che aprono un flacone di reagente HI3810 per misurare l'ossigeno disciolto" loading="lazy" width="787" height="1400"><figcaption>Il kit per l'ossigeno disciolto</figcaption></figure>
+            <figure><img src="img/cs/bottiglia-sterile.jpg" alt="Una bottiglia sterile con l'etichetta del punto di prelievo a Subiaco" loading="lazy" width="1050" height="1400"><figcaption>Il campione sterile per E. coli</figcaption></figure>
+            <figure><img src="img/cs/reagente.jpg" alt="Un reagente viene aggiunto con la pipetta a una provetta che diventa viola" loading="lazy" width="787" height="1400"><figcaption>Il reagente cambia colore</figcaption></figure>
           </div>
         </div>
-        <div class="zone-grid" style="margin-top:2rem">
-          <article class="zone-card" style="--zone:var(--l1)"><h3>Alto corso</h3><p class="zone-where">Monti Simbruini · stazione 9</p><p>Boschi, sorgenti carsiche e poche pressioni. Il tratto è in buona parte tutelato dal Parco regionale dei Monti Simbruini.</p></article>
-          <article class="zone-card" style="--zone:var(--l2)"><h3>Medio corso</h3><p class="zone-where">Da Subiaco a Tivoli · stazioni 8 e 7</p><p>I campi si fanno più estesi verso valle e compaiono piccoli centri abitati. La portata varia molto, specie nei periodi di siccità.</p></article>
-          <article class="zone-card" style="--zone:var(--l4)"><h3>Basso corso</h3><p class="zone-where">Da Tivoli al Tevere · stazioni da 6 a 1 e 10</p><p>Le aree naturali quasi scompaiono. Agricoltura, cave, industrie e scarichi urbani si sommano fino alla città di Roma.</p></article>
-        </div>
-      </div>
-    </section>
 
-    <section class="section section-alt" id="strumenti" aria-labelledby="title-strumenti">
-      <div class="section-container">
-        <div class="section-header">
-          <span class="section-tag">Sul campo</span>
-          <h2 class="section-title" id="title-strumenti">Gli strumenti usati da chi monitora</h2>
-          <p class="section-lead">Strumenti semplici e a basso costo, usati dopo incontri di formazione. Ognuno ha una sua precisione, e tenerne conto è parte del lavoro: per questo qui trovi anche come leggere i numeri.</p>
+        <div class="goals-card" id="obiettivi" aria-labelledby="title-obiettivi">
+          <h3 id="title-obiettivi">Gli obiettivi del progetto</h3>
+          <p class="goals-lead">Raccogliere dati sulle criticità del fiume e dare <strong>segnali di allarme</strong> alle istituzioni che hanno il compito di fare monitoraggi periodici e specifici, come ARPA Lazio.</p>
+          <div class="goals-grid">
+            <div><b>01</b><p>Coinvolgere cittadine, cittadini e associazioni nella tutela della Riserva e del fiume.</p></div>
+            <div><b>02</b><p>Stimare la qualità delle acque e cercare le possibili cause di inquinamento.</p></div>
+            <div><b>03</b><p>Rafforzare il dialogo tra enti pubblici, associazioni e cittadini per trovare soluzioni condivise.</p></div>
+            <div><b>04</b><p>Diffondere buone pratiche di cura del territorio, in linea con il Contratto di Fiume Aniene.</p></div>
+          </div>
         </div>
-        <div class="tools-grid">
-          <article class="tool-card">
-            <div class="tool-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><rect x="10" y="3" width="12" height="21" rx="2"/><rect x="13" y="7" width="6" height="5"/><path d="M13 24v3a3 3 0 0 0 6 0v-3"/></svg></div>
-            <h3>Conduttimetro tascabile</h3>
-            <p>Il DiST 3 HI98303 si immerge in acqua e legge conducibilità e temperatura. Misura fino a 2.000 µS/cm.</p>
-            <div class="tool-tags"><a href="dashboard.html?param=cond">Conducibilità</a><a href="dashboard.html?param=t">Temperatura</a></div>
-          </article>
-          <article class="tool-card">
-            <div class="tool-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M11 3h10M13 3v9L6 26a2 2 0 0 0 2 3h16a2 2 0 0 0 2-3l-7-14V3"/><path d="M10 20h12"/></svg></div>
-            <h3>Kit FreshWater Watch</h3>
-            <p>Il kit di Earthwatch usa provette con reagenti: il colore indica in quale <strong>intervallo</strong> cade il nitrato o il fosfato, e il tubo di Secchi stima la torbidità.</p>
-            <div class="tool-tags"><a href="dashboard.html?param=n">Azoto nitrico</a><a href="dashboard.html?param=p">Fosforo ortofosfato</a><a href="dashboard.html?param=turb">Torbidità</a></div>
-          </article>
-          <article class="tool-card">
-            <div class="tool-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><rect x="6" y="5" width="20" height="23" rx="3"/><rect x="10" y="9" width="12" height="7"/><path d="M11 21h.01M16 21h.01M21 21h.01"/></svg></div>
-            <h3>Checker Hanna per l'ammonio</h3>
-            <p>Al kit HI3824 si aggiunge un fotometro tascabile (da 0 a 99,9 ppm): il colore del campione non si legge a occhio ma con un sensore di luce, più preciso.</p>
-            <div class="tool-tags"><a href="dashboard.html?param=nh">Ammonio</a></div>
-          </article>
-          <article class="tool-card">
-            <div class="tool-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M16 3c6 8 9 12 9 17a9 9 0 0 1-18 0c0-5 3-9 9-17Z"/><path d="M12 21a4 4 0 0 0 4 4"/></svg></div>
-            <h3>Titolazione dell'ossigeno</h3>
-            <p>Il kit HI3810 applica una titolazione Winkler modificata: si aggiungono reagenti al campione finché il colore cambia, e la quantità usata dà l'ossigeno disciolto.</p>
-            <div class="tool-tags"><a href="dashboard.html?param=od">Ossigeno disciolto</a><a href="dashboard.html?param=sat">Saturazione</a></div>
-          </article>
-          <article class="tool-card">
-            <div class="tool-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><circle cx="16" cy="16" r="12"/><circle cx="12" cy="13" r="1.6"/><circle cx="19" cy="11" r="1.2"/><circle cx="20" cy="19" r="1.6"/><circle cx="12" cy="21" r="1.2"/></svg></div>
-            <h3>Piastre per E. coli</h3>
-            <p>Sulle piastre HyServe Compact Dry si deposita 1 ml di campione, diluito se serve. Dopo circa 24 ore a 36 °C si contano le colonie blu. È l'analisi che richiede più esperienza.</p>
-            <div class="tool-tags"><a href="dashboard.html?param=ec">Escherichia coli</a></div>
-          </article>
-          <article class="tool-card">
-            <div class="tool-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M4 22c4-5 8-5 12 0s8 5 12 0"/><path d="M4 14c4-5 8-5 12 0s8 5 12 0"/></svg></div>
-            <h3>pH e osservazioni di campo</h3>
-            <p>Il pH è stato rilevato con strumentazione low-cost. Alle misure si aggiungono le note dei volontari: schiuma, alghe, odori, presenza di pesci.</p>
-            <div class="tool-tags"><a href="dashboard.html?param=ph">pH</a></div>
-          </article>
-        </div>
-      </div>
-    </section>
 
-    <section class="section" id="guida" aria-labelledby="title-guida">
-      <div class="section-container">
-        <div class="section-header centered">
-          <span class="section-tag">Che cosa puoi fare</span>
-          <h2 class="section-title" id="title-guida">Quattro modi di interrogare il fiume</h2>
-          <p class="section-lead">Non serve essere esperti. Ogni vista risponde a una domanda semplice.</p>
-        </div>
-        <div class="guide-steps-grid">
-          <a class="step-card" href="dashboard.html?view=map&param=ec"><div class="step-header"><span class="step-num">01</span></div><h3 class="step-title">Dove?</h3><p class="step-body">Sulla <strong>mappa</strong> ogni stazione prende il colore della sua classe di qualità. Puoi scorrere le campagne mese per mese.</p></a>
-          <a class="step-card" href="dashboard.html?view=river&param=cond"><div class="step-header"><span class="step-num">02</span></div><h3 class="step-title">Come cambia da monte a valle?</h3><p class="step-body">Il <strong>profilo del fiume</strong> mette in fila le medie delle stazioni e confronta i due periodi di monitoraggio.</p></a>
-          <a class="step-card" href="dashboard.html?view=trend&param=od"><div class="step-header"><span class="step-num">03</span></div><h3 class="step-title">Quando?</h3><p class="step-body">L'<strong>andamento</strong> e la <strong>matrice</strong> mostrano stagioni, picchi e campagne anomale, con le soglie di riferimento.</p></a>
-          <a class="step-card" href="dashboard.html?view=stats&param=nh"><div class="step-header"><span class="step-num">04</span></div><h3 class="step-title">Quanto, esattamente?</h3><p class="step-body">Le <strong>statistiche</strong> riportano media, mediana, minimo e massimo. Puoi vedere ogni misura e scaricare i dati in CSV.</p></a>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section-alt" id="parametri" aria-labelledby="title-parametri">
-      <div class="section-container">
-        <div class="section-header">
-          <span class="section-tag">Accesso rapido ai dati</span>
-          <h2 class="section-title" id="title-parametri">Che cosa è stato misurato</h2>
-          <p class="section-lead">Per ogni parametro: che cos'è, perché conta, e il suo andamento medio. Apri una scheda per vederlo nella dashboard.</p>
-        </div>
-        <div class="parameters-grid" id="paramCards"><p>Caricamento dei parametri…</p></div>
-      </div>
-    </section>
-
-    <section class="section" id="classi" aria-labelledby="title-classi">
-      <div class="section-container">
-        <div class="section-header">
-          <span class="section-tag">Come leggere i colori</span>
-          <h2 class="section-title" id="title-classi">Le cinque classi di qualità</h2>
-          <p class="section-lead">Per dare un senso ai numeri la relazione usa le classi del LIMeco, l'indice dei macrodescrittori previsto dalla normativa sullo stato dei corpi idrici, e le classi del LIM per E. coli. I colori della piattaforma seguono queste cinque classi.</p>
-        </div>
-        <div class="threshold-table-wrap">
-          <table class="threshold-table class-table">
-            <thead><tr><th scope="col">Parametro</th><th scope="col" class="c">Elevato</th><th scope="col" class="c">Buono</th><th scope="col" class="c">Sufficiente</th><th scope="col" class="c">Scarso</th><th scope="col" class="c">Cattivo</th></tr></thead>
-            <tbody>
-              <tr><td>Azoto nitrico (mg/L)</td><td class="lvl-1">&lt; 0,6</td><td class="lvl-2">≤ 1,2</td><td class="lvl-3">≤ 2,4</td><td class="lvl-4">≤ 4,8</td><td class="lvl-5">&gt; 4,8</td></tr>
-              <tr><td>Ammonio (mg/L)</td><td class="lvl-1">&lt; 0,03</td><td class="lvl-2">≤ 0,06</td><td class="lvl-3">≤ 0,12</td><td class="lvl-4">≤ 0,24</td><td class="lvl-5">&gt; 0,24</td></tr>
-              <tr><td>Fosforo (mg/L) *</td><td class="lvl-1">≤ 0,05</td><td class="lvl-2">≤ 0,10</td><td class="lvl-3">≤ 0,20</td><td class="lvl-4">≤ 0,40</td><td class="lvl-5">&gt; 0,40</td></tr>
-              <tr><td>Scostamento da 100% O₂</td><td class="lvl-1">≤ 10</td><td class="lvl-2">≤ 20</td><td class="lvl-3">≤ 40</td><td class="lvl-4">≤ 80</td><td class="lvl-5">&gt; 80</td></tr>
-              <tr><td>E. coli (UFC/100 ml)</td><td class="lvl-1">≤ 100</td><td class="lvl-2">≤ 1.000</td><td class="lvl-3">≤ 5.000</td><td class="lvl-4">≤ 20.000</td><td class="lvl-5">&gt; 20.000</td></tr>
-              <tr><td>LIMeco (punteggio)</td><td class="lvl-1">≥ 0,66</td><td class="lvl-2">≥ 0,50</td><td class="lvl-3">≥ 0,33</td><td class="lvl-4">≥ 0,17</td><td class="lvl-5">&lt; 0,17</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <p class="threshold-legend">* Le classi riguardano il fosforo totale. Il monitoraggio misura l'ortofosfato, che ne è la parte principale ma non tutta: il confronto è solo indicativo e la classe reale potrebbe essere uguale o peggiore.</p>
-      </div>
-    </section>
-
-    <section class="section section-alt" id="metodologia" aria-labelledby="title-metodologia">
-      <div class="section-container">
-        <div class="section-header">
-          <span class="section-tag">Trasparenza</span>
-          <h2 class="section-title" id="title-metodologia">Da dove vengono i dati</h2>
-          <p class="section-lead">Come sono stati letti, controllati e messi a confronto i dati pubblicati qui. Ogni modifica rispetto all'Excel è registrata.</p>
-        </div>
-        <div class="methodology-grid">
-          <article class="method-card">
-            <h3>Le fonti</h3>
-            <ul>
-              <li><strong>Ottobre – dicembre 2025:</strong> Excel «Dati campionamento Aniene 2025-2026», 27 campioni in 9 stazioni. Non c'è ancora una relazione su questi dati.</li>
-              <li><strong>Dicembre 2023 – ottobre 2024:</strong> Excel «Dataset definitivo dati monitoraggio AnieneWaterLab 23_24», 91 campioni in 9 stazioni e 11 rilievi straordinari.</li>
-              <li><strong>Aprile 2022 – marzo 2023:</strong> i dati non sono nell'Excel. Sono stati ricostruiti dai punti dei grafici della relazione: 55 campioni in 5 stazioni, per conducibilità, nutrienti, ammonio ed E. coli.</li>
-              <li><strong>Interpretazione:</strong> relazione «Risultati monitoraggio della qualità dell'acqua 22/23 e 23/24» di Bruna Gumiero.</li>
+        <div class="fww-card" id="freshwater-watch" aria-labelledby="title-fww">
+          <div class="fww-text">
+            <span class="section-tag">Lo strumento</span>
+            <h3 class="duo-title" id="title-fww">FreshWater Watch</h3>
+            <p><a href="https://www.freshwaterwatch.org/" target="_blank" rel="noopener noreferrer">FreshWater Watch</a> è un progetto internazionale di citizen science dedicato alla qualità delle acque dolci, promosso da Earthwatch. Fornisce il kit per nitrati, fosfati e torbidità e una banca dati comune, dove i dati dell'Aniene si affiancano a quelli di migliaia di gruppi nel mondo.</p>
+            <h4>Come inviare i dati</h4>
+            <ul class="tick-list">
+              <li><b>Da smartphone.</b> Apri l'app Survey123, accedi con le tue credenziali e inquadra il QR code qui accanto. Il QR code ufficiale è anche su <a href="https://www.freshwaterwatch.org/pages/3b8724c0f5614ce4af9da485634396bb" target="_blank" rel="noopener noreferrer">questa pagina di FreshWater Watch</a>.</li>
+              <li><b>Da computer.</b> Accedi con lo stesso account e compila <a href="https://survey123.arcgis.com/share/4ccc1232528e41abba4b6e390778de69" target="_blank" rel="noopener noreferrer">il modulo online</a>.</li>
             </ul>
-          </article>
-          <article class="method-card">
-            <h3>Cosa abbiamo sistemato</h3>
-            <p>Nell'Excel 2023/24 diversi valori di fosfati, nitrati e ammonio sono arrotondati a una cifra o riportano l'estremo della classe del kit. I grafici della relazione conservano il valore completo, e abbiamo usato quello.</p>
-            <ul>
-              <li>Per il 2025 non ci sono grafici di controllo: i valori sono quelli scritti nel file</li>
-              <li>Il valore originale resta visibile nella dashboard e nel CSV</li>
-              <li>Gli intervalli del kit sono rappresentati dal loro punto medio, come nella relazione</li>
-              <li>Le medie sono aritmetiche e non hanno pesi</li>
-            </ul>
-          </article>
-          <article class="method-card">
-            <h3>Come leggere con cautela</h3>
-            <ul>
-              <li>Sono misure di citizen science con strumenti semplificati: valgono per capire tendenze e differenze, non come analisi di laboratorio</li>
-              <li>Il LIMeco qui è <strong>indicativo</strong>: non è una classificazione ufficiale dello stato del fiume</li>
-              <li>Un valore fuori classe segnala un dato da approfondire e non dice da solo qual è la causa</li>
-              <li>Stazioni e periodi non hanno lo stesso numero di campagne: nel 2023/24 Vicovaro e Subiaco hanno solo i mesi da aprile a ottobre, e il 2025 solo tre campagne autunnali</li>
-            </ul>
-          </article>
+          </div>
+          <figure class="qr-box">
+            <img src="img/qr-survey123.svg" alt="QR code che apre il modulo FreshWater Watch su Survey123" width="200" height="200">
+            <figcaption>Inquadra con l'app Survey123</figcaption>
+          </figure>
         </div>
-        <details class="fold">
-          <summary>Registro delle modifiche rispetto ai file Excel <span id="corrCount"></span></summary>
-          <div class="fold-body"><table class="threshold-table corr-list"><thead><tr><th scope="col">Tipo</th><th scope="col">Quanti valori</th><th scope="col">Che cosa significa</th></tr></thead><tbody id="corrRows"></tbody></table></div>
-        </details>
+
+        <div class="cs-cta">
+          <a href="citizen-science.html" class="btn-primary-hero">Strumenti e attività di monitoraggio →</a>
+          <span>Tutti gli strumenti, i parametri, le classi di qualità e come leggere i dati con i loro limiti.</span>
+        </div>
       </div>
     </section>
 
     <section class="final-cta-section" aria-label="Invito all'esplorazione">
       <div class="final-cta-card">
         <div class="final-cta-inner">
-          <span class="final-cta-tag">Inizia da qui</span>
+          <span class="final-cta-tag">I dati</span>
           <h2 class="final-cta-title">Che cosa dice l'acqua dell'Aniene?</h2>
-          <p class="final-cta-desc">I risultati raccontano il fiume in sei domande. La dashboard ti lascia libertà di esplorare e scaricare ogni dato.</p>
-          <a href="risultati.html" class="btn-large-cta">Vai ai risultati →</a>
+          <p class="final-cta-desc">I risultati raccontano il fiume in sei domande. La dashboard ti lascia esplorare ogni campagna, stazione e misura.</p>
+          <div class="cta-row"><a href="risultati.html" class="btn-large-cta">Vai ai risultati →</a><a href="dashboard.html" class="btn-secondary-hero">Apri la dashboard ↗</a></div>
         </div>
+      </div>
+    </section>
+
+    <!-- RINGRAZIAMENTI -->
+    <section class="section" id="ringraziamenti" aria-labelledby="title-grazie">
+      <div class="section-container">
+        <div class="section-header centered">
+          <span class="section-tag">Ringraziamenti</span>
+          <h2 class="section-title" id="title-grazie">Grazie a chi ha reso possibile questo percorso</h2>
+          <p class="section-lead">Alle volontarie e ai volontari, alle scuole e a tutte le realtà che dal 2021 hanno collaborato con Walk Up Aniene, RomaUP e Aniene WaterLab.</p>
+        </div>
+        <ul class="thanks-list">
+          <li>Agenda Tevere</li><li>Amici dei Monti Ruffi APS</li><li>ARPA Lazio</li><li>Associazione La Terrazza, Tivoli</li><li>Associazione Orti irrigui, Tivoli</li><li>Asd UISP Valle del Tevere</li><li>Canoanium Sublacense</li><li>Circolo Canottieri Tivoli</li><li>Contratto di Fiume Tevere da Castel Giubileo alla Foce</li><li>Contratto di Fiume Valle dell'Aniene</li><li>Ente Regionale RomaNatura</li><li>Il Ranch ASD</li><li>IIS Pacinotti-Archimede</li><li>Istituto Comprensivo Angelucci, Subiaco</li><li>Liceo Scientifico L. Spallanzani, Tivoli</li><li>Mare Vivo Onlus</li><li>Mondo Sommerso</li><li>Museo dei Gladiatori, Associazione Storia di Roma, Tivoli</li><li>Regina Ciclarum</li><li>Retake Roma Sacco Pastore</li><li>Roma Adventure ASD</li><li>SalvaiCiclisti Roma</li><li>Tevere Day</li><li>Ufficio di Scopo Piccoli Comuni e Contratti di Fiume – Regione Lazio</li><li>V.A.R.A. – Valle Aniene Rete Associazioni</li><li>Vivere l'Aniene</li>
+        </ul>
       </div>
     </section>
   </main>
 
   <footer class="home-footer">
+    <div class="footer-logos-wrap">
+      <h4 class="footer-logos-title">Un progetto realizzato da</h4>
+      <ul class="footer-logos" aria-label="Associazioni e sostenitori del progetto">
+        <li><img src="img/partner/insieme-per-l-aniene.png" alt="Insieme per l'Aniene APS"></li>
+        <li><img src="img/partner/a-sud.png" alt="A Sud"></li>
+        <li><img src="img/partner/retake-roma.png" alt="Retake Roma"></li>
+        <li><img src="img/partner/ada.png" alt="A.D.A. APS"></li>
+        <li><img src="img/partner/roma-adventure.png" alt="Roma Adventure ASD – Roma Rafting"></li>
+        <li><img src="img/partner/cammino-aniene-vara.png" alt="Il Cammino dell'Aniene e V.A.R.A."></li>
+        <li><img src="img/partner/aquila-reale.png" alt="Collettivo L'Aquila Reale ETS"></li>
+        <li><img src="img/partner/ondata.png" alt="Associazione onData"></li>
+      </ul>
+      <h4 class="footer-logos-title">Con il sostegno di</h4>
+      <ul class="footer-logos" aria-label="Sostenitori">
+        <li><img src="img/partner/periferiacapitale.png" alt="Periferiacapitale – Fondazione Charlemagne"></li>
+        <li><img src="img/partner/ottopermille-valdese.png" alt="Otto per mille della Chiesa Valdese"></li>
+      </ul>
+      <p class="footer-credit">Supervisione scientifica: Bruna Gumiero, ecologa fluviale, Università di Bologna. Il progetto pilota Walk Up Aniene è stato sostenuto dal programma europeo ACTION – Horizon 2020.</p>
+    </div>
     <div class="footer-inner">
       <div class="footer-brand">
-        <img src="logo_asud.png" alt="A SUD" class="footer-logo">
-        <p class="footer-text"><strong>A SUD · Centro di Documentazione sui Conflitti Ambientali</strong> promuove la giustizia ambientale, la citizen science, il diritto alla salute e l'accesso pubblico alle informazioni territoriali.</p>
+        <span class="brand-title">Aniene Water Lab</span>
+        <p class="footer-text">Monitoraggio civico della qualità delle acque del fiume Aniene. Segreteria: Casa del Parco, Via Vicovaro snc, 00156 Roma · <a href="mailto:segreteria@aniene.it">segreteria@aniene.it</a></p>
       </div>
       <div class="footer-col">
         <h4>Navigazione</h4>
         <ul>
+          <li><a href="#contesto">Contesto</a></li>
           <li><a href="#progetto">Il progetto</a></li>
-          <li><a href="#strumenti">Strumenti</a></li>
-          <li><a href="#parametri">Parametri</a></li>
-          <li><a href="#metodologia">Metodologia</a></li>
+          <li><a href="#citizen-science">Citizen science</a></li>
+          <li><a href="citizen-science.html">Strumenti e monitoraggio</a></li>
           <li><a href="risultati.html">Risultati</a></li>
-          <li><a href="dashboard.html">Dashboard interattiva</a></li>
+          <li><a href="dashboard.html">Dashboard</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h4>Risorse &amp; Dati</h4>
         <ul>
           <li><a href="aniene_dati.csv" download>Scarica tutti i dati (CSV)</a></li>
+          <li><a href="citizen-science.html#metodologia">Metodologia e fonti</a></li>
           <li><a href="https://github.com/veramalavolti/aniene-water-lab" target="_blank" rel="noopener noreferrer">Codice sorgente su GitHub ↗</a></li>
-          <li><a href="https://fww-earthw.hub.arcgis.com/" target="_blank" rel="noopener noreferrer">FreshWater Watch ↗</a></li>
-          <li><a href="https://asud.net" target="_blank" rel="noopener noreferrer">Sito ufficiale A SUD ↗</a></li>
+          <li><a href="https://www.freshwaterwatch.org/" target="_blank" rel="noopener noreferrer">FreshWater Watch ↗</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
-      <span>Aniene Water Lab · Monitoraggio civico della qualità delle acque · A SUD</span>
+      <span>Aniene Water Lab · Monitoraggio civico della qualità delle acque</span>
       <span>Mappa del fiume © contributori OpenStreetMap (ODbL)</span>
     </div>
   </footer>

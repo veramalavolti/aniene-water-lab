@@ -159,5 +159,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,s
 }
 @media (min-width:1000px) { .hero-metrics-grid { grid-template-columns:repeat(5,1fr); } }
 .step-card { color:inherit; }
+.nav-text-brand { font-family:'Barlow Condensed',sans-serif; font-size:1.2rem; font-weight:800; text-transform:uppercase; letter-spacing:.04em; color:var(--cream); white-space:nowrap; }
+@media (max-width:760px) { .nav-hide-sm { display:none; } }
 .basemap { filter:grayscale(1) brightness(1.06) contrast(.88); }
 @media (max-width:560px) { .nav-year { display:none; } .topnav .nav-brand { gap:.5rem; } }

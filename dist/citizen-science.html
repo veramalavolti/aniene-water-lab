@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Citizen science · Aniene Water Lab</title>
+  <meta name="description" content="Come funziona il monitoraggio civico dell'Aniene: la formazione, gli strumenti usati sul campo, i parametri misurati, i limiti delle misure e le classi di qualità.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800;900&family=Barlow+Condensed:wght@700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="home.css">
+  <link rel="stylesheet" href="aniene.css">
+  <link rel="stylesheet" href="site.css">
+  <script type="module" src="home.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Vai al contenuto principale</a>
+
+  <header class="home-nav">
+    <div class="home-nav-inner">
+      <a class="nav-brand" href="index.html">
+        <div class="brand-text">
+          <span class="brand-title">Aniene Water Lab</span>
+          <span class="brand-sub">Citizen Science · Qualità delle acque</span>
+        </div>
+      </a>
+      <nav aria-label="Navigazione principale">
+        <ul class="nav-links">
+          <li><a href="index.html#contesto">Contesto</a></li>
+          <li><a href="index.html#progetto">Il progetto</a></li>
+          <li><a href="citizen-science.html" aria-current="page">Citizen science</a></li>
+          <li><a href="risultati.html">Risultati</a></li>
+          <li><a href="index.html#ringraziamenti">Ringraziamenti</a></li>
+        </ul>
+      </nav>
+      <a href="dashboard.html" class="nav-cta-btn">Apri Dashboard ↗</a>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="home-hero page-hero" aria-label="Introduzione">
+      <div class="hero-glow-1" aria-hidden="true"></div>
+      <div class="hero-glow-2" aria-hidden="true"></div>
+      <div class="hero-container">
+        <h1 class="hero-main-title">Citizen science e <span>monitoraggio</span> sul campo</h1>
+        <p class="hero-subtitle">Come si raccolgono i dati dell'Aniene: chi forma chi, quali strumenti usano volontari e studenti, che cosa misurano e quali limiti hanno le misure.</p>
+        <nav class="toc" aria-label="Indice della pagina">
+          <a href="#sul-campo">Sul campo</a><a href="#strumenti">Strumenti</a><a href="#limiti">Limiti delle misure</a><a href="#parametri">Parametri</a><a href="#classi">Classi di qualità</a><a href="#metodologia">Metodologia e fonti</a>
+        </nav>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="sul-campo" aria-labelledby="title-campo">
+      <div class="section-container">
+        <div class="section-header">
+          <span class="section-tag">Come lavoriamo</span>
+          <h2 class="section-title" id="title-campo">Una giornata di monitoraggio</h2>
+          <p class="section-lead">Ogni mese, nello stesso giorno, i gruppi locali scendono al fiume con lo stesso kit e la stessa procedura. Le persone che hanno già esperienza formano quelle nuove, così la rete cresce di campagna in campagna.</p>
+        </div>
+        <ol class="step-list">
+          <li><b>Formazione.</b> Prima di iniziare, incontri pratici con le persone referenti e con la supervisione scientifica. Chi è stato formato forma poi volontari, studenti e nuovi gruppi.</li>
+          <li><b>Prelievo.</b> L'acqua si raccoglie con un secchio legato a una corda, anche dai ponti nei punti più difficili. Per E. coli si usano contenitori sterili.</li>
+          <li><b>Analisi sul posto.</b> Conducibilità, temperatura, pH, ossigeno, nutrienti e torbidità si misurano subito. Le piastre per E. coli si leggono il giorno dopo.</li>
+          <li><b>Registrazione.</b> I valori finiscono su una scheda di campo e nell'app Survey123, collegata alla banca dati FreshWater Watch.</li>
+          <li><b>Validazione e restituzione.</b> La supervisione scientifica controlla i dati, che vengono raccolti in un report e presentati pubblicamente.</li>
+        </ol>
+        <div class="field-photos">
+          <figure><img src="img/cs/secchio-tubo.jpg" alt="Due volontari versano l'acqua da un secchio nel tubo di Secchi" loading="lazy"><figcaption>Dal secchio al tubo di Secchi</figcaption></figure>
+          <figure><img src="img/cs/secchi.jpg" alt="Il disco bianco e nero sul fondo del tubo di Secchi visto dall'alto" loading="lazy"><figcaption>Il disco di Secchi, visto dall'alto</figcaption></figure>
+          <figure><img src="img/cs/postazione.jpg" alt="Un tavolo di lavoro con strumenti e schede sulla riva del fiume, con gommoni sullo sfondo" loading="lazy"><figcaption>La postazione di analisi sulla riva</figcaption></figure>
+          <figure><img src="img/cs/schede-fww.jpg" alt="Le schede colore FreshWater Watch per fosfati e nitrati" loading="lazy"><figcaption>Il confronto con le schede colore</figcaption></figure>
+          <figure><img src="img/cs/scheda-fosfati.jpg" alt="La scheda colore dei fosfati con la provetta" loading="lazy"><figcaption>La scheda dei fosfati</figcaption></figure>
+          <figure><img src="img/cs/subiaco.jpg" alt="L'Aniene a Subiaco, con acqua limpida tra la vegetazione" loading="lazy"><figcaption>L'Aniene a Subiaco</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="strumenti" aria-labelledby="title-strumenti">
+      <div class="section-container">
+        <div class="section-header">
+          <span class="section-tag">Sul campo</span>
+          <h2 class="section-title" id="title-strumenti">Gli strumenti usati da chi monitora</h2>
+          <p class="section-lead">Strumenti semplici e a basso costo, usati dopo incontri di formazione. Ognuno ha una sua precisione, e tenerne conto è parte del lavoro: per questo qui trovi anche come leggere i numeri.</p>
+        </div>
+        <div class="tools-grid">
+          <article class="tool-card">
+            <div class="tool-photo"><img src="img/cs/conduttimetro.jpg" alt="Il conduttimetro immerso nel secchio, mentre i dati vengono annotati sul telefono" loading="lazy"></div>
+            <div class="tool-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><rect x="10" y="3" width="12" height="21" rx="2"/><rect x="13" y="7" width="6" height="5"/><path d="M13 24v3a3 3 0 0 0 6 0v-3"/></svg></div>
+            <h3>Conduttimetro tascabile</h3>
+            <p>Il DiST 3 HI98303 si immerge in acqua e legge conducibilità e temperatura. Misura fino a 2.000 µS/cm.</p>
+            <div class="tool-tags"><a href="dashboard.html?param=cond">Conducibilità</a><a href="dashboard.html?param=t">Temperatura</a></div>
+          </article>
+          <article class="tool-card">
+            <div class="tool-photo"><img src="img/cs/kit-fww.jpg" alt="Il kit FreshWater Watch aperto, con provette, schede colore e istruzioni" loading="lazy"></div>
+            <div class="tool-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M11 3h10M13 3v9L6 26a2 2 0 0 0 2 3h16a2 2 0 0 0 2-3l-7-14V3"/><path d="M10 20h12"/></svg></div>
+            <h3>Kit FreshWater Watch</h3>
+            <p>Il kit di Earthwatch usa provette con reagenti: il colore indica in quale <strong>intervallo</strong> cade il nitrato o il fosfato, e il tubo di Secchi stima la torbidità.</p>
+            <div class="tool-tags"><a href="dashboard.html?param=n">Azoto nitrico</a><a href="dashboard.html?param=p">Fosforo ortofosfato</a><a href="dashboard.html?param=turb">Torbidità</a></div>
+          </article>
+          <article class="tool-card">
+            <div class="tool-photo"><img src="img/cs/reagente.jpg" alt="Un reagente aggiunto con la pipetta a una provetta che diventa viola" loading="lazy"></div>
+            <div class="tool-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><rect x="6" y="5" width="20" height="23" rx="3"/><rect x="10" y="9" width="12" height="7"/><path d="M11 21h.01M16 21h.01M21 21h.01"/></svg></div>
+            <h3>Checker Hanna per l'ammonio</h3>
+            <p>Al kit HI3824 si aggiunge un fotometro tascabile (da 0 a 99,9 ppm): il colore del campione non si legge a occhio ma con un sensore di luce, più preciso.</p>
+            <div class="tool-tags"><a href="dashboard.html?param=nh">Ammonio</a></div>
+          </article>
+          <article class="tool-card">
+            <div class="tool-photo"><img src="img/cs/ossigeno.jpg" alt="Mani che aprono il flacone di reagente HI3810 per l'ossigeno disciolto" loading="lazy"></div>
+            <div class="tool-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M16 3c6 8 9 12 9 17a9 9 0 0 1-18 0c0-5 3-9 9-17Z"/><path d="M12 21a4 4 0 0 0 4 4"/></svg></div>
+            <h3>Titolazione dell'ossigeno</h3>
+            <p>Il kit HI3810 applica una titolazione Winkler modificata: si aggiungono reagenti al campione finché il colore cambia, e la quantità usata dà l'ossigeno disciolto.</p>
+            <div class="tool-tags"><a href="dashboard.html?param=od">Ossigeno disciolto</a><a href="dashboard.html?param=sat">Saturazione</a></div>
+          </article>
+          <article class="tool-card">
+            <div class="tool-photo"><img src="img/cs/bottiglia-sterile.jpg" alt="Una bottiglia sterile con il campione di Subiaco" loading="lazy"></div>
+            <div class="tool-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><circle cx="16" cy="16" r="12"/><circle cx="12" cy="13" r="1.6"/><circle cx="19" cy="11" r="1.2"/><circle cx="20" cy="19" r="1.6"/><circle cx="12" cy="21" r="1.2"/></svg></div>
+            <h3>Piastre per E. coli</h3>
+            <p>Sulle piastre HyServe Compact Dry si deposita 1 ml di campione, diluito se serve. Dopo circa 24 ore a 36 °C si contano le colonie blu. È l'analisi che richiede più esperienza.</p>
+            <div class="tool-tags"><a href="dashboard.html?param=ec">Escherichia coli</a></div>
+          </article>
+          <article class="tool-card">
+            <div class="tool-photo"><img src="img/cs/app.jpg" alt="Uno smartphone con i dati di campo appena annotati" loading="lazy"></div>
+            <div class="tool-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M4 22c4-5 8-5 12 0s8 5 12 0"/><path d="M4 14c4-5 8-5 12 0s8 5 12 0"/></svg></div>
+            <h3>pH e osservazioni di campo</h3>
+            <p>Il pH è stato rilevato con strumentazione low-cost. Alle misure si aggiungono le note dei volontari: schiuma, alghe, odori, presenza di pesci.</p>
+            <div class="tool-tags"><a href="dashboard.html?param=ph">pH</a></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    
+    <section class="section section-alt" id="limiti" aria-labelledby="title-limiti">
+      <div class="section-container">
+        <div class="section-header">
+          <span class="section-tag">Leggere con cautela</span>
+          <h2 class="section-title" id="title-limiti">I limiti delle misure</h2>
+          <p class="section-lead">Le misure di citizen science sono preziose perché sono tante, regolari e diffuse. Hanno però un margine di errore più ampio delle analisi di laboratorio, e chi le usa deve saperlo.</p>
+        </div>
+        <div class="limits-grid">
+          <article><h3>Intervalli, non numeri esatti</h3><p>Il kit FreshWater Watch dice in quale intervallo cade il nitrato o il fosfato, per esempio tra 0,2 e 0,5 mg/L. Nei grafici usiamo il punto medio dell'intervallo.</p></article>
+          <article><h3>Soglie degli strumenti</h3><p>Il tubo di Secchi non distingue la torbidità sotto 14 NTU e il conduttimetro arriva a 2.000 µS/cm. Su una piastra per E. coli si deposita 1 ml di campione, quindi una sola colonia vale già 100 UFC/100 ml.</p></article>
+          <article><h3>Persone, non macchine</h3><p>Chi monitora è formato ma spesso non è tecnico di laboratorio. Leggere un colore o contare le colonie lascia spazio a piccole differenze tra persone e tra campagne.</p></article>
+          <article><h3>Un momento, non una media</h3><p>Ogni campione fotografa l'acqua in un giorno e a un'ora precisi. Pioggia, portata e stagione possono cambiare molto i valori.</p></article>
+          <article><h3>Indicazioni, non sentenze</h3><p>Le classi di qualità usate qui sono indicative e non equivalgono alla classificazione ufficiale. Un valore critico segnala dove guardare: tocca agli enti preposti verificarne la causa.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="parametri" aria-labelledby="title-parametri">
+      <div class="section-container">
+        <div class="section-header">
+          <span class="section-tag">Accesso rapido ai dati</span>
+          <h2 class="section-title" id="title-parametri">Che cosa è stato misurato</h2>
+          <p class="section-lead">Per ogni parametro: che cos'è, perché conta, e il suo andamento medio. Apri una scheda per vederlo nella dashboard.</p>
+        </div>
+        <div class="parameters-grid" id="paramCards"><p>Caricamento dei parametri…</p></div>
+      </div>
+    </section>
+
+    <section class="section" id="classi" aria-labelledby="title-classi">
+      <div class="section-container">
+        <div class="section-header">
+          <span class="section-tag">Come leggere i colori</span>
+          <h2 class="section-title" id="title-classi">Le cinque classi di qualità</h2>
+          <p class="section-lead">Per dare un senso ai numeri la relazione usa le classi del LIMeco, l'indice dei macrodescrittori previsto dalla normativa sullo stato dei corpi idrici, e le classi del LIM per E. coli. I colori della piattaforma seguono queste cinque classi.</p>
+        </div>
+        <div class="threshold-table-wrap">
+          <table class="threshold-table class-table">
+            <thead><tr><th scope="col">Parametro</th><th scope="col" class="c">Elevato</th><th scope="col" class="c">Buono</th><th scope="col" class="c">Sufficiente</th><th scope="col" class="c">Scarso</th><th scope="col" class="c">Cattivo</th></tr></thead>
+            <tbody>
+              <tr><td>Azoto nitrico (mg/L)</td><td class="lvl-1">&lt; 0,6</td><td class="lvl-2">≤ 1,2</td><td class="lvl-3">≤ 2,4</td><td class="lvl-4">≤ 4,8</td><td class="lvl-5">&gt; 4,8</td></tr>
+              <tr><td>Ammonio (mg/L)</td><td class="lvl-1">&lt; 0,03</td><td class="lvl-2">≤ 0,06</td><td class="lvl-3">≤ 0,12</td><td class="lvl-4">≤ 0,24</td><td class="lvl-5">&gt; 0,24</td></tr>
+              <tr><td>Fosforo (mg/L) *</td><td class="lvl-1">≤ 0,05</td><td class="lvl-2">≤ 0,10</td><td class="lvl-3">≤ 0,20</td><td class="lvl-4">≤ 0,40</td><td class="lvl-5">&gt; 0,40</td></tr>
+              <tr><td>Scostamento da 100% O₂</td><td class="lvl-1">≤ 10</td><td class="lvl-2">≤ 20</td><td class="lvl-3">≤ 40</td><td class="lvl-4">≤ 80</td><td class="lvl-5">&gt; 80</td></tr>
+              <tr><td>E. coli (UFC/100 ml)</td><td class="lvl-1">≤ 100</td><td class="lvl-2">≤ 1.000</td><td class="lvl-3">≤ 5.000</td><td class="lvl-4">≤ 20.000</td><td class="lvl-5">&gt; 20.000</td></tr>
+              <tr><td>LIMeco (punteggio)</td><td class="lvl-1">≥ 0,66</td><td class="lvl-2">≥ 0,50</td><td class="lvl-3">≥ 0,33</td><td class="lvl-4">≥ 0,17</td><td class="lvl-5">&lt; 0,17</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="threshold-legend">* Le classi riguardano il fosforo totale. Il monitoraggio misura l'ortofosfato, che ne è la parte principale ma non tutta: il confronto è solo indicativo e la classe reale potrebbe essere uguale o peggiore.</p>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="metodologia" aria-labelledby="title-metodologia">
+      <div class="section-container">
+        <div class="section-header">
+          <span class="section-tag">Trasparenza</span>
+          <h2 class="section-title" id="title-metodologia">Da dove vengono i dati e come li abbiamo trattati</h2>
+          <p class="section-lead">Come sono stati letti, controllati e messi a confronto i dati pubblicati qui. Ogni modifica rispetto all'Excel è registrata.</p>
+        </div>
+        <div class="methodology-grid">
+          <article class="method-card">
+            <h3>Le fonti</h3>
+            <ul>
+              <li><strong>Ottobre – dicembre 2025:</strong> Excel «Dati campionamento Aniene 2025-2026», 27 campioni in 9 stazioni. Non c'è ancora una relazione su questi dati.</li>
+              <li><strong>Dicembre 2023 – ottobre 2024:</strong> Excel «Dataset definitivo dati monitoraggio AnieneWaterLab 23_24», 91 campioni in 9 stazioni e 11 rilievi straordinari.</li>
+              <li><strong>Aprile 2022 – marzo 2023:</strong> i dati non sono nell'Excel. Sono stati ricostruiti dai punti dei grafici della relazione: 55 campioni in 5 stazioni, per conducibilità, nutrienti, ammonio ed E. coli.</li>
+              <li><strong>Interpretazione:</strong> relazione «Risultati monitoraggio della qualità dell'acqua 22/23 e 23/24» di Bruna Gumiero.</li>
+            </ul>
+          </article>
+          <article class="method-card">
+            <h3>Cosa abbiamo sistemato</h3>
+            <p>Nell'Excel 2023/24 diversi valori di fosfati, nitrati e ammonio sono arrotondati a una cifra o riportano l'estremo della classe del kit. I grafici della relazione conservano il valore completo, e abbiamo usato quello.</p>
+            <ul>
+              <li>Per il 2025 non ci sono grafici di controllo: i valori sono quelli scritti nel file</li>
+              <li>Il valore originale resta visibile nella dashboard e nel CSV</li>
+              <li>Gli intervalli del kit sono rappresentati dal loro punto medio, come nella relazione</li>
+              <li>Le medie sono aritmetiche e non hanno pesi</li>
+            </ul>
+          </article>
+          <article class="method-card">
+            <h3>Come leggere con cautela</h3>
+            <ul>
+              <li>Sono misure di citizen science con strumenti semplificati: valgono per capire tendenze e differenze, non come analisi di laboratorio</li>
+              <li>Il LIMeco qui è <strong>indicativo</strong>: non è una classificazione ufficiale dello stato del fiume</li>
+              <li>Un valore fuori classe segnala un dato da approfondire e non dice da solo qual è la causa</li>
+              <li>Stazioni e periodi non hanno lo stesso numero di campagne: nel 2023/24 Vicovaro e Subiaco hanno solo i mesi da aprile a ottobre, e il 2025 solo tre campagne autunnali</li>
+            </ul>
+          </article>
+        </div>
+        <details class="fold">
+          <summary>Registro delle modifiche rispetto ai file Excel <span id="corrCount"></span></summary>
+          <div class="fold-body"><table class="threshold-table corr-list"><thead><tr><th scope="col">Tipo</th><th scope="col">Quanti valori</th><th scope="col">Che cosa significa</th></tr></thead><tbody id="corrRows"></tbody></table></div>
+        </details>
+      </div>
+    </section>
+
+    
+    <section class="final-cta-section" aria-label="Invito all'esplorazione">
+      <div class="final-cta-card"><div class="final-cta-inner">
+        <span class="final-cta-tag">I dati</span>
+        <h2 class="final-cta-title">Guarda i numeri raccolti</h2>
+        <p class="final-cta-desc">Nella dashboard trovi ogni misura, campagna per campagna, con il valore usato e quello originale.</p>
+        <div class="cta-row"><a href="dashboard.html" class="btn-large-cta">Apri la dashboard ↗</a><a href="index.html" class="btn-secondary-hero">Torna alla home</a></div>
+      </div></div>
+    </section>
+  </main>
+
+  <footer class="home-footer">
+    <div class="footer-logos-wrap">
+      <h4 class="footer-logos-title">Un progetto realizzato da</h4>
+      <ul class="footer-logos" aria-label="Associazioni e sostenitori del progetto">
+        <li><img src="img/partner/insieme-per-l-aniene.png" alt="Insieme per l'Aniene APS"></li>
+        <li><img src="img/partner/a-sud.png" alt="A Sud"></li>
+        <li><img src="img/partner/retake-roma.png" alt="Retake Roma"></li>
+        <li><img src="img/partner/ada.png" alt="A.D.A. APS"></li>
+        <li><img src="img/partner/roma-adventure.png" alt="Roma Adventure ASD – Roma Rafting"></li>
+        <li><img src="img/partner/cammino-aniene-vara.png" alt="Il Cammino dell'Aniene e V.A.R.A."></li>
+        <li><img src="img/partner/aquila-reale.png" alt="Collettivo L'Aquila Reale ETS"></li>
+        <li><img src="img/partner/ondata.png" alt="Associazione onData"></li>
+      </ul>
+      <h4 class="footer-logos-title">Con il sostegno di</h4>
+      <ul class="footer-logos" aria-label="Sostenitori">
+        <li><img src="img/partner/periferiacapitale.png" alt="Periferiacapitale – Fondazione Charlemagne"></li>
+        <li><img src="img/partner/ottopermille-valdese.png" alt="Otto per mille della Chiesa Valdese"></li>
+      </ul>
+      <p class="footer-credit">Supervisione scientifica: Bruna Gumiero, ecologa fluviale, Università di Bologna. Il progetto pilota Walk Up Aniene è stato sostenuto dal programma europeo ACTION – Horizon 2020.</p>
+    </div>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="brand-title">Aniene Water Lab</span>
+        <p class="footer-text">Monitoraggio civico della qualità delle acque del fiume Aniene. Segreteria: Casa del Parco, Via Vicovaro snc, 00156 Roma · <a href="mailto:segreteria@aniene.it">segreteria@aniene.it</a></p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigazione</h4>
+        <ul>
+          <li><a href="index.html#contesto">Contesto</a></li>
+          <li><a href="index.html#progetto">Il progetto</a></li>
+          <li><a href="index.html#citizen-science">Citizen science</a></li>
+          <li><a href="citizen-science.html">Strumenti e monitoraggio</a></li>
+          <li><a href="risultati.html">Risultati</a></li>
+          <li><a href="dashboard.html">Dashboard</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Risorse &amp; Dati</h4>
+        <ul>
+          <li><a href="aniene_dati.csv" download>Scarica tutti i dati (CSV)</a></li>
+          <li><a href="citizen-science.html#metodologia">Metodologia e fonti</a></li>
+          <li><a href="https://github.com/veramalavolti/aniene-water-lab" target="_blank" rel="noopener noreferrer">Codice sorgente su GitHub ↗</a></li>
+          <li><a href="https://www.freshwaterwatch.org/" target="_blank" rel="noopener noreferrer">FreshWater Watch ↗</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>Aniene Water Lab · Monitoraggio civico della qualità delle acque</span>
+      <span>Mappa del fiume © contributori OpenStreetMap (ODbL)</span>
+    </div>
+  </footer>
+</body>
+</html>

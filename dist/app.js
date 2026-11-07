@@ -312,7 +312,9 @@ function render() {
   if (view === 'stats') renderStats();
   renderRaw(rows);
   const url = new URL(location.href);
-  url.search = new URLSearchParams({param: state.param, view}).toString();
+  const query = {param: state.param, view};
+  if (state.period !== 'all') query.period = state.period;
+  url.search = new URLSearchParams(query).toString();
   history.replaceState(null, '', url);
 }
 
@@ -399,8 +401,10 @@ async function init() {
     chartDefaults(Chart);
     const query = new URLSearchParams(location.search);
     if (data.paramById[query.get('param')]) state.param = query.get('param');
+    if (['22/23', '23/24', '25'].includes(query.get('period'))) state.period = query.get('period');
     state.log = Boolean(param().log);
     buildControls();
+    $('period').value = state.period;
     $('status').textContent = '';
     setView(VIEWS.includes(query.get('view')) ? query.get('view') : 'map');
   } catch (error) {

@@ -63,10 +63,10 @@ function corrections(data) {
 }
 
 loadData().then(data => {
-  riverStrip(data);
-  paramCards(data);
-  corrections(data);
+  if ($('riverStrip')) riverStrip(data);
+  if ($('paramCards')) paramCards(data);
+  if ($('corrRows')) corrections(data);
 }).catch(error => {
-  $('paramCards').textContent = 'Non è stato possibile caricare i dati. Ricarica la pagina per riprovare.';
+  if ($('paramCards')) $('paramCards').textContent = 'Non è stato possibile caricare i dati. Ricarica la pagina per riprovare.';
   console.error(error);
 });
