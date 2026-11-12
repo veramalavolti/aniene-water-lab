@@ -111,3 +111,4 @@
 .field-photos img { width:100%; height:240px; object-fit:cover; display:block; }
 .field-photos figcaption { padding:.5rem .75rem; font-size:.82rem; font-weight:700; color:var(--teal); }
 @media (max-width:760px) { .field-photos { grid-template-columns:1fr 1fr; } .field-photos img { height:170px; } }
+.cs-quote { border-left:4px solid var(--lime-dark); background:rgba(184,212,50,.12); padding:1rem 1.25rem; border-radius:0 var(--radius-md) var(--radius-md) 0; color:var(--teal); font-weight:600; }
