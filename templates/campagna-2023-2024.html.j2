@@ -25,8 +25,12 @@
 
 <section class="sezione" id="luoghi">
   <div class="contenitore">
-    {{ parti.testa('Dove', c.luoghi.titolo) }}
-    {{ parti.luoghi(c.luoghi, mappa_svg(c.dashboard.dati)) }}
+    {{ parti.testa('Dove', c.luoghi.titolo, c.luoghi.intro) }}
+    <figure class="mappa mappa-larga">
+      {{ mappa_svg(c.dashboard.dati, 400) }}
+      <figcaption>{{ c.luoghi.mappa_didascalia }}</figcaption>
+    </figure>
+    <div class="stazioni-colonne">{{ parti.stazioni(c.luoghi.stazioni) }}</div>
     <div class="nota"><p>{{ c.luoghi.riquadro|t }}</p></div>
   </div>
 </section>
@@ -75,7 +79,7 @@
       <p><b>{{ c.metodologia.ossigeno.titolo }}.</b> {{ c.metodologia.ossigeno.testo }}</p>
     </div>
     <p class="bottoni">
-      <a class="bottone bottone-chiaro" href="citizen-science.html#metodologia">{{ c.metodologia.rimando }} →</a>
+      <a class="bottone" href="citizen-science.html#metodologia">{{ c.metodologia.rimando }} →</a>
     </p>
     <div style="margin-top:1.6rem">
       {{ parti.galleria(c.metodologia.foto) }}

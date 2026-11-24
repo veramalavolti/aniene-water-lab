@@ -295,6 +295,13 @@ report:
     documenti completi da cui vengono i dati e le interpretazioni di questa
     pagina.
   documenti:
+    - titolo: Giù al Tevere
+      descrizione: >-
+        Il report della **prima annualità** del monitoraggio civico, curato da
+        A Sud: le crisi ambientali di Roma, il progetto RomaUp, la metodologia
+        e i risultati della campagna sul Tevere da cui è nato il percorso poi
+        esteso all'Aniene. Supervisione scientifica di Bruna Gumiero.
+      file: report/giu-al-tevere-2022.pdf
     - titolo: Risultati del monitoraggio Aniene 2022-2023
       descrizione: >-
         Il report di A Sud con i risultati completi della campagna sull'Aniene,

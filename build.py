@@ -133,12 +133,40 @@ def dati_campagna(nome: str) -> dict:
     return json.loads(percorso.read_text(encoding="utf-8"))
 
 
-def mappa_svg(nome: str, altezza: int = 420) -> "Markup":
-    """Disegna la mappa dei punti di campionamento dalle loro coordinate.
+_FIUMI = None
 
-    Non usa mappe di sfondo né servizi esterni: i punti stanno alle loro
-    coordinate reali, uniti nell'ordine in cui scorre il fiume. L'immagine è
-    un SVG scritto dentro la pagina, quindi si carica subito e resta nitida.
+
+def corsi_dacqua() -> list:
+    """Il tracciato dell'Aniene e del Tevere, da OpenStreetMap.
+
+    Serve a disegnare le mappe dei punti di campionamento sul corso reale del
+    fiume, senza chiedere le mappe di sfondo a nessun servizio esterno: il
+    disegno è un SVG scritto dentro la pagina.
+    """
+    global _FIUMI
+    if _FIUMI is None:
+        percorso = DATI / "fiumi.geojson"
+        if not percorso.exists():
+            _FIUMI = []
+        else:
+            dati = json.loads(percorso.read_text(encoding="utf-8"))
+            _FIUMI = [
+                {
+                    "nome": f.get("properties", {}).get("name", ""),
+                    "linee": f["geometry"]["coordinates"]
+                    if f["geometry"]["type"] == "MultiLineString"
+                    else [f["geometry"]["coordinates"]],
+                }
+                for f in dati.get("features", [])
+            ]
+    return _FIUMI
+
+
+def mappa_svg(nome: str, altezza: int = 420) -> "Markup":
+    """Disegna la mappa dei punti di campionamento sul corso reale del fiume.
+
+    L'inquadratura si adatta ai punti della campagna: il fiume entra ed esce
+    dai bordi come in una mappa vera, e ogni punto sta alle sue coordinate.
     """
     dati = dati_campagna(nome)
     punti = [s for s in dati["stazioni"]
@@ -148,55 +176,103 @@ def mappa_svg(nome: str, altezza: int = 420) -> "Markup":
         return Markup("")
 
     larghezza = 900
-    bordo = 54
+    bordo = 46
+
     lat = [p["lat"] for p in punti]
     lon = [p["lon"] for p in punti]
     k = math.cos((min(lat) + max(lat)) / 2 * math.pi / 180)
-    xs = [p * k for p in lon]
-    min_x, max_x = min(xs), max(xs)
+
+    # l'inquadratura segue i punti, con un margine perché il fiume respiri
+    min_x, max_x = min(lon) * k, max(lon) * k
     min_y, max_y = min(lat), max(lat)
-    scala = min(
-        (larghezza - bordo * 2) / max(max_x - min_x, 1e-6),
-        (altezza - bordo * 2) / max(max_y - min_y, 1e-6),
-    )
+    margine_x = max((max_x - min_x) * 0.07, 0.004)
+    margine_y = max((max_y - min_y) * 0.30, 0.006)
+    min_x, max_x = min_x - margine_x, max_x + margine_x
+    min_y, max_y = min_y - margine_y, max_y + margine_y
+
+    # la scala tiene le proporzioni geografiche: niente mappe schiacciate
+    scala = min((larghezza - bordo * 2) / (max_x - min_x),
+                (altezza - bordo * 2) / (max_y - min_y))
     off_x = bordo + (larghezza - bordo * 2 - (max_x - min_x) * scala) / 2
     off_y = bordo + (altezza - bordo * 2 - (max_y - min_y) * scala) / 2
 
-    def xy(p):
-        return (off_x + (p["lon"] * k - min_x) * scala,
-                off_y + (max_y - p["lat"]) * scala)
+    def proietta(lon_, lat_):
+        return (off_x + (lon_ * k - min_x) * scala,
+                off_y + (max_y - lat_) * scala)
 
-    ordinati = sorted(punti, key=lambda p: p.get("ordine", 0))
-    percorso = " ".join(
-        ("M" if i == 0 else "L") + f"{xy(p)[0]:.1f} {xy(p)[1]:.1f}"
-        for i, p in enumerate(ordinati)
-    )
+    def dentro(x, y, tolleranza=240):
+        return -tolleranza < x < larghezza + tolleranza and -tolleranza < y < altezza + tolleranza
 
+    riquadro = f"maschera-{occhiello(nome)}"
     pezzi = [
         f'<svg viewBox="0 0 {larghezza} {altezza}" role="img" '
-        f'aria-label="Mappa dei punti di campionamento" '
-        f'xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;'
-        f'background:#EFF4F2">',
-        f'<path d="{percorso}" fill="none" stroke="#9CC4D6" stroke-width="7" '
-        f'stroke-linejoin="round" stroke-linecap="round"/>',
+        f'aria-label="Mappa dei punti di campionamento sul fiume Aniene" '
+        f'xmlns="http://www.w3.org/2000/svg" '
+        f'style="width:100%;height:auto;display:block">',
+        f'<defs><clipPath id="{riquadro}">'
+        f'<rect x="0" y="0" width="{larghezza}" height="{altezza}" rx="8"/>'
+        f'</clipPath></defs>',
+        f'<rect width="{larghezza}" height="{altezza}" rx="8" fill="#EDF1EE"/>',
+        f'<g clip-path="url(#{riquadro})">',
     ]
-    for p in punti:
-        x, y = xy(p)
+
+    # i corsi d'acqua: il Tevere più sottile, l'Aniene in evidenza
+    for fiume in corsi_dacqua():
+        principale = fiume["nome"].lower().startswith("aniene")
+        colore = "#2D7A9A" if principale else "#9CC4D6"
+        spessore = 5 if principale else 3.2
+        for linea in fiume["linee"]:
+            tratto, visibile = [], False
+            for lon_, lat_ in linea:
+                x, y = proietta(lon_, lat_)
+                if dentro(x, y):
+                    visibile = True
+                tratto.append(f"{x:.1f} {y:.1f}")
+            if visibile and len(tratto) > 1:
+                d = "M" + " L".join(tratto)
+                pezzi.append(
+                    f'<path d="{d}" fill="none" stroke="{colore}" '
+                    f'stroke-width="{spessore}" stroke-linejoin="round" '
+                    f'stroke-linecap="round" opacity="{1 if principale else .7}"/>'
+                )
+
+    # i punti di campionamento, da valle a monte
+    etichette = len(punti) <= 10
+    for indice, p in enumerate(punti):
+        x, y = proietta(p["lon"], p["lat"])
+        sigla = html.escape(str(p["id"]))
         nome_punto = html.escape(p["nome"])
         pezzi.append(
-            f'<g><title>{html.escape(str(p["id"]))} · {nome_punto}</title>'
-            f'<circle cx="{x:.1f}" cy="{y:.1f}" r="9" fill="#1A3340" stroke="#fff" stroke-width="2.5"/>'
-            f'<text x="{x:.1f}" y="{y - 15:.1f}" text-anchor="middle" '
-            f'font-family="Barlow, sans-serif" font-size="13" font-weight="700" '
-            f'fill="#1A3340">{html.escape(str(p["id"]))}</text></g>'
+            f'<g><title>{sigla} · {nome_punto}</title>'
+            f'<circle cx="{x:.1f}" cy="{y:.1f}" r="11" fill="#1A3340" '
+            f'stroke="#fff" stroke-width="2.5"/>'
+            f'<text x="{x:.1f}" y="{y + 4:.1f}" text-anchor="middle" '
+            f'font-family="Barlow, sans-serif" font-size="11.5" '
+            f'font-weight="800" fill="#B8D432">{sigla}</text></g>'
         )
+        if etichette:
+            # i nomi si alternano sopra e sotto il punto: nel tratto urbano le
+            # stazioni sono vicine e le scritte finirebbero una sull'altra
+            sopra = indice % 2 == 0
+            y_testo = y - 18 if sopra else y + 26
+            pezzi.append(
+                f'<text x="{x:.1f}" y="{y_testo:.1f}" text-anchor="middle" '
+                f'font-family="Barlow, sans-serif" font-size="13" '
+                f'font-weight="700" fill="#1A3340" '
+                f'stroke="#EDF1EE" stroke-width="4" paint-order="stroke" '
+                f'>{nome_punto}</text>'
+            )
+
+    pezzi.append("</g>")
     pezzi.append(
-        f'<text x="{bordo}" y="{altezza - 16}" font-family="Barlow, sans-serif" '
-        f'font-size="12" font-weight="700" fill="#4A5568" '
-        f'letter-spacing="1">VALLE</text>'
-        f'<text x="{larghezza - bordo}" y="{altezza - 16}" text-anchor="end" '
-        f'font-family="Barlow, sans-serif" font-size="12" font-weight="700" '
-        f'fill="#4A5568" letter-spacing="1">MONTE</text>'
+        f'<text x="{bordo - 18}" y="{altezza - 14}" font-family="Barlow, sans-serif" '
+        f'font-size="12" font-weight="800" fill="#4A5568" letter-spacing="1.4">VALLE</text>'
+        f'<text x="{larghezza - bordo + 18}" y="{altezza - 14}" text-anchor="end" '
+        f'font-family="Barlow, sans-serif" font-size="12" font-weight="800" '
+        f'fill="#4A5568" letter-spacing="1.4">MONTE</text>'
+        f'<text x="{larghezza - bordo + 18}" y="18" text-anchor="end" '
+        f'font-family="Barlow, sans-serif" font-size="10.5" fill="#6B7A85">'
+        f'Corso del fiume: OpenStreetMap</text>'
     )
     pezzi.append("</svg>")
     return Markup("".join(pezzi))

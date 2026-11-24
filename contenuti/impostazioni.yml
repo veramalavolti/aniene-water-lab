@@ -10,6 +10,11 @@ sito:
     l'interpretazione dei risultati.
   lingua: it
 
+# Il bottone in fondo alla barra in alto.
+testata:
+  voce: Esplora i dati ↗
+  pagina: campagna-2025-2026
+
 # L'ordine del menu in alto. "pagina" è il nome del file della pagina.
 menu:
   - pagina: index
