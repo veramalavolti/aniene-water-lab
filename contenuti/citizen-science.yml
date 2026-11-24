@@ -62,7 +62,10 @@ scienza_partecipata:
           e di comunità in condizioni di marginalità, dove le ingiustizie
           ambientali si intrecciano ed esasperano i già presenti fenomeni di
           disuguaglianza ed esclusione sociale.
-      lato: nessuno
+      foto:
+        file: foto/fiume-sotto-il-ponte.jpg
+        descrizione: Il fiume visto da un punto di accesso difficile da raggiungere.
+      lato: sinistra
 
     - titolo: Costruire ponti
       paragrafi:
@@ -88,7 +91,7 @@ scienza_partecipata:
       foto:
         file: foto/formazione-tavolo.jpg
         descrizione: La formazione prima di un'uscita di monitoraggio.
-      lato: sinistra
+      lato: destra
 
     - titolo: La citizen science estrema
       paragrafi:
@@ -100,7 +103,10 @@ scienza_partecipata:
           Attraverso queste iniziative, le persone rifiutano un ruolo passivo e
           diventano protagoniste, superando il senso di impotenza derivante
           dalla mancanza di voce durante le decisioni «pubbliche».
-      lato: nessuno
+      foto:
+        file: foto/spiegazione-studenti.jpg
+        descrizione: Una spiegazione sul campo prima dei prelievi.
+      lato: sinistra
 
   citazione: >-
     Attraverso queste iniziative, le persone rifiutano un ruolo passivo e
@@ -142,7 +148,10 @@ scienza_partecipata:
           esaustivo sullo stato di salute dell'ecosistema in cui viviamo:
           abbiamo bisogno di dati accessibili, aperti, aggiornati,
           interoperabili.
-      lato: nessuno
+      foto:
+        file: foto/studenti-schede.jpg
+        descrizione: La compilazione delle schede di rilievo con le scuole.
+      lato: sinistra
 
   riquadro:
     titolo: Il diritto a sapere, dal 1986
@@ -167,6 +176,7 @@ scienza_partecipata:
         informazioni sicuramente importanti, ma datate, soprattutto in tempi di
         estrema accelerazione delle crisi ambientali.
 
+  chiusura_titolo: Un allargamento dei soggetti
   chiusura:
     - >-
       I progetti di citizen science estrema coinvolgono rappresentanti del mondo

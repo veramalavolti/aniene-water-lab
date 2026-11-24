@@ -65,15 +65,15 @@ fiume:
       di Tivoli, oltre a costituire la via d'acqua usata in passato per
       trasportare il travertino a Roma.
     - >-
-      Il suo bacino rappresenta un **corridoio ecologico fondamentale** a
-      nord-est di Roma. Nel tratto urbano, il fiume è tutelato dall'istituzione
-      della **Riserva Naturale Valle dell'Aniene** (620 ettari). Rispetto al
-      Tevere, le sponde dell'Aniene presentano tratti più selvaggi e meno
-      accessibili, il che da un lato ne preserva l'aspetto naturale, ma
-      dall'altro rende più difficile il controllo del degrado e delle discariche
-      abusive. Iniziative civiche come il Sentiero Parenzio, ad opera dei
-      volontari Retake, dimostrano come la fruizione sostenibile e l'apertura di
-      accessi curati aiutino a presidiare e valorizzare il territorio.
+      Il suo bacino è un **corridoio ecologico fondamentale** a nord-est di
+      Roma, tutelato nel tratto urbano dalla **Riserva Naturale Valle
+      dell'Aniene** (620 ettari). Le sponde sono più selvagge e meno accessibili
+      di quelle del Tevere: un bene per la naturalità, un problema per il
+      controllo del degrado. Iniziative civiche come il Sentiero Parenzio
+      mostrano che **accessi curati aiutano a presidiare il territorio**.
+  foto: foto/fiume-ponte-inverno.jpg
+  foto_descrizione: >-
+    L'Aniene dentro la Riserva Naturale Valle dell'Aniene, nel tratto urbano.
 
 progetto:
   titolo: Il progetto
@@ -298,14 +298,18 @@ metodologia:
       piastre cromogene Compact Dry EC, incubate per 24 ore a 36 °C. Tutti i
       rilievi vengono annotati su schede cartacee e caricati sull'app Survey123,
       alimentando un **database aperto e condiviso**.
-    - >-
-      Per fosfati, nitrati e torbidità utilizziamo il kit fornito da **Fresh
-      Water Watch Europe**, progetto internazionale di citizen science dedicato
-      alla qualità delle acque dolci promosso da Earthwatch, che permette di
-      proiettare i dati raccolti localmente in una banca dati comune, dove i
-      dati dell'Aniene si affiancano a quelli di migliaia di altri gruppi nel
-      mondo.
   approfondisci: Vai alla pagina Citizen science
+  fresh_water_watch:
+    etichetta: La rete internazionale
+    titolo: I dati entrano in una banca dati mondiale
+    testo: >-
+      Per fosfati, nitrati e torbidità usiamo il kit di **Fresh Water Watch
+      Europe**, il progetto di citizen science promosso da Earthwatch. Misure
+      prese con lo stesso protocollo in tutto il mondo si possono confrontare:
+      così i dati dell'Aniene si affiancano a quelli di **migliaia di altri
+      gruppi**, dall'Europa all'Asia.
+    link: https://www.freshwaterwatch.org
+    link_testo: Vai a Fresh Water Watch
 
 obiettivi:
   titolo: In breve, gli obiettivi del progetto

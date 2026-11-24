@@ -49,7 +49,12 @@
     <div class="doppia">
       <div>
         {{ parti.testa('Il contesto', c.fiume.titolo) }}
-        {{ parti.paragrafi(c.fiume.paragrafi) }}
+        {{ parti.paragrafi(c.fiume.paragrafi[:2]) }}
+        <figure class="foto-inserita">
+          <img src="assets/img/{{ c.fiume.foto }}" alt="{{ c.fiume.foto_descrizione }}" loading="lazy" width="1200" height="800">
+          <figcaption>{{ c.fiume.foto_descrizione }}</figcaption>
+        </figure>
+        {{ parti.paragrafi(c.fiume.paragrafi[2:]) }}
       </div>
       <div id="progetto">
         {{ parti.testa('Il percorso', c.progetto.titolo) }}
@@ -149,12 +154,30 @@
 </section>
 
 <section class="sezione" id="metodologia">
-  <div class="contenitore stretto">
+  <div class="contenitore">
     {{ parti.testa('Come lavoriamo', c.metodologia.titolo) }}
-    {{ parti.paragrafi(c.metodologia.paragrafi) }}
-    <p class="bottoni">
-      <a class="bottone bottone-chiaro" href="citizen-science.html#metodologia">{{ c.metodologia.approfondisci }} →</a>
-    </p>
+    <div class="metodo-griglia">
+      <div class="capitolo-testo">
+        {{ parti.paragrafi(c.metodologia.paragrafi) }}
+        <p class="bottoni" style="margin-bottom:0">
+          <a class="bottone bottone-chiaro" href="citizen-science.html#metodologia">{{ c.metodologia.approfondisci }} →</a>
+        </p>
+      </div>
+      <aside class="fww fww-stretto">
+        <div>
+          <p class="etichetta">{{ c.metodologia.fresh_water_watch.etichetta }}</p>
+          <h3>{{ c.metodologia.fresh_water_watch.titolo }}</h3>
+          <p>{{ c.metodologia.fresh_water_watch.testo|t }}</p>
+          <p class="bottoni" style="margin-bottom:0">
+            <a class="bottone" href="{{ c.metodologia.fresh_water_watch.link }}" rel="noopener">{{ c.metodologia.fresh_water_watch.link_testo }} ↗</a>
+          </p>
+        </div>
+        <div class="fww-qr">
+          <img src="assets/img/qr-survey123.svg" alt="Codice QR dell'archivio Survey123 di Fresh Water Watch" width="150" height="150">
+          <span>Survey123</span>
+        </div>
+      </aside>
+    </div>
   </div>
 </section>
 

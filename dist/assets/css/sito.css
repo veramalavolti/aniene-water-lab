@@ -54,8 +54,15 @@ body {
 
 h1, h2, h3, h4 { margin: 0; font-family: var(--font-display); line-height: 1.08; }
 p { margin: 0 0 1.05rem; }
-strong, b { font-weight: 700; color: var(--teal); }
-.sezione-scura strong, .sezione-scura b, .hero strong, footer strong { color: var(--lime); }
+/* Il colore del grassetto segue il fondo su cui sta: ogni contenitore scuro
+   dichiara il proprio, così il testo in evidenza non sparisce mai. */
+strong, b { font-weight: 700; color: var(--grassetto, var(--teal)); }
+.sezione-scura, .hero, footer, .obiettivi, .fww, .bottone-sezione,
+.campagna-box, .numeri, .dash-barra, .suggerimento { --grassetto: var(--lime); }
+.sezione-scura .riquadro, .sezione-scura .nota, .sezione-scura .citazione,
+.sezione-scura .scheda, .sezione-scura .parametro, .sezione-scura .mappa,
+.sezione-scura .galleria figure, .sezione-scura .foto-larga,
+.sezione-scura .passi li, .sezione-scura .elenco-numerato li { --grassetto: var(--teal); }
 img { max-width: 100%; height: auto; display: block; }
 a { color: var(--teal); text-decoration-thickness: 1px; text-underline-offset: 3px; }
 a:hover { color: var(--lime-dark); }
@@ -225,10 +232,11 @@ main { padding-bottom: 4rem; }
 .doppia > div { padding: 2.2rem 2.3rem; }
 .doppia > div + div { border-left: 1px solid var(--border); background: #FBFAF7; }
 .doppia h3, .sotto-titolo {
-  font-family: var(--font-display); font-size: 1.3rem; font-weight: 800;
-  text-transform: uppercase; color: var(--purple); margin: 1.8rem 0 .7rem;
-  letter-spacing: .02em;
+  font-family: var(--font-display); font-size: clamp(1.4rem, 1.9vw, 1.7rem);
+  font-weight: 800; text-transform: uppercase; color: var(--teal);
+  margin: 2rem 0 .9rem; letter-spacing: .02em;
 }
+.sezione-scura .sotto-titolo { color: var(--lime); }
 .doppia > div > h2:first-child, .doppia > div > .etichetta:first-child { margin-top: 0; }
 @media (max-width: 980px) {
   .doppia { grid-template-columns: 1fr; }
@@ -584,6 +592,12 @@ td.oltre { font-weight: 800; }
 /* Foto larga subito sotto il titolo di una pagina o di una sezione */
 .foto-larga { margin: 0 0 2.4rem; border-radius: var(--radius-lg); overflow: hidden;
   background: var(--cream-card); border: 1px solid var(--border); box-shadow: var(--shadow-sm); }
+.sezione-scura .foto-larga {
+  background: transparent; border: 0; box-shadow: none;
+  border-radius: var(--radius-md); margin-bottom: 2rem;
+}
+.sezione-scura .foto-larga img { border-radius: var(--radius-md); }
+.sezione-scura .foto-larga figcaption { color: var(--text-inv-dim); padding: .6rem .2rem 0; }
 .foto-larga img { width: 100%; height: clamp(170px, 20vw, 260px); object-fit: cover; object-position: center 58%; }
 .foto-larga figcaption { padding: .7rem 1.1rem; font-size: .88rem; color: var(--text-dim); }
 
@@ -627,8 +641,9 @@ td.oltre { font-weight: 800; }
 /* Fresh Water Watch: la rete internazionale a cui mandiamo i dati */
 .fww {
   display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 2rem; align-items: center;
-  background: linear-gradient(135deg, var(--purple-deep) 0%, var(--teal) 100%);
-  color: var(--text-inv); border-radius: var(--radius-lg); padding: 2.2rem 2.4rem;
+  background: var(--teal); color: var(--text-inv);
+  border: 1.5px solid var(--lime-border);
+  border-radius: var(--radius-lg); padding: 2.2rem 2.4rem;
 }
 .fww .etichetta { color: var(--lime); }
 .fww h3 { font-size: clamp(1.5rem, 2.4vw, 2rem); font-weight: 900; text-transform: uppercase; margin-bottom: .6rem; }
@@ -892,3 +907,66 @@ a.rete-card:hover .vai { text-decoration: underline; text-underline-offset: 3px;
   text-transform: uppercase; color: var(--teal); line-height: 1.15;
 }
 .vantaggi p { font-size: .94rem; color: var(--text-dim); margin: 0; line-height: 1.55; }
+
+/* ===================================== foto dentro una colonna di testo */
+
+.foto-inserita {
+  margin: 1.4rem 0; border-radius: var(--radius-md); overflow: hidden;
+  background: var(--cream-card); border: 1px solid var(--border);
+}
+.foto-inserita img { width: 100%; height: clamp(180px, 20vw, 240px); object-fit: cover; }
+.foto-inserita figcaption { padding: .55rem .85rem; font-size: .84rem; color: var(--text-dim); }
+
+/* la metodologia: testo a sinistra, la rete internazionale a destra */
+.metodo-griglia { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 2.5rem; align-items: start; }
+.fww-stretto { grid-template-columns: 1fr; gap: 1.4rem; padding: 1.8rem 1.9rem; position: sticky; top: 96px; }
+.fww-stretto .fww-qr { justify-self: start; }
+.fww-stretto h3 { font-size: 1.45rem; }
+@media (max-width: 980px) {
+  .metodo-griglia { grid-template-columns: 1fr; }
+  .fww-stretto { position: static; }
+}
+
+/* titolo di un blocco interno, più presente di un sottotitolo di paragrafo */
+.titolo-blocco {
+  font-family: var(--font-display); font-size: clamp(1.7rem, 2.4vw, 2.1rem);
+  font-weight: 900; text-transform: uppercase; color: var(--teal);
+  letter-spacing: .01em; margin: 2.4rem 0 1.1rem;
+  padding-bottom: .5rem; border-bottom: 3px solid var(--lime);
+  display: inline-block;
+}
+.sezione-scura .titolo-blocco { color: var(--text-inv); }
+
+/* ============================================ messa a punto per il telefono */
+
+@media (max-width: 760px) {
+  body { font-size: 1.02rem; line-height: 1.65; }
+  .contenitore, .stretto { width: min(100% - 2rem, var(--larghezza)); }
+  .sezione, .sezione-scura, .sezione-chiara { padding-block: 2.6rem; }
+  .sezione-scura + .sezione,
+  .sezione-chiara + .sezione,
+  .sezione + .sezione-chiara,
+  .sezione + .sezione-scura { padding-top: 2.8rem; }
+  .hero { padding-block: 1.8rem 1.6rem; }
+  .hero p { font-size: 1.02rem; }
+  .hero-compatto { padding-block: 1.8rem; }
+  .occhiello-testo { font-size: 1.02rem; margin-bottom: 1.4rem; }
+  .titolo-blocco { font-size: 1.5rem; margin-top: 1.8rem; }
+  .foto-larga img { height: clamp(150px, 44vw, 210px); }
+  .foto-inserita img { height: clamp(150px, 44vw, 200px); }
+  .doppia > div { padding: 1.4rem 1.2rem; }
+  .obiettivi { padding: 1.5rem 1.3rem; }
+  .articolo-evidenza .testo { padding: 1.4rem 1.2rem; }
+  .fww, .fww-stretto { padding: 1.4rem 1.3rem; }
+  .cronologia li { padding-left: 1.2rem; }
+  .numeri > div { padding: 1.1rem 1.2rem; }
+  .numero-valore { font-size: 2.1rem; }
+}
+
+@media (max-width: 420px) {
+  .hero h1 { font-size: 2.05rem; }
+  .titolo-sezione { font-size: 1.6rem; }
+  .campagna-anni { font-size: 1.6rem; }
+  .bottone, .bottone-chiaro { width: 100%; justify-content: center; }
+  .bottoni { gap: .6rem; }
+}

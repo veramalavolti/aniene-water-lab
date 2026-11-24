@@ -44,12 +44,15 @@
     {{ capitolo(c.scienza_partecipata.blocchi) }}
     <blockquote class="citazione">{{ c.scienza_partecipata.citazione }}</blockquote>
     {{ capitolo(c.scienza_partecipata.blocchi_due) }}
-    <div class="riquadro" style="margin-top:1.2rem">
-      <h3>{{ c.scienza_partecipata.riquadro.titolo }}</h3>
-      {{ parti.paragrafi(c.scienza_partecipata.riquadro.paragrafi) }}
-    </div>
-    <div class="capitolo-testo" style="margin-top:1.6rem">
-      {{ parti.paragrafi(c.scienza_partecipata.chiusura) }}
+    <div class="affiancate" style="margin-top:1.6rem">
+      <div class="riquadro">
+        <h3>{{ c.scienza_partecipata.riquadro.titolo }}</h3>
+        {{ parti.paragrafi(c.scienza_partecipata.riquadro.paragrafi) }}
+      </div>
+      <div>
+        <h3 class="sotto-titolo" style="margin-top:0">{{ c.scienza_partecipata.chiusura_titolo }}</h3>
+        {{ parti.paragrafi(c.scienza_partecipata.chiusura) }}
+      </div>
     </div>
   </div>
 </section>
@@ -64,7 +67,7 @@
 <section class="sezione" id="metodologia">
   <div class="contenitore">
     {{ parti.testa('Sul campo', c.metodologia.titolo, c.metodologia.intro) }}
-    <h3 class="sotto-titolo">{{ c.metodologia.strumenti_titolo }}</h3>
+    <h3 class="titolo-blocco">{{ c.metodologia.strumenti_titolo }}</h3>
     <div class="schede-parametri">
       {% for s in c.metodologia.strumenti %}
       <article class="parametro">
