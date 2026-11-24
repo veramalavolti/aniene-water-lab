@@ -20,9 +20,10 @@
   </div>
 </section>
 
-<section class="sezione-scura">
+<section class="sezione sezione-chiara" id="campagne">
   <div class="contenitore">
     <p class="etichetta">Le campagne di monitoraggio</p>
+    <h2 class="sr-only">Le campagne di monitoraggio</h2>
     <div class="campagne-griglia">
       {% for b in c.campagne %}
       <a class="campagna-box" href="{{ b.pagina }}.html">
@@ -32,7 +33,7 @@
       </a>
       {% endfor %}
     </div>
-    <div class="numeri">
+    <div class="numeri numeri-chiari">
       {% for n in c.numeri %}
       <div>
         <div class="numero-valore">{{ n.valore }}</div>

@@ -78,7 +78,18 @@ img { max-width: 100%; height: auto; display: block; }
 a { color: var(--teal); text-decoration-thickness: 1px; text-underline-offset: 3px; }
 a:hover { color: var(--verde-testo); }
 
-:focus-visible { outline: 3px solid var(--lime-dark); outline-offset: 3px; }
+/* il contorno di messa a fuoco deve staccare sia sul chiaro sia sullo scuro:
+   un doppio anello funziona su entrambi i fondi */
+:focus-visible {
+  outline: 3px solid var(--teal); outline-offset: 2px;
+  box-shadow: 0 0 0 5px var(--lime);
+  border-radius: 3px;
+}
+.sezione-scura :focus-visible, .hero :focus-visible, .testata :focus-visible,
+.obiettivi :focus-visible, .fww :focus-visible, footer :focus-visible,
+.dash-barra :focus-visible {
+  outline-color: var(--lime); box-shadow: 0 0 0 5px var(--teal);
+}
 
 .sr-only, .salta:not(:focus) {
   position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%);
@@ -154,8 +165,8 @@ a:hover { color: var(--verde-testo); }
 
 .hero { background: var(--teal); color: var(--text-inv); padding-block: 2.6rem 2rem; }
 .hero-griglia {
-  display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
-  gap: 2.5rem; align-items: center;
+  display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  gap: 3rem; align-items: stretch;
 }
 /* Quando la pagina ha già una fotografia larga sotto il titolo, l'occhiello
    resta solo testo: niente immagine ripetuta e nessun vuoto da riempire. */
@@ -173,10 +184,11 @@ a:hover { color: var(--verde-testo); }
   margin-bottom: 1.1rem; letter-spacing: .004em;
 }
 .hero p { font-size: 1.06rem; color: var(--text-inv-dim); max-width: 56ch; }
-.hero figure { margin: 0; }
+.hero figure { margin: 0; display: flex; flex-direction: column; justify-content: center; }
 .hero figure img {
-  width: 100%; height: clamp(210px, 24vw, 300px); object-fit: cover;
-  border-radius: var(--radius-lg);
+  /* l'immagine segue l'altezza del testo accanto, come negli altri blocchi */
+  width: 100%; flex: 1 1 0; height: 0; min-height: 230px; max-height: 420px;
+  object-fit: cover; border-radius: var(--radius-lg);
 }
 .hero figcaption { font-size: .78rem; color: var(--text-inv-dim); padding: .5rem 0 0; }
 @media (max-width: 900px) {
@@ -223,22 +235,32 @@ main { padding-bottom: 4rem; }
 /* ------------------------------------------------------ riquadri e campagne */
 
 .campagne-griglia { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
+/* I tre riquadri sono la navigazione principale del sito: stanno su fondo
+   chiaro perché siano la cosa più evidente della pagina dopo il titolo. */
 .campagna-box {
-  display: flex; flex-direction: column; gap: .3rem; padding: 1.3rem 1.4rem;
-  border: 1.5px solid var(--lime-border); border-radius: var(--radius-md);
-  background: var(--lime-soft); color: var(--text-inv); text-decoration: none;
-  transition: background .18s ease, transform .18s ease, border-color .18s ease;
+  display: flex; flex-direction: column; gap: .35rem; padding: 1.5rem 1.6rem;
+  background: var(--cream-card); border: 1px solid var(--border);
+  border-top: 4px solid var(--lime-dark); border-radius: var(--radius-md);
+  color: var(--teal); text-decoration: none; box-shadow: var(--shadow-sm);
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
 }
 .campagna-box:hover {
-  background: var(--lime); border-color: var(--lime); color: var(--teal); transform: translateY(-3px);
+  transform: translateY(-4px); box-shadow: var(--shadow-md); border-top-color: var(--teal);
 }
 .campagna-anni {
   font-family: var(--font-display); font-size: 1.9rem; font-weight: 900;
-  line-height: 1; color: var(--lime);
+  line-height: 1; color: var(--teal);
 }
-.campagna-box:hover .campagna-anni { color: var(--teal); }
-.campagna-nome { font-weight: 800; font-size: .92rem; text-transform: uppercase; letter-spacing: .05em; }
-.campagna-desc { font-size: .86rem; opacity: .86; }
+.campagna-nome {
+  font-weight: 800; font-size: .84rem; text-transform: uppercase;
+  letter-spacing: .07em; color: var(--verde-testo);
+}
+.campagna-desc { font-size: .92rem; color: var(--text-dim); }
+.campagna-box::after {
+  content: 'Vedi i risultati →'; margin-top: auto; padding-top: .7rem;
+  font-size: .86rem; font-weight: 800; color: var(--verde-testo);
+}
+.campagna-box:hover::after { text-decoration: underline; text-underline-offset: 3px; }
 
 .numeri { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 1px; margin-top: 2.2rem;
   background: rgba(240, 237, 230, .14); border: 1px solid rgba(240, 237, 230, .14);
@@ -264,6 +286,7 @@ main { padding-bottom: 4rem; }
   border-radius: var(--radius-lg); box-shadow: var(--shadow-sm); overflow: hidden;
 }
 .doppia > div { padding: 2.2rem 2.3rem; }
+.doppia > div p, .doppia > div li { max-width: 62ch; }
 .doppia > div + div { border-left: 1px solid var(--border); background: #FBFAF7; }
 .doppia h3, .sotto-titolo {
   font-family: var(--font-display); font-size: var(--t-h3);
@@ -570,7 +593,8 @@ footer ul { list-style: none; margin: 0; padding: 0; display: grid; gap: .4rem; 
 
 .dash-stazioni { display: flex; flex-wrap: wrap; gap: .4rem; padding: 0 1.5rem 1rem; }
 .stz {
-  display: inline-flex; align-items: center; gap: .4rem; padding: .3rem .6rem;
+  display: inline-flex; align-items: center; gap: .4rem; padding: .4rem .7rem;
+  min-height: 32px;
   border: 1px solid var(--border); border-radius: var(--radius-sm);
   background: var(--cream-card); font-size: .78rem; font-weight: 700;
   color: var(--teal); cursor: pointer;
@@ -584,8 +608,10 @@ footer ul { list-style: none; margin: 0; padding: 0; display: grid; gap: .4rem; 
 .dash-guida strong { color: var(--teal); }
 .dash-pie {
   display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; align-items: center;
-  padding: .9rem 1.5rem; border-top: 1px solid var(--border); font-size: .84rem; color: var(--text-dim);
+  padding: 1rem 1.5rem; border-top: 1px solid var(--border); font-size: .84rem; color: var(--text-dim);
+  background: #FBFAF7;
 }
+.dash-pie .bottone { margin-left: auto; }
 
 /* riquadro che compare passando sopra una soglia o un punto */
 .suggerimento {
@@ -795,7 +821,7 @@ td.oltre { font-weight: 800; }
 .dash-punti { display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; }
 .dash-punti-azioni { display: flex; gap: .4rem; }
 .dash-mini {
-  padding: .3rem .7rem; border: 1px solid var(--border); border-radius: var(--radius-sm);
+  padding: .4rem .8rem; min-height: 32px; border: 1px solid var(--border); border-radius: var(--radius-sm);
   background: var(--cream-card); color: var(--teal); font-size: .78rem; font-weight: 700; cursor: pointer;
 }
 .dash-mini:hover { background: var(--teal); color: var(--cream); }
@@ -1058,3 +1084,25 @@ a.rete-card:hover .vai { text-decoration: underline; text-underline-offset: 3px;
 .riquadro-colonne p { break-inside: avoid; }
 .riquadro-colonne p:last-child { margin-bottom: 0; }
 @media (max-width: 860px) { .riquadro-colonne { columns: 1; } }
+
+/* ======================== dashboard: meno comandi fra l'utente e il grafico */
+
+@media (max-width: 760px) {
+  /* i parametri diventano una striscia che scorre di lato, come le schede di
+     un'app: così il grafico resta subito visibile invece di finire sotto
+     cinque righe di bottoni */
+  .dash-barra {
+    flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none;
+    -webkit-overflow-scrolling: touch; padding: .7rem 1rem;
+    scroll-snap-type: x proximity;
+  }
+  .dash-barra::-webkit-scrollbar { display: none; }
+  .dash-barra-titolo { display: none; }
+  .dash-par { scroll-snap-align: start; }
+  .dash-controlli { gap: .7rem; padding: .8rem 1rem; }
+  .dash-controlli label { flex: 1 1 calc(50% - .4rem); min-width: 150px; }
+  .dash-controlli select { width: 100%; }
+  .dash-pie .bottone { width: 100%; justify-content: center; margin-left: 0; }
+  .dash-intestazione { padding: 1rem 1rem .3rem; }
+  .dash-intestazione h3 { font-size: 1.3rem; }
+}

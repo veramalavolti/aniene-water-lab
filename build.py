@@ -75,6 +75,19 @@ def grassetto(testo) -> "Markup":
     return Markup("".join(fuori))
 
 
+def impronta(percorso: Path) -> str:
+    """Un codice breve che cambia quando cambia il file.
+
+    Serve ad attaccarlo agli indirizzi di CSS e JavaScript: senza, i browser
+    continuerebbero a usare la copia vecchia anche dopo un aggiornamento del
+    sito, e le correzioni non si vedrebbero.
+    """
+    if not percorso.exists():
+        return "1"
+    import hashlib
+    return hashlib.sha1(percorso.read_bytes()).hexdigest()[:8]
+
+
 def peso_file(percorso: str) -> str:
     """Quanto pesa un documento, per dirlo prima di farlo scaricare."""
     file = DIST / percorso
@@ -339,6 +352,10 @@ def main() -> int:
             "legenda_livelli": parametri_file["legenda_livelli"],
             "c": pagina,
             "loghi": loghi,
+            "versione": {
+                "css": impronta(ASSETS / "css" / "sito.css"),
+                "js": impronta(ASSETS / "js" / "dashboard.js"),
+            },
             "dati_campagna": dati_campagna,
             "peso": peso_file,
             "mappa_svg": mappa_svg,

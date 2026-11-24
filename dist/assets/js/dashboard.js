@@ -259,12 +259,6 @@
     lPunti.appendChild(this.selPunti);
     controlli.appendChild(lPunti);
 
-    var destra = html('div', 'a-destra');
-    var scarica = html('button', 'bottone bottone-chiaro', 'Scarica i dati (CSV)');
-    scarica.type = 'button';
-    scarica.addEventListener('click', function () { self.scaricaCsv(); });
-    destra.appendChild(scarica);
-    controlli.appendChild(destra);
     this.nodo.appendChild(controlli);
 
     // intestazione del parametro
@@ -308,6 +302,10 @@
       this.dati.stazioni.length + ' punti · ' + this.dati.campagne.length + ' campagne · ' +
       this.dati.misure.length + ' prelievi'));
     if (this.dati.nota_fonte) pie.appendChild(html('span', null, this.dati.nota_fonte));
+    var scarica = html('button', 'bottone bottone-chiaro', 'Scarica i dati (CSV)');
+    scarica.type = 'button';
+    scarica.addEventListener('click', function () { self.scaricaCsv(); });
+    pie.appendChild(scarica);
     this.nodo.appendChild(pie);
 
     this.aggiornaControlli();
