@@ -1,0 +1,271 @@
+# Pagina CAMPAGNA 2023-2024.
+# La dashboard legge i dati da dati/campagna-2023-2024.json: non si modificano qui.
+
+titolo: Campagna 2023-2024
+sottotitolo: >-
+  Aniene WaterLab esce dalla città: nove stazioni da Subiaco al Tevere, undici
+  mesi di campionamenti e tre discese in gommone.
+foto_copertina: foto/studenti-fiume.jpg
+foto_copertina_descrizione: >-
+  Studentesse e studenti lungo l'Aniene durante un campionamento.
+
+introduzione:
+  paragrafi:
+    - >-
+      Il progetto Aniene WaterLab, finanziato dal programma «Periferiacapitale»
+      della Fondazione Charlemagne, ha attivato dal mese di dicembre 2023 una
+      campagna annuale di monitoraggio ambientale partecipato delle acque del
+      fiume Aniene, tramite attività sul campo, sessioni di formazione, azioni
+      di networking territoriale e attività di advocacy.
+    - >-
+      La proposta di progetto è nata con lo scopo di dare continuità al lavoro
+      svolto negli ultimi anni in favore della tutela ecologica dei fiumi romani
+      dalle associazioni territoriali e da tutte le persone volontarie impegnate
+      nella protezione di questo ecosistema. Il percorso si è occupato del
+      monitoraggio delle acque dell'Aniene non solo nel tratto urbano, come
+      nelle scorse annualità, ma anche nel tratto extra-urbano, includendo
+      ulteriori zone critiche dal punto di vista ambientale.
+    - >-
+      Le attività del monitoraggio partecipato, fondate sui principi della
+      citizen science, hanno coinvolto direttamente attiviste e attivisti,
+      singole persone e associazioni locali, impegnati nella raccolta dei dati e
+      nella diffusione di pratiche e conoscenze utili alla preservazione degli
+      ecosistemi fluviali. La validazione scientifica dei dati raccolti, a cura
+      della Dott.ssa Bruna Gumiero, ecologa fluviale dell'Università di Bologna,
+      e la conseguente divulgazione dei risultati emersi è un passo fondamentale
+      per favorire un dialogo orizzontale e inclusivo tra società civile,
+      esperti accademici, tecnici e istituzioni.
+    - >-
+      In questa annualità, grazie al coinvolgimento di Roma Adventure ASD, il
+      progetto ha previsto anche diverse discese in gommone lungo il fiume. I
+      monitoraggi effettuati in occasione di queste discese hanno permesso di
+      ampliare lo sguardo su quasi tutto il tratto fluviale, contribuendo ad
+      ampliare la conoscenza sulla sua salute ecomorfologica: sono state
+      individuate e mappate diverse situazioni critiche relative a discariche,
+      scarichi abusivi e altre problematiche che andrebbero propriamente
+      indagate.
+
+numeri:
+  titolo: I numeri dell'annualità
+  voci:
+    - valore: "11"
+      etichetta: mesi di campionamento
+    - valore: "9"
+      etichetta: stazioni di analisi
+      dettaglio: 7 ufficiali e 2 integrative
+    - valore: "910"
+      etichetta: analisi da terra
+      dettaglio: più 110 da gommone
+    - valore: "400"
+      etichetta: ore di lavoro volontario
+    - valore: "7"
+      etichetta: associazioni partner
+    - valore: "250"
+      etichetta: volontarie e volontari
+      dettaglio: più 800 alunne e alunni coinvolti
+
+luoghi:
+  titolo: I punti di monitoraggio
+  intro: >-
+    I nove punti di campionamento scelti per il monitoraggio 2023/2024, da valle
+    verso monte.
+  stazioni:
+    - codice: "1"
+      nome: Ponte Salario
+      testo: >-
+        Situato vicino alla foce nel Tevere; tratto degradato, di difficile
+        accesso diretto al fiume — il prelievo avviene con secchio dal ponte —
+        caratterizzato da canneto e vegetazione ripariale.
+    - codice: "2"
+      nome: Ponte delle Valli
+      testo: >-
+        Dotato di un pontile che agevola i rilievi; area interessata da rifiuti,
+        orti abusivi in golena e insediamenti, ma con presenze di avifauna e
+        anfibi.
+    - codice: "3"
+      nome: Casa del Parco
+      testo: >-
+        Attracco realizzato da Insieme per l'Aniene APS; area ricca di
+        vegetazione ma soggetta ad accumulo di rifiuti, data la vicinanza alle
+        abitazioni.
+    - codice: "4"
+      nome: Ponte Mammolo
+      testo: >-
+        Accesso tramite scalette nei pressi di un orto; tratto poco visibile
+        dalla strada, soggetto a scarichi impropri di materiali edili.
+    - codice: "5"
+      nome: Casale Caletto
+      testo: >-
+        Vicinissimo al GRA, presenta sponde molto ripide sotto i pilastri del
+        ponte e una fitta vegetazione riparia.
+    - codice: "6"
+      nome: Ponte Lucano
+      testo: >-
+        Punto fortemente influenzato dalle attività umane e dagli apporti delle
+        acque delle cave di travertino; l'accesso diretto alla riva è precluso.
+    - codice: "7"
+      nome: Tivoli — LungoAniene Impastato
+      testo: >-
+        Nei pressi del sifone ACEA; l'accesso è agevole ma si rileva la presenza
+        di una vecchia discarica rinaturalizzata lungo le sponde.
+    - codice: "8"
+      nome: Vicovaro
+      testo: >-
+        Stazione poco antropizzata con sponde coperte da fitta vegetazione;
+        conserva un carattere naturale ed è ideale per il monitoraggio ecologico
+        dell'asta media.
+    - codice: "9"
+      nome: Subiaco — Ponte S. Antonio
+      testo: >-
+        Situato in un'area pianeggiante e ben accessibile presso il Centro
+        Comunale Sport Fluviali; frequentato per attività sportive e ricreative,
+        in un contesto a elevata naturalità.
+  riquadro: >-
+    L'estensione del monitoraggio verso l'alto e medio corso del fiume, fino a
+    Subiaco e Vicovaro, si è resa necessaria per comprendere lo stato ecologico
+    dell'Aniene prima dell'ingresso nel denso bacino urbano di Roma.
+
+gommone:
+  titolo: Le discese in gommone
+  testo: >-
+    Nel corso del progetto sono state organizzate tre discese di monitoraggio in
+    gommone — il 14 marzo, l'8 giugno e il 20 settembre — lungo un tratto di 38
+    km compreso tra Ponte Lucano e la confluenza nel Tevere.
+  vantaggi:
+    - titolo: Rilevamento di sversamenti non visibili da terra
+      testo: Scarichi abusivi, immissioni o accumuli di rifiuti lungo le sponde.
+    - titolo: Osservazione dell'habitat ripariale
+      testo: >-
+        L'asta fluviale conserva, pur tra evidenti criticità, un corridoio di
+        bosco ripario — pioppeti, saliceti, ontani — che offre rifugio a specie
+        avicole quali garzette, cormorani, martin pescatori e garzaie di aironi.
+    - titolo: Valorizzazione della memoria storica
+      testo: Promuovendone la tutela e il recupero della fruizione.
+  foto: foto/gommone-discesa.jpg
+  foto_descrizione: Una delle discese di monitoraggio lungo il basso corso dell'Aniene.
+
+dashboard:
+  titolo: I risultati del monitoraggio
+  intro: >-
+    Scegli un parametro per vederne l'andamento in tutte le stazioni. Le linee
+    orizzontali sono le soglie di qualità: passandoci sopra con il mouse
+    compaiono il valore, cosa significa superarle e le possibili cause.
+  dati: campagna-2023-2024
+
+sintesi:
+  titolo: In breve
+  paragrafi:
+    - >-
+      Dopo un anno di monitoraggio, il quadro è in parte rassicurante e in parte
+      preoccupante. Temperatura e pH sono nella norma: le temperature seguono le
+      stagioni, senza segnali di inquinamento termico, e il pH resta sempre
+      nell'intervallo ottimale (6,5–9).
+    - >-
+      Le criticità riguardano soprattutto i nutrienti e la contaminazione
+      fecale. L'ossigeno disciolto scende sotto i livelli di sicurezza a Casa
+      del Parco e Ponte Mammolo, dove si toccano i 4,1 e i 3,5 mg/L: sotto i 6
+      mg/L i pesci iniziano a soffrire, sotto i 4 l'ecosistema è a rischio. In
+      queste due stazioni anche i nitrati raggiungono un livello «sufficiente»
+      secondo l'indice LIMeco, mentre nelle altre sono «buoni» o «elevati». I
+      fosfati sono alti, oltre 0,1 mg/L, nelle quattro stazioni più a valle, e
+      l'ammonio, che in natura dovrebbe stare sotto 0,2 mg/L, in passato ha
+      superato 1 mg/L in quattro stazioni su cinque.
+    - >-
+      La conducibilità, che misura i sali disciolti, fa un salto netto tra
+      Tivoli (589 µS/cm) e Ponte Lucano (1.301 µS/cm), probabilmente a causa
+      delle cave presenti nel tratto.
+    - >-
+      Il dato più allarmante è quello di Escherichia coli. La maggior parte dei
+      valori è tra 1.000 e 20.000 UFC, quindi non adatta alla balneazione. A
+      Ponte Salario si superano le 20.000 UFC in tre occasioni, fino a 39.000 ad
+      aprile 2024, e a settembre e ottobre le stazioni a valle arrivano a
+      88.000–153.000 UFC. Solo la stazione più a monte, a Subiaco, è sempre
+      risultata adeguata alla balneazione.
+
+schede:
+  titolo: Cosa abbiamo misurato e come
+  intro: >-
+    Questa sezione spiega quali parametri abbiamo analizzato e con quali
+    strumenti, per aiutarti a leggere i dati della dashboard qui sopra. Nel
+    report in fondo alla pagina trovi informazioni più specifiche su parametri e
+    risultati.
+  # Le schede riprendono le descrizioni generali dei parametri, in
+  # contenuti/parametri.yml. Qui si elencano solo quelli misurati in questa
+  # campagna e nell'ordine in cui devono comparire.
+  ordine:
+    - temperatura
+    - ph
+    - conducibilita
+    - torbidita
+    - ossigeno
+    - ammonio
+    - nitrati
+    - fosfati
+    - ecoli
+
+metodologia:
+  titolo: La metodologia
+  intro: >-
+    Strumenti semplici, alla portata di tutti: abbiamo scelto strumenti
+    economici e intuitivi, che chiunque, dopo una formazione, possa usare.
+    L'acqua per quasi tutte le analisi viene prelevata dal fiume con un secchio
+    di plastica legato a una fune, che permette di raggiungere anche i punti più
+    difficili da avvicinare. Fa eccezione l'E. coli, che richiede contenitori
+    sterili.
+  rimando: Vai alla pagina Citizen science per il dettaglio degli strumenti
+  ossigeno:
+    titolo: Perché abbiamo aggiunto l'ossigeno disciolto
+    testo: >-
+      L'ossigeno disciolto è determinante per la vita acquatica e per
+      l'autodepurazione del fiume. In condizioni normali è circa 10 mg/L, pari
+      al 100% di saturazione: quando scende al 75% è già un indizio di possibile
+      inquinamento. Misurarlo insieme ad ammonio, nitrati e fosforo ci permette
+      di calcolare il LIMeco, l'indice previsto dal D.Lgs. 152/2006 per valutare
+      lo stato trofico delle acque correnti. Così possiamo confrontare i nostri
+      risultati con quelli che ARPA Lazio pubblica periodicamente sul suo sito.
+  foto:
+    - file: foto/prelievo-brocca.jpg
+      descrizione: Il prelievo del campione d'acqua.
+    - file: foto/studenti-schede.jpg
+      descrizione: La compilazione delle schede di rilievo con le scuole.
+    - file: foto/laboratorio-studenti.jpg
+      descrizione: Le analisi con studentesse e studenti.
+
+rete:
+  titolo: La rete territoriale
+  intro: "La rete di realtà impegnate nel progetto comprende:"
+  voci:
+    - nome: Insieme per l'Aniene APS
+      testo: Attiva nella salvaguardia della Riserva Naturale Valle dell'Aniene.
+    - nome: A Sud
+      testo: Organizzazione ecologista focalizzata su giustizia ambientale e climatica.
+    - nome: Retake Roma Sacco Pastore
+      testo: >-
+        Gruppo locale che si occupa del decoro, del lungofiume e della pista
+        ciclopedonale.
+    - nome: A.D.A. APS
+      testo: >-
+        Associazione dedicata all'educazione ambientale e al raccordo tra scuole
+        e territorio.
+    - nome: Roma Adventure ASD
+      testo: >-
+        Esperti di navigazione fluviale che curano le uscite in gommone a
+        supporto del monitoraggio e di eventi di sensibilizzazione.
+
+report:
+  titolo: I report di questa campagna
+  intro: >-
+    Per approfondire, o se hai dubbi su quello che hai letto, qui trovi i
+    documenti completi da cui vengono i dati e le interpretazioni di questa
+    pagina.
+  documenti:
+    - titolo: Report divulgativo Aniene WaterLab 2023-2024
+      descrizione: >-
+        Il racconto completo dell'annualità: il progetto, la rete, il metodo e i
+        risultati del monitoraggio, in forma divulgativa.
+      file: report/report-divulgativo-2023-2024.pdf
+    - titolo: Risultati Aniene 2022-23 e 2023-2024
+      descrizione: >-
+        L'analisi dei dati a cura di Bruna Gumiero, con il confronto tra le due
+        annualità di monitoraggio.
+      file: report/risultati-aniene-2022-2024-gumiero.pdf

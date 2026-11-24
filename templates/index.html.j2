@@ -1,0 +1,183 @@
+{% extends "base.html.j2" %}
+{% import "parti.html.j2" as parti %}
+
+{% block titolo %}{{ impostazioni.sito.nome }} · {{ c.titolo }}{% endblock %}
+{% block descrizione %}{{ impostazioni.sito.descrizione }}{% endblock %}
+
+{% block contenuto %}
+
+<section class="hero">
+  <div class="contenitore hero-griglia">
+    <div>
+      <p class="hero-occhiello">Dal 2021 a oggi</p>
+      <h1>{{ c.titolo }}</h1>
+      <p>{{ c.sottotitolo }}</p>
+    </div>
+    <figure>
+      <img src="assets/img/{{ c.foto_copertina }}" alt="{{ c.foto_copertina_descrizione }}" width="1800" height="1200">
+      <figcaption>{{ c.foto_copertina_descrizione }}</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="sezione-scura">
+  <div class="contenitore">
+    <p class="etichetta">Le campagne di monitoraggio</p>
+    <div class="campagne-griglia">
+      {% for b in c.campagne %}
+      <a class="campagna-box" href="{{ b.pagina }}.html">
+        <span class="campagna-anni">{{ b.anni }}</span>
+        <span class="campagna-nome">{{ b.nome }}</span>
+        <span class="campagna-desc">{{ b.descrizione }}</span>
+      </a>
+      {% endfor %}
+    </div>
+    <div class="numeri">
+      {% for n in c.numeri %}
+      <div>
+        <div class="numero-valore">{{ n.valore }}</div>
+        <div class="numero-etichetta">{{ n.etichetta }}</div>
+        <div class="numero-dettaglio">{{ n.dettaglio }}</div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="sezione" id="contesto">
+  <div class="contenitore">
+    <div class="doppia">
+      <div>
+        {{ parti.testa('Il contesto', c.fiume.titolo) }}
+        {{ parti.paragrafi(c.fiume.paragrafi) }}
+      </div>
+      <div id="progetto">
+        {{ parti.testa('Il percorso', c.progetto.titolo) }}
+        <p class="sotto-titolo">{{ c.progetto.sottotitolo }}</p>
+        <ul class="cronologia">
+          {% for t in c.progetto.tappe %}
+          <li>
+            <span class="cronologia-anni">{{ t.anni }}</span>
+            <span class="cronologia-nome">{{ t.nome }}</span>
+            {{ t.testo }}
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sezione">
+  <div class="contenitore foto-affiancata">
+    <div>
+      <h3 class="sotto-titolo">{{ c.progetto.chi.titolo }}</h3>
+      <p>{{ c.progetto.chi.testo }}</p>
+      <h3 class="sotto-titolo">{{ c.progetto.cosa.titolo }}</h3>
+      <ul class="elenco-spunte">
+        {% for v in c.progetto.cosa.voci %}
+        <li><b>{{ v.titolo }}.</b> {{ v.testo }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+    <figure>
+      <img src="assets/img/{{ c.progetto.foto }}" alt="{{ c.progetto.foto_descrizione }}" loading="lazy" width="1800" height="1200">
+      <figcaption>{{ c.progetto.foto_descrizione }}</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="sezione-scura" id="contratto-di-fiume">
+  <div class="contenitore">
+    {{ parti.testa('Lo strumento', c.contratto.titolo) }}
+    <div class="hero-griglia">
+      <div>
+        <h3 class="sotto-titolo" style="color:var(--lime)">{{ c.contratto.cosa_e.titolo }}</h3>
+        {{ parti.paragrafi(c.contratto.cosa_e.paragrafi) }}
+      </div>
+      <div>
+        <h3 class="sotto-titolo" style="color:var(--lime)">{{ c.contratto.aniene.titolo }}</h3>
+        {{ parti.paragrafi(c.contratto.aniene.paragrafi) }}
+        <div class="numeri" style="margin-top:1rem">
+          {% for n in c.contratto.aniene.numeri %}
+          <div>
+            <div class="numero-valore">{{ n.valore }}</div>
+            <div class="numero-etichetta">{{ n.etichetta }}</div>
+          </div>
+          {% endfor %}
+        </div>
+        <p class="bottoni">
+          <a class="bottone" href="{{ c.contratto.aniene.link }}" rel="noopener">{{ c.contratto.aniene.link_testo }} ↗</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sezione" id="citizen-science">
+  <div class="contenitore foto-affiancata">
+    <div>
+      {{ parti.testa('Il metodo', c.citizen_science.titolo) }}
+      {{ parti.paragrafi(c.citizen_science.paragrafi) }}
+      <p class="bottoni">
+        <a class="bottone bottone-chiaro" href="citizen-science.html">Approfondisci la citizen science →</a>
+      </p>
+    </div>
+    <figure>
+      <img src="assets/img/{{ c.citizen_science.foto }}" alt="{{ c.citizen_science.foto_descrizione }}" loading="lazy" width="1800" height="1200">
+      <figcaption>{{ c.citizen_science.foto_descrizione }}</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="sezione sezione-chiara">
+  <div class="contenitore">
+    {{ parti.testa('', c.citizen_science.card_titolo) }}
+    <div class="schede">
+      {% for s in c.citizen_science.card %}
+      <article class="scheda">
+        <h3>{{ s.titolo }}</h3>
+        <p>{{ s.testo }}</p>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="sezione" id="metodologia">
+  <div class="contenitore stretto">
+    {{ parti.testa('Come lavoriamo', c.metodologia.titolo) }}
+    {{ parti.paragrafi(c.metodologia.paragrafi) }}
+    <p class="bottoni">
+      <a class="bottone bottone-chiaro" href="citizen-science.html#metodologia">{{ c.metodologia.approfondisci }} →</a>
+    </p>
+  </div>
+</section>
+
+<section class="sezione-scura" id="obiettivi">
+  <div class="contenitore">
+    {{ parti.testa('In breve', c.obiettivi.titolo, c.obiettivi.intro) }}
+    <ol class="elenco-numerato">
+      {% for v in c.obiettivi.voci %}
+      <li>{{ v }}</li>
+      {% endfor %}
+    </ol>
+  </div>
+</section>
+
+<section class="sezione" id="ringraziamenti">
+  <div class="contenitore">
+    {{ parti.testa('La rete', c.ringraziamenti.titolo, c.ringraziamenti.testo) }}
+    <div class="loghi">
+      {% for g in loghi %}
+      <span class="logo-box"><img src="assets/img/{{ g.logo }}" alt="{{ g.nome }}" loading="lazy"></span>
+      {% endfor %}
+    </div>
+    <p class="bottoni">
+      <a class="bottone" href="contatti.html">Vedi tutti i partner e scrivici →</a>
+    </p>
+  </div>
+</section>
+
+{% endblock %}
+

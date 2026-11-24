@@ -1,0 +1,303 @@
+# Pagina CAMPAGNA 2021 | 2022-2023.
+# La dashboard legge i dati da dati/campagna-2022-2023.json: non si modificano qui.
+
+titolo: Campagna 2021 e 2022-2023
+sottotitolo: >-
+  Dalle passeggiate di Walk Up Aniene alle cinque stazioni fisse di RomaUp, nel
+  tratto urbano del fiume.
+foto_copertina: foto/fiume-sotto-il-ponte.jpg
+foto_copertina_descrizione: L'Aniene nel tratto urbano, all'interno della Riserva.
+
+walkup:
+  titolo: Walk Up Aniene (2021)
+  paragrafi:
+    - >-
+      Walk Up Aniene ha rappresentato la prima esperienza di collaborazione tra
+      A Sud e Insieme per l'Aniene, all'interno del programma europeo Citizen
+      Science ACTION (Horizon 2020), che ha fornito supporto tecnico e
+      scientifico.
+    - >-
+      L'obiettivo del progetto è stato rafforzare la cura delle aree naturali
+      urbane promuovendo il coinvolgimento civico in attività di monitoraggio
+      ambientale partecipato: le persone che visitano la riserva dell'Aniene,
+      attraverso le loro passeggiate, possono monitorare lo stato ambientale del
+      fiume grazie all'osservazione dell'ambiente fluviale.
+    - >-
+      Grazie alla raccolta e all'analisi partecipata dei dati, Walk Up Aniene ha
+      permesso di illustrare lo stato ambientale corrente della riserva e degli
+      ecosistemi fluviali, identificando punti di forza e criticità. Attraverso
+      la mappatura GIS sono state registrate sia le criticità sia i punti di
+      pregio ecologico, creando un database utile per la pianificazione
+      territoriale e per la comunità.
+  mappa:
+    testo: >-
+      Il progetto ha portato alla realizzazione di una mappa dello stato
+      ambientale della fascia fluviale e ha permesso di elaborare proposte dal
+      basso per la gestione della riserva naturale.
+    link: https://qgiscloud.com/RiccardoLeone/Walk_Up_Aniene_2021_-_WebMap/
+    link_testo: Apri la mappa Walk Up Aniene 2021
+
+romaup:
+  titolo: RomaUp (2022-2023)
+  paragrafi:
+    - >-
+      Nel 2022 A Sud ha ampliato l'iniziativa tramite il progetto RomaUp,
+      fornendo strumentazioni scientifiche a basso costo alle associazioni
+      locali e pubblicando una guida metodologica per il monitoraggio. Il
+      progetto ha promosso il dialogo con enti istituzionali — Città
+      Metropolitana di Roma, Comune di Roma, Regione Lazio — culminando in un
+      accordo con ARPA Lazio per le analisi di laboratorio e le segnalazioni di
+      emergenza.
+    - >-
+      Dopo le prime rilevazioni sul Tevere, l'anno successivo la campagna è
+      stata estesa all'Aniene, affiancata dalla supervisione scientifica della
+      Prof.ssa Bruna Gumiero.
+
+luoghi:
+  titolo: I luoghi
+  intro: >-
+    I cinque punti di campionamento sull'Aniene si trovano tutti all'interno
+    della Riserva Naturale della Valle dell'Aniene e si snodano tra il G.R.A.
+    (punto E) e la confluenza con il fiume Tevere (punto A). I siti scelti sono
+    strategici sia per la vicinanza a punti ritenuti critici, sia per la
+    conformazione morfologica che ha reso l'accesso al fiume più agevole,
+    trattandosi di un corso d'acqua con sponde non cementificate ma vegetate.
+  stazioni:
+    - codice: A
+      nome: Ponte Salario
+      testo: >-
+        Subito prima della confluenza nel Tevere. Tratto degradato, con accesso
+        diretto al fiume difficile.
+    - codice: B
+      nome: Ponte delle Valli
+      testo: >-
+        All'interno dell'omonimo parco: l'accesso al fiume è una piattaforma in
+        legno, attracco per le discese in rafting. Ambiente ricco di vegetazione
+        e presenza di avifauna.
+    - codice: C
+      nome: Casa del Parco
+      testo: >-
+        Attracco sul fiume a pochi metri dalla Casa del Parco, sede di Insieme
+        per l'Aniene APS. Sponde ricche di vegetazione, ma anche di rifiuti e
+        sporcizia.
+    - codice: D
+      nome: Ponte Mammolo
+      testo: >-
+        Accesso al fiume tramite una scaletta in mattoni in prossimità di Ponte
+        Mammolo, in corrispondenza di diverse aree coltivate. Vegetazione
+        ripariale autoctona scarsa.
+    - codice: E
+      nome: Casale Caletto
+      testo: >-
+        Accesso al fiume in prossimità del Grande Raccordo Anulare, un po'
+        difficoltoso. La sponda ospita per il campionamento i pilastri del ponte
+        sovrastante.
+
+analisi:
+  titolo: Le analisi effettuate
+  paragrafi:
+    - >-
+      Il fiume è caratterizzato da un inquinamento diffuso, legato a diversi
+      contaminanti. Non potendo monitorare tutti i parametri esistenti, si è
+      scelto di analizzare parametri «spia», sensibili a condizioni di criticità
+      e la cui variazione oltre un certo range segnala uno squilibrio
+      dell'ecosistema. Le analisi sono in continuità con quelle dell'anno
+      precedente e hanno seguito un simile protocollo scientifico sotto la
+      supervisione dell'ecologa fluviale Bruna Gumiero.
+    - >-
+      I parametri spia analizzati sono: azoto ammoniacale, indicatore della
+      scarsità di ossigeno; nitrati e fosfati, indicatori di inquinamento da
+      eccesso di nutrienti o eutrofizzazione; Escherichia coli, indicatore di
+      inquinamento fecale recente, considerato efficace indicatore della
+      sopravvivenza dei patogeni enterici nelle acque.
+    - >-
+      Tali parametri sono detti macrodescrittori perché, insieme all'analisi di
+      BOD e COD e del fosforo totale, permettono di valutare lo stato ecologico
+      del fiume utilizzando i valori stabiliti dal LIMeco. I parametri spia non
+      riescono a stabilire le cause puntuali di fenomeni come le morie di pesci,
+      ma mirano a dare un quadro complessivo. Si è scelto di monitorare questi
+      parametri anche per il costo troppo elevato di analisi più specifiche come
+      quelle per pesticidi, farmaci o PFAS. Oltre ai parametri del LIMeco sono
+      stati analizzati pH, temperatura, conducibilità e torbidità.
+  riquadro: >-
+    Il LIMeco è una sorta di righello che misura la qualità ecologica del fiume
+    ed è stato introdotto dall'ultima direttiva europea in tema di acque
+    (Direttiva Quadro Acque 2000/60/CE).
+  rimando: Vai alla pagina Citizen science per approfondire parametri e metodologia
+
+dashboard:
+  titolo: Cosa abbiamo analizzato e come
+  intro: >-
+    Scegli un parametro per vederne l'andamento in tutte le stazioni. Le linee
+    orizzontali sono le soglie di qualità: passandoci sopra con il mouse
+    compaiono il valore, cosa significa superarle e le possibili cause.
+  dati: campagna-2022-2023
+
+schede:
+  titolo: I parametri scelti
+  intro: >-
+    Qui sotto l'interpretazione dei risultati, parametro per parametro. Nel
+    report in fondo alla pagina trovi informazioni più specifiche su parametri e
+    risultati.
+  voci:
+    - parametro: conducibilita
+      stato: Da tenere d'occhio
+      cosa_misura: >-
+        La quantità di sali disciolti nell'acqua, espressa in microsiemens per
+        centimetro (µS/cm). Aiuta a individuare apporti esterni di sali o
+        contaminanti.
+      come_leggerlo: >-
+        Il D.Lgs. 31/2001 indica che la conducibilità delle acque dolci non
+        dovrebbe superare i 2.500 µS/cm. In un bacino calcareo come quello
+        dell'Aniene i valori normali sono tra 250 e 800 µS/cm. Oltre i 1.000
+        possono indicare intensa attività umana o forte evaporazione, oltre i
+        1.500 un possibile inquinamento da scarichi urbani, industriali o
+        agricoli.
+      cosa_trovato: >-
+        Da aprile a novembre 2022 i valori si sono mantenuti tra 1.450 e 1.800
+        µS/cm in tutte le stazioni.
+      cause: >-
+        Un apporto di sali dovuto ad attività umane, come scarichi urbani,
+        industriali o agricoli, fertilizzanti e scarichi di depuratori.
+    - parametro: nitrati
+      stato: Da tenere d'occhio
+      cosa_misura: >-
+        L'azoto nitrico, un nutriente che in eccesso favorisce la crescita di
+        alghe e altera l'equilibrio del fiume.
+      come_leggerlo: >-
+        Il kit misura l'azoto nitrico, non i nitrati: per ottenere i nitrati si
+        moltiplica per 4,427. L'indice LIMeco classifica la qualità in cinque
+        livelli, in mg/L di azoto nitrico: livello 1 (elevato) sotto 0,6;
+        livello 2 (buono) sotto 1,2; livello 3 (sufficiente) sotto 2,4; livello
+        4 (scarso) sotto 4,8; livello 5 (cattivo) sopra 4,8.
+      cosa_trovato: >-
+        Nelle cinque stazioni lungo l'Aniene i valori sono generalmente elevati,
+        in particolare a Ponte Salario (A), Ponte delle Valli (B) e Casale
+        Caletto (E). A Ponte Salario, a dicembre 2022, l'azoto nitrico è stato
+        misurato tra 5 e 10 mg/L, con un valore medio di 7,5. Confrontando i
+        valori medi con i livelli LIMeco, le stazioni ricadono in tre classi di
+        qualità: Casa del Parco (C) e Casale Caletto (E) in classe 2 (buona),
+        Ponte delle Valli (B) e Ponte Mammolo (D) in classe 3 (sufficiente),
+        Ponte Salario (A), subito prima della confluenza, in classe 4 (scarsa).
+        I valori maggiori sono stati registrati in primavera e in autunno.
+      cause: >-
+        Uso intensivo del suolo per orticoltura, spesso abusiva, e dilavamento
+        dei fertilizzanti da parte delle piogge. I valori più elevati possono
+        essere attribuiti a un uso più intenso del suolo agricolo, interessato
+        da processi di dilavamento.
+    - parametro: ph
+      stato: Variazione stagionale
+      cosa_misura: >-
+        L'acidità o la basicità dell'acqua. Se si altera, può limitare le specie
+        che vivono nel fiume.
+      come_leggerlo: >-
+        Le acque dolci hanno in genere un pH tra 6 e 8, a seconda delle
+        caratteristiche del terreno circostante e del substrato. I fiumi che
+        attraversano terreni con rocce vulcaniche, per esempio, hanno valori
+        molto più acidi.
+      cosa_trovato: >-
+        Si vede un andamento stagionale, con valori più bassi (più acidi) nei
+        mesi primaverili ed estivi.
+      cause: >-
+        I mesi con pH più basso coincidono con i periodi in cui la portata del
+        fiume è ridotta.
+    - parametro: fosfati
+      stato: Critico
+      cosa_misura: >-
+        Il fosforo, un altro nutriente che, come l'azoto, alimenta la crescita
+        delle alghe. Il kit misura i fosfati.
+      come_leggerlo: >-
+        L'indice LIMeco si riferisce al fosforo totale e non ai fosfati, quindi
+        il confronto è solo indicativo. Poiché i fosfati sono la componente
+        principale del fosforo nelle acque superficiali, permettono comunque
+        delle valutazioni. I livelli, in mg/L di fosforo totale, sono: livello 1
+        (elevato) sotto 0,05; livello 2 (buono) 0,10; livello 3 (sufficiente)
+        0,20; livello 4 (scarso) 0,40; livello 5 (cattivo) sopra 0,40.
+      cosa_trovato: >-
+        I valori medi di 0,35 mg/L sono comuni a tutte le stazioni tranne
+        l'ultima, e ben 8 campioni riportano il valore di 0,75 mg/L. Questo
+        valore è stato misurato a giugno in tutte le stazioni e, nella maggior
+        parte, anche a maggio, a eccezione di Casale Caletto (E), la stazione
+        più a monte. Le medie delle stazioni confermano valori molto più elevati
+        di fosfati, con la sola eccezione di Casale Caletto.
+      cause: >-
+        Scarichi urbani — detergenti, saponi e prodotti per la casa ne
+        contengono molti — insediamenti industriali e attività agricole del
+        bacino. L'impatto di ciascuna fonte va ancora approfondito. Andrebbe
+        individuata a valle di Casale Caletto una sorgente contaminata.
+    - parametro: ammonio
+      stato: Critico
+      cosa_misura: >-
+        Un «campanello d'allarme» della presenza di scarichi organici e della
+        quantità di ossigeno nell'acqua. Si trova soprattutto nelle deiezioni
+        umane e animali, dove è contenuto insieme all'urea.
+      come_leggerlo: >-
+        In natura, nelle acque superficiali, sta sotto 0,2 mg/L. I livelli
+        LIMeco, in mg/L di ammonio, sono: livello 1 (elevato) sotto 0,03;
+        livello 2 (buono) 0,06; livello 3 (sufficiente) 0,12; livello 4 (scarso)
+        0,24; livello 5 (cattivo) sopra 0,24.
+      cosa_trovato: >-
+        I campionamenti di aprile e maggio non sono stati considerati, perché
+        effettuati con uno strumento diverso, quindi non comparabile e meno
+        affidabile. A giugno sono stati registrati valori elevati in tutte le
+        stazioni, con differenze significative a Casale Caletto (E), che
+        presenta i valori maggiori. La concentrazione di ammonio è molto
+        elevata: il 64% dei valori supera la soglia di 0,24 mg/L, il limite tra
+        la classe 4 e la 5. Tutte le stazioni risultano in classe 5, una
+        situazione piuttosto critica che necessita di ulteriori indagini.
+      cause: >-
+        Scarichi fognari o reflui trattati in modo inadeguato, attività agricole
+        e zootecniche, scarichi industriali. Molto probabilmente c'è uno scarico
+        importante a monte di Casale Caletto. La mancata diluizione e
+        ossigenazione dell'ammonio nelle stazioni successive indica la probabile
+        presenza di altri scarichi anche nel tratto a valle e/o una grave
+        carenza di ossigeno nelle acque. Trattandosi di un fiume a scorrimento
+        abbastanza rapido, le carenze di ossigeno sono però poco probabili, se
+        non a causa di una forte alterazione del sistema.
+    - parametro: ecoli
+      stato: Da tenere d'occhio
+      cosa_misura: >-
+        Un batterio presente nelle feci umane e animali, usato come indicatore
+        di contaminazione fecale e di possibile presenza di microrganismi
+        patogeni.
+      come_leggerlo: >-
+        I livelli in UFC sono: livello 1 (elevato) fino a 100; livello 2 (buono)
+        fino a 1.000; livello 3 (sufficiente) fino a 5.000; livello 4 (scarso)
+        fino a 20.000; livello 5 (cattivo) oltre 20.000. L'Aniene non è
+        classificato come balneabile.
+      cosa_trovato: >-
+        Le misure di E. coli sono state effettuate solo in cinque campagne: ad
+        aprile 2022 e da ottobre 2022 a marzo 2023. Una delle criticità
+        principali è il vuoto di dati tra maggio e ottobre, che non permette una
+        visione completa dell'anno. Il problema nasceva dal metodo di
+        incubazione delle colonie ed è stato risolto a ottobre con l'impiego di
+        un'incubatrice dedicata. I valori medi delle cinque stazioni ricadono
+        tra la classe 3 e la 4, con il valore medio più elevato a Casa del Parco
+        (C).
+      cause: >-
+        Inquinamento organico di origine fecale. Casa del Parco è da ritenersi
+        dimostrativa della presenza di una sorgente di inquinamento a valle di
+        Ponte Mammolo (D).
+
+report:
+  titolo: I report di questa campagna
+  intro: >-
+    Per approfondire, o se hai dubbi su quello che hai letto, qui trovi i
+    documenti completi da cui vengono i dati e le interpretazioni di questa
+    pagina.
+  documenti:
+    - titolo: Risultati del monitoraggio Aniene 2022-2023
+      descrizione: >-
+        Il report di A Sud con i risultati completi della campagna sull'Aniene,
+        stazione per stazione e parametro per parametro.
+      file: report/risultati-aniene-2022-2023.pdf
+    - titolo: RomaUp 2022-2023
+      descrizione: >-
+        Il report del progetto RomaUp: metodologia, rete territoriale e
+        risultati sul Tevere e sull'Aniene.
+      file: report/report-romaup-2022-2023.pdf
+    - titolo: I fiumi e la città
+      descrizione: >-
+        L'allegato di approfondimento sul rapporto tra i corsi d'acqua e il
+        tessuto urbano di Roma.
+      file: report/i-fiumi-e-la-citta.pdf

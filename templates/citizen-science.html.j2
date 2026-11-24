@@ -1,0 +1,83 @@
+{% extends "base.html.j2" %}
+{% import "parti.html.j2" as parti %}
+
+{% block contenuto %}
+
+{{ parti.hero(c, 'Il metodo') }}
+
+<section class="sezione">
+  <div class="contenitore stretto">
+    {{ parti.testa('', c.scienza_partecipata.titolo) }}
+    {{ parti.paragrafi(c.scienza_partecipata.paragrafi) }}
+    <blockquote class="citazione">{{ c.scienza_partecipata.citazione }}</blockquote>
+    {{ parti.paragrafi(c.scienza_partecipata.paragrafi_due) }}
+  </div>
+</section>
+
+<section class="sezione sezione-chiara" id="parametri">
+  <div class="contenitore">
+    {{ parti.testa('Le schede', c.parametri.titolo, c.parametri.intro) }}
+    {{ parti.schede_generali(c.parametri.ordine, parametri) }}
+  </div>
+</section>
+
+<section class="sezione" id="metodologia">
+  <div class="contenitore">
+    {{ parti.testa('Sul campo', c.metodologia.titolo, c.metodologia.intro) }}
+    <h3 class="sotto-titolo">{{ c.metodologia.strumenti_titolo }}</h3>
+    <div class="schede-parametri">
+      {% for s in c.metodologia.strumenti %}
+      <article class="parametro">
+        <img src="assets/img/{{ s.foto }}" alt="" loading="lazy" width="1200" height="800">
+        <div class="parametro-corpo">
+          <h3>{{ s.nome }}</h3>
+          <p>{{ s.testo }}</p>
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+
+    <div class="doppia" style="margin-top:2rem">
+      <div>
+        <h3 class="sotto-titolo" style="margin-top:0">{{ c.metodologia.registrazione.titolo }}</h3>
+        <p>{{ c.metodologia.registrazione.testo }}</p>
+        <p><img src="assets/img/qr-survey123.svg" alt="Codice QR per l'app Survey123 di Fresh Water Watch" width="150" height="150"></p>
+      </div>
+      <div>
+        <h3 class="sotto-titolo" style="margin-top:0">{{ c.metodologia.ossigeno.titolo }}</h3>
+        <p>{{ c.metodologia.ossigeno.testo }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sezione-scura" id="macroinvertebrati">
+  <div class="contenitore">
+    {{ parti.testa('La sperimentazione', c.macroinvertebrati.titolo, c.macroinvertebrati.intro) }}
+    <ul class="elenco-spunte">
+      {% for v in c.macroinvertebrati.voci %}
+      <li><b>{{ v.titolo }}.</b> {{ v.testo }}</li>
+      {% endfor %}
+    </ul>
+    <div style="margin-top:2rem">
+      {{ parti.galleria(c.macroinvertebrati.foto) }}
+    </div>
+  </div>
+</section>
+
+<section class="sezione">
+  <div class="contenitore">
+    {{ parti.testa('I dati', c.campagne.titolo, c.campagne.intro) }}
+    <div class="campagne-griglia">
+      {% for b in impostazioni.menu if b.pagina.startswith('campagna') %}
+      <a class="campagna-box" href="{{ b.pagina }}.html" style="color:var(--teal);background:#fff;border-color:var(--border)">
+        <span class="campagna-anni" style="color:var(--lime-dark)">{{ b.voce }}</span>
+        <span class="campagna-nome">Vedi i risultati</span>
+        <span class="campagna-desc">Dashboard interattiva e report da scaricare.</span>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% endblock %}

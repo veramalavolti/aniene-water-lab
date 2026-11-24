@@ -1,0 +1,235 @@
+{
+ "id": "2023-2024-gommone",
+ "etichetta": "Discese in gommone · giugno e settembre 2024",
+ "nota_fonte": "Punti 10–14 del foglio «Dataset», rilevati durante le discese in gommone.",
+ "stazioni": [
+  {
+   "id": "14",
+   "nome": "E - Scolmatore Fosso Casal De Pazzi",
+   "lat": 41.55379,
+   "lon": 12.40039,
+   "ordine": 0
+  },
+  {
+   "id": "13",
+   "nome": "D - Confluenza Poligrafico",
+   "lat": 41.56165,
+   "lon": 12.42008,
+   "ordine": 1
+  },
+  {
+   "id": "12",
+   "nome": "C - Fosso Val Melaina - Collettore Val D'Ala",
+   "lat": 41.5547,
+   "lon": 12.4302,
+   "ordine": 2
+  },
+  {
+   "id": "11",
+   "nome": "B - Vigna Mangani /Pietralata",
+   "lat": 41.56407,
+   "lon": 12.443,
+   "ordine": 3
+  },
+  {
+   "id": "10",
+   "nome": "A - Riva dx Monte Lanificio Lantiani /Acea Montenevoso",
+   "lat": 41.57075,
+   "lon": 12.45301,
+   "ordine": 4
+  }
+ ],
+ "campagne": [
+  {
+   "id": "2024-06-08",
+   "etichetta": "giu 2024",
+   "date": [
+    "2024-06-08"
+   ]
+  },
+  {
+   "id": "2024-09-20",
+   "etichetta": "set 2024",
+   "date": [
+    "2024-09-20"
+   ]
+  }
+ ],
+ "misure": [
+  {
+   "s": "10",
+   "d": "2024-06-08",
+   "p": {
+    "conducibilita": 867.0,
+    "temperatura": 21.2,
+    "ossigeno": 7.8,
+    "fosfati": 1.0,
+    "nitrati": 11.0,
+    "ph": 8.69,
+    "ammonio": 0.04,
+    "ecoli": 6400.0
+   },
+   "c": "2024-06-08"
+  },
+  {
+   "s": "11",
+   "d": "2024-06-08",
+   "p": {
+    "conducibilita": 1323.0,
+    "temperatura": 17.6,
+    "ossigeno": 7.7,
+    "fosfati": {
+     "v": 0.07500000000000001,
+     "lim": "~"
+    },
+    "nitrati": {
+     "v": 0.75,
+     "lim": "~"
+    },
+    "ph": 8.06,
+    "ammonio": 0.05,
+    "ecoli": 6500.0
+   },
+   "c": "2024-06-08"
+  },
+  {
+   "s": "12",
+   "d": "2024-06-08",
+   "p": {
+    "conducibilita": 1162.0,
+    "temperatura": 19.6,
+    "ossigeno": 7.4,
+    "fosfati": {
+     "v": 0.15000000000000002,
+     "lim": "~"
+    },
+    "nitrati": 2.0,
+    "ph": 8.33,
+    "ammonio": 0.01,
+    "ecoli": 17200.0
+   },
+   "c": "2024-06-08"
+  },
+  {
+   "s": "13",
+   "d": "2024-06-08",
+   "p": {
+    "conducibilita": 1453.0,
+    "temperatura": 19.2,
+    "ossigeno": 1.0,
+    "fosfati": {
+     "v": 0.75,
+     "lim": "~"
+    },
+    "nitrati": 0.5,
+    "ph": 7.8,
+    "ammonio": 9.9,
+    "ecoli": 200000.0
+   },
+   "c": "2024-06-08"
+  },
+  {
+   "s": "14",
+   "d": "2024-06-08",
+   "p": {
+    "conducibilita": 1672.0,
+    "temperatura": 19.2,
+    "ossigeno": 7.7,
+    "fosfati": {
+     "v": 0.07500000000000001,
+     "lim": "~"
+    },
+    "nitrati": {
+     "v": 0.75,
+     "lim": "~"
+    },
+    "ph": 8.01,
+    "ammonio": 0.57,
+    "ecoli": 18800.0
+   },
+   "c": "2024-06-08"
+  },
+  {
+   "s": "10",
+   "d": "2024-09-20",
+   "p": {
+    "conducibilita": 1483.0,
+    "ossigeno": 5.0,
+    "torbidita": 14.0,
+    "fosfati": {
+     "v": 0.35,
+     "lim": "~"
+    },
+    "nitrati": 0.5,
+    "ph": 7.65,
+    "ammonio": 0.97
+   },
+   "c": "2024-09-20"
+  },
+  {
+   "s": "11",
+   "d": "2024-09-20",
+   "p": {
+    "conducibilita": 1508.0,
+    "ossigeno": 5.0,
+    "torbidita": 14.0,
+    "fosfati": {
+     "v": 0.75,
+     "lim": "~"
+    },
+    "ph": 7.63,
+    "ammonio": 1.21
+   },
+   "c": "2024-09-20"
+  },
+  {
+   "s": "12",
+   "d": "2024-09-20",
+   "p": {
+    "ossigeno": 4.8,
+    "torbidita": 14.0,
+    "fosfati": {
+     "v": 0.35,
+     "lim": "~"
+    },
+    "ph": 7.73,
+    "ammonio": 0.6
+   },
+   "c": "2024-09-20"
+  },
+  {
+   "s": "13",
+   "d": "2024-09-20",
+   "p": {
+    "conducibilita": 1162.0,
+    "ossigeno": 5.4,
+    "fosfati": {
+     "v": 0.75,
+     "lim": "~"
+    },
+    "nitrati": {
+     "v": 0.75,
+     "lim": "~"
+    },
+    "ph": 7.92,
+    "ammonio": 0.32
+   },
+   "c": "2024-09-20"
+  },
+  {
+   "s": "14",
+   "d": "2024-09-20",
+   "p": {
+    "ossigeno": 4.8,
+    "torbidita": 14.0,
+    "fosfati": {
+     "v": 0.75,
+     "lim": "~"
+    },
+    "ph": 7.73,
+    "ammonio": 0.6
+   },
+   "c": "2024-09-20"
+  }
+ ]
+}

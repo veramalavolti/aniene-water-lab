@@ -1,0 +1,54 @@
+# Ricostruisce e pubblica il sito a ogni modifica dei contenuti.
+#
+# Quando qualcuno salva un testo dal pannello di redazione, Pages CMS scrive il
+# file in contenuti/ e questo flusso rigenera le pagine in dist/ e le rimette
+# nel repository: il sito pubblicato si aggiorna da solo in un paio di minuti.
+
+name: Pubblica il sito
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'contenuti/**'
+      - 'templates/**'
+      - 'assets/**'
+      - 'dati/**'
+      - 'build.py'
+      - '.github/workflows/pubblica.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: pubblica
+  cancel-in-progress: true
+
+jobs:
+  costruisci:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Installa le librerie
+        run: pip install --quiet pyyaml jinja2
+
+      - name: Costruisci il sito
+        run: python3 build.py
+
+      - name: Salva le pagine aggiornate
+        run: |
+          git config user.name "Aniene Water Lab"
+          git config user.email "noreply@github.com"
+          git add dist
+          if git diff --staged --quiet; then
+            echo "Nessuna modifica da pubblicare."
+          else
+            git commit -m "Ricostruisce il sito dai contenuti aggiornati"
+            git push
+          fi

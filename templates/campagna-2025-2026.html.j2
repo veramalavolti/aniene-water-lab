@@ -1,0 +1,136 @@
+{% extends "base.html.j2" %}
+{% import "parti.html.j2" as parti %}
+
+{% block contenuto %}
+
+{{ parti.hero(c, 'Campagna di monitoraggio') }}
+
+<section class="sezione">
+  <div class="contenitore stretto">
+    {{ parti.paragrafi(c.introduzione.paragrafi) }}
+    <div class="ancore">
+      {% for s in c.introduzione.sezioni %}
+      <a class="ancora-box" href="#{{ s.ancora }}">
+        <strong>{{ s.nome }}</strong>
+        <span>{{ s.descrizione }}</span>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{# ------------------------------------------------------------- punti fissi #}
+
+<section class="sezione-scura" id="dati-fissi">
+  <div class="contenitore">
+    {{ parti.testa('Sezione 1', c.fissi.titolo) }}
+    {{ parti.paragrafi(c.fissi.intro.paragrafi) }}
+  </div>
+</section>
+
+<section class="sezione">
+  <div class="contenitore">
+    {{ parti.dashboard(c.fissi.dashboard, riepilogo) }}
+  </div>
+</section>
+
+<section class="sezione sezione-chiara">
+  <div class="contenitore stretto">
+    {{ parti.testa('', c.fissi.sintesi.titolo) }}
+    {{ parti.paragrafi(c.fissi.sintesi.paragrafi) }}
+  </div>
+</section>
+
+<section class="sezione">
+  <div class="contenitore">
+    {{ parti.schede_campagna(c.fissi.schede, parametri) }}
+    <div style="margin-top:2rem">
+      {{ parti.galleria(c.fissi.foto) }}
+    </div>
+  </div>
+</section>
+
+{# ----------------------------------------------------------------- gommone #}
+
+<section class="sezione-scura" id="dati-gommone">
+  <div class="contenitore">
+    {{ parti.testa('Sezione 2', c.gommone.titolo) }}
+    {{ parti.paragrafi(c.gommone.intro.paragrafi) }}
+    <div class="nota" style="background:rgba(240,237,230,.08);color:var(--text-inv-dim);border-left-color:var(--lime)">
+      <p><b>{{ c.gommone.intro.come_leggere.titolo }}.</b> {{ c.gommone.intro.come_leggere.testo }}</p>
+    </div>
+  </div>
+</section>
+
+<section class="sezione">
+  <div class="contenitore">
+    {{ parti.dashboard(c.gommone.dashboard, riepilogo) }}
+  </div>
+</section>
+
+<section class="sezione sezione-chiara">
+  <div class="contenitore">
+    {{ parti.testa('', c.gommone.sintesi.titolo) }}
+    <ul class="elenco-spunte">
+      {% for v in c.gommone.sintesi.voci %}
+      <li><b>{{ v.titolo }}.</b> {{ v.testo }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+
+<section class="sezione">
+  <div class="contenitore">
+    {{ parti.schede_campagna(c.gommone.schede, parametri) }}
+  </div>
+</section>
+
+<section class="sezione" id="hotspot">
+  <div class="contenitore stretto">
+    {{ parti.testa('Dove guardare', c.gommone.hotspot.titolo, c.gommone.hotspot.intro) }}
+    <ul class="elenco-spunte">
+      {% for criterio in c.gommone.hotspot.criteri %}
+      <li>{{ criterio }}</li>
+      {% endfor %}
+    </ul>
+    <h3 class="sotto-titolo">{{ c.gommone.hotspot.elenco_titolo }}</h3>
+    <ul class="stazioni-elenco">
+      {% for h in c.gommone.hotspot.elenco %}
+      <li>
+        <span class="stazione-codice">H</span>
+        <div>
+          <span class="stazione-nome">{{ h.data }}</span>
+          <p>{{ h.punti }}</p>
+        </div>
+      </li>
+      {% endfor %}
+    </ul>
+    <div style="margin-top:1.4rem">{{ parti.paragrafi(c.gommone.hotspot.chiusura) }}</div>
+  </div>
+</section>
+
+<section class="sezione">
+  <div class="contenitore">
+    {{ parti.testa('Come', c.gommone.metodologia.titolo) }}
+    <ul class="elenco-spunte">
+      {% for v in c.gommone.metodologia.voci %}
+      <li><b>{{ v.titolo }}.</b> {{ v.testo }}</li>
+      {% endfor %}
+    </ul>
+    <div style="margin-top:2rem">
+      {{ parti.galleria(c.gommone.foto) }}
+    </div>
+  </div>
+</section>
+
+<section class="sezione sezione-chiara" id="report">
+  <div class="contenitore">
+    {{ parti.report(c.report) }}
+  </div>
+</section>
+
+{% endblock %}
+
+{% block script %}
+<script src="assets/js/dashboard.js" defer></script>
+{% endblock %}

@@ -1,6 +1,9 @@
 .DS_Store
-node_modules/
 __pycache__/
 .vercel/
+node_modules/
+
+# I file originali delle campagne restano fuori dal repository: gli Excel
+# stanno nella cartella Aniene insieme al resto del materiale di progetto.
 *.xlsx
-*.pdf
+*.xls

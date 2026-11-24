@@ -1,25 +1,95 @@
 # Aniene Water Lab
 
-Piattaforma pubblica per esplorare i risultati del monitoraggio civico della qualità dell'acqua del fiume Aniene: 1.281 misure, 10 stazioni e 25 campagne da aprile 2022 a dicembre 2025.
+La piattaforma dei monitoraggi partecipati sul fiume Aniene: il percorso dal
+2021 a oggi, la metodologia della citizen science, i dati aperti delle tre
+campagne di monitoraggio con dashboard interattive, e i report da scaricare.
 
-- `dist/index.html`: il progetto, gli strumenti, i parametri e la metodologia
-- `dist/risultati.html`: i risultati raccontati in sei domande
-- `dist/dashboard.html`: mappa, profilo da monte a valle, andamento, matrice, statistiche ed export CSV
+Il sito è statico: non ha un database né un pannello di amministrazione da
+aggiornare, quindi è veloce, gratuito da ospitare e non richiede manutenzione
+di sicurezza. I testi però non stanno dentro il codice, ma in file di contenuto
+separati: chi cura il sito li modifica da un pannello di redazione, in
+italiano, senza toccare una riga di codice.
 
-Il sito è statico, stile e logo vengono dalla [dashboard del Fosso Galeria](https://github.com/veramalavolti/fosso-galeria-2020-2025).
+## Le pagine
 
-## Dati
+| Pagina | Cosa contiene |
+| --- | --- |
+| `index` | Il fiume, il progetto, il Contratto di Fiume, la citizen science, gli obiettivi |
+| `citizen-science` | La scienza partecipata, le schede dei parametri, la metodologia, i macroinvertebrati |
+| `campagna-2022-2023` | Walk Up Aniene e RomaUp, 5 stazioni urbane, dashboard, report |
+| `campagna-2023-2024` | Aniene WaterLab, 9 stazioni da Subiaco al Tevere, dashboard, report |
+| `campagna-2025-2026` | Punti fissi e campagne in gommone, due dashboard, hotspot, report |
+| `contatti` | La rete dei partner, il modulo di segnalazione, il bollettino dell'Aniene |
 
-| Periodo | Fonte | Contenuto |
+## Modificare i testi senza programmare
+
+1. Vai su [app.pagescms.org](https://app.pagescms.org) ed entra con il tuo
+   account GitHub.
+2. Apri questo repository: trovi una voce per ogni pagina del sito.
+3. Modifica i campi (titolo, paragrafi, schede, didascalie…) e salva.
+4. Dopo un paio di minuti il sito pubblicato è aggiornato.
+
+Il pannello mostra solo i campi previsti, descritti in `.pages.yml`: non è
+possibile rompere il layout. Le fotografie si caricano dallo stesso pannello e
+finiscono in `assets/img/foto`, i report in `dist/report`.
+
+Chi preferisce può modificare direttamente i file in `contenuti/`: sono file di
+testo con un campo per riga, con i commenti che spiegano a cosa serve ciascuno.
+
+## Com'è fatto
+
+    contenuti/      i testi, uno per pagina, più i parametri e le impostazioni
+    dati/           i dati delle campagne in JSON, generati dagli Excel
+    templates/      la struttura HTML delle pagine
+    assets/         CSS, JavaScript, fotografie, loghi
+    scripts/        l'estrazione dei dati dagli Excel originali
+    build.py        costruisce dist/ unendo contenuti, dati e templates
+    dist/           il sito pubblicato: generato, tranne dist/report con i PDF
+
+### Parametri e soglie
+
+`contenuti/parametri.yml` è il cuore delle dashboard: per ogni parametro
+contiene nome, unità di misura, che cosa misura, come si legge e le soglie.
+Ogni soglia ha il valore a cui viene disegnata la linea, l'etichetta sempre
+visibile accanto alla linea, la spiegazione di che cosa significa superarla e
+le possibili cause, che compaiono passando il mouse sulla linea. Le stesse
+schede alimentano anche le pagine dei parametri, quindi una correzione fatta lì
+si riflette ovunque.
+
+## Rigenerare il sito
+
+    pip install pyyaml jinja2
+    python3 build.py
+
+Per rigenerare i dati dagli Excel originali (che non stanno nel repository, ma
+nella cartella di progetto «Aniene»):
+
+    pip install openpyxl
+    python3 scripts/estrai_dati.py --sorgente "/percorso/della/cartella/Aniene"
+
+Per vedere il sito in locale:
+
+    python3 -m http.server 4173 --directory dist
+
+## Pubblicazione
+
+Il flusso `.github/workflows/pubblica.yml` ricostruisce `dist/` a ogni modifica
+dei contenuti e lo rimette nel repository. Il sito viene servito da `dist/`
+(`vercel.json` lo indica come cartella di pubblicazione).
+
+## Dati e fonti
+
+| Campagna | Fonte | Contenuto |
 | --- | --- | --- |
-| Dic 2023 – ott 2024 | Excel `Dataset definitivo dati monitoraggio AnieneWaterLab 23_24.xlsx`, foglio Dati | 91 campioni e 11 rilievi straordinari |
-| Ott – dic 2025 | Excel `Dati campionamento Aniene 2025-2026.xlsx`, foglio Dati 9 punti | 27 campioni, solo le tre campagne del 2025 |
-| Apr 2022 – mar 2023 | Punti dei grafici vettoriali della relazione di Bruna Gumiero | 55 campioni, 5 parametri |
+| 2022-2023 | `Dati-Tevere-e-Aniene22-23.xlsx`, foglio `dati_grezzi` | 5 stazioni sull'Aniene, 11 campagne, 55 prelievi |
+| 2023-2024 | `Dataset definitivo … 23_24.xlsx`, foglio `Dataset` | 9 stazioni, 11 campagne, 91 prelievi |
+| 2023-2024 gommone | stesso file, punti 10-14 | 5 punti, 2 discese |
+| 2025-2026 | `Dataset … 25_26.xlsx`, foglio `Dataset 9 punti` | 9 stazioni, 13 campagne, 116 prelievi |
+| 2025-2026 gommone | `Dati campionamento Aniene 2025-2026.xlsx`, foglio `Dati gommone` | 34 punti (27 numerati più i BIS), 5 uscite |
+| 2025-2026 asta | stesso file, foglio `Extra ogni 3km circa` | 13 punti lungo l'asta |
 
-I file Excel e il PDF non sono nel repository: per rigenerare i dati servono i file originali. Tutte le misure sono in `dist/aniene_dati.csv`, e il registro delle modifiche all'Excel è nel campo `corrections` di `dist/data.json`.
+La supervisione scientifica dei dati è di Bruna Gumiero, ecologa fluviale
+dell'Università di Bologna.
 
-    python3 scripts/extract_report_charts.py "relazione.pdf"   # richiede PyMuPDF
-    python3 scripts/import_data.py "dataset_23_24.xlsx" "dati_2025_2026.xlsx"   # richiede openpyxl
-    python3 scripts/test_data.py
-
-Il corso del fiume in `dist/fiumi.geojson` viene da OpenStreetMap (© contributori OpenStreetMap, ODbL).
+Testi e dati sono rilasciati con licenza Creative Commons BY-SA 4.0. Le
+fotografie appartengono a chi le ha scattate.

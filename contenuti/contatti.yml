@@ -1,0 +1,136 @@
+# Pagina CONTATTI E NEWSLETTER.
+
+titolo: Contatti e bollettino
+sottotitolo: >-
+  Chi fa parte della rete, come segnalare qualcosa che hai visto sul fiume e
+  dove seguire gli aggiornamenti sullo stato dell'Aniene.
+foto_copertina: foto/restituzione-pubblica.jpg
+foto_copertina_descrizione: >-
+  Una restituzione pubblica dei risultati del monitoraggio.
+
+partner:
+  titolo: La rete dei progetti
+  intro: >-
+    Le associazioni, gli enti e i sostenitori che hanno preso parte alle
+    campagne di monitoraggio, progetto per progetto.
+  gruppi:
+    - progetto: Walk Up Aniene
+      anni: "2021"
+      descrizione: >-
+        Il progetto pilota, realizzato all'interno del programma europeo Citizen
+        Science ACTION (Horizon 2020).
+      realta:
+        - nome: A Sud
+          logo: partner/a-sud.png
+          sito: https://asud.net
+        - nome: Insieme per l'Aniene APS
+          logo: partner/insieme-per-l-aniene.png
+          sito: https://www.insieneperlaniene.it
+    - progetto: RomaUp
+      anni: 2022 – 2023
+      descrizione: >-
+        Il monitoraggio civico del Tevere e dell'Aniene, sostenuto dal programma
+        Periferiacapitale.
+      realta:
+        - nome: A Sud
+          logo: partner/a-sud.png
+          sito: https://asud.net
+        - nome: Insieme per l'Aniene APS
+          logo: partner/insieme-per-l-aniene.png
+          sito: https://www.insieneperlaniene.it
+        - nome: Retake Roma Sacco Pastore
+          logo: partner/retake-roma.png
+          sito: https://retake.org
+        - nome: Periferiacapitale
+          logo: partner/periferiacapitale.png
+          sito: https://periferiacapitale.it
+    - progetto: Aniene WaterLab
+      anni: 2023 – 2024
+      descrizione: >-
+        La campagna annuale coordinata da Insieme per l'Aniene, finanziata dal
+        programma Periferiacapitale della Fondazione Charlemagne.
+      realta:
+        - nome: Insieme per l'Aniene APS
+          logo: partner/insieme-per-l-aniene.png
+          sito: https://www.insieneperlaniene.it
+        - nome: A Sud
+          logo: partner/a-sud.png
+          sito: https://asud.net
+        - nome: Retake Roma Sacco Pastore
+          logo: partner/retake-roma.png
+          sito: https://retake.org
+        - nome: A.D.A. APS
+          logo: partner/ada.png
+        - nome: Roma Adventure ASD
+          logo: partner/roma-adventure.png
+        - nome: Periferiacapitale
+          logo: partner/periferiacapitale.png
+          sito: https://periferiacapitale.it
+    - progetto: Aniene WaterLab
+      anni: 2025 – 2026
+      descrizione: >-
+        La rete si allarga: punti fissi, campagne in gommone sulle immissioni e
+        la sperimentazione sui macroinvertebrati.
+      realta:
+        - nome: Insieme per l'Aniene APS
+          logo: partner/insieme-per-l-aniene.png
+          sito: https://www.insieneperlaniene.it
+        - nome: A Sud
+          logo: partner/a-sud.png
+          sito: https://asud.net
+        - nome: Retake Roma Sacco Pastore
+          logo: partner/retake-roma.png
+          sito: https://retake.org
+        - nome: A.D.A. APS
+          logo: partner/ada.png
+        - nome: Roma Adventure ASD
+          logo: partner/roma-adventure.png
+        - nome: Il Cammino dell'Aniene
+          logo: partner/cammino-aniene-vara.png
+        - nome: Collettivo L'Aquila Reale ETS
+          logo: partner/aquila-reale.png
+        - nome: Otto per mille Chiesa valdese
+          logo: partner/ottopermille-valdese.png
+  supervisione:
+    titolo: Supervisione scientifica
+    testo: >-
+      La validazione scientifica dei dati raccolti è a cura della Dott.ssa Bruna
+      Gumiero, ecologa fluviale dell'Università di Bologna.
+
+segnalazioni:
+  titolo: Segnalaci qualcosa
+  intro: >-
+    Hai visto uno scarico, una discarica, una moria di pesci o qualcosa che non
+    torna lungo il fiume? Scrivici: ogni segnalazione viene letta e, quando
+    possibile, verificata durante le uscite di monitoraggio.
+  email: segreteria@asud.net
+  nota: >-
+    Il modulo apre il tuo programma di posta con il messaggio già pronto. Se
+    preferisci, puoi scrivere direttamente all'indirizzo qui sopra.
+  campi:
+    nome: Il tuo nome
+    email: La tua email
+    luogo: Dove l'hai visto
+    messaggio: Che cosa hai visto
+    invia: Prepara la segnalazione
+
+bollettino:
+  titolo: Il bollettino dell'Aniene
+  intro: >-
+    Gli aggiornamenti sullo stato del fiume, le campagne di monitoraggio e le
+    iniziative della rete. Qui raccogliamo gli articoli pubblicati man mano che
+    i dati vengono validati e restituiti.
+  articoli:
+    - titolo: Un report per capire come sta l'Aniene
+      data: ""
+      occhiello: A Sud
+      testo: >-
+        La presentazione del report di monitoraggio e quello che i dati
+        raccontano sullo stato di salute del fiume.
+      link: https://asud.net/ultima/report-per-capire-come-sta-l-aniene/
+  iscrizione:
+    titolo: Resta aggiornata, resta aggiornato
+    testo: >-
+      Per ricevere gli aggiornamenti sulle prossime campagne di monitoraggio e
+      sulle restituzioni pubbliche, scrivici all'indirizzo qui sopra indicando
+      «bollettino dell'Aniene» nell'oggetto.

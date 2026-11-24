@@ -1,0 +1,454 @@
+# Pagina CAMPAGNA 2025-2026.
+# La pagina ha due sezioni: i punti fissi monitorati da terra e le campagne in
+# gommone. Le dashboard leggono i dati da dati/campagna-2025-2026.json e
+# dati/campagna-2025-2026-gommone.json: non si modificano qui.
+
+titolo: Campagna 2025-2026
+sottotitolo: >-
+  La rete di monitoraggio partecipato lavora su due fronti: i punti fissi
+  campionati ogni mese da terra e le discese in gommone, che raggiungono gli
+  scarichi e le immissioni nel fiume.
+foto_copertina: foto/gommone-sul-fiume.jpg
+foto_copertina_descrizione: >-
+  Una delle discese in gommone lungo il basso corso dell'Aniene, 2026.
+
+introduzione:
+  paragrafi:
+    - >-
+      Nel 2025–2026 il monitoraggio riprende in 9 punti fissi, dall'alto corso a
+      Subiaco fino alla confluenza nel Tevere, con campionamenti mensili fatti
+      sempre negli stessi luoghi e con lo stesso protocollo. A questi si
+      affiancano le campagne in gommone, pensate per campionare direttamente là
+      dove il fiume incontra scarichi, fossi, impianti di sollevamento e
+      immissioni, che da terra non si vedono.
+    - >-
+      Due modi diversi di fotografare lo stato di salute del fiume, con un
+      obiettivo comune: raccogliere dati indipendenti, segnalare le criticità e
+      sollecitare le verifiche ufficiali.
+  sezioni:
+    - ancora: dati-fissi
+      nome: I dati dei punti fissi
+      descrizione: 9 stazioni, 13 campagne mensili da ottobre 2025 a ottobre 2026.
+    - ancora: dati-gommone
+      nome: I dati in gommone
+      descrizione: Le immissioni nel fiume da Ponte Lucano alla confluenza nel Tevere.
+
+# ---------------------------------------------------------------- PUNTI FISSI
+
+fissi:
+  titolo: I dati dei punti fissi
+  intro:
+    paragrafi:
+      - >-
+        Da ottobre 2025 a ottobre 2026 abbiamo campionato ogni mese le stesse
+        nove stazioni, da Subiaco a Ponte Salario, misurando in ogni punto
+        temperatura, pH, conducibilità elettrica, torbidità, ossigeno disciolto,
+        ammonio, nitrati, fosfati, Escherichia coli e coliformi fecali.
+      - >-
+        Le stazioni sono le stesse della campagna 2023-2024, con l'aggiunta
+        della Tenuta del Cavaliere: questo permette di confrontare direttamente
+        le due annualità e di capire se e dove la situazione sta cambiando.
+  dashboard:
+    titolo: I risultati nei punti fissi
+    intro: >-
+      Scegli un parametro per vederne l'andamento in tutte le stazioni. Le linee
+      orizzontali sono le soglie di qualità: passandoci sopra con il mouse
+      compaiono il valore, cosa significa superarle e le possibili cause.
+    dati: campagna-2025-2026
+  sintesi:
+    titolo: In breve
+    paragrafi:
+      - >-
+        Il fiume peggiora in modo netto e progressivo da monte a valle. A
+        Subiaco e Vicovaro i valori restano buoni su quasi tutti i parametri.
+        Il primo salto avviene a Ponte Lucano, dove la conducibilità passa da
+        circa 600 a 1.277 µS/cm di mediana, con punte al limite dello strumento;
+        il secondo nel tratto urbano, dove crollano l'ossigeno e cresce la
+        contaminazione fecale.
+      - >-
+        Il dato più allarmante resta Escherichia coli: la mediana passa da 200
+        UFC/100 mL a Subiaco a 38.000 a Ponte Salario, con punte di 980.000 a
+        Ponte Mammolo e 280.000 a Ponte Salario. Solo Subiaco e Vicovaro
+        restano, nella maggior parte delle campagne, entro valori compatibili
+        con la balneazione.
+      - >-
+        Temperatura e pH non mostrano anomalie: le temperature seguono le
+        stagioni, tra 8,5 e 21,7 °C, e il pH resta quasi sempre
+        nell'intervallo 7–9, con due soli picchi isolati.
+  schede:
+    titolo: I parametri, uno per uno
+    intro: >-
+      Cosa misura ogni parametro, come si legge e cosa abbiamo trovato in questa
+      campagna. Nel report in fondo alla pagina trovi informazioni più
+      specifiche.
+    voci:
+      - parametro: ossigeno
+        stato: Critico nel tratto urbano
+        cosa_trovato: >-
+          L'ossigeno scende con regolarità da monte a valle: la mediana passa da
+          9,5 mg/L a Subiaco a 6,3–6,9 mg/L nelle stazioni urbane. I minimi più
+          preoccupanti sono a Casale Caletto e Ponte Mammolo, dove si è toccato
+          1,5 mg/L, e a Ponte delle Valli, con 3,2 mg/L: valori ai quali
+          l'ecosistema è a rischio.
+        cause: >-
+          Un alto carico di sostanza organica e ammonio, che consuma ossigeno
+          durante la decomposizione e l'ossidazione. I minimi coincidono con le
+          stazioni in cui anche ammonio ed Escherichia coli raggiungono i valori
+          più alti.
+      - parametro: ammonio
+        stato: Critico nel tratto urbano
+        cosa_trovato: >-
+          Fino a Ponte Lucano l'ammonio resta nelle classi migliori, con mediane
+          tra 0,03 e 0,06 mg/L. Nel tratto urbano la situazione cambia: la
+          mediana è 0,43 mg/L a Ponte Mammolo e 0,45 a Ponte Salario, cioè sopra
+          la soglia della classe peggiore del LIMeco, con massimi di 2,1 e 1,9
+          mg/L.
+        cause: >-
+          Scarichi fognari o reflui trattati in modo inadeguato, attività
+          agricole e zootecniche, scarichi industriali. Valori così alti di
+          ammonio, che in presenza di ossigeno si trasforma rapidamente in
+          nitrato, indicano un apporto continuo e non trattato.
+      - parametro: nitrati
+        stato: Da tenere d'occhio
+        cosa_trovato: >-
+          I nitrati restano quasi sempre nelle classi buone: la mediana è 0,2
+          mg/L di azoto nitrico nell'alto corso e 1,0 mg/L nelle stazioni
+          urbane. I massimi, tra 4 e 5 mg/L, si registrano a Ponte Mammolo,
+          Ponte delle Valli e Ponte Salario, cioè in classe «scarsa».
+        cause: >-
+          Dilavamento dei terreni trattati con fertilizzanti, spesso legati
+          all'orticoltura lungo le sponde, e reflui urbani.
+      - parametro: fosfati
+        stato: Da tenere d'occhio
+        cosa_trovato: >-
+          Nell'alto corso la mediana è 0,05 mg/L, al limite della classe
+          migliore. Scende di classe a Tivoli (0,15 mg/L) e nelle due stazioni
+          più a valle, Ponte delle Valli e Ponte Salario, dove la mediana è 0,20
+          mg/L e il massimo arriva a 1,0.
+        cause: >-
+          Scarichi urbani — detergenti, saponi e prodotti per la casa ne
+          contengono molti — insediamenti industriali e attività agricole del
+          bacino.
+      - parametro: conducibilita
+        stato: Critico da Ponte Lucano in giù
+        cosa_trovato: >-
+          È il parametro che mostra il salto più netto. A Subiaco i valori
+          stanno tra 351 e 418 µS/cm, a Vicovaro e Tivoli intorno a 600. A Ponte
+          Lucano la mediana sale a 1.277 µS/cm, con punte di 2.000, il limite
+          dello strumento, e da lì in poi tutte le stazioni restano sopra i
+          1.300 µS/cm di mediana.
+        cause: >-
+          Nel tratto di Ponte Lucano pesano le cave di travertino e le sorgenti
+          solfuree, che alzano naturalmente il valore. Più a valle si aggiunge
+          l'apporto di sali legato a scarichi urbani, industriali e agricoli.
+      - parametro: ph
+        stato: Nella norma
+        cosa_trovato: >-
+          Il pH resta quasi sempre tra 7,0 e 9,0, dentro l'intervallo
+          compatibile con la vita del fiume. Fanno eccezione due picchi isolati,
+          a Ponte Lucano (10,4) e alla Tenuta del Cavaliere (9,9), da verificare
+          con nuovi rilievi.
+        cause: >-
+          I valori più alti coincidono con i tratti a maggiore attività algale e
+          con gli apporti delle acque di cava.
+      - parametro: ecoli
+        stato: Critico
+        cosa_trovato: >-
+          La contaminazione fecale cresce di due ordini di grandezza lungo il
+          fiume: la mediana passa da 200 UFC/100 mL a Subiaco a 650 a Vicovaro,
+          900 a Tivoli, 2.200–2.800 tra Ponte Lucano e la Tenuta del Cavaliere,
+          fino a 31.900 a Ponte delle Valli e 38.000 a Ponte Salario. I picchi
+          più alti sono 980.000 UFC a Ponte Mammolo, 280.000 a Ponte Salario e
+          252.000 a Ponte delle Valli.
+        cause: >-
+          Scarichi fognari, impianti di sollevamento e fossi urbani. Le discese
+          in gommone della stessa annualità, qui sotto, hanno permesso di
+          individuare diverse immissioni compatibili con questi valori.
+      - parametro: coliformi
+        stato: Critico
+        cosa_trovato: >-
+          I coliformi fecali seguono lo stesso andamento di E. coli, con mediane
+          che passano da poche migliaia di UFC nell'alto corso a 152.500 a Ponte
+          delle Valli e 163.500 a Ponte Salario, e massimi di 700.000 e 800.000
+          UFC/100 mL.
+        cause: >-
+          Contaminazione di origine fecale: scarichi fognari, reflui non
+          depurati, fossi urbani.
+      - parametro: temperatura
+        stato: Nella norma
+        cosa_trovato: >-
+          Le temperature seguono le stagioni, da 8,5 °C in inverno a Subiaco a
+          21,7 °C in estate nelle stazioni urbane, senza salti che facciano
+          pensare a inquinamento termico.
+        cause: ""
+      - parametro: torbidita
+        stato: Nella norma
+        cosa_trovato: >-
+          La torbidità misurata con il tubo di Secchi resta quasi sempre al
+          valore minimo della scala. I picchi, fino a 40, si registrano a Ponte
+          Lucano e alla Tenuta del Cavaliere, in corrispondenza delle piogge e
+          degli apporti dalle cave.
+        cause: >-
+          Attività umane come discariche edilizie, cave e liquami non depurati,
+          oppure cause naturali come l'erosione delle rocce e la crescita di
+          alghe e fitoplancton.
+  foto:
+    - file: foto/prelievo-secchio.jpg
+      descrizione: Il prelievo con il secchio in una delle stazioni fisse.
+    - file: foto/piastra-ecoli-2.jpg
+      descrizione: Le colonie blu di Escherichia coli su piastra Compact Dry EC.
+    - file: foto/incubatrice.jpg
+      descrizione: Le piastre in incubatrice per 24 ore a 36 °C.
+
+# ------------------------------------------------------------------ GOMMONE
+
+gommone:
+  titolo: I dati in gommone
+  intro:
+    paragrafi:
+      - >-
+        Da novembre 2025 a giugno 2026 abbiamo monitorato l'Aniene in gommone.
+        Dal gommone si raggiungono tratti difficili da avvicinare da terra e si
+        può campionare direttamente dove il fiume incontra scarichi, fossi,
+        impianti di sollevamento e immissioni.
+      - >-
+        I punti di prelievo sono numerati da monte a valle e divisi in tre
+        tratti: il tratto alto, dai depuratori di Guidonia e Tivoli fino al
+        fosso dell'Osa; il tratto medio, da Settecamini fino al depuratore di
+        Roma est; il tratto urbano, da Casal de' Pazzi alla confluenza nel
+        Tevere.
+      - >-
+        Dal maggio 2026 abbiamo aggiunto i punti BIS. Si trovano circa 500 metri
+        a valle di alcuni punti di controllo e servono a misurare l'effetto di
+        uno scarico puntuale. I due punti di ogni coppia sono campionati lo
+        stesso giorno, quindi il confronto mostra se in quei 500 metri il fiume
+        migliora o peggiora.
+      - >-
+        In ogni punto abbiamo misurato ossigeno disciolto, ammonio, nitrati e
+        fosfati — i parametri dell'indice LIMeco — insieme a pH, conducibilità
+        elettrica, Escherichia coli e coliformi fecali. I dati sono stati
+        analizzati dalla Dott.ssa Bruna Gumiero, ecologa fluviale
+        dell'Università di Bologna.
+    come_leggere:
+      titolo: Come leggere i dati
+      testo: >-
+        I dati sono ottenuti con kit di campo. Il LIMeco qui è una stima
+        indicativa, non una classificazione ufficiale: serve soprattutto a
+        confrontare i punti e le campagne tra loro. Quando compare il simbolo
+        «&gt;», il valore supera il limite di rilevamento del kit.
+  dashboard:
+    titolo: I risultati delle campagne in gommone
+    intro: >-
+      Scegli un parametro per vedere il profilo del fiume da monte a valle,
+      punto per punto. Le linee orizzontali sono le soglie di qualità:
+      passandoci sopra con il mouse compaiono il valore, cosa significa
+      superarle e le possibili cause.
+    dati: campagna-2025-2026-gommone
+  sintesi:
+    titolo: In breve
+    voci:
+      - titolo: La pressione è più forte nel tratto medio e urbano
+        testo: >-
+          Ossigeno, ammonio e carica batterica mostrano le criticità maggiori in
+          diversi punti da Settecamini fino alla foce.
+      - titolo: I nutrienti sono alti anche a monte
+        testo: Nitrati e fosfati risultano elevati già nei primi punti del tratto alto.
+      - titolo: Il quadro batteriologico è molto peggiore di quello chimico
+        testo: >-
+          E. coli e coliformi fecali superano spesso le centinaia di migliaia di
+          UFC/100 mL, con punte oltre il milione.
+      - titolo: Dieci campioni sono «hotspot»
+        testo: >-
+          Sono associati a scarichi fognari, impianti di sollevamento, fossi
+          urbani e immissioni. Vanno letti con cautela: non sono scarichi
+          fognari accertati.
+      - titolo: A 500 metri a valle degli scarichi la situazione migliora
+        testo: >-
+          Succede per ammonio, ossigeno e carica batterica nella maggior parte
+          delle coppie. Per i nitrati il risultato è misto.
+  schede:
+    titolo: Le schede dei parametri
+    intro: >-
+      I primi quattro parametri formano l'indice LIMeco. Gli altri completano il
+      quadro. Nel report in fondo alla pagina trovi il dettaglio di ogni
+      campagna.
+    voci:
+      - parametro: ossigeno
+        stato: Critico in alcuni punti
+        cosa_trovato: >-
+          In quasi tutta la rete lo scostamento dalla saturazione è nella fascia
+          «sufficiente». Nessun punto raggiunge la classe «elevata».
+        cause: >-
+          Un forte consumo di ossigeno dovuto alla degradazione batterica di
+          scarichi organici civili o zootecnici, un problema storico del tratto
+          medio-basso dell'Aniene, che attraversa l'area urbana di Roma. Uno
+          scostamento per eccesso indicherebbe invece fioriture algali anomale
+          legate a fosfati e nitrati.
+      - parametro: ammonio
+        stato: Critico
+        cosa_trovato: >-
+          In molti punti l'ammonio supera la soglia più critica del LIMeco, 0,24
+          mg/L di azoto.
+        cause: >-
+          Un ammonio elevato indica azoto ridotto, compatibile con apporti
+          organici recenti e con condizioni riducenti. Tra le fonti possibili ci
+          sono scarichi fognari o reflui trattati in modo inadeguato, attività
+          agricole e zootecniche, scarichi industriali.
+      - parametro: nitrati
+        stato: Critico in molti punti
+        cosa_trovato: >-
+          I valori sono molto alti già nei primi punti del tratto alto, intorno
+          ai 10 mg/L di azoto, e in gran parte del tratto medio. Valori bassi si
+          trovano in alcuni punti del tratto alto e in diversi punti del tratto
+          urbano, tra 0,5 e 1 mg/L.
+        cause: >-
+          Un eccesso di nitrati proviene in genere dal dilavamento dei terreni
+          trattati con fertilizzanti e dai reflui urbani.
+      - parametro: fosfati
+        stato: Critico in alcuni punti
+        cosa_trovato: >-
+          I fosfati sono alti già nel tratto alto. Nel tratto medio e urbano il
+          valore massimo registrato è 1 mg/L; molti punti si fermano a 0,5 mg/L.
+        cause: >-
+          Un fosfato elevato indica un'alta disponibilità di fosforo reattivo.
+          Le fonti più comuni sono gli scarichi urbani, gli insediamenti
+          industriali e le attività agricole. La causa specifica va verificata
+          caso per caso.
+      - parametro: ph
+        stato: Da tenere d'occhio nel tratto urbano
+        cosa_trovato: >-
+          Nel tratto alto i valori stanno tra 7,6 e 8,9. Nel tratto medio, a
+          novembre 2025, alcuni punti superano il limite di 9. Nel tratto
+          urbano, a febbraio 2026, tutti i punti campionati hanno un pH di
+          almeno 9,8, ben oltre il limite. A giugno 2026 tornano tra 7,5 e 8,2.
+        cause: >-
+          Un'intensa attività algale legata all'eccesso di nutrienti e, nel
+          tratto urbano, apporti di scarichi con reazione basica.
+      - parametro: conducibilita
+        stato: Da leggere con la geologia
+        cosa_trovato: >-
+          I valori vanno da 690 µS/cm fino a oltre 2.000, il limite dello
+          strumento. I più alti si registrano nei punti vicini alle sorgenti
+          solfuree e travertinose di Tivoli.
+        cause: >-
+          In questo contesto la conducibilità non ha soglie ufficiali di
+          qualità, perché dipende molto dalla geologia locale: le sorgenti
+          solfuree e travertinose danno valori naturalmente alti, che non
+          indicano per forza inquinamento.
+      - parametro: ecoli
+        stato: Critico
+        cosa_trovato: >-
+          Il quadro batteriologico è nettamente peggiore di quello chimico. Nel
+          tratto alto la situazione peggiore è a Tivoli-Borgonovo, con 490.000
+          UFC/100 mL a novembre e 870.000 a maggio. Nel tratto medio e urbano si
+          superano spesso i 100.000 UFC, con punte oltre il milione. I valori
+          più bassi, da zero a poche centinaia di UFC, si trovano solo in alcune
+          campagne e in pochi punti.
+        cause: >-
+          Valori così alti indicano una forte contaminazione di origine fecale.
+          Le fonti più probabili sono scarichi fognari, impianti di sollevamento
+          e fossi urbani, ma la causa specifica va verificata caso per caso.
+      - parametro: coliformi
+        stato: Critico
+        cosa_trovato: Seguono lo stesso andamento di Escherichia coli.
+        cause: >-
+          Contaminazione di origine fecale: scarichi fognari, reflui non
+          depurati, fossi urbani.
+  hotspot:
+    titolo: "Gli hotspot: dove la pressione è più forte"
+    intro: >-
+      Per individuare i punti più critici abbiamo incrociato quattro
+      indicatori. Un campione è un «hotspot di forte pressione organica e
+      fognaria» quando li supera tutti insieme.
+    criteri:
+      - ammonio sopra 1,5 mg/L di azoto
+      - E. coli sopra 20.000 UFC/100 mL
+      - fosfati pari o superiori a 0,5 mg/L, soglia usata come criterio operativo e non come classe LIMeco formale
+      - ossigeno sotto il 40% di saturazione
+    elenco_titolo: Con questo criterio risultano dieci campioni
+    elenco:
+      - data: 15 novembre 2025
+        punti: Tivoli-Borgonovo, immissione fognature Martellona 1.
+      - data: 18 novembre 2025
+        punti: Immissione del fosso della Longarina.
+      - data: 24 febbraio 2026
+        punti: >-
+          Scarico diretto di Belvedere Vigna Mangani, impianto di sollevamento
+          di Città Giardino, impianto fosso Sant'Agnese.
+      - data: 27 maggio 2026
+        punti: Fosso Centocelle, fosso GRA di via di Mirtillo.
+      - data: 22 giugno 2026
+        punti: Scarico fogna Lanificio, Città Giardino, Sant'Agnese.
+    chiusura:
+      - >-
+        Questi campioni non sono distribuiti a caso: sono fortemente associati a
+        scarichi fognari, impianti di sollevamento, fossi urbani e immissioni. I
+        quattro indicatori raccontano la stessa storia da prospettive diverse:
+        non si tratta di semplice inquinamento da nutrienti, ma di un segnale
+        integrato di forte pressione organica e urbana, frequentemente
+        associabile ad apporti di origine fognaria.
+      - >-
+        Esistono poi hotspot potenziali, che soddisfano tre criteri su quattro o
+        hanno comunque una combinazione molto forte: per esempio Lanificio a
+        febbraio, Settecamini a maggio, Longarina e Tor Cervara a maggio, per i
+        quali manca però il dato sull'ossigeno.
+  metodologia:
+    titolo: Metodologia
+    voci:
+      - titolo: Quattro campagne lungo tutto il basso corso
+        testo: >-
+          Abbiamo campionato i punti dell'Aniene da monte a valle in più uscite,
+          tra novembre 2025 e giugno 2026. Non tutti i punti sono stati
+          campionati in tutte le campagne: i grafici mostrano, per ogni punto,
+          le campagne disponibili.
+      - titolo: Gli strumenti
+        testo: >-
+          Le misure sono state fatte con kit di campo. Il simbolo «&gt;» nei
+          grafici indica che il valore supera il limite di rilevamento del kit.
+      - titolo: I punti BIS
+        testo: >-
+          I punti BIS sono stati introdotti da maggio 2026. Si trovano circa 500
+          metri a valle della stazione con lo stesso codice numerico e misurano
+          l'effetto di uno scarico puntuale. Il punto base e il punto BIS sono
+          campionati nello stesso giorno.
+      - titolo: L'analisi integrata degli hotspot
+        testo: >-
+          Per individuare i punti di maggiore pressione abbiamo analizzato
+          insieme LIMeco ed E. coli, applicando i quattro criteri descritti sopra
+          e suddividendo i campioni in tre livelli: hotspot di forte pressione,
+          hotspot potenziale e campioni senza segnali combinati.
+  foto:
+    - file: foto/gommone-prelievo.jpg
+      descrizione: Il prelievo direttamente in corrente, dal gommone.
+    - file: foto/gommone-prelievo-2.jpg
+      descrizione: Il campionamento di un'immissione nel fiume.
+    - file: foto/gommone-schiuma.jpg
+      descrizione: Schiuma e materiale in sospensione in corrispondenza di un'immissione.
+    - file: foto/gommone-tronchi.jpg
+      descrizione: Tronchi e rifiuti accumulati in alveo, che ostacolano il deflusso.
+    - file: foto/gommone-garzaia.jpg
+      descrizione: La garzaia individuata in prossimità di Ponte Lucano.
+    - file: foto/riva-rifiuti.jpg
+      descrizione: Rifiuti ingombranti lungo le sponde.
+
+report:
+  titolo: I report di questa campagna
+  intro: >-
+    Per approfondire, o se hai dubbi su quello che hai letto, qui trovi i
+    documenti completi da cui vengono i dati e le interpretazioni di questa
+    pagina.
+  documenti:
+    - titolo: Report campagne in gommone 2025-2026
+      descrizione: >-
+        Il report divulgativo delle campagne in gommone: il metodo, le
+        osservazioni naturalistiche, le criticità documentate lungo i 39,6 km da
+        Ponte Lucano alla confluenza nel Tevere.
+      file: report/report-campagne-gommone-2025-2026.pdf
+    - titolo: Dati delle campagne in gommone 2025-2026
+      descrizione: >-
+        L'analisi dei dati parametro per parametro a cura di Bruna Gumiero, con
+        le soglie usate, i grafici e la tabella degli hotspot.
+      file: report/dati-gommone-2025-2026-gumiero.pdf
+    - titolo: Sintesi del monitoraggio in gommone 2025-2026
+      descrizione: La nota di sintesi sul metodo e sui risultati principali.
+      file: report/sintesi-gommone-2025-2026-gumiero.pdf

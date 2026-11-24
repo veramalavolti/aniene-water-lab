@@ -1,0 +1,112 @@
+{% extends "base.html.j2" %}
+{% import "parti.html.j2" as parti %}
+
+{% block contenuto %}
+
+{{ parti.hero(c, 'Contatti') }}
+
+<section class="sezione" id="partner">
+  <div class="contenitore">
+    {{ parti.testa('I progetti', c.partner.titolo, c.partner.intro) }}
+    {% for g in c.partner.gruppi %}
+    <div class="partner-gruppo">
+      <div class="partner-testa">
+        <h3>{{ g.progetto }}</h3>
+        <span class="partner-anni">{{ g.anni }}</span>
+      </div>
+      <p>{{ g.descrizione }}</p>
+      <div class="loghi">
+        {% for r in g.realta %}
+        {% if r.get('sito') %}
+        <a class="logo-box" href="{{ r.sito }}" rel="noopener" title="{{ r.nome }}">
+          {% if r.get('logo') %}<img src="assets/img/{{ r.logo }}" alt="{{ r.nome }}" loading="lazy">{% else %}<span>{{ r.nome }}</span>{% endif %}
+        </a>
+        {% else %}
+        <span class="logo-box" title="{{ r.nome }}">
+          {% if r.get('logo') %}<img src="assets/img/{{ r.logo }}" alt="{{ r.nome }}" loading="lazy">{% else %}<span>{{ r.nome }}</span>{% endif %}
+        </span>
+        {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+    {% endfor %}
+    <div class="nota">
+      <p><b>{{ c.partner.supervisione.titolo }}.</b> {{ c.partner.supervisione.testo }}</p>
+    </div>
+  </div>
+</section>
+
+<section class="sezione sezione-chiara" id="segnalazioni">
+  <div class="contenitore">
+    {{ parti.testa('Scrivici', c.segnalazioni.titolo, c.segnalazioni.intro) }}
+    <form class="modulo" id="modulo-segnalazione" data-destinatario="{{ c.segnalazioni.email }}">
+      <label>
+        <span>{{ c.segnalazioni.campi.nome }}</span>
+        <input type="text" name="nome" autocomplete="name" required>
+      </label>
+      <label>
+        <span>{{ c.segnalazioni.campi.email }}</span>
+        <input type="email" name="email" autocomplete="email" required>
+      </label>
+      <label>
+        <span>{{ c.segnalazioni.campi.luogo }}</span>
+        <input type="text" name="luogo" placeholder="Per esempio: Ponte Mammolo, sponda destra">
+      </label>
+      <label>
+        <span>{{ c.segnalazioni.campi.messaggio }}</span>
+        <textarea name="messaggio" required></textarea>
+      </label>
+      <div class="bottoni">
+        <button class="bottone" type="submit">{{ c.segnalazioni.campi.invia }}</button>
+        <a class="bottone bottone-chiaro" href="mailto:{{ c.segnalazioni.email }}">{{ c.segnalazioni.email }}</a>
+      </div>
+      <p style="font-size:.88rem;color:var(--text-dim)">{{ c.segnalazioni.nota }}</p>
+    </form>
+  </div>
+</section>
+
+<section class="sezione" id="bollettino">
+  <div class="contenitore">
+    {{ parti.testa('Aggiornamenti', c.bollettino.titolo, c.bollettino.intro) }}
+    <div class="schede">
+      {% for a in c.bollettino.articoli %}
+      <article class="articolo">
+        <span class="articolo-occhiello">{{ a.occhiello }}{% if a.get('data') %} · {{ a.data }}{% endif %}</span>
+        <h3>{{ a.titolo }}</h3>
+        <p>{{ a.testo }}</p>
+        <p class="bottoni"><a class="bottone bottone-chiaro" href="{{ a.link }}" rel="noopener">Leggi l'articolo ↗</a></p>
+      </article>
+      {% endfor %}
+    </div>
+    <div class="nota" style="margin-top:1.6rem">
+      <p><b>{{ c.bollettino.iscrizione.titolo }}.</b> {{ c.bollettino.iscrizione.testo }}</p>
+    </div>
+  </div>
+</section>
+
+{% endblock %}
+
+{% block script %}
+<script>
+/* Il modulo prepara una email già compilata: il sito è statico e non invia
+   nulla da solo, così non servono servizi esterni né dati conservati altrove. */
+(function () {
+  var modulo = document.getElementById('modulo-segnalazione');
+  if (!modulo) return;
+  modulo.addEventListener('submit', function (ev) {
+    ev.preventDefault();
+    var d = new FormData(modulo);
+    var corpo = [
+      'Nome: ' + (d.get('nome') || ''),
+      'Email: ' + (d.get('email') || ''),
+      'Luogo: ' + (d.get('luogo') || ''),
+      '',
+      d.get('messaggio') || ''
+    ].join('\n');
+    window.location.href = 'mailto:' + modulo.dataset.destinatario +
+      '?subject=' + encodeURIComponent('Segnalazione sul fiume Aniene') +
+      '&body=' + encodeURIComponent(corpo);
+  });
+})();
+</script>
+{% endblock %}

@@ -1,0 +1,1759 @@
+{
+ "id": "2023-2024",
+ "etichetta": "Aniene WaterLab · dicembre 2023 – ottobre 2024",
+ "nota_fonte": "Foglio «Dataset» di «Dataset definitivo dati monitoraggio AnieneWaterLab 23_24.xlsx». I punti 10–14 sono i rilievi straordinari in gommone e stanno nel file a parte.",
+ "stazioni": [
+  {
+   "id": "9",
+   "nome": "Subiaco",
+   "lat": 41.923838,
+   "lon": 13.097747,
+   "ordine": 0
+  },
+  {
+   "id": "8",
+   "nome": "Vicovaro",
+   "lat": 42.0132760363899,
+   "lon": 12.8935379265673,
+   "ordine": 1
+  },
+  {
+   "id": "7",
+   "nome": "Tivoli - lungoaniene Peppino Impastato",
+   "lat": 41.956734,
+   "lon": 12.807158,
+   "ordine": 2
+  },
+  {
+   "id": "6",
+   "nome": "Ponte Lucano",
+   "lat": 41.954809,
+   "lon": 12.761799,
+   "ordine": 3
+  },
+  {
+   "id": "5",
+   "nome": "Casale Caletto",
+   "lat": 41.923756,
+   "lon": 12.608191,
+   "ordine": 4
+  },
+  {
+   "id": "4",
+   "nome": "Ponte Mammolo",
+   "lat": 41.923199,
+   "lon": 12.56793,
+   "ordine": 5
+  },
+  {
+   "id": "3",
+   "nome": "Casa del Parco",
+   "lat": 41.931552,
+   "lon": 12.546583,
+   "ordine": 6
+  },
+  {
+   "id": "2",
+   "nome": "Ponte delle Valli",
+   "lat": 41.935283,
+   "lon": 12.524046,
+   "ordine": 7
+  },
+  {
+   "id": "1",
+   "nome": "Ponte Salario",
+   "lat": 41.94253,
+   "lon": 12.50115,
+   "ordine": 8
+  }
+ ],
+ "campagne": [
+  {
+   "id": "2023-12-12",
+   "etichetta": "dic 2023",
+   "date": [
+    "2023-12-12"
+   ]
+  },
+  {
+   "id": "2024-01-16",
+   "etichetta": "gen 2024",
+   "date": [
+    "2024-01-16"
+   ]
+  },
+  {
+   "id": "2024-02-21",
+   "etichetta": "feb 2024",
+   "date": [
+    "2024-02-21"
+   ]
+  },
+  {
+   "id": "2024-03-18",
+   "etichetta": "mar 2024",
+   "date": [
+    "2024-03-18"
+   ]
+  },
+  {
+   "id": "2024-04-15",
+   "etichetta": "apr 2024",
+   "date": [
+    "2024-04-15"
+   ]
+  },
+  {
+   "id": "2024-05-12",
+   "etichetta": "mag 2024",
+   "date": [
+    "2024-05-12"
+   ]
+  },
+  {
+   "id": "2024-06-08",
+   "etichetta": "giu 2024",
+   "date": [
+    "2024-06-08"
+   ]
+  },
+  {
+   "id": "2024-07-17",
+   "etichetta": "lug 2024",
+   "date": [
+    "2024-07-17"
+   ]
+  },
+  {
+   "id": "2024-08-26",
+   "etichetta": "ago 2024",
+   "date": [
+    "2024-08-26"
+   ]
+  },
+  {
+   "id": "2024-09-20",
+   "etichetta": "set 2024",
+   "date": [
+    "2024-09-20"
+   ]
+  },
+  {
+   "id": "2024-10-23",
+   "etichetta": "ott 2024",
+   "date": [
+    "2024-10-23"
+   ]
+  }
+ ],
+ "misure": [
+  {
+   "s": "1",
+   "d": "2023-12-12",
+   "p": {
+    "conducibilita": 1342.0,
+    "temperatura": 14.1,
+    "ossigeno": 6.6,
+    "torbidita": {
+     "v": 14.0,
+     "lim": "<"
+    },
+    "fosfati": 0.4,
+    "nitrati": 1.5,
+    "ph": 8.5,
+    "ammonio": 0.4,
+    "ecoli": 30000.0
+   },
+   "c": "2023-12-12"
+  },
+  {
+   "s": "2",
+   "d": "2023-12-12",
+   "p": {
+    "conducibilita": 1404.0,
+    "temperatura": 14.5,
+    "ossigeno": 7.1,
+    "torbidita": {
+     "v": 14.0,
+     "lim": "<"
+    },
+    "fosfati": 0.2,
+    "nitrati": 1.5,
+    "ph": 8.6,
+    "ammonio": 0.1,
+    "ecoli": 5300.0
+   },
+   "c": "2023-12-12"
+  },
+  {
+   "s": "3",
+   "d": "2023-12-12",
+   "p": {
+    "conducibilita": 1483.0,
+    "temperatura": 14.0,
+    "ossigeno": 6.3,
+    "torbidita": {
+     "v": 14.0,
+     "lim": "<"
+    },
+    "fosfati": 0.4,
+    "nitrati": 35.0,
+    "ph": 7.8,
+    "ammonio": 0.1,
+    "ecoli": 3800.0
+   },
+   "c": "2023-12-12"
+  },
+  {
+   "s": "4",
+   "d": "2023-12-12",
+   "p": {
+    "conducibilita": 1338.0,
+    "temperatura": 13.8,
+    "ossigeno": 6.0,
+    "torbidita": {
+     "v": 14.0,
+     "lim": "<"
+    },
+    "fosfati": 0.2,
+    "nitrati": 1.5,
+    "ph": 7.5,
+    "ammonio": 0.1,
+    "ecoli": 4700.0
+   },
+   "c": "2023-12-12"
+  },
+  {
+   "s": "5",
+   "d": "2023-12-12",
+   "p": {
+    "conducibilita": 1568.0,
+    "temperatura": 13.7,
+    "ossigeno": 7.0,
+    "torbidita": {
+     "v": 14.0,
+     "lim": "<"
+    },
+    "fosfati": 0.1,
+    "nitrati": 0.8,
+    "ph": 7.4,
+    "ammonio": 0.0,
+    "ecoli": 400.0
+   },
+   "c": "2023-12-12"
+  },
+  {
+   "s": "6",
+   "d": "2023-12-12",
+   "p": {
+    "conducibilita": 1045.0,
+    "temperatura": 12.2,
+    "ossigeno": 7.8,
+    "torbidita": 14.0,
+    "fosfati": 0.1,
+    "nitrati": 0.8,
+    "ph": 7.8,
+    "ammonio": 0.0,
+    "ecoli": 200.0
+   },
+   "c": "2023-12-12"
+  },
+  {
+   "s": "7",
+   "d": "2023-12-12",
+   "p": {
+    "conducibilita": 563.0,
+    "temperatura": 9.8,
+    "ossigeno": 7.2,
+    "torbidita": 14.0,
+    "fosfati": 0.0,
+    "nitrati": 1.0,
+    "ph": 8.3,
+    "ammonio": 0.0,
+    "ecoli": 1000.0
+   },
+   "c": "2023-12-12"
+  },
+  {
+   "s": "1",
+   "d": "2024-01-16",
+   "p": {
+    "conducibilita": 1427.0,
+    "temperatura": 13.4,
+    "ossigeno": 5.8,
+    "torbidita": {
+     "v": 14.0,
+     "lim": "<"
+    },
+    "fosfati": 0.4,
+    "nitrati": 0.8,
+    "ph": 8.2,
+    "ammonio": 0.2,
+    "ecoli": 200.0
+   },
+   "c": "2024-01-16"
+  },
+  {
+   "s": "2",
+   "d": "2024-01-16",
+   "p": {
+    "conducibilita": 1444.0,
+    "temperatura": 13.1,
+    "ossigeno": 5.4,
+    "torbidita": {
+     "v": 14.0,
+     "lim": "<"
+    },
+    "fosfati": 0.1,
+    "nitrati": 1.5,
+    "ph": 8.1,
+    "ammonio": 0.2,
+    "ecoli": 5600.0
+   },
+   "c": "2024-01-16"
+  },
+  {
+   "s": "3",
+   "d": "2024-01-16",
+   "p": {
+    "conducibilita": 1393.0,
+    "temperatura": 12.8,
+    "ossigeno": 6.0,
+    "torbidita": {
+     "v": 14.0,
+     "lim": "<"
+    },
+    "fosfati": 0.4,
+    "nitrati": 0.8,
+    "ph": 7.8,
+    "ammonio": 0.0,
+    "ecoli": 1300.0
+   },
+   "c": "2024-01-16"
+  },
+  {
+   "s": "4",
+   "d": "2024-01-16",
+   "p": {
+    "conducibilita": 1614.0,
+    "temperatura": 13.9,
+    "ossigeno": 6.2,
+    "torbidita": {
+     "v": 14.0,
+     "lim": "<"
+    },
+    "fosfati": 0.4,
+    "nitrati": 0.8,
+    "ph": 7.7,
+    "ammonio": 0.0,
+    "ecoli": 5800.0
+   },
+   "c": "2024-01-16"
+  },
+  {
+   "s": "5",
+   "d": "2024-01-16",
+   "p": {
+    "conducibilita": 1617.0,
+    "temperatura": 13.3,
+    "ossigeno": 6.0,
+    "torbidita": {
+     "v": 14.0,
+     "lim": "<"
+    },
+    "fosfati": 0.2,
+    "nitrati": 0.8,
+    "ph": 7.3,
+    "ammonio": 0.1,
+    "ecoli": 1000.0
+   },
+   "c": "2024-01-16"
+  },
+  {
+   "s": "6",
+   "d": "2024-01-16",
+   "p": {
+    "conducibilita": 1334.0,
+    "temperatura": 12.2,
+    "ossigeno": 8.5,
+    "torbidita": 34.0,
+    "fosfati": 0.1,
+    "nitrati": 0.4,
+    "ph": 7.8,
+    "ammonio": 0.1,
+    "ecoli": 1200.0
+   },
+   "c": "2024-01-16"
+  },
+  {
+   "s": "7",
+   "d": "2024-01-16",
+   "p": {
+    "conducibilita": 578.0,
+    "temperatura": 9.2,
+    "ossigeno": 8.2,
+    "torbidita": 14.0,
+    "fosfati": 0.1,
+    "nitrati": 1.0,
+    "ph": 8.6,
+    "ammonio": 2.1,
+    "ecoli": 1000.0
+   },
+   "c": "2024-01-16"
+  },
+  {
+   "s": "1",
+   "d": "2024-02-21",
+   "p": {
+    "conducibilita": 1403.0,
+    "temperatura": 14.0,
+    "ossigeno": 7.2,
+    "torbidita": {
+     "v": 14.0,
+     "lim": "<"
+    },
+    "fosfati": 0.2,
+    "nitrati": 0.75,
+    "ph": 8.1,
+    "ammonio": 0.0,
+    "ecoli": 5100.0
+   },
+   "c": "2024-02-21"
+  },
+  {
+   "s": "2",
+   "d": "2024-02-21",
+   "p": {
+    "conducibilita": 1395.0,
+    "temperatura": 13.3,
+    "ossigeno": 6.2,
+    "torbidita": {
+     "v": 14.0,
+     "lim": "<"
+    },
+    "nitrati": 0.8,
+    "ph": 7.7,
+    "ammonio": 0.2,
+    "ecoli": 7300.0
+   },
+   "c": "2024-02-21"
+  },
+  {
+   "s": "3",
+   "d": "2024-02-21",
+   "p": {
+    "conducibilita": 1473.0,
+    "temperatura": 13.5,
+    "ossigeno": 4.4,
+    "torbidita": {
+     "v": 14.0,
+     "lim": "<"
+    },
+    "fosfati": 0.1,
+    "nitrati": 1.5,
+    "ph": 7.6,
+    "ammonio": 0.1,
+    "ecoli": 1800.0
+   },
+   "c": "2024-02-21"
+  },
+  {
+   "s": "4",
+   "d": "2024-02-21",
+   "p": {
+    "conducibilita": 1464.0,
+    "temperatura": 13.2,
+    "ossigeno": 6.2,
+    "torbidita": {
+     "v": 14.0,
+     "lim": "<"
+    },
+    "fosfati": 0.1,
+    "nitrati": 1.5,
+    "ph": 7.7,
+    "ammonio": 0.1,
+    "ecoli": 2000.0
+   },
+   "c": "2024-02-21"
+  },
+  {
+   "s": "5",
+   "d": "2024-02-21",
+   "p": {
+    "conducibilita": 1490.0,
+    "temperatura": 13.5,
+    "ossigeno": 7.5,
+    "torbidita": {
+     "v": 14.0,
+     "lim": "<"
+    },
+    "fosfati": 0.0,
+    "nitrati": 0.8,
+    "ph": 7.5,
+    "ammonio": 0.2,
+    "ecoli": 1500.0
+   },
+   "c": "2024-02-21"
+  },
+  {
+   "s": "6",
+   "d": "2024-02-21",
+   "p": {
+    "conducibilita": 1231.0,
+    "temperatura": 13.7,
+    "ossigeno": 9.5,
+    "torbidita": {
+     "v": 14.0,
+     "lim": "<"
+    },
+    "fosfati": 0.0,
+    "nitrati": 0.4,
+    "ph": 81.0,
+    "ammonio": 0.0,
+    "ecoli": 1600.0
+   },
+   "c": "2024-02-21"
+  },
+  {
+   "s": "7",
+   "d": "2024-02-21",
+   "p": {
+    "conducibilita": 543.0,
+    "temperatura": 10.3,
+    "ossigeno": 9.0,
+    "torbidita": {
+     "v": 14.0,
+     "lim": "<"
+    },
+    "fosfati": 0.0,
+    "nitrati": 0.4,
+    "ph": 8.7,
+    "ammonio": 0.0,
+    "ecoli": 1100.0
+   },
+   "c": "2024-02-21"
+  },
+  {
+   "s": "1",
+   "d": "2024-03-18",
+   "p": {
+    "conducibilita": 1162.0,
+    "temperatura": 14.2,
+    "ossigeno": 6.5,
+    "torbidita": {
+     "v": 14.0,
+     "lim": "<"
+    },
+    "fosfati": 0.4,
+    "nitrati": 1.5,
+    "ph": 8.3,
+    "ammonio": 0.1,
+    "ecoli": 17100.0
+   },
+   "c": "2024-03-18"
+  },
+  {
+   "s": "2",
+   "d": "2024-03-18",
+   "p": {
+    "conducibilita": 1156.0,
+    "temperatura": 14.2,
+    "ossigeno": 7.3,
+    "torbidita": {
+     "v": 14.0,
+     "lim": "<"
+    },
+    "fosfati": 0.1,
+    "nitrati": 1.5,
+    "ph": 8.2,
+    "ammonio": 0.0,
+    "ecoli": 6200.0
+   },
+   "c": "2024-03-18"
+  },
+  {
+   "s": "3",
+   "d": "2024-03-18",
+   "p": {
+    "conducibilita": 1156.0,
+    "temperatura": 13.8,
+    "ossigeno": 7.2,
+    "torbidita": {
+     "v": 14.0,
+     "lim": "<"
+    },
+    "fosfati": 0.4,
+    "nitrati": 1.5,
+    "ph": 7.9,
+    "ammonio": 0.0,
+    "ecoli": 3000.0
+   },
+   "c": "2024-03-18"
+  },
+  {
+   "s": "4",
+   "d": "2024-03-18",
+   "p": {
+    "conducibilita": 1151.0,
+    "temperatura": 13.0,
+    "torbidita": {
+     "v": 14.0,
+     "lim": "<"
+    },
+    "fosfati": 0.4,
+    "nitrati": 1.5,
+    "ph": 7.9,
+    "ammonio": 0.0,
+    "ecoli": 3800.0
+   },
+   "c": "2024-03-18"
+  },
+  {
+   "s": "5",
+   "d": "2024-03-18",
+   "p": {
+    "conducibilita": 1211.0,
+    "temperatura": 13.6,
+    "ossigeno": 6.4,
+    "torbidita": {
+     "v": 14.0,
+     "lim": "<"
+    },
+    "fosfati": 0.2,
+    "nitrati": 0.8,
+    "ph": 7.8,
+    "ammonio": 0.0,
+    "ecoli": 600.0
+   },
+   "c": "2024-03-18"
+  },
+  {
+   "s": "6",
+   "d": "2024-03-18",
+   "p": {
+    "conducibilita": 922.0,
+    "temperatura": 12.9,
+    "ossigeno": 7.9,
+    "torbidita": 15.0,
+    "fosfati": {
+     "v": 0.035,
+     "lim": "~"
+    },
+    "nitrati": 0.8,
+    "ph": 7.6,
+    "ammonio": 0.1,
+    "ecoli": 1600.0
+   },
+   "c": "2024-03-18"
+  },
+  {
+   "s": "7",
+   "d": "2024-03-18",
+   "p": {
+    "conducibilita": 513.0,
+    "temperatura": 11.3,
+    "ossigeno": 7.7,
+    "torbidita": 14.0,
+    "fosfati": 0.1,
+    "nitrati": 1.5,
+    "ph": 8.3,
+    "ammonio": 0.0,
+    "ecoli": 1000.0
+   },
+   "c": "2024-03-18"
+  },
+  {
+   "s": "1",
+   "d": "2024-04-15",
+   "p": {
+    "conducibilita": 1384.0,
+    "temperatura": 17.5,
+    "ossigeno": 7.0,
+    "torbidita": {
+     "v": 14.0,
+     "lim": "<"
+    },
+    "fosfati": 0.4,
+    "nitrati": 1.5,
+    "ph": 8.4,
+    "ammonio": 0.6,
+    "ecoli": 39000.0
+   },
+   "c": "2024-04-15"
+  },
+  {
+   "s": "2",
+   "d": "2024-04-15",
+   "p": {
+    "conducibilita": 1426.0,
+    "temperatura": 17.1,
+    "ossigeno": 7.0,
+    "torbidita": {
+     "v": 14.0,
+     "lim": "<"
+    },
+    "fosfati": 0.4,
+    "nitrati": 1.5,
+    "ph": 8.0,
+    "ammonio": 0.4,
+    "ecoli": 5600.0
+   },
+   "c": "2024-04-15"
+  },
+  {
+   "s": "3",
+   "d": "2024-04-15",
+   "p": {
+    "conducibilita": 1350.0,
+    "temperatura": 17.0,
+    "ossigeno": 6.8,
+    "torbidita": {
+     "v": 14.0,
+     "lim": "<"
+    },
+    "fosfati": 0.0,
+    "nitrati": 0.8,
+    "ph": 8.1,
+    "ammonio": 0.2,
+    "ecoli": 3100.0
+   },
+   "c": "2024-04-15"
+  },
+  {
+   "s": "4",
+   "d": "2024-04-15",
+   "p": {
+    "conducibilita": 1288.0,
+    "temperatura": 17.0,
+    "ossigeno": 6.5,
+    "torbidita": {
+     "v": 14.0,
+     "lim": "<"
+    },
+    "fosfati": 0.1,
+    "nitrati": 1.5,
+    "ph": 8.0,
+    "ammonio": 0.0,
+    "ecoli": 4600.0
+   },
+   "c": "2024-04-15"
+  },
+  {
+   "s": "5",
+   "d": "2024-04-15",
+   "p": {
+    "conducibilita": 1510.0,
+    "temperatura": 16.6,
+    "ossigeno": 8.6,
+    "torbidita": {
+     "v": 14.0,
+     "lim": "<"
+    },
+    "fosfati": 0.4,
+    "nitrati": 0.8,
+    "ph": 7.8,
+    "ammonio": 0.1,
+    "ecoli": 1000.0
+   },
+   "c": "2024-04-15"
+  },
+  {
+   "s": "6",
+   "d": "2024-04-15",
+   "p": {
+    "conducibilita": 1218.0,
+    "temperatura": 15.5,
+    "ossigeno": 7.4,
+    "torbidita": 15.0,
+    "fosfati": 0.0,
+    "nitrati": 1.0,
+    "ph": 7.5,
+    "ammonio": 0.2,
+    "ecoli": 6000.0
+   },
+   "c": "2024-04-15"
+  },
+  {
+   "s": "7",
+   "d": "2024-04-15",
+   "p": {
+    "conducibilita": 580.0,
+    "temperatura": 12.8,
+    "ossigeno": 5.7,
+    "torbidita": 14.0,
+    "fosfati": 0.1,
+    "nitrati": 2.0,
+    "ph": 8.4,
+    "ammonio": 0.0,
+    "ecoli": 1000.0
+   },
+   "c": "2024-04-15"
+  },
+  {
+   "s": "8",
+   "d": "2024-04-15",
+   "p": {
+    "conducibilita": 590.0,
+    "temperatura": 12.0,
+    "ossigeno": 8.0,
+    "torbidita": 14.0,
+    "fosfati": 0.1,
+    "nitrati": 0.4,
+    "ph": 8.4,
+    "ammonio": 0.1,
+    "ecoli": 900.0
+   },
+   "c": "2024-04-15"
+  },
+  {
+   "s": "9",
+   "d": "2024-04-15",
+   "p": {
+    "conducibilita": 392.0,
+    "temperatura": 11.8,
+    "ossigeno": 8.5,
+    "torbidita": 14.0,
+    "fosfati": 0.1,
+    "nitrati": 0.1,
+    "ph": 8.4,
+    "ammonio": 0.0,
+    "ecoli": 200.0
+   },
+   "c": "2024-04-15"
+  },
+  {
+   "s": "1",
+   "d": "2024-05-12",
+   "p": {
+    "conducibilita": 1316.0,
+    "temperatura": 18.3,
+    "ossigeno": 6.2,
+    "torbidita": {
+     "v": 14.0,
+     "lim": "<"
+    },
+    "fosfati": 0.1,
+    "nitrati": 0.8,
+    "ph": 8.3,
+    "ammonio": 0.1,
+    "ecoli": 7800.0
+   },
+   "c": "2024-05-12"
+  },
+  {
+   "s": "2",
+   "d": "2024-05-12",
+   "p": {
+    "conducibilita": 1305.0,
+    "temperatura": 17.3,
+    "ossigeno": 6.5,
+    "torbidita": {
+     "v": 14.0,
+     "lim": "<"
+    },
+    "fosfati": 0.2,
+    "nitrati": 0.8,
+    "ph": 7.9,
+    "ammonio": 0.1,
+    "ecoli": 3200.0
+   },
+   "c": "2024-05-12"
+  },
+  {
+   "s": "3",
+   "d": "2024-05-12",
+   "p": {
+    "conducibilita": 1352.0,
+    "temperatura": 18.0,
+    "ossigeno": 5.5,
+    "torbidita": {
+     "v": 14.0,
+     "lim": "<"
+    },
+    "fosfati": 0.1,
+    "nitrati": 0.8,
+    "ph": 8.3,
+    "ammonio": 0.1,
+    "ecoli": 3700.0
+   },
+   "c": "2024-05-12"
+  },
+  {
+   "s": "4",
+   "d": "2024-05-12",
+   "p": {
+    "conducibilita": 1335.0,
+    "temperatura": 17.2,
+    "ossigeno": 6.0,
+    "torbidita": {
+     "v": 14.0,
+     "lim": "<"
+    },
+    "fosfati": 0.1,
+    "nitrati": 0.8,
+    "ph": 8.1,
+    "ammonio": 0.2,
+    "ecoli": 2100.0
+   },
+   "c": "2024-05-12"
+  },
+  {
+   "s": "5",
+   "d": "2024-05-12",
+   "p": {
+    "conducibilita": 1385.0,
+    "temperatura": 16.5,
+    "ossigeno": 7.2,
+    "torbidita": {
+     "v": 14.0,
+     "lim": "<"
+    },
+    "fosfati": 0.0,
+    "nitrati": 0.4,
+    "ph": 8.0,
+    "ammonio": 0.1,
+    "ecoli": 500.0
+   },
+   "c": "2024-05-12"
+  },
+  {
+   "s": "6",
+   "d": "2024-05-12",
+   "p": {
+    "conducibilita": 1244.0,
+    "temperatura": 16.0,
+    "ossigeno": 7.4,
+    "torbidita": 35.0,
+    "fosfati": 0.1,
+    "nitrati": 2.0,
+    "ph": 7.9,
+    "ammonio": 0.2,
+    "ecoli": 500.0
+   },
+   "c": "2024-05-12"
+  },
+  {
+   "s": "7",
+   "d": "2024-05-12",
+   "p": {
+    "conducibilita": 584.0,
+    "temperatura": 13.0,
+    "ossigeno": 9.6,
+    "torbidita": 14.0,
+    "fosfati": 0.0,
+    "nitrati": 1.0,
+    "ph": 8.51,
+    "ammonio": 0.2,
+    "ecoli": 300.0
+   },
+   "c": "2024-05-12"
+  },
+  {
+   "s": "8",
+   "d": "2024-05-12",
+   "p": {
+    "conducibilita": 585.0,
+    "temperatura": 12.3,
+    "ossigeno": 8.5,
+    "torbidita": 14.0,
+    "fosfati": 0.0,
+    "nitrati": 0.2,
+    "ph": 8.2,
+    "ammonio": 0.0,
+    "ecoli": 300.0
+   },
+   "c": "2024-05-12"
+  },
+  {
+   "s": "9",
+   "d": "2024-05-12",
+   "p": {
+    "conducibilita": 402.0,
+    "temperatura": 12.0,
+    "ossigeno": 9.0,
+    "torbidita": 14.0,
+    "fosfati": 0.0,
+    "nitrati": 0.0,
+    "ph": 8.4,
+    "ammonio": 0.0,
+    "ecoli": 400.0
+   },
+   "c": "2024-05-12"
+  },
+  {
+   "s": "1",
+   "d": "2024-06-08",
+   "p": {
+    "conducibilita": 1432.0,
+    "temperatura": 20.0,
+    "ossigeno": 5.2,
+    "torbidita": {
+     "v": 14.0,
+     "lim": "<"
+    },
+    "fosfati": 0.8,
+    "nitrati": 1.5,
+    "ph": 8.2,
+    "ammonio": 0.4,
+    "ecoli": 17200.0
+   },
+   "c": "2024-06-08"
+  },
+  {
+   "s": "2",
+   "d": "2024-06-08",
+   "p": {
+    "conducibilita": 1414.0,
+    "temperatura": 19.1,
+    "ossigeno": 6.0,
+    "torbidita": {
+     "v": 14.0,
+     "lim": "<"
+    },
+    "fosfati": 0.4,
+    "nitrati": 1.5,
+    "ph": 8.1,
+    "ammonio": 0.2,
+    "ecoli": 3000.0
+   },
+   "c": "2024-06-08"
+  },
+  {
+   "s": "3",
+   "d": "2024-06-08",
+   "p": {
+    "conducibilita": 1501.0,
+    "temperatura": 19.5,
+    "ossigeno": 5.3,
+    "torbidita": {
+     "v": 14.0,
+     "lim": "<"
+    },
+    "fosfati": 0.8,
+    "nitrati": 1.5,
+    "ph": 8.1,
+    "ammonio": 0.3,
+    "ecoli": 2900.0
+   },
+   "c": "2024-06-08"
+  },
+  {
+   "s": "4",
+   "d": "2024-06-08",
+   "p": {
+    "conducibilita": 1512.0,
+    "temperatura": 19.7,
+    "ossigeno": 3.5,
+    "torbidita": {
+     "v": 14.0,
+     "lim": "<"
+    },
+    "fosfati": 0.4,
+    "nitrati": 1.5,
+    "ph": 8.0,
+    "ammonio": 1.0,
+    "ecoli": 2400.0
+   },
+   "c": "2024-06-08"
+  },
+  {
+   "s": "5",
+   "d": "2024-06-08",
+   "p": {
+    "conducibilita": 1549.0,
+    "temperatura": 19.3,
+    "ossigeno": 4.9,
+    "torbidita": {
+     "v": 14.0,
+     "lim": "<"
+    },
+    "fosfati": 0.0,
+    "nitrati": 0.4,
+    "ph": 8.0,
+    "ammonio": 0.3,
+    "ecoli": 700.0
+   },
+   "c": "2024-06-08"
+  },
+  {
+   "s": "6",
+   "d": "2024-06-08",
+   "p": {
+    "conducibilita": 998.0,
+    "temperatura": 16.6,
+    "ossigeno": 8.6,
+    "torbidita": 19.0,
+    "fosfati": 0.1,
+    "nitrati": 1.5,
+    "ph": 7.8,
+    "ammonio": 0.2,
+    "ecoli": 1300.0
+   },
+   "c": "2024-06-08"
+  },
+  {
+   "s": "7",
+   "d": "2024-06-08",
+   "p": {
+    "conducibilita": 602.0,
+    "temperatura": 15.3,
+    "ossigeno": 7.7,
+    "torbidita": 15.0,
+    "fosfati": 0.0,
+    "nitrati": 1.5,
+    "ph": 8.6,
+    "ammonio": 0.1,
+    "ecoli": 500.0
+   },
+   "c": "2024-06-08"
+  },
+  {
+   "s": "8",
+   "d": "2024-06-08",
+   "p": {
+    "conducibilita": 578.0,
+    "temperatura": 14.9,
+    "ossigeno": 8.0,
+    "torbidita": 14.0,
+    "fosfati": 0.0,
+    "nitrati": 0.2,
+    "ph": 8.1,
+    "ammonio": 0.5,
+    "ecoli": 2800.0
+   },
+   "c": "2024-06-08"
+  },
+  {
+   "s": "9",
+   "d": "2024-06-08",
+   "p": {
+    "conducibilita": 404.0,
+    "temperatura": 13.0,
+    "ossigeno": 9.0,
+    "torbidita": 14.0,
+    "fosfati": 0.0,
+    "nitrati": 0.0,
+    "ph": 8.4,
+    "ammonio": 0.0,
+    "ecoli": 1000.0
+   },
+   "c": "2024-06-08"
+  },
+  {
+   "s": "1",
+   "d": "2024-07-17",
+   "p": {
+    "conducibilita": 1538.0,
+    "temperatura": 23.0,
+    "ossigeno": 4.8,
+    "torbidita": {
+     "v": 14.0,
+     "lim": "<"
+    },
+    "fosfati": 0.0,
+    "nitrati": 0.8,
+    "ph": 7.9,
+    "ammonio": 0.4,
+    "ecoli": 35000.0
+   },
+   "c": "2024-07-17"
+  },
+  {
+   "s": "2",
+   "d": "2024-07-17",
+   "p": {
+    "conducibilita": 1586.0,
+    "temperatura": 22.8,
+    "ossigeno": 4.4,
+    "torbidita": {
+     "v": 14.0,
+     "lim": "<"
+    },
+    "fosfati": 0.0,
+    "nitrati": 0.8,
+    "ph": 8.1,
+    "ammonio": 0.3,
+    "ecoli": 7800.0
+   },
+   "c": "2024-07-17"
+  },
+  {
+   "s": "3",
+   "d": "2024-07-17",
+   "p": {
+    "conducibilita": 1715.0,
+    "temperatura": 22.3,
+    "ossigeno": 4.2,
+    "torbidita": {
+     "v": 14.0,
+     "lim": "<"
+    },
+    "fosfati": 0.2,
+    "nitrati": 1.5,
+    "ph": 8.2,
+    "ammonio": 0.3,
+    "ecoli": 1300.0
+   },
+   "c": "2024-07-17"
+  },
+  {
+   "s": "4",
+   "d": "2024-07-17",
+   "p": {
+    "conducibilita": 1602.0,
+    "temperatura": 22.5,
+    "ossigeno": 4.5,
+    "torbidita": {
+     "v": 14.0,
+     "lim": "<"
+    },
+    "fosfati": 0.8,
+    "nitrati": 1.5,
+    "ph": 7.8,
+    "ammonio": 1.7,
+    "ecoli": 1600.0
+   },
+   "c": "2024-07-17"
+  },
+  {
+   "s": "5",
+   "d": "2024-07-17",
+   "p": {
+    "conducibilita": 1870.0,
+    "temperatura": 21.0,
+    "ossigeno": 5.6,
+    "torbidita": {
+     "v": 14.0,
+     "lim": "<"
+    },
+    "fosfati": 0.1,
+    "nitrati": 0.8,
+    "ph": 8.0,
+    "ammonio": 0.7,
+    "ecoli": 1300.0
+   },
+   "c": "2024-07-17"
+  },
+  {
+   "s": "6",
+   "d": "2024-07-17",
+   "p": {
+    "conducibilita": 1383.0,
+    "temperatura": 19.5,
+    "ossigeno": 5.6,
+    "torbidita": {
+     "v": 14.0,
+     "lim": "<"
+    },
+    "fosfati": 0.1,
+    "nitrati": 0.4,
+    "ph": 7.2,
+    "ammonio": 0.4,
+    "ecoli": 3100.0
+   },
+   "c": "2024-07-17"
+  },
+  {
+   "s": "7",
+   "d": "2024-07-17",
+   "p": {
+    "conducibilita": 567.0,
+    "temperatura": 19.0,
+    "ossigeno": 6.5,
+    "torbidita": {
+     "v": 14.0,
+     "lim": "<"
+    },
+    "fosfati": 0.0,
+    "nitrati": 0.2,
+    "ph": 7.5,
+    "ammonio": 0.1,
+    "ecoli": 3000.0
+   },
+   "c": "2024-07-17"
+  },
+  {
+   "s": "8",
+   "d": "2024-07-17",
+   "p": {
+    "conducibilita": 615.0,
+    "temperatura": 16.3,
+    "ossigeno": 9.8,
+    "torbidita": 14.0,
+    "fosfati": 0.1,
+    "nitrati": 0.2,
+    "ph": 8.0,
+    "ammonio": 0.1
+   },
+   "c": "2024-07-17"
+  },
+  {
+   "s": "9",
+   "d": "2024-07-17",
+   "p": {
+    "conducibilita": 399.0,
+    "temperatura": 14.6,
+    "ossigeno": 9.7,
+    "torbidita": 14.0,
+    "fosfati": 0.0,
+    "nitrati": 0.0,
+    "ph": 8.2,
+    "ammonio": 0.0
+   },
+   "c": "2024-07-17"
+  },
+  {
+   "s": "1",
+   "d": "2024-08-26",
+   "p": {
+    "conducibilita": 1524.0,
+    "temperatura": 21.0,
+    "ossigeno": 6.5,
+    "torbidita": {
+     "v": 14.0,
+     "lim": "<"
+    },
+    "fosfati": 0.0,
+    "nitrati": 0.8,
+    "ph": 7.4,
+    "ammonio": 0.3,
+    "ecoli": 9700.0
+   },
+   "c": "2024-08-26"
+  },
+  {
+   "s": "2",
+   "d": "2024-08-26",
+   "p": {
+    "conducibilita": 1695.0,
+    "temperatura": 21.3,
+    "ossigeno": 5.8,
+    "torbidita": {
+     "v": 14.0,
+     "lim": "<"
+    },
+    "fosfati": 0.8,
+    "nitrati": 0.8,
+    "ph": 7.4,
+    "ammonio": 0.8,
+    "ecoli": 4300.0
+   },
+   "c": "2024-08-26"
+  },
+  {
+   "s": "3",
+   "d": "2024-08-26",
+   "p": {
+    "conducibilita": 1611.0,
+    "temperatura": 22.0,
+    "ossigeno": 4.4,
+    "torbidita": {
+     "v": 14.0,
+     "lim": "<"
+    },
+    "fosfati": 0.0,
+    "nitrati": 0.4,
+    "ph": 7.3,
+    "ammonio": 1.2,
+    "ecoli": 4300.0
+   },
+   "c": "2024-08-26"
+  },
+  {
+   "s": "4",
+   "d": "2024-08-26",
+   "p": {
+    "conducibilita": 1790.0,
+    "temperatura": 21.6,
+    "ossigeno": 4.3,
+    "torbidita": {
+     "v": 14.0,
+     "lim": "<"
+    },
+    "fosfati": 0.1,
+    "nitrati": 0.8,
+    "ph": 7.8,
+    "ammonio": 1.7,
+    "ecoli": 1500.0
+   },
+   "c": "2024-08-26"
+  },
+  {
+   "s": "5",
+   "d": "2024-08-26",
+   "p": {
+    "conducibilita": 1832.0,
+    "temperatura": 21.0,
+    "ossigeno": 5.9,
+    "torbidita": {
+     "v": 14.0,
+     "lim": "<"
+    },
+    "fosfati": 0.0,
+    "nitrati": 0.4,
+    "ph": 7.7,
+    "ammonio": 1.6,
+    "ecoli": 1100.0
+   },
+   "c": "2024-08-26"
+  },
+  {
+   "s": "6",
+   "d": "2024-08-26",
+   "p": {
+    "conducibilita": 1697.0,
+    "temperatura": 19.6,
+    "ossigeno": 5.2,
+    "torbidita": 19.0,
+    "fosfati": 0.0,
+    "nitrati": 1.5,
+    "ph": 7.2,
+    "ammonio": 0.3,
+    "ecoli": 900.0
+   },
+   "c": "2024-08-26"
+  },
+  {
+   "s": "7",
+   "d": "2024-08-26",
+   "p": {
+    "conducibilita": 645.0,
+    "temperatura": 17.5,
+    "ossigeno": 6.3,
+    "torbidita": 14.0,
+    "fosfati": 0.1,
+    "nitrati": 1.0,
+    "ph": 7.9,
+    "ammonio": 0.1,
+    "ecoli": 2600.0
+   },
+   "c": "2024-08-26"
+  },
+  {
+   "s": "8",
+   "d": "2024-08-26",
+   "p": {
+    "conducibilita": 636.0,
+    "temperatura": 16.3,
+    "ossigeno": 8.9,
+    "torbidita": 14.0,
+    "fosfati": 0.1,
+    "nitrati": 0.2,
+    "ph": 7.9,
+    "ammonio": 0.5,
+    "ecoli": 2900.0
+   },
+   "c": "2024-08-26"
+  },
+  {
+   "s": "9",
+   "d": "2024-08-26",
+   "p": {
+    "conducibilita": 403.0,
+    "temperatura": 13.4,
+    "ossigeno": 9.0,
+    "torbidita": 14.0,
+    "fosfati": 0.0,
+    "nitrati": 0.0,
+    "ph": 8.2,
+    "ammonio": 0.0,
+    "ecoli": 700.0
+   },
+   "c": "2024-08-26"
+  },
+  {
+   "s": "1",
+   "d": "2024-09-20",
+   "p": {
+    "conducibilita": 1489.0,
+    "temperatura": 18.3,
+    "ossigeno": 6.1,
+    "torbidita": 14.0,
+    "fosfati": 0.0,
+    "nitrati": 1.5,
+    "ph": 7.3,
+    "ecoli": 119000.0
+   },
+   "c": "2024-09-20"
+  },
+  {
+   "s": "2",
+   "d": "2024-09-20",
+   "p": {
+    "conducibilita": 1496.0,
+    "temperatura": 18.3,
+    "ossigeno": 6.5,
+    "torbidita": 14.0,
+    "fosfati": 0.0,
+    "nitrati": 0.8,
+    "ph": 7.7,
+    "ammonio": 0.0,
+    "ecoli": 154000.0
+   },
+   "c": "2024-09-20"
+  },
+  {
+   "s": "3",
+   "d": "2024-09-20",
+   "p": {
+    "conducibilita": 1495.0,
+    "temperatura": 18.1,
+    "ossigeno": 5.0,
+    "torbidita": 26.0,
+    "fosfati": 0.0,
+    "nitrati": 1.5,
+    "ph": 7.5,
+    "ammonio": 0.4,
+    "ecoli": 11000.0
+   },
+   "c": "2024-09-20"
+  },
+  {
+   "s": "4",
+   "d": "2024-09-20",
+   "p": {
+    "conducibilita": 1627.0,
+    "temperatura": 18.0,
+    "ossigeno": 5.0,
+    "torbidita": 15.0,
+    "fosfati": 0.2,
+    "nitrati": 1.5,
+    "ph": 7.5,
+    "ammonio": 0.2,
+    "ecoli": 92000.0
+   },
+   "c": "2024-09-20"
+  },
+  {
+   "s": "5",
+   "d": "2024-09-20",
+   "p": {
+    "conducibilita": 1851.0,
+    "temperatura": 18.3,
+    "ossigeno": 7.5,
+    "torbidita": {
+     "v": 14.0,
+     "lim": "<"
+    },
+    "fosfati": 0.2,
+    "nitrati": 0.4,
+    "ph": 7.4,
+    "ammonio": 0.1,
+    "ecoli": 34000.0
+   },
+   "c": "2024-09-20"
+  },
+  {
+   "s": "6",
+   "d": "2024-09-20",
+   "p": {
+    "conducibilita": 1939.0,
+    "temperatura": 16.9,
+    "ossigeno": 6.4,
+    "torbidita": 30.0,
+    "fosfati": 0.1,
+    "nitrati": 1.5,
+    "ph": 7.7,
+    "ammonio": 0.4,
+    "ecoli": 4000.0
+   },
+   "c": "2024-09-20"
+  },
+  {
+   "s": "7",
+   "d": "2024-09-20",
+   "p": {
+    "conducibilita": 662.0,
+    "temperatura": 13.6,
+    "ossigeno": 7.7,
+    "torbidita": 15.0,
+    "fosfati": 0.1,
+    "nitrati": 1.5,
+    "ph": 8.3,
+    "ammonio": 0.2,
+    "ecoli": 1200.0
+   },
+   "c": "2024-09-20"
+  },
+  {
+   "s": "8",
+   "d": "2024-09-20",
+   "p": {
+    "conducibilita": 643.0,
+    "temperatura": 13.9,
+    "ossigeno": 10.0,
+    "torbidita": 14.0,
+    "fosfati": 0.1,
+    "nitrati": 0.5,
+    "ph": 8.1,
+    "ammonio": 0.1,
+    "ecoli": 1600.0
+   },
+   "c": "2024-09-20"
+  },
+  {
+   "s": "9",
+   "d": "2024-09-20",
+   "p": {
+    "conducibilita": 404.0,
+    "temperatura": 11.2,
+    "ossigeno": 9.7,
+    "torbidita": 21.0,
+    "fosfati": 0.0,
+    "nitrati": 0.0,
+    "ph": 8.4,
+    "ammonio": 0.0,
+    "ecoli": 100.0
+   },
+   "c": "2024-09-20"
+  },
+  {
+   "s": "1",
+   "d": "2024-10-23",
+   "p": {
+    "conducibilita": 1444.0,
+    "temperatura": 18.5,
+    "ossigeno": 6.7,
+    "torbidita": 14.0,
+    "fosfati": 0.35,
+    "nitrati": 1.5,
+    "ph": 7.8,
+    "ammonio": 0.29,
+    "ecoli": 120000.0
+   },
+   "c": "2024-10-23"
+  },
+  {
+   "s": "2",
+   "d": "2024-10-23",
+   "p": {
+    "conducibilita": 1389.0,
+    "temperatura": 18.5,
+    "ossigeno": 6.6,
+    "torbidita": 14.0,
+    "fosfati": 0.4,
+    "nitrati": 1.5,
+    "ecoli": 100000.0
+   },
+   "c": "2024-10-23"
+  },
+  {
+   "s": "3",
+   "d": "2024-10-23",
+   "p": {
+    "conducibilita": 1421.0,
+    "temperatura": 18.3,
+    "ossigeno": 5.8,
+    "torbidita": 20.5,
+    "fosfati": 0.1,
+    "nitrati": 1.5,
+    "ph": 7.86,
+    "ammonio": 0.14,
+    "ecoli": 88000.0
+   },
+   "c": "2024-10-23"
+  },
+  {
+   "s": "4",
+   "d": "2024-10-23",
+   "p": {
+    "conducibilita": 1505.0,
+    "temperatura": 18.2,
+    "ossigeno": 6.0,
+    "torbidita": {
+     "v": 14.0,
+     "lim": "<"
+    },
+    "fosfati": 0.1,
+    "nitrati": 0.8,
+    "ph": 7.74,
+    "ammonio": 0.24,
+    "ecoli": 61000.0
+   },
+   "c": "2024-10-23"
+  },
+  {
+   "s": "5",
+   "d": "2024-10-23",
+   "p": {
+    "conducibilita": 1571.0,
+    "temperatura": 17.6,
+    "ossigeno": 9.0,
+    "torbidita": {
+     "v": 14.0,
+     "lim": "<"
+    },
+    "fosfati": 0.1,
+    "nitrati": 0.35,
+    "ph": 7.63,
+    "ammonio": 0.16,
+    "ecoli": 17000.0
+   },
+   "c": "2024-10-23"
+  },
+  {
+   "s": "6",
+   "d": "2024-10-23",
+   "p": {
+    "conducibilita": 1305.0,
+    "temperatura": 16.2,
+    "ossigeno": 7.2,
+    "torbidita": 30.0,
+    "fosfati": 0.05,
+    "nitrati": 5.0,
+    "ph": 7.7,
+    "ammonio": 0.0,
+    "ecoli": 2500.0
+   },
+   "c": "2024-10-23"
+  },
+  {
+   "s": "7",
+   "d": "2024-10-23",
+   "p": {
+    "conducibilita": 641.0,
+    "temperatura": 14.2,
+    "ossigeno": 8.4,
+    "torbidita": 14.0,
+    "fosfati": 0.7,
+    "nitrati": 1.5,
+    "ph": 8.3,
+    "ammonio": 0.0,
+    "ecoli": 1500.0
+   },
+   "c": "2024-10-23"
+  },
+  {
+   "s": "8",
+   "d": "2024-10-23",
+   "p": {
+    "conducibilita": 637.0,
+    "temperatura": 15.0,
+    "ossigeno": 14.0,
+    "torbidita": 10.5,
+    "fosfati": 0.1,
+    "nitrati": 0.35,
+    "ph": 8.4,
+    "ammonio": 0.1,
+    "ecoli": 700.0
+   },
+   "c": "2024-10-23"
+  },
+  {
+   "s": "9",
+   "d": "2024-10-23",
+   "p": {
+    "conducibilita": 412.0,
+    "temperatura": 12.9,
+    "ossigeno": 9.0,
+    "torbidita": 14.0,
+    "fosfati": 0.2,
+    "nitrati": 0.2,
+    "ph": 8.57,
+    "ammonio": 0.0,
+    "ecoli": 100.0
+   },
+   "c": "2024-10-23"
+  }
+ ]
+}

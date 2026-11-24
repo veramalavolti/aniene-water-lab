@@ -1,0 +1,323 @@
+{
+ "id": "2025-2026-asta",
+ "etichetta": "Prelievi lungo l'asta ogni 3 km · maggio – giugno 2026",
+ "nota_fonte": "Foglio «Extra ogni 3km circa» di «Dati campionamento Aniene 2025-2026.xlsx».",
+ "stazioni": [
+  {
+   "id": "A",
+   "nome": "a monte del Depuratore Guidonia ponte Lucano",
+   "ordine": 0,
+   "lat": 41.9547,
+   "lon": 12.7613071
+  },
+  {
+   "id": "B",
+   "nome": "zona Cave del Barco",
+   "ordine": 1,
+   "lat": 41.9456061,
+   "lon": 12.7513662
+  },
+  {
+   "id": "C",
+   "nome": "zona a valle ponte Autostrada A1",
+   "ordine": 2,
+   "lat": 41.9338651,
+   "lon": 12.729939
+  },
+  {
+   "id": "D",
+   "nome": "zona Martellona II",
+   "ordine": 3,
+   "lat": 41.932398,
+   "lon": 12.7071121
+  },
+  {
+   "id": "E",
+   "nome": "zona rimessaggio/ laghi verde",
+   "ordine": 4,
+   "lat": 41.9318161,
+   "lon": 12.679087
+  },
+  {
+   "id": "F",
+   "nome": "zona Ponte di Nona",
+   "ordine": 5,
+   "lat": 41.9224819,
+   "lon": 12.6521771
+  },
+  {
+   "id": "G",
+   "nome": "zona Salone",
+   "ordine": 6,
+   "lat": 41.9224859,
+   "lon": 12.6231599
+  },
+  {
+   "id": "H",
+   "nome": "Tiburtina Valley",
+   "ordine": 7,
+   "lat": 41.925749,
+   "lon": 12.5986388
+  },
+  {
+   "id": "I",
+   "nome": "zona a monte Depuratore",
+   "ordine": 8,
+   "lat": 41.9230739,
+   "lon": 12.5789652
+  },
+  {
+   "id": "J",
+   "nome": "zona Messi d'oro",
+   "ordine": 9,
+   "lat": 41.9257271,
+   "lon": 12.55684
+  },
+  {
+   "id": "K",
+   "nome": "zona casale Rocchi",
+   "ordine": 10,
+   "lat": 41.926775,
+   "lon": 12.541721
+  },
+  {
+   "id": "L",
+   "nome": "zona Sacco Pastore",
+   "ordine": 11,
+   "lat": 41.9363729,
+   "lon": 12.526135
+  },
+  {
+   "id": "M",
+   "nome": "Zona Salario Center",
+   "ordine": 12,
+   "lat": 41.9409257,
+   "lon": 12.5038177
+  }
+ ],
+ "campagne": [
+  {
+   "id": "2026-05-20",
+   "etichetta": "mag 2026",
+   "date": [
+    "2026-05-20",
+    "2026-05-27"
+   ]
+  },
+  {
+   "id": "2026-06-22",
+   "etichetta": "giu 2026",
+   "date": [
+    "2026-06-22"
+   ]
+  }
+ ],
+ "misure": [
+  {
+   "s": "A",
+   "d": "2026-05-20",
+   "p": {
+    "conducibilita": 1220.0,
+    "temperatura": 14.6,
+    "ossigeno": 8.0,
+    "fosfati": 0.1,
+    "nitrati": 1.0,
+    "ammonio": 0.04,
+    "ph": 8.2,
+    "ecoli": 800.0,
+    "coliformi": 6800.0
+   },
+   "c": "2026-05-20"
+  },
+  {
+   "s": "B",
+   "d": "2026-05-20",
+   "p": {
+    "conducibilita": 1356.0,
+    "temperatura": 15.4,
+    "ossigeno": 7.2,
+    "fosfati": 0.1,
+    "nitrati": 1.0,
+    "ammonio": 0.04,
+    "ph": 7.8,
+    "ecoli": 900.0,
+    "coliformi": 5900.0
+   },
+   "c": "2026-05-20"
+  },
+  {
+   "s": "C",
+   "d": "2026-05-20",
+   "p": {
+    "conducibilita": 1348.0,
+    "ossigeno": 7.0,
+    "fosfati": 0.2,
+    "nitrati": 1.0,
+    "ammonio": 0.07,
+    "ph": 8.1,
+    "ecoli": 900.0,
+    "coliformi": 6300.0
+   },
+   "c": "2026-05-20"
+  },
+  {
+   "s": "D",
+   "d": "2026-05-20",
+   "p": {
+    "conducibilita": 1422.0,
+    "temperatura": 16.5,
+    "ossigeno": 7.9,
+    "fosfati": 0.1,
+    "nitrati": 0.5,
+    "ph": 8.1,
+    "ecoli": 3000.0,
+    "coliformi": 9000.0
+   },
+   "c": "2026-05-20"
+  },
+  {
+   "s": "E",
+   "d": "2026-05-20",
+   "p": {
+    "conducibilita": 1464.0,
+    "temperatura": 16.7,
+    "ossigeno": 6.0,
+    "fosfati": 0.1,
+    "nitrati": 1.0,
+    "ammonio": 0.15,
+    "ph": 8.1,
+    "ecoli": 5000.0,
+    "coliformi": 17000.0
+   },
+   "c": "2026-05-20"
+  },
+  {
+   "s": "F",
+   "d": "2026-05-27",
+   "p": {
+    "conducibilita": 1636.0,
+    "temperatura": 17.4,
+    "ossigeno": 6.5,
+    "fosfati": 0.1,
+    "nitrati": 1.0,
+    "ammonio": 0.0,
+    "ph": 8.1,
+    "ecoli": 2300.0,
+    "coliformi": 9600.0
+   },
+   "c": "2026-05-20"
+  },
+  {
+   "s": "G",
+   "d": "2026-05-27",
+   "p": {
+    "conducibilita": 1559.0,
+    "temperatura": 17.5,
+    "ossigeno": 6.0,
+    "fosfati": 0.1,
+    "nitrati": 1.0,
+    "ammonio": 0.0,
+    "ph": 7.9,
+    "ecoli": 2000.0,
+    "coliformi": 10400.0
+   },
+   "c": "2026-05-20"
+  },
+  {
+   "s": "H",
+   "d": "2026-05-27",
+   "p": {
+    "conducibilita": 1535.0,
+    "temperatura": 17.7,
+    "ossigeno": 6.8,
+    "fosfati": 0.1,
+    "nitrati": 1.0,
+    "ammonio": 0.19,
+    "ph": 7.8,
+    "ecoli": 5200.0,
+    "coliformi": 9400.0
+   },
+   "c": "2026-05-20"
+  },
+  {
+   "s": "I",
+   "d": "2026-05-27",
+   "p": {
+    "conducibilita": 1573.0,
+    "temperatura": 18.2,
+    "ossigeno": 7.1,
+    "fosfati": 0.1,
+    "nitrati": 1.0,
+    "ammonio": 0.18,
+    "ph": 8.0,
+    "ecoli": 5500.0,
+    "coliformi": 10800.0
+   },
+   "c": "2026-05-20"
+  },
+  {
+   "s": "J",
+   "d": "2026-05-27",
+   "p": {
+    "conducibilita": 1473.0,
+    "temperatura": 18.5,
+    "ossigeno": 6.1,
+    "fosfati": 0.2,
+    "nitrati": 2.0,
+    "ammonio": 0.1,
+    "ph": 7.9,
+    "ecoli": 4600.0,
+    "coliformi": 10400.0
+   },
+   "c": "2026-05-20"
+  },
+  {
+   "s": "K",
+   "d": "2026-05-27",
+   "p": {
+    "conducibilita": 1659.0,
+    "temperatura": 20.5,
+    "ossigeno": 5.3,
+    "fosfati": 0.5,
+    "nitrati": 5.0,
+    "ammonio": 0.09,
+    "ph": 7.6,
+    "ecoli": 2100.0,
+    "coliformi": 11000.0
+   },
+   "c": "2026-05-20"
+  },
+  {
+   "s": "L",
+   "d": "2026-06-22",
+   "p": {
+    "conducibilita": 1642.0,
+    "temperatura": 20.4,
+    "ossigeno": 6.0,
+    "fosfati": 0.5,
+    "nitrati": 5.0,
+    "ammonio": 0.76,
+    "ph": 8.0,
+    "ecoli": 3200.0,
+    "coliformi": 9900.0
+   },
+   "c": "2026-06-22"
+  },
+  {
+   "s": "M",
+   "d": "2026-06-22",
+   "p": {
+    "conducibilita": 1581.0,
+    "temperatura": 21.5,
+    "ossigeno": 5.6,
+    "fosfati": 0.5,
+    "nitrati": 5.0,
+    "ammonio": 0.41,
+    "ph": 7.6,
+    "ecoli": 14500.0,
+    "coliformi": 110000.0
+   },
+   "c": "2026-06-22"
+  }
+ ]
+}

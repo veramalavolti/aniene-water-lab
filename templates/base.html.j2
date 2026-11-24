@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="{{ impostazioni.sito.lingua }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block titolo %}{{ c.titolo }} · {{ impostazioni.sito.nome }}{% endblock %}</title>
+  <meta name="description" content="{% block descrizione %}{{ c.sottotitolo }}{% endblock %}">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800;900&family=Barlow+Condensed:wght@700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/sito.css">
+</head>
+<body>
+<a class="salta" href="#contenuto">Vai al contenuto principale</a>
+
+<header class="testata">
+  <div class="contenitore testata-interna">
+    <a class="marchio" href="index.html">
+      <span class="marchio-nome">{{ impostazioni.sito.nome }}</span>
+      <span class="marchio-claim">{{ impostazioni.sito.claim }}</span>
+    </a>
+    <nav class="menu" aria-label="Navigazione principale">
+      <ul>
+        {% for voce in impostazioni.menu %}
+        <li><a href="{{ voce.pagina }}.html"{% if voce.pagina == pagina %} aria-current="page"{% endif %}>{{ voce.voce }}</a></li>
+        {% endfor %}
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="contenuto">
+{% block contenuto %}{% endblock %}
+</main>
+
+<footer>
+  <div class="contenitore">
+    <div>
+      <h2>{{ impostazioni.sito.nome }}</h2>
+      <p>{{ impostazioni.pie_di_pagina.testo }}</p>
+      <p>{{ impostazioni.pie_di_pagina.dati }}</p>
+      <p class="footer-legale">{{ impostazioni.pie_di_pagina.licenza }}</p>
+    </div>
+    <div>
+      <h2>Collegamenti</h2>
+      <ul>
+        {% for l in impostazioni.pie_di_pagina.link %}
+        <li><a href="{{ l.url }}" rel="noopener">{{ l.voce }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</footer>
+
+{% block script %}{% endblock %}
+</body>
+</html>

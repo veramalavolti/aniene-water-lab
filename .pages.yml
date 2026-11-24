@@ -1,0 +1,752 @@
+# Configurazione del pannello di redazione (Pages CMS, pagescms.org).
+#
+# Chi deve modificare i testi del sito entra su app.pagescms.org con il proprio
+# account GitHub, apre questo repository e trova i moduli descritti qui sotto:
+# un campo per ogni pezzo di testo, in italiano, senza vedere codice.
+# Appena salva, il sito viene ricostruito e pubblicato da solo.
+
+media:
+  - name: fotografie
+    label: Fotografie
+    input: assets/img/foto
+    output: assets/img/foto
+    extensions: [jpg, jpeg, png, webp]
+  - name: documenti
+    label: Report in PDF
+    input: dist/report
+    output: dist/report
+    extensions: [pdf]
+
+content:
+
+  # ------------------------------------------------------------------- HOME
+  - name: home
+    label: Home
+    path: contenuti/home.yml
+    type: file
+    icon: home
+    fields:
+      - { name: titolo, label: Titolo principale, type: string }
+      - { name: sottotitolo, label: Testo di apertura, type: text }
+      - { name: foto_copertina, label: Foto di copertina, type: image, options: { media: fotografie, path: foto } }
+      - { name: foto_copertina_descrizione, label: Descrizione della foto di copertina, type: text }
+      - name: campagne
+        label: I tre riquadri delle campagne
+        type: object
+        list: true
+        fields:
+          - { name: anni, label: Anni, type: string }
+          - { name: nome, label: Nome del progetto, type: string }
+          - { name: descrizione, label: Descrizione breve, type: text }
+          - { name: pagina, label: Pagina collegata, type: select, options: { values: [campagna-2022-2023, campagna-2023-2024, campagna-2025-2026] } }
+      - name: numeri
+        label: I numeri in evidenza
+        type: object
+        list: true
+        fields:
+          - { name: valore, label: Numero, type: string }
+          - { name: etichetta, label: Che cosa conta, type: string }
+          - { name: dettaglio, label: Precisazione, type: string }
+      - name: fiume
+        label: "Sezione: il fiume Aniene"
+        type: object
+        fields:
+          - { name: titolo, label: Titolo, type: string }
+          - { name: paragrafi, label: Paragrafi, type: text, list: true }
+      - name: progetto
+        label: "Sezione: il progetto"
+        type: object
+        fields:
+          - { name: titolo, label: Titolo, type: string }
+          - { name: sottotitolo, label: Sottotitolo, type: string }
+          - name: tappe
+            label: Le tappe del percorso
+            type: object
+            list: true
+            fields:
+              - { name: anni, label: Anni, type: string }
+              - { name: nome, label: Nome, type: string }
+              - { name: testo, label: Testo, type: text }
+          - name: chi
+            label: Chi ne fa parte
+            type: object
+            fields:
+              - { name: titolo, label: Titolo, type: string }
+              - { name: testo, label: Testo, type: text }
+          - name: cosa
+            label: Cosa facciamo
+            type: object
+            fields:
+              - { name: titolo, label: Titolo, type: string }
+              - name: voci
+                label: Attività
+                type: object
+                list: true
+                fields:
+                  - { name: titolo, label: Titolo, type: string }
+                  - { name: testo, label: Testo, type: text }
+          - { name: foto, label: Foto, type: image, options: { media: fotografie, path: foto } }
+          - { name: foto_descrizione, label: Descrizione della foto, type: text }
+      - name: contratto
+        label: "Sezione: il Contratto di Fiume"
+        type: object
+        fields:
+          - { name: titolo, label: Titolo, type: string }
+          - name: cosa_e
+            label: Cos'è il Contratto di Fiume
+            type: object
+            fields:
+              - { name: titolo, label: Titolo, type: string }
+              - { name: paragrafi, label: Paragrafi, type: text, list: true }
+          - name: aniene
+            label: Il Contratto di Fiume Aniene
+            type: object
+            fields:
+              - { name: titolo, label: Titolo, type: string }
+              - { name: paragrafi, label: Paragrafi, type: text, list: true }
+              - name: numeri
+                label: Numeri in evidenza
+                type: object
+                list: true
+                fields:
+                  - { name: valore, label: Numero, type: string }
+                  - { name: etichetta, label: Che cosa conta, type: string }
+              - { name: link, label: Indirizzo del sito, type: string }
+              - { name: link_testo, label: Testo del collegamento, type: string }
+      - name: citizen_science
+        label: "Sezione: la citizen science"
+        type: object
+        fields:
+          - { name: titolo, label: Titolo, type: string }
+          - { name: paragrafi, label: Paragrafi, type: text, list: true }
+          - { name: card_titolo, label: Titolo delle schede, type: string }
+          - name: card
+            label: Schede
+            type: object
+            list: true
+            fields:
+              - { name: titolo, label: Titolo, type: string }
+              - { name: testo, label: Testo, type: text }
+          - { name: foto, label: Foto, type: image, options: { media: fotografie, path: foto } }
+          - { name: foto_descrizione, label: Descrizione della foto, type: text }
+      - name: metodologia
+        label: "Sezione: la metodologia"
+        type: object
+        fields:
+          - { name: titolo, label: Titolo, type: string }
+          - { name: paragrafi, label: Paragrafi, type: text, list: true }
+          - { name: approfondisci, label: Testo del bottone, type: string }
+      - name: obiettivi
+        label: "Sezione: gli obiettivi"
+        type: object
+        fields:
+          - { name: titolo, label: Titolo, type: string }
+          - { name: intro, label: Testo introduttivo, type: text }
+          - { name: voci, label: Obiettivi, type: text, list: true }
+      - name: ringraziamenti
+        label: "Sezione: ringraziamenti"
+        type: object
+        fields:
+          - { name: titolo, label: Titolo, type: string }
+          - { name: testo, label: Testo, type: text }
+
+  # -------------------------------------------------------- CITIZEN SCIENCE
+  - name: citizen-science
+    label: Pagina Citizen science
+    path: contenuti/citizen-science.yml
+    type: file
+    icon: microscope
+    fields:
+      - { name: titolo, label: Titolo, type: string }
+      - { name: sottotitolo, label: Testo di apertura, type: text }
+      - { name: foto_copertina, label: Foto di copertina, type: image, options: { media: fotografie, path: foto } }
+      - { name: foto_copertina_descrizione, label: Descrizione della foto, type: text }
+      - name: scienza_partecipata
+        label: "Sezione: la scienza partecipata"
+        type: object
+        fields:
+          - { name: titolo, label: Titolo, type: string }
+          - { name: paragrafi, label: Paragrafi (prima parte), type: text, list: true }
+          - { name: citazione, label: Frase in evidenza, type: text }
+          - { name: paragrafi_due, label: Paragrafi (seconda parte), type: text, list: true }
+      - name: parametri
+        label: "Sezione: i parametri"
+        type: object
+        fields:
+          - { name: titolo, label: Titolo, type: string }
+          - { name: intro, label: Testo introduttivo, type: text }
+          - { name: ordine, label: Ordine delle schede, type: string, list: true }
+      - name: metodologia
+        label: "Sezione: metodologia"
+        type: object
+        fields:
+          - { name: titolo, label: Titolo, type: string }
+          - { name: intro, label: Testo introduttivo, type: text }
+          - { name: strumenti_titolo, label: Titolo degli strumenti, type: string }
+          - name: strumenti
+            label: Gli strumenti
+            type: object
+            list: true
+            fields:
+              - { name: nome, label: Nome, type: string }
+              - { name: testo, label: Descrizione, type: text }
+              - { name: foto, label: Foto, type: image, options: { media: fotografie, path: foto } }
+          - name: registrazione
+            label: Come registriamo i dati
+            type: object
+            fields:
+              - { name: titolo, label: Titolo, type: string }
+              - { name: testo, label: Testo, type: text }
+          - name: ossigeno
+            label: Perché l'ossigeno disciolto
+            type: object
+            fields:
+              - { name: titolo, label: Titolo, type: string }
+              - { name: testo, label: Testo, type: text }
+      - name: macroinvertebrati
+        label: "Sezione: macroinvertebrati"
+        type: object
+        fields:
+          - { name: titolo, label: Titolo, type: string }
+          - { name: intro, label: Testo introduttivo, type: text }
+          - name: voci
+            label: Paragrafi con titolo
+            type: object
+            list: true
+            fields:
+              - { name: titolo, label: Titolo, type: string }
+              - { name: testo, label: Testo, type: text }
+          - name: foto
+            label: Fotografie
+            type: object
+            list: true
+            fields:
+              - { name: file, label: Foto, type: image, options: { media: fotografie, path: foto } }
+              - { name: descrizione, label: Didascalia, type: text }
+      - name: campagne
+        label: "Sezione finale: rimando alle campagne"
+        type: object
+        fields:
+          - { name: titolo, label: Titolo, type: string }
+          - { name: intro, label: Testo, type: text }
+
+  # ---------------------------------------------------- CAMPAGNA 2022-2023
+  - name: campagna-2022-2023
+    label: Campagna 2021 | 2022-2023
+    path: contenuti/campagna-2022-2023.yml
+    type: file
+    icon: droplet
+    fields:
+      - { name: titolo, label: Titolo, type: string }
+      - { name: sottotitolo, label: Testo di apertura, type: text }
+      - { name: foto_copertina, label: Foto di copertina, type: image, options: { media: fotografie, path: foto } }
+      - { name: foto_copertina_descrizione, label: Descrizione della foto, type: text }
+      - name: walkup
+        label: "Sezione: Walk Up Aniene"
+        type: object
+        fields:
+          - { name: titolo, label: Titolo, type: string }
+          - { name: paragrafi, label: Paragrafi, type: text, list: true }
+          - name: mappa
+            label: Riquadro della mappa
+            type: object
+            fields:
+              - { name: testo, label: Testo, type: text }
+              - { name: link, label: Indirizzo della mappa, type: string }
+              - { name: link_testo, label: Testo del collegamento, type: string }
+      - name: romaup
+        label: "Sezione: RomaUp"
+        type: object
+        fields:
+          - { name: titolo, label: Titolo, type: string }
+          - { name: paragrafi, label: Paragrafi, type: text, list: true }
+      - name: luoghi
+        label: "Sezione: i luoghi"
+        type: object
+        fields:
+          - { name: titolo, label: Titolo, type: string }
+          - { name: intro, label: Testo introduttivo, type: text }
+          - name: stazioni
+            label: Le stazioni
+            type: object
+            list: true
+            fields:
+              - { name: codice, label: Sigla, type: string }
+              - { name: nome, label: Nome, type: string }
+              - { name: testo, label: Descrizione, type: text }
+      - name: analisi
+        label: "Sezione: le analisi"
+        type: object
+        fields:
+          - { name: titolo, label: Titolo, type: string }
+          - { name: paragrafi, label: Paragrafi, type: text, list: true }
+          - { name: riquadro, label: Riquadro in evidenza, type: text }
+          - { name: rimando, label: Testo del bottone, type: string }
+      - name: dashboard
+        label: "Sezione: la dashboard"
+        type: object
+        fields:
+          - { name: titolo, label: Titolo, type: string }
+          - { name: intro, label: Testo introduttivo, type: text }
+          - { name: dati, label: File dei dati (non modificare), type: string }
+      - name: schede
+        label: "Sezione: le schede dei parametri"
+        type: object
+        fields:
+          - { name: titolo, label: Titolo, type: string }
+          - { name: intro, label: Testo introduttivo, type: text }
+          - name: voci
+            label: Le schede
+            type: object
+            list: true
+            fields:
+              - { name: parametro, label: Parametro, type: string }
+              - { name: stato, label: Giudizio, type: string }
+              - { name: cosa_misura, label: Cosa misura, type: text }
+              - { name: come_leggerlo, label: Come leggerlo, type: text }
+              - { name: cosa_trovato, label: Cosa abbiamo trovato, type: text }
+              - { name: cause, label: Possibili cause, type: text }
+      - name: report
+        label: "Sezione: i report da scaricare"
+        type: object
+        fields:
+          - { name: titolo, label: Titolo, type: string }
+          - { name: intro, label: Testo introduttivo, type: text }
+          - name: documenti
+            label: Documenti
+            type: object
+            list: true
+            fields:
+              - { name: titolo, label: Titolo, type: string }
+              - { name: descrizione, label: Descrizione, type: text }
+              - { name: file, label: File PDF, type: file, options: { media: documenti, path: report } }
+
+  # ---------------------------------------------------- CAMPAGNA 2023-2024
+  - name: campagna-2023-2024
+    label: Campagna 2023-2024
+    path: contenuti/campagna-2023-2024.yml
+    type: file
+    icon: droplet
+    fields:
+      - { name: titolo, label: Titolo, type: string }
+      - { name: sottotitolo, label: Testo di apertura, type: text }
+      - { name: foto_copertina, label: Foto di copertina, type: image, options: { media: fotografie, path: foto } }
+      - { name: foto_copertina_descrizione, label: Descrizione della foto, type: text }
+      - name: introduzione
+        label: "Sezione: introduzione"
+        type: object
+        fields:
+          - { name: paragrafi, label: Paragrafi, type: text, list: true }
+      - name: numeri
+        label: "Sezione: i numeri"
+        type: object
+        fields:
+          - { name: titolo, label: Titolo, type: string }
+          - name: voci
+            label: Numeri
+            type: object
+            list: true
+            fields:
+              - { name: valore, label: Numero, type: string }
+              - { name: etichetta, label: Che cosa conta, type: string }
+              - { name: dettaglio, label: Precisazione, type: string }
+      - name: luoghi
+        label: "Sezione: i punti di monitoraggio"
+        type: object
+        fields:
+          - { name: titolo, label: Titolo, type: string }
+          - { name: intro, label: Testo introduttivo, type: text }
+          - name: stazioni
+            label: Le stazioni
+            type: object
+            list: true
+            fields:
+              - { name: codice, label: Numero, type: string }
+              - { name: nome, label: Nome, type: string }
+              - { name: testo, label: Descrizione, type: text }
+          - { name: riquadro, label: Riquadro in evidenza, type: text }
+      - name: gommone
+        label: "Sezione: le discese in gommone"
+        type: object
+        fields:
+          - { name: titolo, label: Titolo, type: string }
+          - { name: testo, label: Testo, type: text }
+          - name: vantaggi
+            label: Vantaggi
+            type: object
+            list: true
+            fields:
+              - { name: titolo, label: Titolo, type: string }
+              - { name: testo, label: Testo, type: text }
+          - { name: foto, label: Foto, type: image, options: { media: fotografie, path: foto } }
+          - { name: foto_descrizione, label: Descrizione della foto, type: text }
+      - name: dashboard
+        label: "Sezione: la dashboard"
+        type: object
+        fields:
+          - { name: titolo, label: Titolo, type: string }
+          - { name: intro, label: Testo introduttivo, type: text }
+          - { name: dati, label: File dei dati (non modificare), type: string }
+      - name: sintesi
+        label: "Sezione: in breve"
+        type: object
+        fields:
+          - { name: titolo, label: Titolo, type: string }
+          - { name: paragrafi, label: Paragrafi, type: text, list: true }
+      - name: schede
+        label: "Sezione: le schede dei parametri"
+        type: object
+        fields:
+          - { name: titolo, label: Titolo, type: string }
+          - { name: intro, label: Testo introduttivo, type: text }
+          - { name: ordine, label: Ordine delle schede, type: string, list: true }
+      - name: metodologia
+        label: "Sezione: la metodologia"
+        type: object
+        fields:
+          - { name: titolo, label: Titolo, type: string }
+          - { name: intro, label: Testo introduttivo, type: text }
+          - { name: rimando, label: Testo del bottone, type: string }
+          - name: ossigeno
+            label: Riquadro sull'ossigeno
+            type: object
+            fields:
+              - { name: titolo, label: Titolo, type: string }
+              - { name: testo, label: Testo, type: text }
+          - name: foto
+            label: Fotografie
+            type: object
+            list: true
+            fields:
+              - { name: file, label: Foto, type: image, options: { media: fotografie, path: foto } }
+              - { name: descrizione, label: Didascalia, type: text }
+      - name: rete
+        label: "Sezione: la rete territoriale"
+        type: object
+        fields:
+          - { name: titolo, label: Titolo, type: string }
+          - { name: intro, label: Testo introduttivo, type: string }
+          - name: voci
+            label: Le realtà
+            type: object
+            list: true
+            fields:
+              - { name: nome, label: Nome, type: string }
+              - { name: testo, label: Descrizione, type: text }
+      - name: report
+        label: "Sezione: i report da scaricare"
+        type: object
+        fields:
+          - { name: titolo, label: Titolo, type: string }
+          - { name: intro, label: Testo introduttivo, type: text }
+          - name: documenti
+            label: Documenti
+            type: object
+            list: true
+            fields:
+              - { name: titolo, label: Titolo, type: string }
+              - { name: descrizione, label: Descrizione, type: text }
+              - { name: file, label: File PDF, type: file, options: { media: documenti, path: report } }
+
+  # ---------------------------------------------------- CAMPAGNA 2025-2026
+  - name: campagna-2025-2026
+    label: Campagna 2025-2026
+    path: contenuti/campagna-2025-2026.yml
+    type: file
+    icon: droplet
+    fields:
+      - { name: titolo, label: Titolo, type: string }
+      - { name: sottotitolo, label: Testo di apertura, type: text }
+      - { name: foto_copertina, label: Foto di copertina, type: image, options: { media: fotografie, path: foto } }
+      - { name: foto_copertina_descrizione, label: Descrizione della foto, type: text }
+      - name: introduzione
+        label: "Sezione: introduzione"
+        type: object
+        fields:
+          - { name: paragrafi, label: Paragrafi, type: text, list: true }
+          - name: sezioni
+            label: I due bottoni delle sezioni
+            type: object
+            list: true
+            fields:
+              - { name: ancora, label: Collegamento interno, type: string }
+              - { name: nome, label: Nome, type: string }
+              - { name: descrizione, label: Descrizione, type: text }
+      - name: fissi
+        label: "Sezione 1: i punti fissi"
+        type: object
+        fields:
+          - { name: titolo, label: Titolo, type: string }
+          - name: intro
+            label: Introduzione
+            type: object
+            fields:
+              - { name: paragrafi, label: Paragrafi, type: text, list: true }
+          - name: dashboard
+            label: La dashboard
+            type: object
+            fields:
+              - { name: titolo, label: Titolo, type: string }
+              - { name: intro, label: Testo introduttivo, type: text }
+              - { name: dati, label: File dei dati (non modificare), type: string }
+          - name: sintesi
+            label: In breve
+            type: object
+            fields:
+              - { name: titolo, label: Titolo, type: string }
+              - { name: paragrafi, label: Paragrafi, type: text, list: true }
+          - name: schede
+            label: Le schede dei parametri
+            type: object
+            fields:
+              - { name: titolo, label: Titolo, type: string }
+              - { name: intro, label: Testo introduttivo, type: text }
+              - name: voci
+                label: Le schede
+                type: object
+                list: true
+                fields:
+                  - { name: parametro, label: Parametro, type: string }
+                  - { name: stato, label: Giudizio, type: string }
+                  - { name: cosa_trovato, label: Cosa abbiamo trovato, type: text }
+                  - { name: cause, label: Possibili cause, type: text }
+          - name: foto
+            label: Fotografie
+            type: object
+            list: true
+            fields:
+              - { name: file, label: Foto, type: image, options: { media: fotografie, path: foto } }
+              - { name: descrizione, label: Didascalia, type: text }
+      - name: gommone
+        label: "Sezione 2: i dati in gommone"
+        type: object
+        fields:
+          - { name: titolo, label: Titolo, type: string }
+          - name: intro
+            label: Introduzione
+            type: object
+            fields:
+              - { name: paragrafi, label: Paragrafi, type: text, list: true }
+              - name: come_leggere
+                label: Come leggere i dati
+                type: object
+                fields:
+                  - { name: titolo, label: Titolo, type: string }
+                  - { name: testo, label: Testo, type: text }
+          - name: dashboard
+            label: La dashboard
+            type: object
+            fields:
+              - { name: titolo, label: Titolo, type: string }
+              - { name: intro, label: Testo introduttivo, type: text }
+              - { name: dati, label: File dei dati (non modificare), type: string }
+          - name: sintesi
+            label: In breve
+            type: object
+            fields:
+              - { name: titolo, label: Titolo, type: string }
+              - name: voci
+                label: Punti
+                type: object
+                list: true
+                fields:
+                  - { name: titolo, label: Titolo, type: string }
+                  - { name: testo, label: Testo, type: text }
+          - name: schede
+            label: Le schede dei parametri
+            type: object
+            fields:
+              - { name: titolo, label: Titolo, type: string }
+              - { name: intro, label: Testo introduttivo, type: text }
+              - name: voci
+                label: Le schede
+                type: object
+                list: true
+                fields:
+                  - { name: parametro, label: Parametro, type: string }
+                  - { name: stato, label: Giudizio, type: string }
+                  - { name: cosa_trovato, label: Cosa abbiamo trovato, type: text }
+                  - { name: cause, label: Possibili cause, type: text }
+          - name: hotspot
+            label: Gli hotspot
+            type: object
+            fields:
+              - { name: titolo, label: Titolo, type: string }
+              - { name: intro, label: Testo introduttivo, type: text }
+              - { name: criteri, label: I quattro criteri, type: text, list: true }
+              - { name: elenco_titolo, label: Titolo dell'elenco, type: string }
+              - name: elenco
+                label: I campioni hotspot
+                type: object
+                list: true
+                fields:
+                  - { name: data, label: Data, type: string }
+                  - { name: punti, label: Punti, type: text }
+              - { name: chiusura, label: Paragrafi di chiusura, type: text, list: true }
+          - name: metodologia
+            label: Metodologia
+            type: object
+            fields:
+              - { name: titolo, label: Titolo, type: string }
+              - name: voci
+                label: Paragrafi con titolo
+                type: object
+                list: true
+                fields:
+                  - { name: titolo, label: Titolo, type: string }
+                  - { name: testo, label: Testo, type: text }
+          - name: foto
+            label: Fotografie
+            type: object
+            list: true
+            fields:
+              - { name: file, label: Foto, type: image, options: { media: fotografie, path: foto } }
+              - { name: descrizione, label: Didascalia, type: text }
+      - name: report
+        label: "Sezione: i report da scaricare"
+        type: object
+        fields:
+          - { name: titolo, label: Titolo, type: string }
+          - { name: intro, label: Testo introduttivo, type: text }
+          - name: documenti
+            label: Documenti
+            type: object
+            list: true
+            fields:
+              - { name: titolo, label: Titolo, type: string }
+              - { name: descrizione, label: Descrizione, type: text }
+              - { name: file, label: File PDF, type: file, options: { media: documenti, path: report } }
+
+  # --------------------------------------------------------------- CONTATTI
+  - name: contatti
+    label: Contatti e bollettino
+    path: contenuti/contatti.yml
+    type: file
+    icon: mail
+    fields:
+      - { name: titolo, label: Titolo, type: string }
+      - { name: sottotitolo, label: Testo di apertura, type: text }
+      - { name: foto_copertina, label: Foto di copertina, type: image, options: { media: fotografie, path: foto } }
+      - { name: foto_copertina_descrizione, label: Descrizione della foto, type: text }
+      - name: partner
+        label: "Sezione: la rete dei progetti"
+        type: object
+        fields:
+          - { name: titolo, label: Titolo, type: string }
+          - { name: intro, label: Testo introduttivo, type: text }
+          - name: gruppi
+            label: I progetti
+            type: object
+            list: true
+            fields:
+              - { name: progetto, label: Nome del progetto, type: string }
+              - { name: anni, label: Anni, type: string }
+              - { name: descrizione, label: Descrizione, type: text }
+              - name: realta
+                label: Le realtà coinvolte
+                type: object
+                list: true
+                fields:
+                  - { name: nome, label: Nome, type: string }
+                  - { name: logo, label: Logo, type: image, options: { media: fotografie, path: partner } }
+                  - { name: sito, label: Sito internet, type: string }
+          - name: supervisione
+            label: Supervisione scientifica
+            type: object
+            fields:
+              - { name: titolo, label: Titolo, type: string }
+              - { name: testo, label: Testo, type: text }
+      - name: segnalazioni
+        label: "Sezione: segnalazioni"
+        type: object
+        fields:
+          - { name: titolo, label: Titolo, type: string }
+          - { name: intro, label: Testo introduttivo, type: text }
+          - { name: email, label: Indirizzo email a cui arrivano le segnalazioni, type: string }
+          - { name: nota, label: Nota sotto il modulo, type: text }
+          - name: campi
+            label: Etichette del modulo
+            type: object
+            fields:
+              - { name: nome, label: Campo nome, type: string }
+              - { name: email, label: Campo email, type: string }
+              - { name: luogo, label: Campo luogo, type: string }
+              - { name: messaggio, label: Campo messaggio, type: string }
+              - { name: invia, label: Bottone di invio, type: string }
+      - name: bollettino
+        label: "Sezione: il bollettino dell'Aniene"
+        type: object
+        fields:
+          - { name: titolo, label: Titolo, type: string }
+          - { name: intro, label: Testo introduttivo, type: text }
+          - name: articoli
+            label: Gli articoli
+            type: object
+            list: true
+            fields:
+              - { name: titolo, label: Titolo, type: string }
+              - { name: data, label: Data, type: string }
+              - { name: occhiello, label: Fonte, type: string }
+              - { name: testo, label: Testo, type: text }
+              - { name: link, label: Indirizzo dell'articolo, type: string }
+          - name: iscrizione
+            label: Riquadro di iscrizione
+            type: object
+            fields:
+              - { name: titolo, label: Titolo, type: string }
+              - { name: testo, label: Testo, type: text }
+
+  # ------------------------------------------------- PARAMETRI E IMPOSTAZIONI
+  - name: parametri
+    label: Parametri e soglie delle dashboard
+    path: contenuti/parametri.yml
+    type: file
+    icon: sliders
+    fields:
+      - name: legenda_livelli
+        label: Nomi delle classi di qualità
+        type: object
+        list: true
+        fields:
+          - { name: livello, label: Livello, type: number }
+          - { name: nome, label: Nome, type: string }
+      - name: parametri
+        label: I parametri
+        type: object
+        fields: []
+
+  - name: impostazioni
+    label: Impostazioni del sito
+    path: contenuti/impostazioni.yml
+    type: file
+    icon: settings
+    fields:
+      - name: sito
+        label: Il sito
+        type: object
+        fields:
+          - { name: nome, label: Nome, type: string }
+          - { name: claim, label: Sottotitolo, type: string }
+          - { name: descrizione, label: Descrizione per i motori di ricerca, type: text }
+          - { name: lingua, label: Lingua, type: string }
+      - name: menu
+        label: Il menu in alto
+        type: object
+        list: true
+        fields:
+          - { name: pagina, label: Pagina, type: string }
+          - { name: voce, label: Voce del menu, type: string }
+      - name: pie_di_pagina
+        label: Il piè di pagina
+        type: object
+        fields:
+          - { name: testo, label: Testo, type: text }
+          - { name: dati, label: Nota sui dati, type: text }
+          - { name: licenza, label: Licenza, type: text }
+          - name: link
+            label: Collegamenti
+            type: object
+            list: true
+            fields:
+              - { name: voce, label: Testo, type: string }
+              - { name: url, label: Indirizzo, type: string }

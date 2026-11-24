@@ -1,0 +1,48 @@
+# Impostazioni generali del sito: nome, menu, piè di pagina.
+# Valgono per tutte le pagine.
+
+sito:
+  nome: Aniene Water Lab
+  claim: Citizen science · Qualità delle acque
+  descrizione: >-
+    La piattaforma dei monitoraggi partecipati sul fiume Aniene: il percorso
+    dal 2021 a oggi, la metodologia, i dati aperti delle campagne e
+    l'interpretazione dei risultati.
+  lingua: it
+
+# L'ordine del menu in alto. "pagina" è il nome del file della pagina.
+menu:
+  - pagina: index
+    voce: Home
+  - pagina: citizen-science
+    voce: Citizen science
+  - pagina: campagna-2022-2023
+    voce: 2021 | 2022-2023
+  - pagina: campagna-2023-2024
+    voce: 2023-2024
+  - pagina: campagna-2025-2026
+    voce: 2025-2026
+  - pagina: contatti
+    voce: Contatti
+
+pie_di_pagina:
+  testo: >-
+    Aniene Water Lab raccoglie i dati dei monitoraggi civici sul fiume Aniene
+    realizzati da A Sud, Insieme per l'Aniene APS e dalla rete di associazioni
+    del Contratto di Fiume Aniene, con la supervisione scientifica di Bruna
+    Gumiero.
+  dati: >-
+    I dati di questo sito sono aperti e scaricabili in formato CSV dalle
+    dashboard di ogni campagna.
+  licenza: >-
+    Testi e dati sono rilasciati con licenza Creative Commons BY-SA 4.0. Le
+    fotografie appartengono a chi le ha scattate.
+  link:
+    - voce: A Sud
+      url: https://asud.net
+    - voce: Insieme per l'Aniene APS
+      url: https://www.insieneperlaniene.it
+    - voce: Contratto di Fiume Aniene
+      url: https://www.cdfaniene.it
+    - voce: Fresh Water Watch
+      url: https://freshwaterwatch.org

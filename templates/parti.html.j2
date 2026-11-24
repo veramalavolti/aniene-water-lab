@@ -1,0 +1,169 @@
+{# Pezzi riutilizzati da più pagine. #}
+
+{% macro hero(c, occhiello='') %}
+<section class="hero">
+  <div class="contenitore hero-griglia">
+    <div>
+      {% if occhiello %}<p class="hero-occhiello">{{ occhiello }}</p>{% endif %}
+      <h1>{{ c.titolo }}</h1>
+      <p>{{ c.sottotitolo }}</p>
+    </div>
+    {% if c.foto_copertina %}
+    <figure>
+      <img src="assets/img/{{ c.foto_copertina }}" alt="{{ c.foto_copertina_descrizione }}" width="1600" height="900">
+      <figcaption>{{ c.foto_copertina_descrizione }}</figcaption>
+    </figure>
+    {% endif %}
+  </div>
+</section>
+{% endmacro %}
+
+
+{% macro testa(etichetta, titolo, testo='') %}
+{% if etichetta %}<p class="etichetta">{{ etichetta }}</p>{% endif %}
+<h2 class="titolo-sezione">{{ titolo }}</h2>
+{% if testo %}<p class="occhiello-testo">{{ testo }}</p>{% endif %}
+{% endmacro %}
+
+
+{% macro paragrafi(elenco) %}
+{% for p in elenco %}<p>{{ p }}</p>{% endfor %}
+{% endmacro %}
+
+
+{% macro stazioni(elenco) %}
+<ul class="stazioni-elenco">
+  {% for s in elenco %}
+  <li>
+    <span class="stazione-codice">{{ s.codice }}</span>
+    <div>
+      <span class="stazione-nome">{{ s.nome }}</span>
+      <p>{{ s.testo }}</p>
+    </div>
+  </li>
+  {% endfor %}
+</ul>
+{% endmacro %}
+
+
+{% macro galleria(foto) %}
+<div class="galleria">
+  {% for f in foto %}
+  <figure>
+    <img src="assets/img/{{ f.file }}" alt="{{ f.descrizione }}" loading="lazy" width="1200" height="800">
+    <figcaption>{{ f.descrizione }}</figcaption>
+  </figure>
+  {% endfor %}
+</div>
+{% endmacro %}
+
+
+{#
+  La dashboard interattiva. Il contenuto viene costruito dal browser a partire
+  dal file dati/<nome>.json e dalle soglie in dati/parametri.json.
+#}
+{% macro dashboard(blocco, riepilogo) %}
+{% set r = riepilogo(blocco.dati) %}
+<h2 class="titolo-sezione">{{ blocco.titolo }}</h2>
+<p class="occhiello-testo">{{ blocco.intro }}</p>
+<div class="dashboard" data-dati="{{ blocco.dati }}">
+  <div class="dash-guida">
+    <p><strong>Caricamento dei dati…</strong>
+      {{ r.stazioni }} punti di campionamento, {{ r.campagne }} campagne da {{ r.da }}
+      a {{ r.a }}, {{ r.misure|numero }} misure.
+      Se il grafico non compare, il browser sta bloccando il caricamento dei dati:
+      prova ad aggiornare la pagina.</p>
+  </div>
+</div>
+{% endmacro %}
+
+
+{% macro classe_stato(stato) %}
+{%- set s = stato|lower -%}
+{%- if 'critic' in s -%}stato-critico
+{%- elif 'norma' in s or 'limite' in s or 'nessuna' in s -%}stato-ok
+{%- else -%}stato-attenzione
+{%- endif -%}
+{% endmacro %}
+
+
+{# Schede dei parametri calate su una campagna: cosa misura (dalla scheda
+   generale) più cosa abbiamo trovato e le cause (dal testo della campagna). #}
+{% macro schede_campagna(blocco, parametri) %}
+<h2 class="titolo-sezione">{{ blocco.titolo }}</h2>
+<p class="occhiello-testo">{{ blocco.intro }}</p>
+<div class="schede-parametri">
+  {% for v in blocco.voci %}
+  {% set p = parametri[v.parametro] %}
+  <article class="parametro">
+    {% if p.get('foto') %}
+    <img src="assets/img/{{ p.foto }}" alt="" loading="lazy" width="1200" height="800">
+    {% endif %}
+    <div class="parametro-corpo">
+      <h3>{{ p.nome }}</h3>
+      <p class="parametro-unita">{{ p.unita }}</p>
+      {% if v.stato %}<span class="stato {{ classe_stato(v.stato) }}">{{ v.stato }}</span>{% endif %}
+      <dl>
+        <dt>Cosa misura</dt>
+        <dd>{{ v.cosa_misura if v.cosa_misura is defined and v.cosa_misura else p.cosa_misura }}</dd>
+        <dt>Come leggerlo</dt>
+        <dd>{{ v.come_leggerlo if v.come_leggerlo is defined and v.come_leggerlo else p.come_leggerlo }}</dd>
+        {% if v.cosa_trovato %}
+        <dt>Cosa abbiamo trovato</dt>
+        <dd>{{ v.cosa_trovato }}</dd>
+        {% endif %}
+        {% if v.cause %}
+        <dt>Possibili cause</dt>
+        <dd>{{ v.cause }}</dd>
+        {% endif %}
+      </dl>
+    </div>
+  </article>
+  {% endfor %}
+</div>
+{% endmacro %}
+
+
+{# Schede generali dei parametri, senza il commento sui risultati. #}
+{% macro schede_generali(ordine, parametri) %}
+<div class="schede-parametri">
+  {% for nome in ordine %}
+  {% set p = parametri[nome] %}
+  <article class="parametro">
+    {% if p.get('foto') %}
+    <img src="assets/img/{{ p.foto }}" alt="" loading="lazy" width="1200" height="800">
+    {% endif %}
+    <div class="parametro-corpo">
+      <h3>{{ p.nome }}</h3>
+      <p class="parametro-unita">{{ p.unita }}</p>
+      <dl>
+        <dt>Cosa misura</dt>
+        <dd>{{ p.cosa_misura }}</dd>
+        <dt>Come leggerlo</dt>
+        <dd>{{ p.come_leggerlo }}</dd>
+        {% if p.soglie %}
+        <dt>Possibili cause di superamento</dt>
+        <dd>{{ p.soglie[-1].cause }}</dd>
+        {% endif %}
+      </dl>
+    </div>
+  </article>
+  {% endfor %}
+</div>
+{% endmacro %}
+
+
+{% macro report(blocco) %}
+<h2 class="titolo-sezione">{{ blocco.titolo }}</h2>
+<p class="occhiello-testo">{{ blocco.intro }}</p>
+<div class="report-griglia">
+  {% for d in blocco.documenti %}
+  <a class="report-card" href="{{ d.file }}" download>
+    <span class="report-tipo">PDF da scaricare</span>
+    <h3>{{ d.titolo }}</h3>
+    <p>{{ d.descrizione }}</p>
+    <span class="report-peso">Scarica il documento ↓</span>
+  </a>
+  {% endfor %}
+</div>
+{% endmacro %}

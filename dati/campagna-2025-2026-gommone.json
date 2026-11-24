@@ -1,0 +1,1329 @@
+{
+ "id": "2025-2026-gommone",
+ "etichetta": "Campagne in gommone · novembre 2025 – giugno 2026",
+ "nota_fonte": "Foglio «Dati gommone» di «Dati campionamento Aniene 2025-2026.xlsx». Le date di campagna sono quelle registrate nel foglio.",
+ "tratti": [
+  {
+   "id": "alto",
+   "nome": "Tratto alto",
+   "dove": "dai depuratori di Guidonia e Tivoli al fosso dell'Osa",
+   "date": [
+    "2025-11-15",
+    "2026-05-20"
+   ]
+  },
+  {
+   "id": "medio",
+   "nome": "Tratto medio",
+   "dove": "da Settecamini al depuratore di Roma est",
+   "date": [
+    "2025-12-18",
+    "2026-05-27"
+   ]
+  },
+  {
+   "id": "urbano",
+   "nome": "Tratto urbano e foce",
+   "dove": "da Casal de' Pazzi alla confluenza nel Tevere",
+   "date": [
+    "2026-02-24",
+    "2026-06-22"
+   ]
+  }
+ ],
+ "stazioni": [
+  {
+   "id": "01",
+   "nome": "dx Depuratore Guidonia Ponte Lucano",
+   "tratto": "alto",
+   "bis": false,
+   "ordine": 0,
+   "lat": 41.9541281,
+   "lon": 12.7603941
+  },
+  {
+   "id": "02",
+   "nome": "sx Depuratore Tivoli Maremmana inf",
+   "tratto": "alto",
+   "bis": false,
+   "ordine": 1,
+   "lat": 41.9504649,
+   "lon": 12.7579419
+  },
+  {
+   "id": "03",
+   "nome": "dx immissione solfurea",
+   "tratto": "alto",
+   "bis": false,
+   "ordine": 2,
+   "lat": 41.9498759,
+   "lon": 12.7569669
+  },
+  {
+   "id": "04",
+   "nome": "fosso di Roccabruna via di ponte Lucano",
+   "tratto": "alto",
+   "bis": false,
+   "ordine": 3,
+   "lat": 41.946518,
+   "lon": 12.7579661
+  },
+  {
+   "id": "05",
+   "nome": "sx fosso Saviano",
+   "tratto": "alto",
+   "bis": false,
+   "ordine": 4,
+   "lat": 41.9433041,
+   "lon": 12.7535689
+  },
+  {
+   "id": "05bis",
+   "nome": "sx fosso Biserano/fosso Acqua Rossa",
+   "tratto": "alto",
+   "bis": true,
+   "ordine": 5,
+   "lat": 41.9309471,
+   "lon": 12.730107
+  },
+  {
+   "id": "06",
+   "nome": "dx Albuccione",
+   "tratto": "alto",
+   "bis": false,
+   "ordine": 6,
+   "lat": 41.9315101,
+   "lon": 12.7194499
+  },
+  {
+   "id": "07",
+   "nome": "sx fosso Corsaro giardini di Corcolle",
+   "tratto": "alto",
+   "bis": false,
+   "ordine": 7,
+   "lat": 41.9498759,
+   "lon": 12.7569669
+  },
+  {
+   "id": "08",
+   "nome": "dx Immissione fognature Martellona 1 Depuratore urbano Tivoli-BORGONOVO",
+   "tratto": "alto",
+   "bis": false,
+   "ordine": 8,
+   "lat": 41.9378499,
+   "lon": 12.699968
+  },
+  {
+   "id": "08bis",
+   "nome": "500 mt a valle dello scarico fogna Martellona 1",
+   "tratto": "alto",
+   "bis": true,
+   "ordine": 9,
+   "lat": 41.935083,
+   "lon": 12.697151
+  },
+  {
+   "id": "09",
+   "nome": "sx fosso dell'Osa",
+   "tratto": "alto",
+   "bis": false,
+   "ordine": 10,
+   "lat": 41.926553,
+   "lon": 12.6699081
+  },
+  {
+   "id": "10",
+   "nome": "dx casello Settecamini",
+   "tratto": "medio",
+   "bis": false,
+   "ordine": 11,
+   "lat": 41.9231133,
+   "lon": 12.6439806
+  },
+  {
+   "id": "10bis",
+   "nome": "500mt a valle",
+   "tratto": "medio",
+   "bis": true,
+   "ordine": 12,
+   "lat": 41.9207319,
+   "lon": 12.6405701
+  },
+  {
+   "id": "11",
+   "nome": "dx Salone",
+   "tratto": "medio",
+   "bis": false,
+   "ordine": 13,
+   "lat": 41.9218164,
+   "lon": 12.6317071
+  },
+  {
+   "id": "12",
+   "nome": "sx Aqua Virgo Salone",
+   "tratto": "medio",
+   "bis": false,
+   "ordine": 14,
+   "lat": 41.9218805,
+   "lon": 12.6277086
+  },
+  {
+   "id": "13",
+   "nome": "fosso dx zona via di mirtillo",
+   "tratto": "medio",
+   "bis": false,
+   "ordine": 15,
+   "lat": 41.9242326,
+   "lon": 12.6087957
+  },
+  {
+   "id": "14",
+   "nome": "dx fosso GRA Zona via di Mirtillo",
+   "tratto": "medio",
+   "bis": false,
+   "ordine": 16,
+   "lat": 41.9242793,
+   "lon": 12.6077942
+  },
+  {
+   "id": "15",
+   "nome": "immissione fosso della Longarina sx Rustica",
+   "tratto": "medio",
+   "bis": false,
+   "ordine": 17,
+   "lat": 41.9226745,
+   "lon": 12.6016738
+  },
+  {
+   "id": "15bis",
+   "nome": "500 mt a valle",
+   "tratto": "medio",
+   "bis": true,
+   "ordine": 18,
+   "lat": 41.925749,
+   "lon": 12.5986388
+  },
+  {
+   "id": "16",
+   "nome": "dx fosso Pratolungo",
+   "tratto": "medio",
+   "bis": false,
+   "ordine": 19,
+   "lat": 41.929355,
+   "lon": 12.5888887
+  },
+  {
+   "id": "17",
+   "nome": "sx Immissione zona commerciale vicino Fritto King",
+   "tratto": "medio",
+   "bis": false,
+   "ordine": 20,
+   "lat": 41.928113,
+   "lon": 12.5821818
+  },
+  {
+   "id": "17bis",
+   "nome": "Immissione dx Via Rivisindoli (scuola)",
+   "tratto": "medio",
+   "bis": true,
+   "ordine": 21,
+   "lat": 41.924873,
+   "lon": 12.5793621
+  },
+  {
+   "id": "18",
+   "nome": "dx Tor Cervara",
+   "tratto": "medio",
+   "bis": false,
+   "ordine": 22,
+   "lat": 41.9298202,
+   "lon": 12.5809249
+  },
+  {
+   "id": "19",
+   "nome": "depuratore Roma est",
+   "tratto": "medio",
+   "bis": false,
+   "ordine": 23,
+   "lat": 41.92139,
+   "lon": 12.57362
+  },
+  {
+   "id": "19bis",
+   "nome": "Fosso Tor Sapienza",
+   "tratto": "medio",
+   "bis": true,
+   "ordine": 24,
+   "lat": 41.9209639,
+   "lon": 12.5732708
+  },
+  {
+   "id": "20",
+   "nome": "fosso Centocelle via degli Alberini",
+   "tratto": "medio",
+   "bis": false,
+   "ordine": 25,
+   "lat": 41.9179159,
+   "lon": 12.5693448
+  },
+  {
+   "id": "21",
+   "nome": "fosso casal de Pazzi",
+   "tratto": "urbano",
+   "bis": false,
+   "ordine": 26,
+   "lat": 41.9335591,
+   "lon": 12.5458704
+  },
+  {
+   "id": "22",
+   "nome": "scarico fogna Lanificio",
+   "tratto": "urbano",
+   "bis": false,
+   "ordine": 27,
+   "lat": 41.9264218,
+   "lon": 12.5392095
+  },
+  {
+   "id": "22bis",
+   "nome": "Sollevamento via Monte Nevoso",
+   "tratto": "urbano",
+   "bis": true,
+   "ordine": 28,
+   "lat": 41.9288516,
+   "lon": 12.5321241
+  },
+  {
+   "id": "23",
+   "nome": "esubero Aqua Virgo nel fosso Marranella",
+   "tratto": "urbano",
+   "bis": false,
+   "ordine": 29,
+   "lat": 41.9271794,
+   "lon": 12.529805
+  },
+  {
+   "id": "24",
+   "nome": "scarico diretto belvedere vigna Mangani",
+   "tratto": "urbano",
+   "bis": false,
+   "ordine": 30,
+   "lat": 41.9272173,
+   "lon": 12.5294962
+  },
+  {
+   "id": "25",
+   "nome": "impianto sollevamento città giardino",
+   "tratto": "urbano",
+   "bis": false,
+   "ordine": 31,
+   "lat": 41.9341522,
+   "lon": 12.5331648
+  },
+  {
+   "id": "26",
+   "nome": "impianto fosso sant'Agnese",
+   "tratto": "urbano",
+   "bis": false,
+   "ordine": 32,
+   "lat": 41.9358629,
+   "lon": 12.5213486
+  },
+  {
+   "id": "27",
+   "nome": "impianto sollevamento fosso di Valmelaina",
+   "tratto": "urbano",
+   "bis": false,
+   "ordine": 33,
+   "lat": 41.9428866,
+   "lon": 12.5128132
+  }
+ ],
+ "campagne": [
+  {
+   "id": "2025-11-15",
+   "etichetta": "nov 2025",
+   "date": [
+    "2025-11-15"
+   ]
+  },
+  {
+   "id": "2025-12-18",
+   "etichetta": "dic 2025",
+   "date": [
+    "2025-12-18"
+   ]
+  },
+  {
+   "id": "2026-02-24",
+   "etichetta": "feb 2026",
+   "date": [
+    "2026-02-24"
+   ]
+  },
+  {
+   "id": "2026-05-20",
+   "etichetta": "mag 2026",
+   "date": [
+    "2026-05-20",
+    "2026-05-27"
+   ]
+  },
+  {
+   "id": "2026-06-22",
+   "etichetta": "giu 2026",
+   "date": [
+    "2026-06-22"
+   ]
+  }
+ ],
+ "misure": [
+  {
+   "s": "01",
+   "d": "2025-11-15",
+   "p": {
+    "conducibilita": 1090.0,
+    "temperatura": 14.0,
+    "ossigeno": 7.5,
+    "fosfati": 0.82,
+    "nitrati": 10.3,
+    "ammonio": 0.05,
+    "ph": 8.45,
+    "ecoli": 15000.0,
+    "coliformi": 30000.0
+   },
+   "c": "2025-11-15"
+  },
+  {
+   "s": "02",
+   "d": "2025-11-15",
+   "p": {
+    "conducibilita": 1028.0,
+    "temperatura": 16.6,
+    "ossigeno": 7.3,
+    "fosfati": 0.82,
+    "nitrati": 9.6,
+    "ammonio": 0.05,
+    "ph": 8.18,
+    "ecoli": 17000.0,
+    "coliformi": 25000.0
+   },
+   "c": "2025-11-15"
+  },
+  {
+   "s": "03",
+   "d": "2025-11-15",
+   "p": {
+    "conducibilita": 1080.0,
+    "temperatura": 17.0,
+    "ossigeno": 6.9,
+    "fosfati": 0.09,
+    "nitrati": 2.2,
+    "ammonio": 0.04,
+    "ph": 8.38,
+    "ecoli": 22000.0,
+    "coliformi": 4000.0
+   },
+   "c": "2025-11-15"
+  },
+  {
+   "s": "04",
+   "d": "2025-11-15",
+   "p": {
+    "conducibilita": {
+     "v": 2000.0,
+     "lim": ">"
+    },
+    "temperatura": 14.7,
+    "ossigeno": 6.7,
+    "fosfati": 0.82,
+    "nitrati": 0.8,
+    "ammonio": 9.44,
+    "ph": 8.01,
+    "ecoli": 28000.0,
+    "coliformi": 36000.0
+   },
+   "c": "2025-11-15"
+  },
+  {
+   "s": "05",
+   "d": "2025-11-15",
+   "p": {
+    "conducibilita": 915.0,
+    "temperatura": 14.0,
+    "ossigeno": 8.0,
+    "fosfati": 0.59,
+    "nitrati": 4.9,
+    "ammonio": 0.0,
+    "ph": 8.22,
+    "ecoli": 400.0,
+    "coliformi": 4100.0
+   },
+   "c": "2025-11-15"
+  },
+  {
+   "s": "06",
+   "d": "2025-11-15",
+   "p": {
+    "conducibilita": {
+     "v": 2000.0,
+     "lim": ">"
+    },
+    "temperatura": 14.9,
+    "ossigeno": 7.8,
+    "fosfati": 0.01,
+    "nitrati": 0.6,
+    "ammonio": 1.64,
+    "ph": 8.16,
+    "ecoli": 600.0,
+    "coliformi": 2400.0
+   },
+   "c": "2025-11-15"
+  },
+  {
+   "s": "07",
+   "d": "2025-11-15",
+   "p": {
+    "conducibilita": 1197.0,
+    "temperatura": 16.0,
+    "ossigeno": 7.6,
+    "fosfati": 0.17,
+    "nitrati": 2.4,
+    "ammonio": 0.0,
+    "ph": 8.25,
+    "ecoli": 2200.0,
+    "coliformi": 20000.0
+   },
+   "c": "2025-11-15"
+  },
+  {
+   "s": "08",
+   "d": "2025-11-15",
+   "p": {
+    "conducibilita": 1352.0,
+    "temperatura": 15.0,
+    "ossigeno": 1.0,
+    "fosfati": 0.82,
+    "nitrati": 5.6,
+    "ammonio": 9.9,
+    "ph": 8.39,
+    "ecoli": 490000.0,
+    "coliformi": 500000.0
+   },
+   "c": "2025-11-15"
+  },
+  {
+   "s": "09",
+   "d": "2025-11-15",
+   "p": {
+    "conducibilita": 791.0,
+    "temperatura": 13.8,
+    "ossigeno": 5.0,
+    "fosfati": 0.25,
+    "nitrati": 3.0,
+    "ammonio": 0.06,
+    "ph": 8.6,
+    "ecoli": 40000.0,
+    "coliformi": 28000.0
+   },
+   "c": "2025-11-15"
+  },
+  {
+   "s": "10",
+   "d": "2025-12-18",
+   "p": {
+    "conducibilita": 920.0,
+    "temperatura": 13.8,
+    "ossigeno": 8.3,
+    "fosfati": 0.5,
+    "nitrati": 10.0,
+    "ammonio": 6.96,
+    "ph": 8.8,
+    "ecoli": 280000.0,
+    "coliformi": 300000.0
+   },
+   "c": "2025-12-18"
+  },
+  {
+   "s": "11",
+   "d": "2025-12-18",
+   "p": {
+    "conducibilita": {
+     "v": 2000.0,
+     "lim": ">"
+    },
+    "temperatura": 13.8,
+    "ossigeno": 6.5,
+    "fosfati": 0.1,
+    "nitrati": 10.0,
+    "ammonio": 0.02,
+    "ph": 9.18,
+    "ecoli": 1200.0,
+    "coliformi": 6000.0
+   },
+   "c": "2025-12-18"
+  },
+  {
+   "s": "12",
+   "d": "2025-12-18",
+   "p": {
+    "conducibilita": 899.0,
+    "temperatura": 14.8,
+    "ossigeno": 8.4,
+    "fosfati": 0.05,
+    "nitrati": 10.0,
+    "ammonio": 0.05,
+    "ph": 9.27,
+    "ecoli": 0.0,
+    "coliformi": 1100.0
+   },
+   "c": "2025-12-18"
+  },
+  {
+   "s": "13",
+   "d": "2025-12-18",
+   "p": {
+    "conducibilita": 1709.0,
+    "temperatura": 13.7,
+    "ossigeno": 6.4,
+    "fosfati": 0.1,
+    "nitrati": 1.0,
+    "ammonio": 1.22,
+    "ph": 9.0,
+    "ecoli": 28000.0,
+    "coliformi": 70000.0
+   },
+   "c": "2025-12-18"
+  },
+  {
+   "s": "14",
+   "d": "2025-12-18",
+   "p": {
+    "conducibilita": 1646.0,
+    "temperatura": 13.7,
+    "ossigeno": 5.8,
+    "fosfati": 0.2,
+    "nitrati": 10.0,
+    "ammonio": 3.96,
+    "ph": 8.8,
+    "ecoli": 80000.0,
+    "coliformi": 76000.0
+   },
+   "c": "2025-12-18"
+  },
+  {
+   "s": "15",
+   "d": "2025-12-18",
+   "p": {
+    "conducibilita": 1130.0,
+    "temperatura": 13.5,
+    "ossigeno": 3.7,
+    "fosfati": 0.5,
+    "nitrati": 0.2,
+    "ammonio": {
+     "v": 10.0,
+     "lim": ">"
+    },
+    "ph": 9.04,
+    "ecoli": 520000.0,
+    "coliformi": 400000.0
+   },
+   "c": "2025-12-18"
+  },
+  {
+   "s": "16",
+   "d": "2025-12-18",
+   "p": {
+    "conducibilita": 942.0,
+    "temperatura": 12.8,
+    "ossigeno": 6.0,
+    "fosfati": 0.5,
+    "nitrati": 10.0,
+    "ammonio": 2.84,
+    "ph": 9.2,
+    "ecoli": 62000.0,
+    "coliformi": 82000.0
+   },
+   "c": "2025-12-18"
+  },
+  {
+   "s": "17",
+   "d": "2025-12-18",
+   "p": {
+    "conducibilita": 1875.0,
+    "temperatura": 13.8,
+    "ossigeno": 7.7,
+    "fosfati": 0.5,
+    "nitrati": 1.0,
+    "ammonio": 0.28,
+    "ph": 8.92,
+    "ecoli": 56000.0,
+    "coliformi": 21000.0
+   },
+   "nota": "Chiazze grasse bianche maleodoranti",
+   "c": "2025-12-18"
+  },
+  {
+   "s": "18",
+   "d": "2025-12-18",
+   "p": {
+    "conducibilita": 1080.0,
+    "temperatura": 17.0,
+    "ossigeno": 7.5,
+    "fosfati": 0.5,
+    "nitrati": 10.0,
+    "ammonio": 0.01,
+    "ph": 8.82,
+    "ecoli": 1000.0,
+    "coliformi": 900.0
+   },
+   "c": "2025-12-18"
+  },
+  {
+   "s": "19",
+   "d": "2025-12-18",
+   "p": {
+    "conducibilita": 860.0,
+    "temperatura": 16.7,
+    "ossigeno": 5.5,
+    "fosfati": 0.5,
+    "nitrati": 10.0,
+    "ammonio": 0.56,
+    "ph": 8.76,
+    "ecoli": 0.0,
+    "coliformi": 2000.0
+   },
+   "c": "2025-12-18"
+  },
+  {
+   "s": "21",
+   "d": "2026-02-24",
+   "p": {
+    "conducibilita": 1051.0,
+    "temperatura": 15.3,
+    "ossigeno": 6.2,
+    "fosfati": 0.2,
+    "nitrati": 10.0,
+    "ammonio": {
+     "v": 10.0,
+     "lim": ">"
+    },
+    "ph": 9.96,
+    "ecoli": 300000.0,
+    "coliformi": 260000.0
+   },
+   "c": "2026-02-24"
+  },
+  {
+   "s": "22",
+   "d": "2026-02-24",
+   "p": {
+    "conducibilita": 940.0,
+    "temperatura": 12.0,
+    "ossigeno": 0.2,
+    "fosfati": 0.05,
+    "nitrati": 2.0,
+    "ammonio": 1.93,
+    "ph": 9.8,
+    "ecoli": 120000.0,
+    "coliformi": 47000.0
+   },
+   "c": "2026-02-24"
+  },
+  {
+   "s": "23",
+   "d": "2026-02-24",
+   "p": {
+    "conducibilita": 690.0,
+    "temperatura": 12.5,
+    "ossigeno": 8.8,
+    "fosfati": 0.2,
+    "nitrati": 10.0,
+    "ammonio": 0.0,
+    "ph": 9.97,
+    "ecoli": 0.0,
+    "coliformi": 0.0
+   },
+   "c": "2026-02-24"
+  },
+  {
+   "s": "24",
+   "d": "2026-02-24",
+   "p": {
+    "conducibilita": 800.0,
+    "temperatura": 12.3,
+    "ossigeno": 3.0,
+    "fosfati": 1.0,
+    "nitrati": 1.0,
+    "ammonio": 6.25,
+    "ph": 10.0,
+    "ecoli": 260000.0,
+    "coliformi": 168000.0
+   },
+   "c": "2026-02-24"
+  },
+  {
+   "s": "25",
+   "d": "2026-02-24",
+   "p": {
+    "conducibilita": 1002.0,
+    "temperatura": 12.2,
+    "ossigeno": 2.8,
+    "fosfati": 0.5,
+    "nitrati": 2.0,
+    "ammonio": 8.62,
+    "ph": 9.9,
+    "ecoli": 336000.0,
+    "coliformi": 170000.0
+   },
+   "c": "2026-02-24"
+  },
+  {
+   "s": "26",
+   "d": "2026-02-24",
+   "p": {
+    "conducibilita": 974.0,
+    "temperatura": 13.8,
+    "ossigeno": 3.4,
+    "fosfati": 0.5,
+    "nitrati": 2.0,
+    "ammonio": 6.17,
+    "ph": 9.82,
+    "ecoli": 27000.0,
+    "coliformi": 89000.0
+   },
+   "c": "2026-02-24"
+  },
+  {
+   "s": "27",
+   "d": "2026-02-24",
+   "p": {
+    "conducibilita": 936.0,
+    "temperatura": 12.2,
+    "ossigeno": 6.5,
+    "fosfati": 0.2,
+    "nitrati": 2.0,
+    "ammonio": 0.23,
+    "ph": 9.82,
+    "ecoli": 400000.0,
+    "coliformi": 700000.0
+   },
+   "c": "2026-02-24"
+  },
+  {
+   "s": "01",
+   "d": "2026-05-20",
+   "p": {
+    "conducibilita": 1032.0,
+    "temperatura": 14.9,
+    "ossigeno": 7.5,
+    "fosfati": 1.0,
+    "nitrati": 10.0,
+    "ammonio": 0.05,
+    "ph": 8.3,
+    "ecoli": 100.0,
+    "coliformi": 9500.0
+   },
+   "c": "2026-05-20"
+  },
+  {
+   "s": "02",
+   "d": "2026-05-20",
+   "p": {
+    "conducibilita": 785.0,
+    "temperatura": 18.1,
+    "ossigeno": 7.2,
+    "fosfati": 5.0,
+    "nitrati": 10.0,
+    "ammonio": 0.05,
+    "ph": 8.3,
+    "ecoli": 8000.0,
+    "coliformi": 11000.0
+   },
+   "nota": "Presenza di Avifauna",
+   "c": "2026-05-20"
+  },
+  {
+   "s": "03",
+   "d": "2026-05-20",
+   "p": {
+    "conducibilita": 1990.0,
+    "temperatura": 19.5,
+    "ossigeno": 6.8,
+    "fosfati": 0.1,
+    "nitrati": 0.5,
+    "ammonio": 0.69,
+    "ph": 7.6,
+    "ecoli": 100.0,
+    "coliformi": 6000.0
+   },
+   "c": "2026-05-20"
+  },
+  {
+   "s": "04",
+   "d": "2026-05-20",
+   "p": {
+    "conducibilita": 1364.0,
+    "temperatura": 15.4,
+    "ossigeno": 6.7,
+    "fosfati": 0.1,
+    "nitrati": 1.0,
+    "ammonio": 0.11,
+    "ph": 8.0,
+    "ecoli": 900.0,
+    "coliformi": 3500.0
+   },
+   "c": "2026-05-20"
+  },
+  {
+   "s": "05",
+   "d": "2026-05-20",
+   "p": {
+    "conducibilita": 953.0,
+    "temperatura": 15.5,
+    "ossigeno": 6.5,
+    "fosfati": 0.2,
+    "nitrati": 5.0,
+    "ammonio": 1.37,
+    "ph": 8.4,
+    "ecoli": 500.0,
+    "coliformi": 10000.0
+   },
+   "c": "2026-05-20"
+  },
+  {
+   "s": "05bis",
+   "d": "2026-05-20",
+   "p": {
+    "conducibilita": 1051.0,
+    "temperatura": 18.0,
+    "ossigeno": 7.2,
+    "fosfati": 0.1,
+    "nitrati": 5.0,
+    "ammonio": 0.0,
+    "ph": 8.2,
+    "ecoli": 1000.0,
+    "coliformi": 3700.0
+   },
+   "c": "2026-05-20"
+  },
+  {
+   "s": "06",
+   "d": "2026-05-20",
+   "p": {
+    "conducibilita": {
+     "v": 2000.0,
+     "lim": ">"
+    },
+    "temperatura": 16.5,
+    "ossigeno": 7.4,
+    "fosfati": 0.2,
+    "nitrati": 1.0,
+    "ammonio": 1.5,
+    "ph": 8.1,
+    "ecoli": 500.0,
+    "coliformi": 1200.0
+   },
+   "c": "2026-05-20"
+  },
+  {
+   "s": "07",
+   "d": "2026-05-20",
+   "p": {
+    "conducibilita": 1106.0,
+    "temperatura": 18.0,
+    "ossigeno": 6.8,
+    "fosfati": 0.5,
+    "nitrati": 5.0,
+    "ammonio": 0.0,
+    "ph": 8.1,
+    "ecoli": 900.0,
+    "coliformi": 7300.0
+   },
+   "c": "2026-05-20"
+  },
+  {
+   "s": "08",
+   "d": "2026-05-20",
+   "p": {
+    "conducibilita": 1441.0,
+    "temperatura": 16.4,
+    "ossigeno": 4.0,
+    "fosfati": 0.5,
+    "nitrati": 5.0,
+    "ammonio": 5.9,
+    "ph": 7.6,
+    "ecoli": 870000.0,
+    "coliformi": 990000.0
+   },
+   "nota": "Lavori su tubo di scarico e argine",
+   "c": "2026-05-20"
+  },
+  {
+   "s": "08bis",
+   "d": "2026-05-20",
+   "p": {
+    "conducibilita": 1467.0,
+    "temperatura": 16.6,
+    "ossigeno": 6.7,
+    "torbidita": 0.2,
+    "fosfati": 0.2,
+    "nitrati": 1.0,
+    "ammonio": 0.11,
+    "ph": 7.9,
+    "ecoli": 7000.0,
+    "coliformi": 29000.0
+   },
+   "c": "2026-05-20"
+  },
+  {
+   "s": "09",
+   "d": "2026-05-20",
+   "p": {
+    "conducibilita": 778.0,
+    "temperatura": 16.0,
+    "ossigeno": 6.3,
+    "fosfati": 0.5,
+    "nitrati": 7.5,
+    "ammonio": 0.02,
+    "ph": 8.9,
+    "ecoli": 6000.0,
+    "coliformi": 25000.0
+   },
+   "c": "2026-05-20"
+  },
+  {
+   "s": "10",
+   "d": "2026-05-27",
+   "p": {
+    "conducibilita": 1433.0,
+    "temperatura": 17.5,
+    "ossigeno": 0.5,
+    "fosfati": 0.2,
+    "nitrati": 0.2,
+    "ammonio": 2.51,
+    "ph": 7.8,
+    "ecoli": 180000.0,
+    "coliformi": 360000.0
+   },
+   "c": "2026-05-20"
+  },
+  {
+   "s": "10bis",
+   "d": "2026-05-27",
+   "p": {
+    "conducibilita": 1591.0,
+    "temperatura": 17.4,
+    "ossigeno": 6.8,
+    "fosfati": 0.1,
+    "nitrati": 0.5,
+    "ammonio": 0.07,
+    "ph": 7.7,
+    "ecoli": 1700.0,
+    "coliformi": 12000.0
+   },
+   "c": "2026-05-20"
+  },
+  {
+   "s": "11",
+   "d": "2026-05-27",
+   "p": {
+    "conducibilita": 1728.0,
+    "temperatura": 17.5,
+    "ossigeno": 6.0,
+    "fosfati": 0.2,
+    "nitrati": 10.0,
+    "ammonio": 0.01,
+    "ph": 8.0,
+    "ecoli": 1800.0,
+    "coliformi": 14000.0
+   },
+   "c": "2026-05-20"
+  },
+  {
+   "s": "12",
+   "d": "2026-05-27",
+   "p": {
+    "conducibilita": 883.0,
+    "temperatura": 15.8,
+    "ossigeno": 7.5,
+    "fosfati": 0.1,
+    "nitrati": 10.0,
+    "ammonio": 0.01,
+    "ph": 7.9,
+    "ecoli": 0.0,
+    "coliformi": 3400.0
+   },
+   "c": "2026-05-20"
+  },
+  {
+   "s": "13",
+   "d": "2026-05-27",
+   "p": {
+    "conducibilita": 1253.0,
+    "temperatura": 19.3,
+    "ossigeno": 5.9,
+    "fosfati": 0.5,
+    "nitrati": 5.0,
+    "ammonio": 0.09,
+    "ph": 8.0,
+    "ecoli": 7000.0,
+    "coliformi": 78000.0
+   },
+   "c": "2026-05-20"
+  },
+  {
+   "s": "14",
+   "d": "2026-05-27",
+   "p": {
+    "conducibilita": 1436.0,
+    "temperatura": 17.7,
+    "ossigeno": 2.2,
+    "fosfati": 1.0,
+    "nitrati": 10.0,
+    "ammonio": 8.0,
+    "ph": 8.1,
+    "ecoli": 220000.0,
+    "coliformi": 500000.0
+   },
+   "c": "2026-05-20"
+  },
+  {
+   "s": "15",
+   "d": "2026-05-27",
+   "p": {
+    "conducibilita": 982.0,
+    "temperatura": 17.7,
+    "ossigeno": 0.0,
+    "fosfati": 0.5,
+    "nitrati": 0.1,
+    "ammonio": {
+     "v": 10.0,
+     "lim": ">"
+    },
+    "ph": 8.1
+   },
+   "c": "2026-05-20"
+  },
+  {
+   "s": "15bis",
+   "d": "2026-05-27",
+   "p": {
+    "conducibilita": 1535.0,
+    "temperatura": 17.7,
+    "ossigeno": 6.8,
+    "fosfati": 0.1,
+    "nitrati": 1.0,
+    "ammonio": 0.19,
+    "ph": 7.8,
+    "ecoli": 5200.0,
+    "coliformi": 9400.0
+   },
+   "nota": "9 km dall'imbarco",
+   "c": "2026-05-20"
+  },
+  {
+   "s": "16",
+   "d": "2026-05-27",
+   "p": {
+    "conducibilita": 1337.0,
+    "temperatura": 21.9,
+    "ossigeno": 6.0,
+    "fosfati": 0.5,
+    "nitrati": 10.0,
+    "ammonio": 1.78,
+    "ph": 8.3,
+    "ecoli": 87000.0,
+    "coliformi": 107000.0
+   },
+   "c": "2026-05-20"
+  },
+  {
+   "s": "17bis",
+   "d": "2026-05-27",
+   "p": {
+    "conducibilita": 1553.0,
+    "temperatura": 17.9,
+    "ossigeno": 6.0,
+    "fosfati": 0.2,
+    "nitrati": 1.0,
+    "ammonio": 1.29,
+    "ph": 7.8,
+    "ecoli": 71000.0,
+    "coliformi": 105000.0
+   },
+   "nota": "Nuova immissione individuata",
+   "c": "2026-05-20"
+  },
+  {
+   "s": "18",
+   "d": "2026-05-27",
+   "p": {
+    "conducibilita": 1377.0,
+    "temperatura": 18.1,
+    "ossigeno": 0.0,
+    "fosfati": 1.0,
+    "nitrati": 0.0,
+    "ammonio": {
+     "v": 10.0,
+     "lim": ">"
+    },
+    "ph": 7.6
+   },
+   "c": "2026-05-20"
+  },
+  {
+   "s": "19",
+   "d": "2026-05-27",
+   "p": {
+    "conducibilita": 944.0,
+    "temperatura": 18.3,
+    "ossigeno": 6.4,
+    "fosfati": 0.5,
+    "nitrati": 10.0,
+    "ammonio": 0.18,
+    "ph": 7.9,
+    "ecoli": 100.0,
+    "coliformi": 100.0
+   },
+   "c": "2026-05-20"
+  },
+  {
+   "s": "19bis",
+   "d": "2026-05-27",
+   "p": {
+    "conducibilita": 937.0,
+    "temperatura": 19.0,
+    "ossigeno": 5.8,
+    "fosfati": 0.0,
+    "nitrati": 10.0,
+    "ammonio": 0.1,
+    "ph": 7.8,
+    "ecoli": 0.0,
+    "coliformi": 0.0
+   },
+   "c": "2026-05-20"
+  },
+  {
+   "s": "20",
+   "d": "2026-05-27",
+   "p": {
+    "conducibilita": 1369.0,
+    "temperatura": 19.0,
+    "ossigeno": 0.0,
+    "fosfati": 0.5,
+    "nitrati": 1.0,
+    "ammonio": 6.29,
+    "ph": 7.6,
+    "ecoli": 260000.0,
+    "coliformi": 500000.0
+   },
+   "c": "2026-05-20"
+  },
+  {
+   "s": "22",
+   "d": "2026-06-22",
+   "p": {
+    "conducibilita": 1772.0,
+    "temperatura": 20.4,
+    "ossigeno": 1.8,
+    "fosfati": 1.0,
+    "nitrati": 2.0,
+    "ammonio": {
+     "v": 10.0,
+     "lim": ">"
+    },
+    "ph": 8.2,
+    "ecoli": 780000.0,
+    "coliformi": {
+     "v": 1000000.0,
+     "lim": ">"
+    }
+   },
+   "c": "2026-06-22"
+  },
+  {
+   "s": "22bis",
+   "d": "2026-06-22",
+   "p": {
+    "temperatura": 20.5
+   },
+   "nota": "Non era attivo/ visibile a febbraio",
+   "c": "2026-06-22"
+  },
+  {
+   "s": "23",
+   "d": "2026-06-22",
+   "p": {
+    "conducibilita": 703.0,
+    "temperatura": 15.8,
+    "ossigeno": 8.5,
+    "fosfati": 0.2,
+    "nitrati": 5.0,
+    "ammonio": 0.02,
+    "ph": 7.8,
+    "ecoli": 300.0,
+    "coliformi": 2400.0
+   },
+   "nota": "Presenza pesci e avifauna",
+   "c": "2026-06-22"
+  },
+  {
+   "s": "25",
+   "d": "2026-06-22",
+   "p": {
+    "conducibilita": 1600.0,
+    "temperatura": 20.3,
+    "ossigeno": 6.0,
+    "fosfati": 0.5,
+    "nitrati": 5.0,
+    "ammonio": 0.13,
+    "ph": 7.5,
+    "ecoli": 3900.0,
+    "coliformi": 9200.0
+   },
+   "nota": "Numerosi pesci",
+   "c": "2026-06-22"
+  },
+  {
+   "s": "26",
+   "d": "2026-06-22",
+   "p": {
+    "conducibilita": 1363.0,
+    "temperatura": 20.5,
+    "ossigeno": 0.5,
+    "fosfati": 1.0,
+    "nitrati": 5.0,
+    "ammonio": 8.85,
+    "ph": 7.5,
+    "ecoli": {
+     "v": 1000000.0,
+     "lim": ">"
+    },
+    "coliformi": {
+     "v": 1000000.0,
+     "lim": ">"
+    }
+   },
+   "nota": "Abbondante acqua",
+   "c": "2026-06-22"
+  },
+  {
+   "s": "27",
+   "d": "2026-06-22",
+   "p": {
+    "conducibilita": 1357.0,
+    "temperatura": 23.6,
+    "ossigeno": 6.5,
+    "fosfati": 0.2,
+    "nitrati": 1.0,
+    "ammonio": 0.02,
+    "ph": 7.6,
+    "ecoli": 2700.0,
+    "coliformi": 8600.0
+   },
+   "nota": "ASSENZA DI ACQUA",
+   "c": "2026-06-22"
+  }
+ ]
+}

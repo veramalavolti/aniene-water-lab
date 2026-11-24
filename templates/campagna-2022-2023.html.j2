@@ -1,0 +1,67 @@
+{% extends "base.html.j2" %}
+{% import "parti.html.j2" as parti %}
+
+{% block contenuto %}
+
+{{ parti.hero(c, 'Campagna di monitoraggio') }}
+
+<section class="sezione">
+  <div class="contenitore">
+    <div class="doppia">
+      <div>
+        {{ parti.testa('2021', c.walkup.titolo) }}
+        {{ parti.paragrafi(c.walkup.paragrafi) }}
+        <div class="nota">
+          <p>{{ c.walkup.mappa.testo }}</p>
+          <p><a href="{{ c.walkup.mappa.link }}" rel="noopener">{{ c.walkup.mappa.link_testo }} ↗</a></p>
+        </div>
+      </div>
+      <div>
+        {{ parti.testa('2022 – 2023', c.romaup.titolo) }}
+        {{ parti.paragrafi(c.romaup.paragrafi) }}
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sezione" id="luoghi">
+  <div class="contenitore">
+    {{ parti.testa('Dove', c.luoghi.titolo, c.luoghi.intro) }}
+    {{ parti.stazioni(c.luoghi.stazioni) }}
+  </div>
+</section>
+
+<section class="sezione sezione-chiara" id="analisi">
+  <div class="contenitore stretto">
+    {{ parti.testa('Il protocollo', c.analisi.titolo) }}
+    {{ parti.paragrafi(c.analisi.paragrafi) }}
+    <div class="nota"><p>{{ c.analisi.riquadro }}</p></div>
+    <p class="bottoni">
+      <a class="bottone bottone-chiaro" href="citizen-science.html#parametri">{{ c.analisi.rimando }} →</a>
+    </p>
+  </div>
+</section>
+
+<section class="sezione" id="dashboard">
+  <div class="contenitore">
+    {{ parti.dashboard(c.dashboard, riepilogo) }}
+  </div>
+</section>
+
+<section class="sezione sezione-chiara" id="schede">
+  <div class="contenitore">
+    {{ parti.schede_campagna(c.schede, parametri) }}
+  </div>
+</section>
+
+<section class="sezione" id="report">
+  <div class="contenitore">
+    {{ parti.report(c.report) }}
+  </div>
+</section>
+
+{% endblock %}
+
+{% block script %}
+<script src="assets/js/dashboard.js" defer></script>
+{% endblock %}

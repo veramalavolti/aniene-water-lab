@@ -1,0 +1,113 @@
+{% extends "base.html.j2" %}
+{% import "parti.html.j2" as parti %}
+
+{% block contenuto %}
+
+{{ parti.hero(c, 'Campagna di monitoraggio') }}
+
+<section class="sezione">
+  <div class="contenitore stretto">
+    {{ parti.paragrafi(c.introduzione.paragrafi) }}
+  </div>
+</section>
+
+<section class="sezione-scura">
+  <div class="contenitore">
+    {{ parti.testa('', c.numeri.titolo) }}
+    <div class="numeri" style="grid-template-columns:repeat(3,minmax(0,1fr))">
+      {% for n in c.numeri.voci %}
+      <div>
+        <div class="numero-valore">{{ n.valore }}</div>
+        <div class="numero-etichetta">{{ n.etichetta }}</div>
+        {% if n.get('dettaglio') %}<div class="numero-dettaglio">{{ n.dettaglio }}</div>{% endif %}
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="sezione" id="luoghi">
+  <div class="contenitore">
+    {{ parti.testa('Dove', c.luoghi.titolo, c.luoghi.intro) }}
+    {{ parti.stazioni(c.luoghi.stazioni) }}
+    <div class="nota"><p>{{ c.luoghi.riquadro }}</p></div>
+  </div>
+</section>
+
+<section class="sezione" id="gommone">
+  <div class="contenitore foto-affiancata">
+    <div>
+      {{ parti.testa('Dal fiume', c.gommone.titolo, c.gommone.testo) }}
+      <ul class="elenco-spunte">
+        {% for v in c.gommone.vantaggi %}
+        <li><b>{{ v.titolo }}.</b> {{ v.testo }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+    <figure>
+      <img src="assets/img/{{ c.gommone.foto }}" alt="{{ c.gommone.foto_descrizione }}" loading="lazy" width="1800" height="1200">
+      <figcaption>{{ c.gommone.foto_descrizione }}</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="sezione" id="dashboard">
+  <div class="contenitore">
+    {{ parti.dashboard(c.dashboard, riepilogo) }}
+  </div>
+</section>
+
+<section class="sezione sezione-chiara" id="sintesi">
+  <div class="contenitore stretto">
+    {{ parti.testa('I risultati', c.sintesi.titolo) }}
+    {{ parti.paragrafi(c.sintesi.paragrafi) }}
+  </div>
+</section>
+
+<section class="sezione" id="schede">
+  <div class="contenitore">
+    {{ parti.testa('Le schede', c.schede.titolo, c.schede.intro) }}
+    {{ parti.schede_generali(c.schede.ordine, parametri) }}
+  </div>
+</section>
+
+<section class="sezione" id="metodologia">
+  <div class="contenitore">
+    {{ parti.testa('Come', c.metodologia.titolo, c.metodologia.intro) }}
+    <div class="nota">
+      <p><b>{{ c.metodologia.ossigeno.titolo }}.</b> {{ c.metodologia.ossigeno.testo }}</p>
+    </div>
+    <p class="bottoni">
+      <a class="bottone bottone-chiaro" href="citizen-science.html#metodologia">{{ c.metodologia.rimando }} →</a>
+    </p>
+    <div style="margin-top:1.6rem">
+      {{ parti.galleria(c.metodologia.foto) }}
+    </div>
+  </div>
+</section>
+
+<section class="sezione sezione-chiara" id="rete">
+  <div class="contenitore">
+    {{ parti.testa('Chi', c.rete.titolo, c.rete.intro) }}
+    <div class="schede">
+      {% for v in c.rete.voci %}
+      <article class="scheda">
+        <h3>{{ v.nome }}</h3>
+        <p>{{ v.testo }}</p>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="sezione" id="report">
+  <div class="contenitore">
+    {{ parti.report(c.report) }}
+  </div>
+</section>
+
+{% endblock %}
+
+{% block script %}
+<script src="assets/js/dashboard.js" defer></script>
+{% endblock %}
