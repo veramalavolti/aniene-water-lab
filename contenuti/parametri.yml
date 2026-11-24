@@ -71,7 +71,7 @@ parametri:
     nome: Azoto ammoniacale
     unita: mg/L di azoto
     verso: alto_critico
-    foto: strumenti/reagente.jpg
+    foto: foto/fotocolorimetro.jpg
     cosa_misura: >-
       L'azoto è presente in acqua in forma organica e inorganica (ammoniaca,
       nitriti e nitrati). Lo ione ammonio deriva da attività umane: scarichi
@@ -114,7 +114,7 @@ parametri:
     nome: Nitrati
     unita: mg/L di azoto nitrico
     verso: alto_critico
-    foto: strumenti/scheda-fosfati.jpg
+    foto: strumenti/schede-fww.jpg
     cosa_misura: >-
       Azoto e fosforo sono nutrienti, non veleni: servono alle piante e negli
       ecosistemi naturali sono presenti in quantità ridotte. Quando ne arrivano
@@ -156,7 +156,7 @@ parametri:
     nome: Fosfati
     unita: mg/L
     verso: alto_critico
-    foto: strumenti/kit-fww.jpg
+    foto: strumenti/scheda-fosfati.jpg
     cosa_misura: >-
       Il fosforo, come l'azoto, è un macronutriente che limita la crescita delle
       alghe, e in acqua è normalmente mille volte meno concentrato. Si trova in
@@ -237,7 +237,7 @@ parametri:
     nome: Conducibilità elettrica
     unita: µS/cm
     verso: alto_critico
-    foto: strumenti/conduttimetro.jpg
+    foto: strumenti/app.jpg
     cosa_misura: >-
       Misura la quantità di sali disciolti, in microsiemens per centimetro
       (µS/cm), ed è un indicatore del grado di mineralizzazione dell'acqua. In
@@ -289,7 +289,7 @@ parametri:
     unita: UFC/100 mL
     verso: alto_critico
     scala: log
-    foto: strumenti/bottiglia-sterile.jpg
+    foto: foto/piastra-ecoli.jpg
     cosa_misura: >-
       È un batterio presente nelle feci umane e animali. La sua presenza,
       insieme a quella di coliformi ed enterococchi, rivela una contaminazione
@@ -340,7 +340,7 @@ parametri:
     unita: UFC/100 mL
     verso: alto_critico
     scala: log
-    foto: strumenti/bottiglia-sterile.jpg
+    foto: foto/piastra-ecoli-2.jpg
     cosa_misura: >-
       Un gruppo di batteri indicatori di contaminazione fecale. Non fanno parte
       dell'indice LIMeco e seguono lo stesso andamento di Escherichia coli.
@@ -364,7 +364,7 @@ parametri:
     nome: Temperatura
     unita: °C
     verso: contesto
-    foto: strumenti/conduttimetro.jpg
+    foto: strumenti/subiaco.jpg
     cosa_misura: >-
       Determina quanto ossigeno può sciogliersi in acqua: a parità di pressione
       si passa da circa 14 mg/L a 0 °C a circa 9 mg/L a 20 °C. Influenza anche

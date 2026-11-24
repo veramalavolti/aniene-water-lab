@@ -1,122 +1,179 @@
 # Pagina CITIZEN SCIENCE.
 # Le schede dei parametri non stanno qui: si modificano in contenuti/parametri.yml,
 # così restano uguali in tutte le pagine del sito.
+#
+# Per mettere in evidenza una parola o una frase, circondala con due asterischi:
+# **così**. Sul sito comparirà in grassetto.
 
 titolo: La citizen science
 sottotitolo: >-
-  Perché la scienza partecipata cambia il modo in cui conosciamo e difendiamo
-  un fiume, e come lavoriamo concretamente sull'Aniene.
+  Perché la **scienza partecipata** cambia il modo in cui conosciamo e
+  difendiamo un fiume, e come lavoriamo concretamente sull'Aniene.
 foto_copertina: foto/volontari-schede.jpg
 foto_copertina_descrizione: >-
   Rilievi sul campo lungo l'Aniene, novembre 2025.
 
+# La foto grande che apre la pagina, subito sotto il titolo della prima sezione.
+foto_apertura:
+  file: foto/volontari-secchio.jpg
+  descrizione: >-
+    Il campionamento con il secchio legato a una fune: lo strumento più semplice
+    del monitoraggio, e quello che permette a chiunque di partecipare.
+
 scienza_partecipata:
   titolo: La scienza partecipata
-  paragrafi:
-    - >-
-      L'inquinamento dell'acqua, secondo l'Organizzazione Mondiale della Sanità,
-      così come quello di altre matrici ambientali, svolge un ruolo determinante
-      per la salute umana e non umana. Questa posizione è in linea con la
-      visione olistica One Health, recentemente adottata dalle principali
-      istituzioni sanitarie e da sempre propria delle culture indigene: la
-      salute degli esseri umani, degli organismi non umani (piante, animali,
-      funghi, batteri) e dell'ambiente è strettamente interconnessa.
-    - >-
-      Nei contesti urbani, fortemente antropizzati, risulta più evidente
-      l'impatto dell'erosione degli ecosistemi e le conseguenze dirette sulla
-      salute umana. Ad oggi le normative ambientali sono certamente più rigorose
-      e il miglioramento degli strumenti di monitoraggio ha consentito di
-      rilevare nuove classi di contaminanti, eppure il nostro bagaglio di
-      conoscenze sullo stato di salute dell'ecosistema rimane ancora limitato.
-    - >-
-      Molto frequentemente i dati ambientali istituzionali sono assenti, non
-      aggiornati, frammentati o comunque non sempre disponibili. Questo
-      impedisce alle comunità locali di essere informate e quindi consapevoli
-      delle ingiustizie ambientali e sociali che si consumano sul loro
-      territorio e, di conseguenza, di avere voce in capitolo riguardo alle
-      decisioni. Spesso infatti le situazioni di degrado ambientale sono il
-      riflesso di territori abbandonati dalle istituzioni e di comunità in
-      condizioni di marginalità, dove le ingiustizie ambientali si intrecciano
-      ed esasperano i già presenti fenomeni di disuguaglianza ed esclusione
-      sociale.
-    - >-
-      In questo contesto si inseriscono i nostri progetti Walk Up Aniene, RomaUp
-      e Aniene WaterLab, nati con l'obiettivo di costruire ponti tra le realtà
-      sociali che hanno a cuore la salute ecologica della Capitale e il mondo
-      della ricerca, le istituzioni e le autorità politiche. Il nostro intento è
-      fornire strumenti di attivazione e advocacy, oltre a competenze e
-      conoscenze, per promuovere raccolte dati, campagne legali e di
-      sensibilizzazione a sostegno di chi ha già iniziato a mobilitarsi con le
-      proprie forze per tutelare l'ambiente e i propri diritti.
-    - >-
-      La citizen science contribuisce così a creare conoscenza dal basso, grazie
-      alla cittadinanza attiva. Lo fa attraverso la ricerca scientifica aperta e
-      partecipata, la formazione delle persone e la condivisione di strumenti
-      scientifici, come sensori e kit di analisi a basso costo e quindi
-      accessibili a tutti. Queste iniziative producono una conoscenza
-      indipendente e potenzialmente più capillare di quella istituzionale,
-      perché chi vive il territorio ne conosce a fondo le criticità.
-    - >-
-      Questa forma di citizen science, definita estrema o reattiva, si
-      differenzia dall'approccio tradizionale coinvolgendo in tutte le fasi del
-      progetto comunità attive che si avvicinano alla scienza e ai suoi
-      strumenti per intervenire in modo più efficace sul loro territorio.
-      Attraverso queste iniziative, le persone rifiutano un ruolo passivo e
-      diventano protagoniste, superando il senso di impotenza derivante dalla
-      mancanza di voce durante le decisioni «pubbliche».
+  # Il capitolo è diviso in blocchi, così non diventa un muro di testo.
+  # "lato" dice da che parte sta la fotografia: sinistra o destra.
+  blocchi:
+    - titolo: Una sola salute
+      paragrafi:
+        - >-
+          L'inquinamento dell'acqua, secondo l'Organizzazione Mondiale della
+          Sanità, così come quello di altre matrici ambientali, svolge un ruolo
+          determinante per la salute umana e non umana. Questa posizione è in
+          linea con la visione olistica **One Health**, recentemente adottata
+          dalle principali istituzioni sanitarie e da sempre propria delle
+          culture indigene: la salute degli esseri umani, degli organismi non
+          umani (piante, animali, funghi, batteri) e dell'ambiente è
+          strettamente interconnessa.
+        - >-
+          Nei contesti urbani, fortemente antropizzati, risulta più evidente
+          l'impatto dell'erosione degli ecosistemi e le conseguenze dirette
+          sulla salute umana. Ad oggi le normative ambientali sono certamente
+          più rigorose e il miglioramento degli strumenti di monitoraggio ha
+          consentito di rilevare nuove classi di contaminanti, eppure il nostro
+          **bagaglio di conoscenze sullo stato di salute dell'ecosistema rimane
+          ancora limitato**.
+      foto:
+        file: foto/fiume-ponte-urbano.jpg
+        descrizione: L'Aniene nel tratto urbano, dove le pressioni sono più forti.
+      lato: destra
+
+    - titolo: Quando i dati mancano
+      paragrafi:
+        - >-
+          Molto frequentemente i dati ambientali istituzionali sono **assenti,
+          non aggiornati, frammentati** o comunque non sempre disponibili.
+          Questo impedisce alle comunità locali di essere informate e quindi
+          consapevoli delle ingiustizie ambientali e sociali che si consumano
+          sul loro territorio e, di conseguenza, di avere voce in capitolo
+          riguardo alle decisioni. Spesso infatti le situazioni di degrado
+          ambientale sono il riflesso di territori abbandonati dalle istituzioni
+          e di comunità in condizioni di marginalità, dove le ingiustizie
+          ambientali si intrecciano ed esasperano i già presenti fenomeni di
+          disuguaglianza ed esclusione sociale.
+      lato: nessuno
+
+    - titolo: Costruire ponti
+      paragrafi:
+        - >-
+          In questo contesto si inseriscono i nostri progetti **Walk Up Aniene,
+          RomaUp e Aniene WaterLab**, nati con l'obiettivo di costruire ponti
+          tra le realtà sociali che hanno a cuore la salute ecologica della
+          Capitale e il mondo della ricerca, le istituzioni e le autorità
+          politiche. Il nostro intento è fornire strumenti di attivazione e
+          advocacy, oltre a competenze e conoscenze, per promuovere raccolte
+          dati, campagne legali e di sensibilizzazione a sostegno di chi ha già
+          iniziato a mobilitarsi con le proprie forze per tutelare l'ambiente e
+          i propri diritti.
+        - >-
+          La citizen science contribuisce così a creare **conoscenza dal basso**,
+          grazie alla cittadinanza attiva. Lo fa attraverso la ricerca
+          scientifica aperta e partecipata, la formazione delle persone e la
+          condivisione di strumenti scientifici, come sensori e kit di analisi a
+          basso costo e quindi accessibili a tutti. Queste iniziative producono
+          una conoscenza indipendente e potenzialmente più capillare di quella
+          istituzionale, perché chi vive il territorio ne conosce a fondo le
+          criticità.
+      foto:
+        file: foto/formazione-tavolo.jpg
+        descrizione: La formazione prima di un'uscita di monitoraggio.
+      lato: sinistra
+
+    - titolo: La citizen science estrema
+      paragrafi:
+        - >-
+          Questa forma di citizen science, definita **estrema o reattiva**, si
+          differenzia dall'approccio tradizionale coinvolgendo in tutte le fasi
+          del progetto comunità attive che si avvicinano alla scienza e ai suoi
+          strumenti per intervenire in modo più efficace sul loro territorio.
+          Attraverso queste iniziative, le persone rifiutano un ruolo passivo e
+          diventano protagoniste, superando il senso di impotenza derivante
+          dalla mancanza di voce durante le decisioni «pubbliche».
+      lato: nessuno
+
   citazione: >-
     Attraverso queste iniziative, le persone rifiutano un ruolo passivo e
     diventano protagoniste, superando il senso di impotenza derivante dalla
     mancanza di voce durante le decisioni «pubbliche».
-  paragrafi_due:
-    - >-
-      La scienza partecipata estrema riesce ad approcciare il tema della
-      giustizia ambientale e sociale perché fornisce alle comunità colpite il
-      potere di controllare il grado di minaccia ambientale — e dunque di
-      erosione di diritti sociali ed economici — e stimola allo stesso tempo una
-      discussione attorno alle responsabilità dei fenomeni di compromissione
-      della qualità delle matrici ambientali e delle conseguenti violazioni del
-      diritto alla salute.
-    - >-
-      I monitoraggi partecipati possono sostenere l'azione degli enti locali e
-      fornire veri e propri strumenti di early warning, in grado di segnalare
-      alle autorità, in maniera tempestiva, eventi anomali e fattori di rischio
-      ambientale. Questo perché le autorità responsabili spesso non sono in
-      grado di costruire sistemi di controllo capillari a livello territoriale,
-      in gran parte a causa del sottofinanziamento cronico del sistema di
-      protezione ambientale.
-    - >-
-      Le iniziative di monitoraggio civico non si propongono in alcun modo di
-      sostituire gli enti responsabili, quanto piuttosto di affiancare e in
-      alcuni casi contestare o arricchire le conoscenze ambientali
-      istituzionali. Queste iniziative comunque non possono in alcun modo
-      sopperire alla necessità di avere un patrimonio conoscitivo pubblico
-      esaustivo sullo stato di salute dell'ecosistema in cui viviamo: abbiamo
-      bisogno di dati accessibili, aperti, aggiornati, interoperabili.
-    - >-
-      In Italia, quantomeno sulla carta, il diritto all'informazione e
-      all'accesso alle informazioni ambientali costituisce un dovere
-      dell'amministrazione fin dal 1986. Nei primi commi dell'art. 14 della legge
-      n. 349/1986 vengono sanciti due principi fondamentali: il dovere
-      dell'amministrazione di svolgere un'azione proattiva di informazione
-      ambientale e il diritto di accesso alle informazioni da parte della
-      cittadinanza. Per rispettare una definizione di qualità secondo i principi
-      dell'open data, però, i dati devono essere anche tempestivi e
-      continuativi, completi ed esaurienti, facilmente fruibili, comprensibili.
-    - >-
-      Per quanto riguarda il Lazio, negli ultimi anni si è compiuto un grande
-      sforzo per la messa a disposizione di informazioni dettagliate sulle
-      matrici ambientali. Ma ancora molto abbiamo da fare, se pensiamo che i
-      dati dei monitoraggi dello stato ecologico dei fiumi vengono pubblicati
-      due anni dopo la loro raccolta, restituendoci informazioni sicuramente
-      importanti, ma datate, soprattutto in tempi di estrema accelerazione delle
-      crisi ambientali.
+
+  blocchi_due:
+    - titolo: Giustizia ambientale e sociale
+      paragrafi:
+        - >-
+          La scienza partecipata estrema riesce ad approcciare il tema della
+          **giustizia ambientale e sociale** perché fornisce alle comunità
+          colpite il potere di controllare il grado di minaccia ambientale — e
+          dunque di erosione di diritti sociali ed economici — e stimola allo
+          stesso tempo una discussione attorno alle responsabilità dei fenomeni
+          di compromissione della qualità delle matrici ambientali e delle
+          conseguenti violazioni del diritto alla salute.
+        - >-
+          I monitoraggi partecipati possono sostenere l'azione degli enti locali
+          e fornire veri e propri strumenti di **early warning**, in grado di
+          segnalare alle autorità, in maniera tempestiva, eventi anomali e
+          fattori di rischio ambientale. Questo perché le autorità responsabili
+          spesso non sono in grado di costruire sistemi di controllo capillari a
+          livello territoriale, in gran parte a causa del sottofinanziamento
+          cronico del sistema di protezione ambientale.
+      foto:
+        file: foto/riva-rifiuti.jpg
+        descrizione: Rifiuti ingombranti lungo le sponde, documentati durante i rilievi.
+      lato: destra
+
+    - titolo: Affiancare, non sostituire
+      paragrafi:
+        - >-
+          Le iniziative di monitoraggio civico **non si propongono in alcun modo
+          di sostituire gli enti responsabili**, quanto piuttosto di affiancare
+          e in alcuni casi contestare o arricchire le conoscenze ambientali
+          istituzionali. Queste iniziative comunque non possono in alcun modo
+          sopperire alla necessità di avere un patrimonio conoscitivo pubblico
+          esaustivo sullo stato di salute dell'ecosistema in cui viviamo:
+          abbiamo bisogno di dati accessibili, aperti, aggiornati,
+          interoperabili.
+      lato: nessuno
+
+  riquadro:
+    titolo: Il diritto a sapere, dal 1986
+    paragrafi:
+      - >-
+        In Italia, quantomeno sulla carta, il diritto all'informazione e
+        all'accesso alle informazioni ambientali costituisce un dovere
+        dell'amministrazione fin dal 1986. Nei primi commi dell'**art. 14 della
+        legge n. 349/1986** vengono sanciti due principi fondamentali: il dovere
+        dell'amministrazione di svolgere un'azione proattiva di informazione
+        ambientale e il diritto di accesso alle informazioni da parte della
+        cittadinanza. Per rispettare una definizione di qualità secondo i
+        principi dell'open data, però, i dati devono essere anche tempestivi e
+        continuativi, completi ed esaurienti, facilmente fruibili,
+        comprensibili.
+      - >-
+        Per quanto riguarda il Lazio, negli ultimi anni si è compiuto un grande
+        sforzo per la messa a disposizione di informazioni dettagliate sulle
+        matrici ambientali. Ma ancora molto abbiamo da fare, se pensiamo che i
+        dati dei monitoraggi dello stato ecologico dei fiumi vengono
+        **pubblicati due anni dopo la loro raccolta**, restituendoci
+        informazioni sicuramente importanti, ma datate, soprattutto in tempi di
+        estrema accelerazione delle crisi ambientali.
+
+  chiusura:
     - >-
       I progetti di citizen science estrema coinvolgono rappresentanti del mondo
       accademico, stimolando un approccio sinergico fin dalle fasi iniziali del
       progetto e quindi una condivisione delle domande poste dal monitoraggio,
       del protocollo implementato, dei risultati e delle eventuali
-      raccomandazioni. Come sostiene l'approccio cosiddetto post-normale, è
+      raccomandazioni. Come sostiene l'approccio cosiddetto **post-normale**, è
       necessario un allargamento dei soggetti autorizzati a partecipare alla
       definizione e alla soluzione del problema scientifico, a partire dalle
       domande di ricerca, alle metodologie di lavoro, alla raccolta di
@@ -127,8 +184,8 @@ parametri:
   intro: >-
     Ogni parametro racconta un aspetto diverso della salute del fiume. Qui
     trovi cosa significa e quali possono essere le cause quando i valori
-    superano le soglie. Sono gli stessi parametri e le stesse soglie che vedi
-    nelle dashboard delle tre campagne di monitoraggio.
+    superano le soglie. Sono gli **stessi parametri e le stesse soglie** che
+    vedi nelle dashboard delle tre campagne di monitoraggio.
   # L'ordine in cui compaiono le schede. I nomi corrispondono a contenuti/parametri.yml
   ordine:
     - ossigeno
@@ -144,7 +201,7 @@ parametri:
 metodologia:
   titolo: Metodologia
   intro: >-
-    Per misurare i parametri usiamo strumenti economici e intuitivi, che
+    Per misurare i parametri usiamo strumenti **economici e intuitivi**, che
     chiunque possa imparare a usare. L'acqua per quasi tutte le analisi viene
     prelevata dal fiume con un secchio di plastica legato a una fune, che
     permette di raggiungere anche i punti più difficili. Fa eccezione l'E. coli,
@@ -153,61 +210,84 @@ metodologia:
   strumenti:
     - nome: Torbidità, nitrati e fosfati
       testo: >-
-        Usiamo il kit di Fresh Water Watch Europe, un altro progetto
+        Usiamo il **kit di Fresh Water Watch Europe**, un altro progetto
         internazionale di citizen science. La torbidità si valuta con un
-        semplice tubo di Secchi. Per i nutrienti si versa una quantità d'acqua
-        in fialette già preparate con il reagente e, dopo qualche minuto, si
-        confronta il colore con le schede di riferimento.
+        semplice **tubo di Secchi**. Per i nutrienti si versa una quantità
+        d'acqua in fialette già preparate con il reagente e, dopo qualche
+        minuto, si confronta il colore con le schede di riferimento.
       foto: foto/schede-colore.jpg
     - nome: Temperatura, conducibilità e pH
       testo: >-
-        Li misuriamo con dispositivi tascabili di HANNA Instruments (HI98303 e
-        HI98108), azienda che produce strumentazione scientifica a basso costo.
+        Li misuriamo con dispositivi tascabili di **HANNA Instruments**
+        (HI98303 e HI98108), azienda che produce strumentazione scientifica a
+        basso costo.
       foto: foto/conduttimetro.jpg
     - nome: Ammoniaca
       testo: >-
-        Un kit con due reagenti e un fotocolorimetro permette di misurarne la
-        presenza.
+        Un kit con due reagenti e un **fotocolorimetro** permette di misurarne
+        la presenza.
       foto: foto/fotocolorimetro.jpg
     - nome: Ossigeno disciolto
       testo: >-
-        Dal 2023 usiamo un kit che applica una titolazione di Winkler
-        modificata (HI3810), con tutti i reagenti e una guida da seguire passo
+        Dal 2023 usiamo un kit che applica una **titolazione di Winkler
+        modificata** (HI3810), con tutti i reagenti e una guida da seguire passo
         passo.
       foto: strumenti/ossigeno.jpg
     - nome: Escherichia coli
       testo: >-
-        Un campione sterile di 1 ml viene incubato per 24 ore a 36 °C su piastre
-        cromogene Compact Dry EC. Poi si contano le colonie, che per l'E. coli
-        sono blu. La presenza di E. coli, coliformi ed enterococchi rivela una
-        contaminazione fecale e la possibile presenza di microrganismi
-        patogeni. Ad oggi l'Aniene non rientra tra i fiumi balneabili.
+        Un campione sterile di 1 ml viene incubato per **24 ore a 36 °C** su
+        piastre cromogene Compact Dry EC. Poi si contano le colonie, che per
+        l'E. coli sono **blu**. La presenza di E. coli, coliformi ed
+        enterococchi rivela una contaminazione fecale e la possibile presenza di
+        microrganismi patogeni. Ad oggi l'Aniene non rientra tra i fiumi
+        balneabili.
       foto: foto/piastra-ecoli.jpg
   registrazione:
     titolo: Come registriamo i dati
     testo: >-
-      Ogni misura viene annotata su una scheda cartacea e inserita in digitale
-      nell'app Survey123. Questo archivio internazionale è collegato a Fresh
-      Water Watch e raccoglie i dati ambientali di tutte le annualità precedenti
-      e di migliaia di progetti simili nel mondo.
+      Ogni misura viene annotata su una **scheda cartacea** e inserita in
+      digitale nell'app **Survey123**. Da lì i dati entrano nell'archivio
+      internazionale di Fresh Water Watch, insieme a quelli di tutte le
+      annualità precedenti.
   ossigeno:
     titolo: Perché abbiamo aggiunto l'ossigeno disciolto
     testo: >-
-      L'ossigeno disciolto, normalmente intorno ai 10 mg/L, è essenziale per la
-      vita acquatica e per l'autodepurazione del fiume: un calo al 75% di
+      L'ossigeno disciolto, normalmente intorno ai **10 mg/L**, è essenziale per
+      la vita acquatica e per l'autodepurazione del fiume: un calo al 75% di
       saturazione è già un campanello d'allarme per l'inquinamento. Incrociando
-      questo dato con ammonio, nitrati e fosforo calcoliamo il LIMeco, l'indice
-      previsto dal D.Lgs. 152/2006 per lo stato trofico dei fiumi. Dal 2024
-      questo approccio ci consente di confrontare direttamente i nostri
-      rilevamenti con i dati ufficiali pubblicati da ARPA Lazio.
+      questo dato con ammonio, nitrati e fosforo calcoliamo il **LIMeco**,
+      l'indice previsto dal D.Lgs. 152/2006 per lo stato trofico dei fiumi. Dal
+      2024 questo approccio ci consente di confrontare direttamente i nostri
+      rilevamenti con i dati ufficiali pubblicati da **ARPA Lazio**.
+
+# La rete internazionale a cui mandiamo i dati raccolti sull'Aniene.
+fresh_water_watch:
+  etichetta: La rete internazionale
+  titolo: I dati dell'Aniene entrano in una banca dati mondiale
+  paragrafi:
+    - >-
+      **Fresh Water Watch** è il programma internazionale di citizen science
+      sulla qualità delle acque dolci promosso da **Earthwatch**. Ci fornisce i
+      kit per torbidità, nitrati e fosfati e, soprattutto, un protocollo comune:
+      misure prese allo stesso modo in tutto il mondo si possono confrontare
+      fra loro.
+    - >-
+      Questo significa che ogni rilievo fatto sull'Aniene non resta un dato
+      isolato: si affianca a quelli di **migliaia di altri gruppi** di
+      cittadine e cittadini, dall'Europa all'Asia, e contribuisce a una
+      fotografia globale dello stato delle acque dolci.
+  qr_descrizione: Inquadra il codice per aprire l'archivio Survey123 di Fresh Water Watch.
+  qr_etichetta: Survey123
+  link: https://freshwaterwatch.org
+  link_testo: Vai a Fresh Water Watch
 
 macroinvertebrati:
   titolo: "Macroinvertebrati bentonici: una sperimentazione"
   intro: >-
     Durante la campagna Aniene WaterLab 2025–2026 è nata l'idea di sperimentare
-    lo studio dei macroinvertebrati bentonici: piccoli animali, sconosciuti ai
-    più, che popolano il letto dell'Aniene come quello di tutti i corsi d'acqua
-    del mondo. L'idea è diventata realtà in poche settimane.
+    lo studio dei **macroinvertebrati bentonici**: piccoli animali, sconosciuti
+    ai più, che popolano il letto dell'Aniene come quello di tutti i corsi
+    d'acqua del mondo. L'idea è diventata realtà in poche settimane.
   voci:
     - titolo: Perché studiarli
       testo: >-
@@ -215,26 +295,26 @@ macroinvertebrati:
         passano nel fiume molti mesi, spesso anni. Raramente sono più piccoli di
         un millimetro e vivono nei substrati senza grandi migrazioni, quindi si
         catturano e si osservano con relativa facilità. Riconoscerli e
-        classificarli è più impegnativo e richiede chiavi dicotomiche e atlanti
-        specifici.
+        classificarli è più impegnativo e richiede **chiavi dicotomiche** e
+        atlanti specifici.
     - titolo: Una storia, non un'istantanea
       testo: >-
         L'analisi chimica e microbiologica fotografa il fiume nel giorno e
         all'ora del prelievo. I macroinvertebrati, restando in acqua così a
-        lungo, raccontano invece la sua storia. Rispondono in modo diverso alle
-        alterazioni chimiche e fisiche e permettono di individuare gli effetti
-        degli inquinanti anche dopo lo sversamento. Alcuni generi sono sensibili
-        anche al minimo inquinamento, altri sopportano l'inquinamento o ne
-        traggono vantaggio: per questo sono considerati bioindicatori.
+        lungo, **raccontano invece la sua storia**. Rispondono in modo diverso
+        alle alterazioni chimiche e fisiche e permettono di individuare gli
+        effetti degli inquinanti anche dopo lo sversamento. Alcuni generi sono
+        sensibili anche al minimo inquinamento, altri sopportano l'inquinamento
+        o ne traggono vantaggio: per questo sono considerati **bioindicatori**.
     - titolo: Come abbiamo fatto
       testo: >-
         Le sponde dell'Aniene sono spesso inaccessibili e non permettono di
-        usare il retino. Abbiamo quindi scelto dei campionatori statici,
+        usare il retino. Abbiamo quindi scelto dei **campionatori statici**,
         ancorati con galleggianti, da posizionare nei punti dei consueti
         campionamenti mensili. Li abbiamo costruiti noi: campionatori
-        multistrato Hester-Dendy, fatti con tavolette di masonite distanziate da
-        spessori, secondo uno schema scientificamente validato. Sono stati
-        lasciati in acqua e recuperati due settimane dopo.
+        multistrato **Hester-Dendy**, fatti con tavolette di masonite
+        distanziate da spessori, secondo uno schema scientificamente validato.
+        Sono stati lasciati in acqua e recuperati due settimane dopo.
   foto:
     - file: foto/macroinvertebrato-microscopio.jpg
       descrizione: Un macroinvertebrato osservato al microscopio.
@@ -247,5 +327,5 @@ campagne:
   titolo: I risultati delle campagne di monitoraggio
   intro: >-
     Gli stessi parametri e le stesse soglie, applicati ai dati raccolti in
-    ciascuna campagna. In ogni pagina trovi la dashboard interattiva e il report
-    da scaricare.
+    ciascuna campagna. In ogni pagina trovi la **dashboard interattiva** e il
+    report da scaricare.

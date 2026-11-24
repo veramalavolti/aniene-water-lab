@@ -1,14 +1,17 @@
 # Pagina HOME. Tutti i testi di questa pagina si modificano qui.
 # Le righe che cominciano con # sono commenti: servono a spiegare i campi e non
 # compaiono sul sito.
+#
+# Per mettere in evidenza una parola o una frase, circondala con due asterischi:
+# **così**. Sul sito comparirà in grassetto.
 
 titolo: I monitoraggi partecipati sul fiume Aniene
 sottotitolo: >-
-  La piattaforma unica dedicata a tutte le attività di monitoraggio civico del
-  fiume Aniene, da parte di chi lo ha vissuto e continua a farlo. Dal 2021
+  La piattaforma unica dedicata a tutte le attività di **monitoraggio civico**
+  del fiume Aniene, da parte di chi lo ha vissuto e continua a farlo. Dal 2021
   associazioni, volontarie e volontari, scuole, ricercatori e ricercatrici
-  monitorano la qualità dell'acqua dell'Aniene, da Subiaco alla confluenza nel
-  Tevere. Qui trovi il percorso, la metodologia, tutti i dati raccolti in forma
+  monitorano la qualità dell'acqua dell'Aniene, **da Subiaco alla confluenza nel
+  Tevere**. Qui trovi il percorso, la metodologia, tutti i dati raccolti in forma
   aperta, l'interpretazione dei risultati e la condivisione con le istituzioni
   e le comunità locali.
 foto_copertina: foto/fiume-subiaco.jpg
@@ -49,28 +52,28 @@ fiume:
   titolo: Il fiume Aniene
   paragrafi:
     - >-
-      L'Aniene è il secondo fiume di Roma per lunghezza (98,5 km) e attraversa
-      17 comuni. Nasce nei Monti Simbruini, da due rami principali — l'Aniene da
-      Monte Tarino e il Simbrivio da Monte Autore — e scorre verso valle
-      formando il lago di San Benedetto a Subiaco, raccogliendo sorgenti come
-      l'Acqua Marcia tra Agosta e Roviano, per poi formare le cascate di Tivoli
-      e addentrarsi nella pianura romana fino alla confluenza nel Tevere, in
-      zona Ponte Salario.
+      L'Aniene è il **secondo fiume di Roma per lunghezza** (98,5 km) e
+      attraversa 17 comuni. Nasce nei Monti Simbruini, da due rami principali —
+      l'Aniene da Monte Tarino e il Simbrivio da Monte Autore — e scorre verso
+      valle formando il lago di San Benedetto a Subiaco, raccogliendo sorgenti
+      come l'Acqua Marcia tra Agosta e Roviano, per poi formare le cascate di
+      Tivoli e addentrarsi nella pianura romana fino alla confluenza nel Tevere,
+      in zona Ponte Salario.
     - >-
-      Il fiume ha una rilevanza storica ed ecologica enorme: ha alimentato
+      Il fiume ha una **rilevanza storica ed ecologica enorme**: ha alimentato
       acquedotti storici, centrali idroelettriche e i giochi d'acqua delle ville
       di Tivoli, oltre a costituire la via d'acqua usata in passato per
       trasportare il travertino a Roma.
     - >-
-      Il suo bacino rappresenta un corridoio ecologico fondamentale a nord-est
-      di Roma. Nel tratto urbano, il fiume è tutelato dall'istituzione della
-      Riserva Naturale Valle dell'Aniene (620 ettari). Rispetto al Tevere, le
-      sponde dell'Aniene presentano tratti più selvaggi e meno accessibili, il
-      che da un lato ne preserva l'aspetto naturale, ma dall'altro rende più
-      difficile il controllo del degrado e delle discariche abusive. Iniziative
-      civiche come il Sentiero Parenzio, ad opera dei volontari Retake,
-      dimostrano come la fruizione sostenibile e l'apertura di accessi curati
-      aiutino a presidiare e valorizzare il territorio.
+      Il suo bacino rappresenta un **corridoio ecologico fondamentale** a
+      nord-est di Roma. Nel tratto urbano, il fiume è tutelato dall'istituzione
+      della **Riserva Naturale Valle dell'Aniene** (620 ettari). Rispetto al
+      Tevere, le sponde dell'Aniene presentano tratti più selvaggi e meno
+      accessibili, il che da un lato ne preserva l'aspetto naturale, ma
+      dall'altro rende più difficile il controllo del degrado e delle discariche
+      abusive. Iniziative civiche come il Sentiero Parenzio, ad opera dei
+      volontari Retake, dimostrano come la fruizione sostenibile e l'apertura di
+      accessi curati aiutino a presidiare e valorizzare il territorio.
 
 progetto:
   titolo: Il progetto
@@ -79,57 +82,57 @@ progetto:
     - anni: 2021
       nome: Walk Up Aniene
       testo: >-
-        Il progetto pilota di A Sud e Insieme per l'Aniene mappa con strumenti
-        GIS le criticità e i punti di pregio ecologico del basso corso, con
-        persone esperte e non, producendo tra i risultati una mappa dello stato
-        ambientale georeferenziata della fascia fluviale.
+        Il progetto pilota di **A Sud** e **Insieme per l'Aniene** mappa con
+        strumenti GIS le criticità e i punti di pregio ecologico del basso
+        corso, con persone esperte e non, producendo tra i risultati una mappa
+        dello stato ambientale georeferenziata della fascia fluviale.
     - anni: 2022 – 2023
       nome: RomaUP
       testo: >-
         Il progetto di A Sud, sostenuto da Periferiacapitale, monitora il Tevere
-        e dal 2022 anche l'Aniene, in 5 stazioni urbane da Casale Caletto a
+        e dal 2022 anche l'Aniene, in **5 stazioni urbane** da Casale Caletto a
         Ponte Salario. Con il kit FreshWater Watch si analizzano conducibilità
         elettrica, nitrati, fosfati, ammonio ed Escherichia coli.
     - anni: 2023 – 2024
       nome: Aniene WaterLab
       testo: >-
-        Coordinato da Insieme per l'Aniene, il monitoraggio mensile esce dalla
-        città: 9 stazioni da Subiaco al Tevere, tre discese in gommone e una
+        Coordinato da Insieme per l'Aniene, il monitoraggio mensile **esce dalla
+        città**: 9 stazioni da Subiaco al Tevere, tre discese in gommone e una
         rete di associazioni stabile.
     - anni: 2025 – 2026
       nome: Aniene WaterLab
       testo: >-
         Da ottobre 2025 il monitoraggio riprende in 9 punti fissi, con nuove
-        discese in gommone per campionare le immissioni nel fiume. In gommone
-        sono stati campionati i punti lungo l'intero tratto da Ponte Lucano alla
-        confluenza nel Tevere.
+        discese in gommone per **campionare le immissioni nel fiume**. In
+        gommone sono stati campionati i punti lungo l'intero tratto da Ponte
+        Lucano alla confluenza nel Tevere.
   chi:
     titolo: Chi ne fa parte
     testo: >-
       La rete è cambiata di campagna in campagna e con gli anni si è consolidata
-      una rete stabile, che conta sulla partecipazione di diverse associazioni:
-      A Sud, Insieme per l'Aniene APS, Retake Roma Sacco Pastore, A.D.A. APS,
-      Roma Adventure ASD, Il Cammino dell'Aniene, il Collettivo L'Aquila Reale
-      ETS e la Rete Orti in Comune. La supervisione scientifica è di Bruna
-      Gumiero, ecologa fluviale dell'Università di Bologna.
+      una **rete stabile**, che conta sulla partecipazione di diverse
+      associazioni: A Sud, Insieme per l'Aniene APS, Retake Roma Sacco Pastore,
+      A.D.A. APS, Roma Adventure ASD, Il Cammino dell'Aniene, il Collettivo
+      L'Aquila Reale ETS e la Rete Orti in Comune. La supervisione scientifica è
+      di **Bruna Gumiero**, ecologa fluviale dell'Università di Bologna.
   cosa:
     titolo: Cosa facciamo
     voci:
       - titolo: Raccolta dati sul campo
         testo: >-
           Ogni mese, nello stesso giorno, gruppi locali campionano l'acqua nelle
-          stazioni fisse. Le discese in gommone raggiungono scarichi e
+          stazioni fisse. Le **discese in gommone** raggiungono scarichi e
           immissioni che da terra non si vedono, permettendo di prelevare
           campioni in prossimità per valutarne gli effetti sull'ecosistema.
       - titolo: Laboratori con le scuole
         testo: >-
           Studentesse e studenti partecipano ai campionamenti e alle analisi:
-          nel 2023/24 sono stati 800, da scuole come il Liceo Scientifico
+          nel 2023/24 sono stati **800**, da scuole come il Liceo Scientifico
           L. Spallanzani di Tivoli, l'Istituto Comprensivo Angelucci di Subiaco
           e la scuola di Vicovaro.
       - titolo: Restituzione pubblica
         testo: >-
-          I dati vengono validati, raccolti in un report scientifico e
+          I dati vengono **validati**, raccolti in un report scientifico e
           presentati alla cittadinanza e alle istituzioni dei comuni e dei
           municipi coinvolti.
   foto: foto/volontari-schede.jpg
@@ -139,12 +142,16 @@ progetto:
 
 contratto:
   titolo: Il Contratto di Fiume Aniene
+  foto: foto/fiume-ponte-urbano.jpg
+  foto_descrizione: >-
+    L'Aniene nel tratto urbano: il Contratto di Fiume riguarda tutta la valle,
+    dalla sorgente alla foce.
   cosa_e:
     titolo: Cos'è il Contratto di Fiume
     paragrafi:
       - >-
-        Il Contratto di Fiume è uno strumento di programmazione volontaria,
-        negoziata e partecipata, volto al contenimento del degrado
+        Il Contratto di Fiume è uno strumento di **programmazione volontaria,
+        negoziata e partecipata**, volto al contenimento del degrado
         eco-paesaggistico e alla riqualificazione dei territori dei bacini
         idrografici. Nati per affrontare in modo integrato e partecipato la
         gestione dei bacini idrografici, i processi dei Contratti di fiume si
@@ -152,10 +159,10 @@ contratto:
         geografici, in armonia con le peculiarità dei bacini e in risposta ai
         bisogni e alle aspettative della cittadinanza.
       - >-
-        L'obiettivo dei Contratti è coniugare la protezione dell'ambiente con lo
-        sviluppo locale: promuovere la tutela della qualità ecologica dei corsi
-        d'acqua, la prevenzione del rischio idraulico e idromorfologico, il
-        ripristino degli ecosistemi e la valorizzazione socio-economica e
+        L'obiettivo dei Contratti è **coniugare la protezione dell'ambiente con
+        lo sviluppo locale**: promuovere la tutela della qualità ecologica dei
+        corsi d'acqua, la prevenzione del rischio idraulico e idromorfologico,
+        il ripristino degli ecosistemi e la valorizzazione socio-economica e
         culturale della valle. Attraverso questo patto formale, i soggetti
         firmatari si impegnano a realizzare un Programma di Azione condiviso per
         incentivare l'uso sostenibile della risorsa idrica e raggiungere il
@@ -165,16 +172,16 @@ contratto:
     titolo: Il Contratto di Fiume Aniene
     paragrafi:
       - >-
-        Il Contratto di Fiume Aniene è stato firmato ufficialmente a febbraio
-        2022, dopo quasi vent'anni di incontri e tavoli partecipati dei quali
+        Il Contratto di Fiume Aniene è stato firmato ufficialmente a **febbraio
+        2022**, dopo quasi vent'anni di incontri e tavoli partecipati dei quali
         Insieme per l'Aniene APS è stata tra i principali promotori. È stato
-        sottoscritto da quasi 100 stakeholder localizzati lungo tutta la valle,
-        dalla sorgente alla foce, di cui 31 nel tratto urbano del fiume: un
-        esempio virtuoso di coinvolgimento della comunità locale in un processo
-        di gestione partecipata e trasversale del territorio.
+        sottoscritto da quasi **100 stakeholder** localizzati lungo tutta la
+        valle, dalla sorgente alla foce, di cui 31 nel tratto urbano del fiume:
+        un esempio virtuoso di coinvolgimento della comunità locale in un
+        processo di gestione partecipata e trasversale del territorio.
       - >-
         All'interno del programma di azione del Contratto di Fiume Aniene
-        rientrano anche il monitoraggio partecipato svolto con RomaUp,
+        rientrano anche il **monitoraggio partecipato** svolto con RomaUp,
         l'organizzazione di attività di educazione ambientale ed educazione
         civica sul fiume, la diffusione delle conoscenze e il monitoraggio
         dell'alveo e delle sponde. Anche il Contratto di Fiume del Tevere, per
@@ -187,30 +194,32 @@ contratto:
         etichetta: stakeholder firmatari
       - valore: "31"
         etichetta: nel tratto urbano
-    link: https://www.cdfaniene.it/it/contratti-tutela-fiume-aniene/aliquam-porttitor-mauris-a-pretium-egestas-182
-    link_testo: Il sito del Contratto di Fiume Aniene
+      - valore: "98,5"
+        etichetta: km di fiume coinvolti
+    link: https://progetti.regione.lazio.it/contrattidifiume/
+    link_testo: I Contratti di Fiume del Lazio
 
 citizen_science:
   titolo: La citizen science
   paragrafi:
     - >-
-      Il termine Citizen Science, tradotto come «scienza partecipata», racchiude
-      un concetto ampio. L'Associazione nazionale Citizen Science Italia la
-      descrive come «il coinvolgimento di volontari/e e scienziati/e in attività
-      di ricerca collaborativa, finalizzata alla generazione di nuova conoscenza
-      basata su evidenze scientifiche».
+      Il termine Citizen Science, tradotto come «**scienza partecipata**»,
+      racchiude un concetto ampio. L'Associazione nazionale Citizen Science
+      Italia la descrive come «il coinvolgimento di volontari/e e scienziati/e
+      in attività di ricerca collaborativa, finalizzata alla generazione di
+      nuova conoscenza basata su evidenze scientifiche».
     - >-
       La scienza partecipata ha un ruolo fondamentale in questi progetti, in
-      particolare nell'avvicinare comunità e persone alla cura dei beni comuni,
-      costruire consapevolezza intorno alle matrici ambientali fondamentali,
-      produrre dati e aumentare il patrimonio informativo pubblico. Oltre a
-      essere un sistema prezioso di allerta precoce per segnalare tempestivamente
-      rischi e anomalie alle autorità, i dati raccolti attraverso la citizen
-      science diventano la base per vertenze e istanze di giustizia ambientale e
-      sociale.
+      particolare nell'avvicinare comunità e persone alla **cura dei beni
+      comuni**, costruire consapevolezza intorno alle matrici ambientali
+      fondamentali, produrre dati e aumentare il patrimonio informativo
+      pubblico. Oltre a essere un sistema prezioso di **allerta precoce** per
+      segnalare tempestivamente rischi e anomalie alle autorità, i dati raccolti
+      attraverso la citizen science diventano la base per vertenze e istanze di
+      giustizia ambientale e sociale.
     - >-
-      Le iniziative di monitoraggio civico non si propongono in alcun modo di
-      sostituire gli enti responsabili, quanto piuttosto di affiancare e in
+      Le iniziative di monitoraggio civico **non si propongono in alcun modo di
+      sostituire gli enti responsabili**, quanto piuttosto di affiancare e in
       alcuni casi contestare o arricchire le conoscenze ambientali istituzionali
       grazie alla presenza di dati indipendenti e attendibili.
   card_titolo: Come e perché la citizen science fa la differenza
@@ -223,22 +232,23 @@ citizen_science:
     - titolo: Raccolta dati tempestiva e capillare
       testo: >-
         L'«early warning»: metodi scientifici semplificati e kit accessibili
-        permettono di raccogliere dati in tempo reale sul territorio, segnalando
-        criticità che non sempre sono rintracciabili nei controlli istituzionali.
+        permettono di raccogliere dati **in tempo reale** sul territorio,
+        segnalando criticità che non sempre sono rintracciabili nei controlli
+        istituzionali.
     - titolo: Senso di appartenenza al territorio
       testo: >-
         Dal livello individuale a quello sociale e comunitario, i monitoraggi
         ambientali promuovono sensibilizzazione e consapevolezza ecologica.
     - titolo: Giustizia sociale e ambientale
       testo: >-
-        La citizen science può costituire la base per istanze rivendicative e
-        legali finalizzate a individuare le responsabilità di chi compromette la
-        qualità dell'ambiente e viola il diritto alla salute.
+        La citizen science può costituire la base per **istanze rivendicative e
+        legali** finalizzate a individuare le responsabilità di chi compromette
+        la qualità dell'ambiente e viola il diritto alla salute.
     - titolo: Sostenibilità nel lungo periodo
       testo: >-
         Il coinvolgimento della comunità permette di porsi obiettivi più
-        ambiziosi, soprattutto nel monitoraggio di lungo periodo, che è spesso
-        difficile da sostenere per singoli enti o ricercatori.
+        ambiziosi, soprattutto nel **monitoraggio di lungo periodo**, che è
+        spesso difficile da sostenere per singoli enti o ricercatori.
     - titolo: Educazione
       testo: >-
         Un percorso di apprendimento continuo, in cui le persone acquisiscono
@@ -246,44 +256,52 @@ citizen_science:
         forme attive di cittadinanza.
     - titolo: Governance democratica e partecipativa
       testo: >-
-        È necessario un allargamento dei soggetti autorizzati a partecipare alla
-        definizione e alla soluzione del problema scientifico, partendo da
+        È necessario un **allargamento dei soggetti** autorizzati a partecipare
+        alla definizione e alla soluzione del problema scientifico, partendo da
         ricercatori e comunità locali, verso quella che viene definita citizen
         science estrema.
-  foto: foto/volontari-secchio.jpg
-  foto_descrizione: >-
-    Il prelievo con il secchio legato a una fune, lo strumento più semplice del
-    monitoraggio.
-
+  foto_griglia:
+    - file: strumenti/secchio-tubo.jpg
+      didascalia: Il secchio e il tubo di Secchi per la torbidità
+      larga: true
+    - file: strumenti/schede-fww.jpg
+      didascalia: Le schede colore di Fresh Water Watch
+    - file: strumenti/ossigeno.jpg
+      didascalia: Il kit per l'ossigeno disciolto
+    - file: strumenti/bottiglia-sterile.jpg
+      didascalia: Il campione sterile per l'E. coli
+    - file: strumenti/reagente.jpg
+      didascalia: Il reagente cambia colore
 metodologia:
   titolo: La nostra metodologia
   paragrafi:
     - >-
-      Per la misurazione dei parametri abbiamo scelto strumenti molto semplici
-      ed economici, intuitivi nel loro utilizzo e alla portata di tutti. I
+      Per la misurazione dei parametri abbiamo scelto strumenti **molto semplici
+      ed economici**, intuitivi nel loro utilizzo e alla portata di tutti. I
       campioni di acqua sono prelevati direttamente dal fiume tramite un secchio
       legato a una fune, molto utile anche per raggiungere i punti più
       difficili, oppure usando contenitori e pipette sterili nel caso di analisi
       microbiologiche.
     - >-
       Sul campo misuriamo direttamente i parametri chimico-fisici principali,
-      con dispositivi tascabili HANNA Instruments per temperatura, conducibilità
-      elettrica e pH. Usiamo poi un fotocolorimetro per l'ammoniaca, il tubo di
-      Secchi per la torbidità e le fialette reagenti per nitrati e fosfati. A
-      questi si aggiunge la titolazione di Winkler per l'ossigeno disciolto,
-      fondamentale per la vita acquatica e l'autodepurazione del fiume: è grazie
-      alla sua introduzione che oggi possiamo calcolare l'indice ufficiale
-      LIMeco e confrontare i nostri dati con quelli istituzionali di ARPA Lazio.
+      con dispositivi tascabili **HANNA Instruments** per temperatura,
+      conducibilità elettrica e pH. Usiamo poi un fotocolorimetro per
+      l'ammoniaca, il **tubo di Secchi** per la torbidità e le fialette reagenti
+      per nitrati e fosfati. A questi si aggiunge la **titolazione di Winkler**
+      per l'ossigeno disciolto, fondamentale per la vita acquatica e
+      l'autodepurazione del fiume: è grazie alla sua introduzione che oggi
+      possiamo calcolare l'indice ufficiale LIMeco e confrontare i nostri dati
+      con quelli istituzionali di ARPA Lazio.
     - >-
       Per monitorare la contaminazione fecale e la non balneabilità dell'Aniene
-      effettuiamo inoltre la conta delle colonie di Escherichia coli tramite
+      effettuiamo inoltre la conta delle colonie di **Escherichia coli** tramite
       piastre cromogene Compact Dry EC, incubate per 24 ore a 36 °C. Tutti i
       rilievi vengono annotati su schede cartacee e caricati sull'app Survey123,
-      alimentando un database aperto e condiviso.
+      alimentando un **database aperto e condiviso**.
     - >-
-      Per fosfati, nitrati e torbidità utilizziamo il kit fornito da Fresh Water
-      Watch Europe, progetto internazionale di citizen science dedicato alla
-      qualità delle acque dolci promosso da Earthwatch, che permette di
+      Per fosfati, nitrati e torbidità utilizziamo il kit fornito da **Fresh
+      Water Watch Europe**, progetto internazionale di citizen science dedicato
+      alla qualità delle acque dolci promosso da Earthwatch, che permette di
       proiettare i dati raccolti localmente in una banca dati comune, dove i
       dati dell'Aniene si affiancano a quelli di migliaia di altri gruppi nel
       mondo.
@@ -292,14 +310,14 @@ metodologia:
 obiettivi:
   titolo: In breve, gli obiettivi del progetto
   intro: >-
-    Raccogliere dati sulle criticità del fiume e dare segnali di allarme alle
-    istituzioni che hanno il compito di fare monitoraggi periodici e specifici,
-    come ARPA Lazio.
+    Raccogliere dati sulle criticità del fiume e dare **segnali di allarme alle
+    istituzioni** che hanno il compito di fare monitoraggi periodici e
+    specifici, come ARPA Lazio.
   voci:
-    - Coinvolgere cittadine, cittadini e associazioni nella tutela della Riserva e del fiume.
-    - Stimare la qualità delle acque e cercare le possibili cause di inquinamento.
-    - Rafforzare il dialogo tra enti pubblici, associazioni e cittadini per trovare soluzioni condivise.
-    - Diffondere buone pratiche di cura del territorio, in linea con il Contratto di Fiume Aniene.
+    - Coinvolgere cittadine, cittadini e associazioni nella **tutela della Riserva** e del fiume.
+    - Stimare la qualità delle acque e cercare le **possibili cause di inquinamento**.
+    - Rafforzare il **dialogo** tra enti pubblici, associazioni e cittadini per trovare soluzioni condivise.
+    - Diffondere **buone pratiche** di cura del territorio, in linea con il Contratto di Fiume Aniene.
 
 ringraziamenti:
   titolo: Chi ha reso possibile questo percorso

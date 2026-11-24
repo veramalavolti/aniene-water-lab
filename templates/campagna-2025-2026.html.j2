@@ -8,14 +8,7 @@
 <section class="sezione">
   <div class="contenitore stretto">
     {{ parti.paragrafi(c.introduzione.paragrafi) }}
-    <div class="ancore">
-      {% for s in c.introduzione.sezioni %}
-      <a class="ancora-box" href="#{{ s.ancora }}">
-        <strong>{{ s.nome }}</strong>
-        <span>{{ s.descrizione }}</span>
-      </a>
-      {% endfor %}
-    </div>
+    {{ parti.bottoni_sezione(c.introduzione.sezioni) }}
   </div>
 </section>
 
@@ -24,7 +17,13 @@
 <section class="sezione-scura" id="dati-fissi">
   <div class="contenitore">
     {{ parti.testa('Sezione 1', c.fissi.titolo) }}
-    {{ parti.paragrafi(c.fissi.intro.paragrafi) }}
+    <div class="luoghi">
+      <div class="capitolo-testo">{{ parti.paragrafi(c.fissi.intro.paragrafi) }}</div>
+      <figure class="mappa">
+        {{ mappa_svg(c.fissi.dashboard.dati, 340) }}
+        <figcaption>{{ c.fissi.intro.mappa_didascalia }}</figcaption>
+      </figure>
+    </div>
   </div>
 </section>
 
@@ -56,8 +55,12 @@
   <div class="contenitore">
     {{ parti.testa('Sezione 2', c.gommone.titolo) }}
     {{ parti.paragrafi(c.gommone.intro.paragrafi) }}
+    <figure class="mappa" style="margin:1.6rem 0 0">
+      {{ mappa_svg(c.gommone.dashboard.dati, 380) }}
+      <figcaption>{{ c.gommone.intro.mappa_didascalia }}</figcaption>
+    </figure>
     <div class="nota" style="background:rgba(240,237,230,.08);color:var(--text-inv-dim);border-left-color:var(--lime)">
-      <p><b>{{ c.gommone.intro.come_leggere.titolo }}.</b> {{ c.gommone.intro.come_leggere.testo }}</p>
+      <p><b>{{ c.gommone.intro.come_leggere.titolo }}.</b> {{ c.gommone.intro.come_leggere.testo|t }}</p>
     </div>
   </div>
 </section>
@@ -125,7 +128,7 @@
 
 <section class="sezione sezione-chiara" id="report">
   <div class="contenitore">
-    {{ parti.report(c.report) }}
+    {{ parti.report(c.report, peso, pagine) }}
   </div>
 </section>
 

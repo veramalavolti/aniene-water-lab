@@ -11,7 +11,7 @@
     <div>
       <p class="hero-occhiello">Dal 2021 a oggi</p>
       <h1>{{ c.titolo }}</h1>
-      <p>{{ c.sottotitolo }}</p>
+      <p>{{ c.sottotitolo|t }}</p>
     </div>
     <figure>
       <img src="assets/img/{{ c.foto_copertina }}" alt="{{ c.foto_copertina_descrizione }}" width="1800" height="1200">
@@ -59,7 +59,7 @@
           <li>
             <span class="cronologia-anni">{{ t.anni }}</span>
             <span class="cronologia-nome">{{ t.nome }}</span>
-            {{ t.testo }}
+            {{ t.testo|t }}
           </li>
           {% endfor %}
         </ul>
@@ -71,12 +71,12 @@
 <section class="sezione">
   <div class="contenitore foto-affiancata">
     <div>
-      <h3 class="sotto-titolo">{{ c.progetto.chi.titolo }}</h3>
-      <p>{{ c.progetto.chi.testo }}</p>
+      <h3 class="sotto-titolo" style="margin-top:0">{{ c.progetto.chi.titolo }}</h3>
+      <p>{{ c.progetto.chi.testo|t }}</p>
       <h3 class="sotto-titolo">{{ c.progetto.cosa.titolo }}</h3>
       <ul class="elenco-spunte">
         {% for v in c.progetto.cosa.voci %}
-        <li><b>{{ v.titolo }}.</b> {{ v.testo }}</li>
+        <li><b>{{ v.titolo }}.</b> {{ v.testo|t }}</li>
         {% endfor %}
       </ul>
     </div>
@@ -90,7 +90,8 @@
 <section class="sezione-scura" id="contratto-di-fiume">
   <div class="contenitore">
     {{ parti.testa('Lo strumento', c.contratto.titolo) }}
-    <div class="hero-griglia">
+    {{ parti.foto_larga(c.contratto.foto, c.contratto.foto_descrizione) }}
+    <div class="affiancate">
       <div>
         <h3 class="sotto-titolo" style="color:var(--lime)">{{ c.contratto.cosa_e.titolo }}</h3>
         {{ parti.paragrafi(c.contratto.cosa_e.paragrafi) }}
@@ -98,46 +99,49 @@
       <div>
         <h3 class="sotto-titolo" style="color:var(--lime)">{{ c.contratto.aniene.titolo }}</h3>
         {{ parti.paragrafi(c.contratto.aniene.paragrafi) }}
-        <div class="numeri" style="margin-top:1rem">
-          {% for n in c.contratto.aniene.numeri %}
-          <div>
-            <div class="numero-valore">{{ n.valore }}</div>
-            <div class="numero-etichetta">{{ n.etichetta }}</div>
-          </div>
-          {% endfor %}
-        </div>
-        <p class="bottoni">
-          <a class="bottone" href="{{ c.contratto.aniene.link }}" rel="noopener">{{ c.contratto.aniene.link_testo }} ↗</a>
-        </p>
       </div>
     </div>
+    <div class="numeri">
+      {% for n in c.contratto.aniene.numeri %}
+      <div>
+        <div class="numero-valore">{{ n.valore }}</div>
+        <div class="numero-etichetta">{{ n.etichetta }}</div>
+      </div>
+      {% endfor %}
+    </div>
+    <p class="bottoni">
+      <a class="bottone" href="{{ c.contratto.aniene.link }}" rel="noopener">{{ c.contratto.aniene.link_testo }} ↗</a>
+    </p>
   </div>
 </section>
 
 <section class="sezione" id="citizen-science">
-  <div class="contenitore foto-affiancata">
-    <div>
-      {{ parti.testa('Il metodo', c.citizen_science.titolo) }}
-      {{ parti.paragrafi(c.citizen_science.paragrafi) }}
-      <p class="bottoni">
-        <a class="bottone bottone-chiaro" href="citizen-science.html">Approfondisci la citizen science →</a>
-      </p>
-    </div>
-    <figure>
-      <img src="assets/img/{{ c.citizen_science.foto }}" alt="{{ c.citizen_science.foto_descrizione }}" loading="lazy" width="1800" height="1200">
-      <figcaption>{{ c.citizen_science.foto_descrizione }}</figcaption>
-    </figure>
-  </div>
-</section>
-
-<section class="sezione sezione-chiara">
   <div class="contenitore">
-    {{ parti.testa('', c.citizen_science.card_titolo) }}
-    <div class="schede">
+    {{ parti.testa('Il metodo', c.citizen_science.titolo) }}
+    <div class="cs-griglia">
+      <div class="cs-testo">
+        {{ parti.paragrafi(c.citizen_science.paragrafi) }}
+        <p class="bottoni">
+          <a class="bottone bottone-chiaro" href="citizen-science.html">Approfondisci la citizen science →</a>
+        </p>
+      </div>
+      <div class="griglia-foto">
+        {% for f in c.citizen_science.foto_griglia %}
+        <figure{% if f.get('larga') %} class="larga"{% endif %}>
+          <img src="assets/img/{{ f.file }}" alt="{{ f.didascalia }}" loading="lazy" width="1200" height="800">
+          <figcaption>{{ f.didascalia }}</figcaption>
+        </figure>
+        {% endfor %}
+      </div>
+    </div>
+
+    <h3 class="sotto-titolo" style="margin-top:2.6rem">{{ c.citizen_science.card_titolo }}</h3>
+    <div class="vantaggi">
       {% for s in c.citizen_science.card %}
-      <article class="scheda">
-        <h3>{{ s.titolo }}</h3>
-        <p>{{ s.testo }}</p>
+      <article>
+        <b>{{ '%02d'|format(loop.index) }}</b>
+        <h4>{{ s.titolo }}</h4>
+        <p>{{ s.testo|t }}</p>
       </article>
       {% endfor %}
     </div>
@@ -154,14 +158,20 @@
   </div>
 </section>
 
-<section class="sezione-scura" id="obiettivi">
+<section class="sezione" id="obiettivi">
   <div class="contenitore">
-    {{ parti.testa('In breve', c.obiettivi.titolo, c.obiettivi.intro) }}
-    <ol class="elenco-numerato">
-      {% for v in c.obiettivi.voci %}
-      <li>{{ v }}</li>
-      {% endfor %}
-    </ol>
+    <div class="obiettivi">
+      <h2 class="titolo-sezione">{{ c.obiettivi.titolo }}</h2>
+      <p class="occhiello-testo">{{ c.obiettivi.intro|t }}</p>
+      <div class="obiettivi-griglia">
+        {% for v in c.obiettivi.voci %}
+        <div>
+          <b>{{ '%02d'|format(loop.index) }}</b>
+          <p>{{ v|t }}</p>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
   </div>
 </section>
 
@@ -180,4 +190,3 @@
 </section>
 
 {% endblock %}
-

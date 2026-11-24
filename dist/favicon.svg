@@ -1,1 +1,15 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><rect width="32" height="32" rx="6" fill="#2A1F45"/><path d="M5 17h22v3c-4 9-18 9-22 0z" fill="#B8D432"/><path d="M7 12c2-9 16-9 18 0z" fill="#F0EDE6"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Aniene Water Lab">
+  <title>Aniene Water Lab</title>
+  <rect width="64" height="64" rx="14" fill="#1A3340"/>
+  <!-- il corso del fiume, dalle sorgenti alla confluenza -->
+  <path d="M46 8 C38 18, 44 24, 36 32 C28 40, 34 46, 24 56"
+        fill="none" stroke="#B8D432" stroke-width="7"
+        stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M46 8 C38 18, 44 24, 36 32 C28 40, 34 46, 24 56"
+        fill="none" stroke="#D4EC5E" stroke-width="2.4"
+        stroke-linecap="round" stroke-linejoin="round" opacity=".55"/>
+  <!-- i punti di campionamento lungo il fiume -->
+  <circle cx="42.6" cy="18.4" r="3.6" fill="#F0EDE6"/>
+  <circle cx="36" cy="32" r="3.6" fill="#F0EDE6"/>
+  <circle cx="29.4" cy="45.6" r="3.6" fill="#F0EDE6"/>
+</svg>

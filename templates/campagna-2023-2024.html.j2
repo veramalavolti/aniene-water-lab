@@ -9,12 +9,9 @@
   <div class="contenitore stretto">
     {{ parti.paragrafi(c.introduzione.paragrafi) }}
   </div>
-</section>
-
-<section class="sezione-scura">
-  <div class="contenitore">
-    {{ parti.testa('', c.numeri.titolo) }}
-    <div class="numeri" style="grid-template-columns:repeat(3,minmax(0,1fr))">
+  <div class="contenitore" style="margin-top:1.4rem">
+    <p class="etichetta">{{ c.numeri.titolo }}</p>
+    <div class="numeri numeri-chiari" style="margin-top:.8rem">
       {% for n in c.numeri.voci %}
       <div>
         <div class="numero-valore">{{ n.valore }}</div>
@@ -28,9 +25,9 @@
 
 <section class="sezione" id="luoghi">
   <div class="contenitore">
-    {{ parti.testa('Dove', c.luoghi.titolo, c.luoghi.intro) }}
-    {{ parti.stazioni(c.luoghi.stazioni) }}
-    <div class="nota"><p>{{ c.luoghi.riquadro }}</p></div>
+    {{ parti.testa('Dove', c.luoghi.titolo) }}
+    {{ parti.luoghi(c.luoghi, mappa_svg(c.dashboard.dati)) }}
+    <div class="nota"><p>{{ c.luoghi.riquadro|t }}</p></div>
   </div>
 </section>
 
@@ -102,7 +99,7 @@
 
 <section class="sezione" id="report">
   <div class="contenitore">
-    {{ parti.report(c.report) }}
+    {{ parti.report(c.report, peso, pagine) }}
   </div>
 </section>
 

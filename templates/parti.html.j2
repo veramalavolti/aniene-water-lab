@@ -1,14 +1,16 @@
-{# Pezzi riutilizzati da più pagine. #}
+{# Pezzi riutilizzati da più pagine.
+   Nei testi di contenuto il grassetto si scrive con **due asterischi**: il
+   filtro |t lo trasforma in <strong> e rende innocuo tutto il resto. #}
 
-{% macro hero(c, occhiello='') %}
-<section class="hero">
+{% macro hero(c, occhiello='', compatto=false) %}
+<section class="hero{% if compatto %} hero-compatto{% endif %}">
   <div class="contenitore hero-griglia">
     <div>
       {% if occhiello %}<p class="hero-occhiello">{{ occhiello }}</p>{% endif %}
       <h1>{{ c.titolo }}</h1>
-      <p>{{ c.sottotitolo }}</p>
+      <p>{{ c.sottotitolo|t }}</p>
     </div>
-    {% if c.foto_copertina %}
+    {% if c.get('foto_copertina') and not compatto %}
     <figure>
       <img src="assets/img/{{ c.foto_copertina }}" alt="{{ c.foto_copertina_descrizione }}" width="1600" height="900">
       <figcaption>{{ c.foto_copertina_descrizione }}</figcaption>
@@ -22,12 +24,21 @@
 {% macro testa(etichetta, titolo, testo='') %}
 {% if etichetta %}<p class="etichetta">{{ etichetta }}</p>{% endif %}
 <h2 class="titolo-sezione">{{ titolo }}</h2>
-{% if testo %}<p class="occhiello-testo">{{ testo }}</p>{% endif %}
+{% if testo %}<p class="occhiello-testo">{{ testo|t }}</p>{% endif %}
 {% endmacro %}
 
 
 {% macro paragrafi(elenco) %}
-{% for p in elenco %}<p>{{ p }}</p>{% endfor %}
+{% for p in elenco %}<p>{{ p|t }}</p>{% endfor %}
+{% endmacro %}
+
+
+{# Una fotografia larga subito sotto il titolo, per dare respiro alla pagina. #}
+{% macro foto_larga(file, descrizione) %}
+<figure class="foto-larga">
+  <img src="assets/img/{{ file }}" alt="{{ descrizione }}" loading="lazy" width="1800" height="1000">
+  <figcaption>{{ descrizione }}</figcaption>
+</figure>
 {% endmacro %}
 
 
@@ -38,11 +49,33 @@
     <span class="stazione-codice">{{ s.codice }}</span>
     <div>
       <span class="stazione-nome">{{ s.nome }}</span>
-      <p>{{ s.testo }}</p>
+      <p>{{ s.testo|t }}</p>
     </div>
   </li>
   {% endfor %}
 </ul>
+{% endmacro %}
+
+
+{# L'elenco delle stazioni accanto alla mappa dei punti di campionamento. #}
+{% macro luoghi(blocco, svg='') %}
+<div class="luoghi">
+  <div>
+    <p class="occhiello-testo">{{ blocco.intro|t }}</p>
+    {{ stazioni(blocco.stazioni) }}
+  </div>
+  {% if blocco.get('mappa') %}
+  <figure class="mappa">
+    <img src="assets/img/{{ blocco.mappa.file }}" alt="{{ blocco.mappa.descrizione }}" loading="lazy" width="1530" height="705">
+    <figcaption>{{ blocco.mappa.descrizione }}</figcaption>
+  </figure>
+  {% elif svg %}
+  <figure class="mappa">
+    {{ svg }}
+    <figcaption>{{ blocco.mappa_didascalia }}</figcaption>
+  </figure>
+  {% endif %}
+</div>
 {% endmacro %}
 
 
@@ -65,7 +98,7 @@
 {% macro dashboard(blocco, riepilogo) %}
 {% set r = riepilogo(blocco.dati) %}
 <h2 class="titolo-sezione">{{ blocco.titolo }}</h2>
-<p class="occhiello-testo">{{ blocco.intro }}</p>
+<p class="occhiello-testo">{{ blocco.intro|t }}</p>
 <div class="dashboard" data-dati="{{ blocco.dati }}">
   <div class="dash-guida">
     <p><strong>Caricamento dei dati…</strong>
@@ -91,7 +124,7 @@
    generale) più cosa abbiamo trovato e le cause (dal testo della campagna). #}
 {% macro schede_campagna(blocco, parametri) %}
 <h2 class="titolo-sezione">{{ blocco.titolo }}</h2>
-<p class="occhiello-testo">{{ blocco.intro }}</p>
+<p class="occhiello-testo">{{ blocco.intro|t }}</p>
 <div class="schede-parametri">
   {% for v in blocco.voci %}
   {% set p = parametri[v.parametro] %}
@@ -105,16 +138,16 @@
       {% if v.stato %}<span class="stato {{ classe_stato(v.stato) }}">{{ v.stato }}</span>{% endif %}
       <dl>
         <dt>Cosa misura</dt>
-        <dd>{{ v.cosa_misura if v.cosa_misura is defined and v.cosa_misura else p.cosa_misura }}</dd>
+        <dd>{{ (v.cosa_misura if v.cosa_misura is defined and v.cosa_misura else p.cosa_misura)|t }}</dd>
         <dt>Come leggerlo</dt>
-        <dd>{{ v.come_leggerlo if v.come_leggerlo is defined and v.come_leggerlo else p.come_leggerlo }}</dd>
+        <dd>{{ (v.come_leggerlo if v.come_leggerlo is defined and v.come_leggerlo else p.come_leggerlo)|t }}</dd>
         {% if v.cosa_trovato %}
         <dt>Cosa abbiamo trovato</dt>
-        <dd>{{ v.cosa_trovato }}</dd>
+        <dd>{{ v.cosa_trovato|t }}</dd>
         {% endif %}
         {% if v.cause %}
         <dt>Possibili cause</dt>
-        <dd>{{ v.cause }}</dd>
+        <dd>{{ v.cause|t }}</dd>
         {% endif %}
       </dl>
     </div>
@@ -138,12 +171,12 @@
       <p class="parametro-unita">{{ p.unita }}</p>
       <dl>
         <dt>Cosa misura</dt>
-        <dd>{{ p.cosa_misura }}</dd>
+        <dd>{{ p.cosa_misura|t }}</dd>
         <dt>Come leggerlo</dt>
-        <dd>{{ p.come_leggerlo }}</dd>
+        <dd>{{ p.come_leggerlo|t }}</dd>
         {% if p.soglie %}
         <dt>Possibili cause di superamento</dt>
-        <dd>{{ p.soglie[-1].cause }}</dd>
+        <dd>{{ p.soglie[-1].cause|t }}</dd>
         {% endif %}
       </dl>
     </div>
@@ -153,17 +186,46 @@
 {% endmacro %}
 
 
-{% macro report(blocco) %}
+{# I documenti da scaricare: si deve capire a colpo d'occhio che sono file. #}
+{% macro report(blocco, peso, pagine) %}
 <h2 class="titolo-sezione">{{ blocco.titolo }}</h2>
-<p class="occhiello-testo">{{ blocco.intro }}</p>
+<p class="occhiello-testo">{{ blocco.intro|t }}</p>
 <div class="report-griglia">
   {% for d in blocco.documenti %}
   <a class="report-card" href="{{ d.file }}" download>
-    <span class="report-tipo">PDF da scaricare</span>
+    <span class="report-icona" aria-hidden="true">PDF</span>
     <h3>{{ d.titolo }}</h3>
-    <p>{{ d.descrizione }}</p>
-    <span class="report-peso">Scarica il documento ↓</span>
+    <p>{{ d.descrizione|t }}</p>
+    <span class="report-meta">
+      {%- set p = pagine(d.file) -%}
+      {%- set k = peso(d.file) -%}
+      {{ p }}{% if p and k %} · {% endif %}{{ k }}
+    </span>
+    <span class="report-azione">Scarica il PDF</span>
   </a>
   {% endfor %}
 </div>
+{% endmacro %}
+
+
+{# Due bottoni grandi che portano alle sezioni della stessa pagina. #}
+{% macro bottoni_sezione(voci) %}
+<div class="bottoni-sezione">
+  {% for v in voci %}
+  <a class="bottone-sezione" href="#{{ v.ancora }}">
+    <span class="bottone-sezione-numero" aria-hidden="true">{{ loop.index }}</span>
+    <strong>{{ v.nome }}</strong>
+    <span>{{ v.descrizione }}</span>
+  </a>
+  {% endfor %}
+</div>
+{% endmacro %}
+
+
+{# La mappa dei punti di campionamento, disegnata dai dati della campagna. #}
+{% macro mappa_dati(svg, didascalia) %}
+<figure class="mappa">
+  {{ svg }}
+  <figcaption>{{ didascalia }}</figcaption>
+</figure>
 {% endmacro %}

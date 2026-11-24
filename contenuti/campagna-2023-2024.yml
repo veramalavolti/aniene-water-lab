@@ -14,7 +14,7 @@ introduzione:
     - >-
       Il progetto Aniene WaterLab, finanziato dal programma «Periferiacapitale»
       della Fondazione Charlemagne, ha attivato dal mese di dicembre 2023 una
-      campagna annuale di monitoraggio ambientale partecipato delle acque del
+      **campagna annuale di monitoraggio ambientale partecipato** delle acque del
       fiume Aniene, tramite attività sul campo, sessioni di formazione, azioni
       di networking territoriale e attività di advocacy.
     - >-
@@ -23,7 +23,7 @@ introduzione:
       dalle associazioni territoriali e da tutte le persone volontarie impegnate
       nella protezione di questo ecosistema. Il percorso si è occupato del
       monitoraggio delle acque dell'Aniene non solo nel tratto urbano, come
-      nelle scorse annualità, ma anche nel tratto extra-urbano, includendo
+      nelle scorse annualità, ma anche **nel tratto extra-urbano**, includendo
       ulteriori zone critiche dal punto di vista ambientale.
     - >-
       Le attività del monitoraggio partecipato, fondate sui principi della
@@ -31,7 +31,7 @@ introduzione:
       singole persone e associazioni locali, impegnati nella raccolta dei dati e
       nella diffusione di pratiche e conoscenze utili alla preservazione degli
       ecosistemi fluviali. La validazione scientifica dei dati raccolti, a cura
-      della Dott.ssa Bruna Gumiero, ecologa fluviale dell'Università di Bologna,
+      della **Dott.ssa Bruna Gumiero**, ecologa fluviale dell'Università di Bologna,
       e la conseguente divulgazione dei risultati emersi è un passo fondamentale
       per favorire un dialogo orizzontale e inclusivo tra società civile,
       esperti accademici, tecnici e istituzioni.
@@ -69,6 +69,9 @@ luoghi:
   intro: >-
     I nove punti di campionamento scelti per il monitoraggio 2023/2024, da valle
     verso monte.
+  mappa_didascalia: >-
+    I nove punti alle loro coordinate reali, uniti nell'ordine in cui scorre il
+    fiume: a destra l'alto corso, a sinistra la confluenza nel Tevere.
   stazioni:
     - codice: "1"
       nome: Ponte Salario
@@ -128,8 +131,8 @@ luoghi:
 gommone:
   titolo: Le discese in gommone
   testo: >-
-    Nel corso del progetto sono state organizzate tre discese di monitoraggio in
-    gommone — il 14 marzo, l'8 giugno e il 20 settembre — lungo un tratto di 38
+    Nel corso del progetto sono state organizzate **tre discese di monitoraggio in
+    gommone** — il 14 marzo, l'8 giugno e il 20 settembre — lungo un tratto di 38
     km compreso tra Ponte Lucano e la confluenza nel Tevere.
   vantaggi:
     - titolo: Rilevamento di sversamenti non visibili da terra
@@ -157,12 +160,12 @@ sintesi:
   paragrafi:
     - >-
       Dopo un anno di monitoraggio, il quadro è in parte rassicurante e in parte
-      preoccupante. Temperatura e pH sono nella norma: le temperature seguono le
+      preoccupante. **Temperatura e pH sono nella norma**: le temperature seguono le
       stagioni, senza segnali di inquinamento termico, e il pH resta sempre
       nell'intervallo ottimale (6,5–9).
     - >-
-      Le criticità riguardano soprattutto i nutrienti e la contaminazione
-      fecale. L'ossigeno disciolto scende sotto i livelli di sicurezza a Casa
+      Le criticità riguardano soprattutto **i nutrienti e la contaminazione
+      fecale**. L'ossigeno disciolto scende sotto i livelli di sicurezza a Casa
       del Parco e Ponte Mammolo, dove si toccano i 4,1 e i 3,5 mg/L: sotto i 6
       mg/L i pesci iniziano a soffrire, sotto i 4 l'ecosistema è a rischio. In
       queste due stazioni anche i nitrati raggiungono un livello «sufficiente»
@@ -175,12 +178,12 @@ sintesi:
       Tivoli (589 µS/cm) e Ponte Lucano (1.301 µS/cm), probabilmente a causa
       delle cave presenti nel tratto.
     - >-
-      Il dato più allarmante è quello di Escherichia coli. La maggior parte dei
+      Il dato più allarmante è quello di **Escherichia coli**. La maggior parte dei
       valori è tra 1.000 e 20.000 UFC, quindi non adatta alla balneazione. A
       Ponte Salario si superano le 20.000 UFC in tre occasioni, fino a 39.000 ad
       aprile 2024, e a settembre e ottobre le stazioni a valle arrivano a
-      88.000–153.000 UFC. Solo la stazione più a monte, a Subiaco, è sempre
-      risultata adeguata alla balneazione.
+      88.000–153.000 UFC. **Solo la stazione più a monte, a Subiaco, è sempre
+      risultata adeguata alla balneazione.**
 
 schede:
   titolo: Cosa abbiamo misurato e come
@@ -262,7 +265,8 @@ report:
     - titolo: Report divulgativo Aniene WaterLab 2023-2024
       descrizione: >-
         Il racconto completo dell'annualità: il progetto, la rete, il metodo e i
-        risultati del monitoraggio, in forma divulgativa.
+        risultati del monitoraggio, in forma divulgativa. È il documento da cui
+        vengono i testi di questa pagina.
       file: report/report-divulgativo-2023-2024.pdf
     - titolo: Risultati Aniene 2022-23 e 2023-2024
       descrizione: >-

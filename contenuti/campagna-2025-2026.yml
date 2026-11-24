@@ -38,6 +38,9 @@ introduzione:
 fissi:
   titolo: I dati dei punti fissi
   intro:
+    mappa_didascalia: >-
+      Le nove stazioni fisse alle loro coordinate reali: a destra Subiaco e
+      l'alto corso, a sinistra Ponte Salario e la confluenza nel Tevere.
     paragrafi:
       - >-
         Da ottobre 2025 a ottobre 2026 abbiamo campionato ogni mese le stesse
@@ -59,20 +62,20 @@ fissi:
     titolo: In breve
     paragrafi:
       - >-
-        Il fiume peggiora in modo netto e progressivo da monte a valle. A
+        Il fiume **peggiora in modo netto e progressivo da monte a valle**. A
         Subiaco e Vicovaro i valori restano buoni su quasi tutti i parametri.
         Il primo salto avviene a Ponte Lucano, dove la conducibilità passa da
         circa 600 a 1.277 µS/cm di mediana, con punte al limite dello strumento;
         il secondo nel tratto urbano, dove crollano l'ossigeno e cresce la
         contaminazione fecale.
       - >-
-        Il dato più allarmante resta Escherichia coli: la mediana passa da 200
+        Il dato più allarmante resta **Escherichia coli**: la mediana passa da 200
         UFC/100 mL a Subiaco a 38.000 a Ponte Salario, con punte di 980.000 a
         Ponte Mammolo e 280.000 a Ponte Salario. Solo Subiaco e Vicovaro
         restano, nella maggior parte delle campagne, entro valori compatibili
         con la balneazione.
       - >-
-        Temperatura e pH non mostrano anomalie: le temperature seguono le
+        **Temperatura e pH non mostrano anomalie**: le temperature seguono le
         stagioni, tra 8,5 e 21,7 °C, e il pH resta quasi sempre
         nell'intervallo 7–9, con due soli picchi isolati.
   schede:
@@ -205,10 +208,14 @@ fissi:
 gommone:
   titolo: I dati in gommone
   intro:
+    mappa_didascalia: >-
+      I punti campionati dal gommone, da Ponte Lucano (a destra) alla confluenza
+      nel Tevere (a sinistra). I punti BIS stanno circa 500 metri a valle del
+      punto con lo stesso numero.
     paragrafi:
       - >-
         Da novembre 2025 a giugno 2026 abbiamo monitorato l'Aniene in gommone.
-        Dal gommone si raggiungono tratti difficili da avvicinare da terra e si
+        Dal gommone si raggiungono **tratti difficili da avvicinare da terra** e si
         può campionare direttamente dove il fiume incontra scarichi, fossi,
         impianti di sollevamento e immissioni.
       - >-
@@ -218,7 +225,7 @@ gommone:
         Roma est; il tratto urbano, da Casal de' Pazzi alla confluenza nel
         Tevere.
       - >-
-        Dal maggio 2026 abbiamo aggiunto i punti BIS. Si trovano circa 500 metri
+        Dal maggio 2026 abbiamo aggiunto i **punti BIS**. Si trovano circa 500 metri
         a valle di alcuni punti di controllo e servono a misurare l'effetto di
         uno scarico puntuale. I due punti di ogni coppia sono campionati lo
         stesso giorno, quindi il confronto mostra se in quei 500 metri il fiume
@@ -440,14 +447,14 @@ report:
   documenti:
     - titolo: Report campagne in gommone 2025-2026
       descrizione: >-
-        Il report divulgativo delle campagne in gommone: il metodo, le
-        osservazioni naturalistiche, le criticità documentate lungo i 39,6 km da
-        Ponte Lucano alla confluenza nel Tevere.
+        Il metodo, le osservazioni naturalistiche e le criticità documentate lungo
+        i 39,6 km da Ponte Lucano alla confluenza nel Tevere. È il report
+        divulgativo della campagna, con le fotografie dei rilievi.
       file: report/report-campagne-gommone-2025-2026.pdf
     - titolo: Dati delle campagne in gommone 2025-2026
       descrizione: >-
-        L'analisi dei dati parametro per parametro a cura di Bruna Gumiero, con
-        le soglie usate, i grafici e la tabella degli hotspot.
+        L'analisi dei dati parametro per parametro a cura di Bruna Gumiero: le
+        soglie usate, i grafici di ogni campagna e la tabella degli hotspot.
       file: report/dati-gommone-2025-2026-gumiero.pdf
     - titolo: Sintesi del monitoraggio in gommone 2025-2026
       descrizione: La nota di sintesi sul metodo e sui risultati principali.

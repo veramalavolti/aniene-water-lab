@@ -13,8 +13,8 @@ walkup:
   paragrafi:
     - >-
       Walk Up Aniene ha rappresentato la prima esperienza di collaborazione tra
-      A Sud e Insieme per l'Aniene, all'interno del programma europeo Citizen
-      Science ACTION (Horizon 2020), che ha fornito supporto tecnico e
+      A Sud e Insieme per l'Aniene, all'interno del **programma europeo Citizen
+      Science ACTION** (Horizon 2020), che ha fornito supporto tecnico e
       scientifico.
     - >-
       L'obiettivo del progetto è stato rafforzare la cura delle aree naturali
@@ -26,7 +26,7 @@ walkup:
       Grazie alla raccolta e all'analisi partecipata dei dati, Walk Up Aniene ha
       permesso di illustrare lo stato ambientale corrente della riserva e degli
       ecosistemi fluviali, identificando punti di forza e criticità. Attraverso
-      la mappatura GIS sono state registrate sia le criticità sia i punti di
+      la **mappatura GIS** sono state registrate sia le criticità sia i punti di
       pregio ecologico, creando un database utile per la pianificazione
       territoriale e per la comunità.
   mappa:
@@ -42,16 +42,19 @@ romaup:
   paragrafi:
     - >-
       Nel 2022 A Sud ha ampliato l'iniziativa tramite il progetto RomaUp,
-      fornendo strumentazioni scientifiche a basso costo alle associazioni
+      fornendo **strumentazioni scientifiche a basso costo** alle associazioni
       locali e pubblicando una guida metodologica per il monitoraggio. Il
       progetto ha promosso il dialogo con enti istituzionali — Città
       Metropolitana di Roma, Comune di Roma, Regione Lazio — culminando in un
-      accordo con ARPA Lazio per le analisi di laboratorio e le segnalazioni di
+      **accordo con ARPA Lazio** per le analisi di laboratorio e le segnalazioni di
       emergenza.
     - >-
       Dopo le prime rilevazioni sul Tevere, l'anno successivo la campagna è
       stata estesa all'Aniene, affiancata dalla supervisione scientifica della
-      Prof.ssa Bruna Gumiero.
+      **Prof.ssa Bruna Gumiero**.
+  foto: foto/fiume-ponte-inverno.jpg
+  foto_descrizione: >-
+    Il tratto urbano dell'Aniene, dove si trovano le cinque stazioni di RomaUp.
 
 luoghi:
   titolo: I luoghi
@@ -62,6 +65,12 @@ luoghi:
     strategici sia per la vicinanza a punti ritenuti critici, sia per la
     conformazione morfologica che ha reso l'accesso al fiume più agevole,
     trattandosi di un corso d'acqua con sponde non cementificate ma vegetate.
+  mappa:
+    file: mappa-punti-2022-2023.jpg
+    descrizione: >-
+      I cinque punti di campionamento sull'Aniene, da Ponte Salario (a) alla
+      confluenza con il GRA a Casale Caletto (e). Mappa tratta dal report
+      RomaUp 2022-2023.
   stazioni:
     - codice: A
       nome: Ponte Salario
@@ -105,9 +114,9 @@ analisi:
       precedente e hanno seguito un simile protocollo scientifico sotto la
       supervisione dell'ecologa fluviale Bruna Gumiero.
     - >-
-      I parametri spia analizzati sono: azoto ammoniacale, indicatore della
-      scarsità di ossigeno; nitrati e fosfati, indicatori di inquinamento da
-      eccesso di nutrienti o eutrofizzazione; Escherichia coli, indicatore di
+      I parametri spia analizzati sono: **azoto ammoniacale**, indicatore della
+      scarsità di ossigeno; **nitrati e fosfati**, indicatori di inquinamento da
+      eccesso di nutrienti o eutrofizzazione; **Escherichia coli**, indicatore di
       inquinamento fecale recente, considerato efficace indicatore della
       sopravvivenza dei patogeni enterici nelle acque.
     - >-
@@ -293,8 +302,9 @@ report:
       file: report/risultati-aniene-2022-2023.pdf
     - titolo: RomaUp 2022-2023
       descrizione: >-
-        Il report del progetto RomaUp: metodologia, rete territoriale e
-        risultati sul Tevere e sull'Aniene.
+        Il report dell'intero progetto RomaUp: metodologia, rete territoriale e
+        risultati sia sul Tevere sia sull'Aniene. Qui trovi anche la mappa dei
+        punti riprodotta in questa pagina.
       file: report/report-romaup-2022-2023.pdf
     - titolo: I fiumi e la città
       descrizione: >-

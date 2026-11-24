@@ -132,6 +132,7 @@
     this.schede = schede;
     this.parametriDisponibili = this.trovaParametri();
     this.parametro = this.parametriDisponibili[0];
+    this.TUTTI = '__tutti__';
     this.vista = dati.stazioni.length > 12 ? 'profilo' : 'andamento';
     this.campagna = 'tutte';
     this.spente = {};
@@ -166,17 +167,21 @@
     barra.setAttribute('role', 'group');
     barra.setAttribute('aria-label', 'Scegli il parametro da esplorare');
     this.bottoniParametro = {};
+    barra.appendChild(html('span', 'dash-barra-titolo', 'Parametro'));
+
+    var tutti = html('button', 'dash-par tutti', 'Tutti insieme');
+    tutti.type = 'button';
+    tutti.setAttribute('aria-pressed', 'false');
+    tutti.title = 'Mostra un grafico per ogni parametro';
+    tutti.addEventListener('click', function () { self.scegliParametro(self.TUTTI); });
+    this.bottoniParametro[this.TUTTI] = tutti;
+    barra.appendChild(tutti);
+
     this.parametriDisponibili.forEach(function (p) {
       var b = html('button', 'dash-par', self.schede.parametri[p].nome);
       b.type = 'button';
       b.setAttribute('aria-pressed', p === self.parametro ? 'true' : 'false');
-      b.addEventListener('click', function () {
-        self.parametro = p;
-        for (var k in self.bottoniParametro) {
-          self.bottoniParametro[k].setAttribute('aria-pressed', k === p ? 'true' : 'false');
-        }
-        self.disegna();
-      });
+      b.addEventListener('click', function () { self.scegliParametro(p); });
       self.bottoniParametro[p] = b;
       barra.appendChild(b);
     });
@@ -203,6 +208,7 @@
     });
     lVista.appendChild(this.selVista);
     controlli.appendChild(lVista);
+    this.lVista = lVista;
 
     this.lCampagna = html('label');
     this.lCampagna.appendChild(html('span', null, 'Campagna'));
@@ -221,6 +227,37 @@
     });
     this.lCampagna.appendChild(this.selCampagna);
     controlli.appendChild(this.lCampagna);
+
+    // scelta rapida dei punti: tutti insieme oppure uno solo
+    var lPunti = html('label');
+    lPunti.appendChild(html('span', null, 'Punti di monitoraggio'));
+    this.selPunti = html('select');
+    var optTutti = html('option', null, 'Tutti i punti');
+    optTutti.value = 'tutti';
+    this.selPunti.appendChild(optTutti);
+    this.dati.stazioni.forEach(function (s) {
+      var opt = html('option', null, 'Solo ' + self.etichettaStazione(s));
+      opt.value = 'solo:' + s.id;
+      self.selPunti.appendChild(opt);
+    });
+    this.optPersonalizzata = html('option', null, 'Selezione personalizzata');
+    this.optPersonalizzata.value = 'misto';
+    this.optPersonalizzata.hidden = true;
+    this.selPunti.appendChild(this.optPersonalizzata);
+    this.selPunti.addEventListener('change', function () {
+      var v = this.value;
+      self.spente = {};
+      if (v.indexOf('solo:') === 0) {
+        var scelto = v.slice(5);
+        self.dati.stazioni.forEach(function (s) {
+          if (s.id !== scelto) self.spente[s.id] = true;
+        });
+      }
+      self.aggiornaChip();
+      self.disegna();
+    });
+    lPunti.appendChild(this.selPunti);
+    controlli.appendChild(lPunti);
 
     var destra = html('div', 'a-destra');
     var scarica = html('button', 'bottone bottone-chiaro', 'Scarica i dati (CSV)');
@@ -243,6 +280,9 @@
 
     this.legenda = html('div', 'dash-legenda');
     this.nodo.appendChild(this.legenda);
+
+    this.spiegaSoglie = html('div', 'soglie-spiegate');
+    this.nodo.appendChild(this.spiegaSoglie);
 
     this.barraStazioni = html('div', 'dash-stazioni');
     this.barraStazioni.setAttribute('role', 'group');
@@ -282,13 +322,40 @@
     }
   };
 
+  Dashboard.prototype.scegliParametro = function (nome) {
+    this.parametro = nome;
+    for (var k in this.bottoniParametro) {
+      this.bottoniParametro[k].setAttribute('aria-pressed', k === nome ? 'true' : 'false');
+    }
+    this.aggiornaControlli();
+    this.disegna();
+  };
+
   Dashboard.prototype.aggiornaControlli = function () {
-    this.lCampagna.style.display = this.vista === 'andamento' ? 'none' : '';
+    // la scelta della campagna serve solo quando il grafico mostra un momento
+    var serve = this.parametro === this.TUTTI || this.vista !== 'andamento';
+    this.lCampagna.style.display = serve ? '' : 'none';
+    // nella vista d'insieme la scelta della forma del grafico non si applica
+    this.lVista.style.display = this.parametro === this.TUTTI ? 'none' : '';
   };
 
   Dashboard.prototype.disegnaStazioni = function () {
     var self = this;
     this.barraStazioni.textContent = '';
+
+    var azioni = html('span', 'dash-punti-azioni');
+    var bTutti = html('button', 'dash-mini', 'Mostra tutti');
+    bTutti.type = 'button';
+    bTutti.addEventListener('click', function () {
+      self.spente = {};
+      self.selPunti.value = 'tutti';
+      self.aggiornaChip();
+      self.disegna();
+    });
+    azioni.appendChild(bTutti);
+    this.barraStazioni.appendChild(azioni);
+
+    this.chip = {};
     this.dati.stazioni.forEach(function (s, i) {
       var b = html('button', 'stz');
       b.type = 'button';
@@ -297,14 +364,47 @@
       punto.style.background = COLORI_SERIE[i % COLORI_SERIE.length];
       b.appendChild(punto);
       b.appendChild(document.createTextNode(self.etichettaStazione(s)));
-      b.addEventListener('click', function () {
-        if (!self.spente[s.id] && self.stazioniVisibili().length === 1) return;
-        self.spente[s.id] = !self.spente[s.id];
-        b.setAttribute('aria-pressed', self.spente[s.id] ? 'false' : 'true');
+      b.addEventListener('click', function (ev) {
+        // con alt (o doppio clic) si isola il punto, altrimenti si aggiunge o si toglie
+        if (ev.altKey) {
+          self.spente = {};
+          self.dati.stazioni.forEach(function (x) { if (x.id !== s.id) self.spente[x.id] = true; });
+        } else {
+          if (!self.spente[s.id] && self.stazioniVisibili().length === 1) return;
+          self.spente[s.id] = !self.spente[s.id];
+        }
+        self.aggiornaChip();
         self.disegna();
       });
+      b.addEventListener('dblclick', function () {
+        self.spente = {};
+        self.dati.stazioni.forEach(function (x) { if (x.id !== s.id) self.spente[x.id] = true; });
+        self.aggiornaChip();
+        self.disegna();
+      });
+      b.title = 'Clic per mostrare o nascondere · doppio clic per vedere solo questo punto';
+      self.chip[s.id] = b;
       self.barraStazioni.appendChild(b);
     });
+  };
+
+  /* Tiene allineati i pulsanti dei punti e il menu a tendina. */
+  Dashboard.prototype.aggiornaChip = function () {
+    var self = this;
+    this.dati.stazioni.forEach(function (s) {
+      if (self.chip[s.id]) {
+        self.chip[s.id].setAttribute('aria-pressed', self.spente[s.id] ? 'false' : 'true');
+      }
+    });
+    var visibili = this.stazioniVisibili();
+    if (!visibili.length || visibili.length === this.dati.stazioni.length) {
+      this.selPunti.value = 'tutti';
+    } else if (visibili.length === 1) {
+      this.selPunti.value = 'solo:' + visibili[0].id;
+    } else {
+      this.optPersonalizzata.hidden = false;
+      this.selPunti.value = 'misto';
+    }
   };
 
   Dashboard.prototype.etichettaStazione = function (s) {
@@ -354,6 +454,13 @@
   // ------------------------------------------------------------- disegno
 
   Dashboard.prototype.disegna = function () {
+    if (this.parametro === this.TUTTI) return this.disegnaTuttiIParametri();
+    var vecchiMultipli = this.nodo.querySelector('.piccoli-multipli');
+    if (vecchiMultipli) vecchiMultipli.remove();
+    this.areaGrafico.hidden = false;
+    this.legenda.hidden = false;
+    this.spiegaSoglie.hidden = false;
+    this.guida.hidden = false;
     var p = this.scheda();
     this.intestazione.textContent = '';
     this.intestazione.appendChild(html('h3', null, p.nome + (p.unita ? ' · ' + p.unita : '')));
@@ -371,6 +478,7 @@
     }
 
     this.disegnaLegenda();
+    this.disegnaSpiegazioneSoglie();
 
     var vecchio = this.areaGrafico.querySelector('svg');
     if (vecchio) vecchio.remove();
@@ -379,6 +487,45 @@
       : this.graficoProfilo();
     this.areaGrafico.appendChild(svg);
     if (this.dettagli.open) this.disegnaTabella();
+  };
+
+  /* Tutti i parametri insieme: un grafico piccolo per ciascuno, da cliccare
+     per aprirlo a tutta larghezza. */
+  Dashboard.prototype.disegnaTuttiIParametri = function () {
+    var self = this;
+    this.areaGrafico.hidden = true;
+    this.legenda.hidden = true;
+    this.spiegaSoglie.hidden = true;
+    this.guida.hidden = true;
+
+    this.intestazione.textContent = '';
+    this.intestazione.appendChild(html('h3', null, 'Tutti i parametri insieme'));
+    this.intestazione.appendChild(html('p', null,
+      'Il profilo del fiume da valle a monte per ogni parametro misurato. ' +
+      'Il colore di ogni barra dice se quel valore supera una soglia. ' +
+      'Tocca un grafico per aprirlo e leggerne la scheda.'));
+
+    var vecchio = this.nodo.querySelector('.piccoli-multipli');
+    if (vecchio) vecchio.remove();
+    var griglia = html('div', 'piccoli-multipli');
+
+    var parametroCorrente = this.parametro;
+    this.parametriDisponibili.forEach(function (nome) {
+      self.parametro = nome;
+      var p = self.schede.parametri[nome];
+      var riquadro = html('div', 'mini-grafico');
+      var bottone = html('button');
+      bottone.type = 'button';
+      bottone.appendChild(html('h4', null, p.nome));
+      bottone.appendChild(html('p', 'mini-unita', p.unita || ''));
+      bottone.appendChild(self.graficoProfilo({ mini: true }));
+      bottone.addEventListener('click', function () { self.scegliParametro(nome); });
+      riquadro.appendChild(bottone);
+      griglia.appendChild(riquadro);
+    });
+    this.parametro = parametroCorrente;
+
+    this.areaGrafico.insertAdjacentElement('afterend', griglia);
   };
 
   Dashboard.prototype.disegnaLegenda = function () {
@@ -403,9 +550,46 @@
     this.legenda.appendChild(entro);
   };
 
+  /* Dice a parole che cosa distingue una soglia dall'altra: il colore da solo
+     non basta a capire quale delle due è quella grave. */
+  Dashboard.prototype.disegnaSpiegazioneSoglie = function () {
+    var p = this.scheda(), self = this;
+    this.spiegaSoglie.textContent = '';
+    if (!p.soglie || !p.soglie.length) return;
+
+    var ordinate = p.soglie.slice().sort(function (a, b) { return a.livello - b.livello; });
+    var quante = ordinate.length;
+    ordinate.forEach(function (s, i) {
+      var riga = html('div', 'soglia-riga');
+      var tacca = html('span', 'soglia-tacca');
+      tacca.style.background = COLORI_LIVELLO[s.livello] || '#B03A2E';
+      riga.appendChild(tacca);
+      var testo = html('div');
+      var ruolo = quante === 1 ? 'Soglia di riferimento'
+        : i === 0 ? 'Prima soglia, di attenzione'
+        : i === quante - 1 ? 'Soglia più grave' : 'Soglia intermedia';
+      testo.appendChild(html('b', null, ruolo + ': ' + s.etichetta + '. '));
+      testo.appendChild(document.createTextNode(s.spiegazione || ''));
+      riga.appendChild(testo);
+      self.spiegaSoglie.appendChild(riga);
+    });
+
+    if (quante > 1) {
+      var nota = html('div', 'soglia-riga');
+      nota.appendChild(html('span', null, ''));
+      var verso = p.verso === 'basso_critico' ? 'più si scende' : 'più si sale';
+      nota.appendChild(html('div', null,
+        'Le linee vanno lette in ordine: ' + verso + ' oltre le linee, peggiore è la ' +
+        'condizione del fiume. La prima segnala che qualcosa non va, l\'ultima che la ' +
+        'situazione è grave. Passando sopra una linea nel grafico compaiono anche le possibili cause.'));
+      self.spiegaSoglie.appendChild(nota);
+    }
+  };
+
   /* Disegna le linee di soglia con l'etichetta sempre visibile e il riquadro
      di spiegazione al passaggio del mouse. */
-  Dashboard.prototype.disegnaSoglie = function (svg, y, x0, x1, altezza) {
+  Dashboard.prototype.disegnaSoglie = function (svg, y, x0, x1, altezza, opzioni) {
+    opzioni = opzioni || {};
     var self = this, p = this.scheda(), disegnate = 0;
     (p.soglie || []).forEach(function (s) {
       var py = y(s.valore);
@@ -417,6 +601,8 @@
       gruppo.appendChild(el('line', {
         class: 'soglia-linea', x1: x0, x2: x1, y1: py, y2: py, stroke: col
       }));
+
+      if (opzioni.mini) { svg.appendChild(gruppo); return; }
 
       var testo = s.etichetta;
       var larghezza = Math.min(testo.length * 5.6 + 14, Math.max(x1 - x0 - 4, 80));
@@ -483,7 +669,11 @@
     this.suggerimento.setAttribute('data-visibile', 'no');
   };
 
-  Dashboard.prototype.misure = function () {
+  Dashboard.prototype.misure = function (opzioni) {
+    opzioni = opzioni || {};
+    if (opzioni.mini) {
+      return { l: 300, h: 160, sinistra: 34, destra: 8, sopra: 10, sotto: 26 };
+    }
     var larghezza = Math.max(this.areaGrafico.clientWidth - 24, 320);
     var alta = this.vista === 'profilo' && this.dati.stazioni.length > 12;
     return {
@@ -496,7 +686,8 @@
     };
   };
 
-  Dashboard.prototype.assi = function (svg, m, y, etichetteX, posX) {
+  Dashboard.prototype.assi = function (svg, m, y, etichetteX, posX, opzioni) {
+    opzioni = opzioni || {};
     var p = this.scheda();
     var log = p.scala === 'log';
     var est = this.estensione();
@@ -512,6 +703,13 @@
     });
     svg.appendChild(griglia);
 
+    if (opzioni.mini) {
+      asse.appendChild(el('line', {
+        x1: m.sinistra, x2: m.l - m.destra, y1: m.h - m.sotto, y2: m.h - m.sotto
+      }));
+      svg.appendChild(asse);
+      return;
+    }
     var ruota = etichetteX.length > 9;
     etichetteX.forEach(function (t, i) {
       var px = posX(i);
@@ -610,19 +808,22 @@
     return verso + ' la soglia: ' + (peggiore ? peggiore.etichetta : '') + '.';
   };
 
-  /* Vista 2: profilo da monte a valle, una barra per stazione. */
-  Dashboard.prototype.graficoProfilo = function () {
-    var self = this, m = this.misure(), svg = this.creaSvg(m);
+  /* Vista 2: il profilo del fiume. Monte a destra e valle a sinistra, come
+     si vede Roma guardandola dall'alto: l'Aniene arriva da est. */
+  Dashboard.prototype.graficoProfilo = function (opzioni) {
+    opzioni = opzioni || {};
+    var self = this, m = this.misure(opzioni), svg = this.creaSvg(m);
     var y = this.scalaY(m);
-    var stazioni = this.stazioniVisibili();
+    // da valle (sinistra) a monte (destra)
+    var stazioni = this.stazioniVisibili().slice().reverse();
     var larghezzaUtile = m.l - m.sinistra - m.destra;
     var passo = larghezzaUtile / Math.max(stazioni.length, 1);
     var larghezzaBarra = Math.min(passo * 0.62, 46);
     var posX = function (i) { return m.sinistra + passo * (i + 0.5); };
 
     this.assi(svg, m, y, stazioni.map(function (s) {
-      return stazioni.length > 12 ? s.id : s.nome;
-    }), posX);
+      return stazioni.length > 12 || opzioni.mini ? s.id : s.nome;
+    }), posX, opzioni);
 
     var p = this.scheda();
     var base = m.h - m.sotto;
@@ -635,34 +836,34 @@
       var barra = el('rect', {
         class: 'barra', x: posX(i) - larghezzaBarra / 2, y: Math.min(py, base),
         width: larghezzaBarra, height: Math.max(Math.abs(base - py), 1),
-        fill: col, rx: 2, tabindex: '0',
+        fill: col, rx: 2, tabindex: opzioni.mini ? null : '0',
         'aria-label': s.nome + ': ' + formatta(media) + ' ' + (p.unita || '')
       });
-      function mostra(ev) {
-        var righe = [formatta(media) + ' ' + (p.unita || ''), self.testoClasse(media)];
-        if (self.campagna === 'tutte' && valori.length > 1) {
-          righe.unshift('Media di ' + valori.length + ' campagne');
+      if (!opzioni.mini) {
+        function mostra(ev) {
+          var righe = [formatta(media) + ' ' + (p.unita || ''), self.testoClasse(media)];
+          if (self.campagna === 'tutte' && valori.length > 1) {
+            righe.unshift('Media di ' + valori.length + ' campagne');
+          }
+          if (s.tratto) righe.push('Tratto: ' + s.tratto + (s.bis ? ' · punto BIS, 500 m a valle' : ''));
+          self.mostraSuggerimento(ev, { titolo: self.etichettaStazione(s), righe: righe });
         }
-        if (s.tratto) righe.push('Tratto: ' + s.tratto + (s.bis ? ' · punto BIS, 500 m a valle' : ''));
-        self.mostraSuggerimento(ev, { titolo: self.etichettaStazione(s), righe: righe });
+        barra.addEventListener('mouseenter', mostra);
+        barra.addEventListener('mousemove', mostra);
+        barra.addEventListener('focus', mostra);
+        barra.addEventListener('mouseleave', function () { self.nascondiSuggerimento(); });
+        barra.addEventListener('blur', function () { self.nascondiSuggerimento(); });
       }
-      barra.addEventListener('mouseenter', mostra);
-      barra.addEventListener('mousemove', mostra);
-      barra.addEventListener('focus', mostra);
-      barra.addEventListener('mouseleave', function () { self.nascondiSuggerimento(); });
-      barra.addEventListener('blur', function () { self.nascondiSuggerimento(); });
       svg.appendChild(barra);
     });
-    this.disegnaSoglie(svg, y, m.sinistra, m.l - m.destra, m.h - m.sotto);
+    this.disegnaSoglie(svg, y, m.sinistra, m.l - m.destra, m.h - m.sotto, opzioni);
 
-    var verso = el('text', { class: 'asse-titolo', x: m.sinistra, y: m.h - 6 }, 'monte →');
-    svg.appendChild(verso);
+    svg.appendChild(el('text', { class: 'asse-titolo', x: m.sinistra, y: m.h - 6 }, '← valle'));
     svg.appendChild(el('text', {
       class: 'asse-titolo', x: m.l - m.destra, y: m.h - 6, 'text-anchor': 'end'
-    }, '→ valle'));
+    }, 'monte →'));
     return svg;
   };
-
 
   /* Vista 3: mappa schematica dei punti di campionamento.
      Non usa mappe di sfondo né servizi esterni: posiziona i punti sulle loro

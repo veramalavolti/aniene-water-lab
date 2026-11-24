@@ -12,6 +12,7 @@ from __future__ import annotations
 
 import html
 import json
+import math
 import re
 import shutil
 import sys
@@ -20,6 +21,7 @@ from pathlib import Path
 try:
     import yaml
     from jinja2 import Environment, FileSystemLoader, StrictUndefined
+    from markupsafe import Markup, escape
 except ImportError:  # pragma: no cover
     sys.exit("Servono PyYAML e Jinja2: pip install pyyaml jinja2")
 
@@ -59,6 +61,46 @@ def numero_it(valore) -> str:
     return t
 
 
+def grassetto(testo) -> "Markup":
+    """Permette il grassetto nei testi di contenuto scrivendo **così**.
+
+    Chi scrive dal pannello di redazione non deve conoscere l'HTML: mette due
+    asterischi attorno alle parole da mettere in evidenza. Tutto il resto viene
+    comunque reso innocuo, quindi un testo non può rompere la pagina.
+    """
+    t = str(escape(str(testo)))
+    fuori = []
+    for i, pezzo in enumerate(t.split("**")):
+        fuori.append(f"<strong>{pezzo}</strong>" if i % 2 else pezzo)
+    return Markup("".join(fuori))
+
+
+def peso_file(percorso: str) -> str:
+    """Quanto pesa un documento, per dirlo prima di farlo scaricare."""
+    file = DIST / percorso
+    if not file.exists():
+        return ""
+    mb = file.stat().st_size / (1024 * 1024)
+    return f"{mb:.1f} MB".replace(".", ",") if mb >= 1 else f"{file.stat().st_size // 1024} kB"
+
+
+def pagine_pdf(percorso: str) -> str:
+    """Il numero di pagine di un PDF, quando la libreria è disponibile."""
+    file = DIST / percorso
+    if not file.exists():
+        return ""
+    try:
+        import pypdfium2
+    except ImportError:
+        return ""
+    try:
+        with pypdfium2.PdfDocument(str(file)) as pdf:
+            n = len(pdf)
+        return f"{n} pagine" if n > 1 else "1 pagina"
+    except Exception:
+        return ""
+
+
 def occhiello(testo: str) -> str:
     """Trasforma il nome di una pagina in una stringa adatta a un id HTML."""
     t = re.sub(r"[^a-z0-9]+", "-", testo.lower())
@@ -91,6 +133,75 @@ def dati_campagna(nome: str) -> dict:
     return json.loads(percorso.read_text(encoding="utf-8"))
 
 
+def mappa_svg(nome: str, altezza: int = 420) -> "Markup":
+    """Disegna la mappa dei punti di campionamento dalle loro coordinate.
+
+    Non usa mappe di sfondo né servizi esterni: i punti stanno alle loro
+    coordinate reali, uniti nell'ordine in cui scorre il fiume. L'immagine è
+    un SVG scritto dentro la pagina, quindi si carica subito e resta nitida.
+    """
+    dati = dati_campagna(nome)
+    punti = [s for s in dati["stazioni"]
+             if isinstance(s.get("lat"), (int, float))
+             and isinstance(s.get("lon"), (int, float))]
+    if not punti:
+        return Markup("")
+
+    larghezza = 900
+    bordo = 54
+    lat = [p["lat"] for p in punti]
+    lon = [p["lon"] for p in punti]
+    k = math.cos((min(lat) + max(lat)) / 2 * math.pi / 180)
+    xs = [p * k for p in lon]
+    min_x, max_x = min(xs), max(xs)
+    min_y, max_y = min(lat), max(lat)
+    scala = min(
+        (larghezza - bordo * 2) / max(max_x - min_x, 1e-6),
+        (altezza - bordo * 2) / max(max_y - min_y, 1e-6),
+    )
+    off_x = bordo + (larghezza - bordo * 2 - (max_x - min_x) * scala) / 2
+    off_y = bordo + (altezza - bordo * 2 - (max_y - min_y) * scala) / 2
+
+    def xy(p):
+        return (off_x + (p["lon"] * k - min_x) * scala,
+                off_y + (max_y - p["lat"]) * scala)
+
+    ordinati = sorted(punti, key=lambda p: p.get("ordine", 0))
+    percorso = " ".join(
+        ("M" if i == 0 else "L") + f"{xy(p)[0]:.1f} {xy(p)[1]:.1f}"
+        for i, p in enumerate(ordinati)
+    )
+
+    pezzi = [
+        f'<svg viewBox="0 0 {larghezza} {altezza}" role="img" '
+        f'aria-label="Mappa dei punti di campionamento" '
+        f'xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;'
+        f'background:#EFF4F2">',
+        f'<path d="{percorso}" fill="none" stroke="#9CC4D6" stroke-width="7" '
+        f'stroke-linejoin="round" stroke-linecap="round"/>',
+    ]
+    for p in punti:
+        x, y = xy(p)
+        nome_punto = html.escape(p["nome"])
+        pezzi.append(
+            f'<g><title>{html.escape(str(p["id"]))} · {nome_punto}</title>'
+            f'<circle cx="{x:.1f}" cy="{y:.1f}" r="9" fill="#1A3340" stroke="#fff" stroke-width="2.5"/>'
+            f'<text x="{x:.1f}" y="{y - 15:.1f}" text-anchor="middle" '
+            f'font-family="Barlow, sans-serif" font-size="13" font-weight="700" '
+            f'fill="#1A3340">{html.escape(str(p["id"]))}</text></g>'
+        )
+    pezzi.append(
+        f'<text x="{bordo}" y="{altezza - 16}" font-family="Barlow, sans-serif" '
+        f'font-size="12" font-weight="700" fill="#4A5568" '
+        f'letter-spacing="1">VALLE</text>'
+        f'<text x="{larghezza - bordo}" y="{altezza - 16}" text-anchor="end" '
+        f'font-family="Barlow, sans-serif" font-size="12" font-weight="700" '
+        f'fill="#4A5568" letter-spacing="1">MONTE</text>'
+    )
+    pezzi.append("</svg>")
+    return Markup("".join(pezzi))
+
+
 def riepilogo(dati: dict, parametri: dict) -> dict:
     """Numeri di sintesi mostrati sopra la dashboard."""
     valori = [
@@ -117,13 +228,12 @@ def main() -> int:
 
     impostazioni = leggi("impostazioni.yml")
     contatti = leggi("contatti.yml")
-    # l'elenco dei loghi, senza ripetizioni, per la chiusura della home
+    # l'elenco dei loghi per la chiusura della home: uno solo per realtà
     loghi, visti = [], set()
-    for gruppo in contatti["partner"]["gruppi"]:
-        for realta in gruppo["realta"]:
-            if realta.get("logo") and realta["logo"] not in visti:
-                visti.add(realta["logo"])
-                loghi.append(realta)
+    for realta in contatti["rete"]["realta"]:
+        if realta.get("logo") and realta["logo"] not in visti:
+            visti.add(realta["logo"])
+            loghi.append(realta)
     parametri_file = leggi("parametri.yml")
     parametri = parametri_file["parametri"]
 
@@ -135,6 +245,7 @@ def main() -> int:
         lstrip_blocks=True,
     )
     env.filters["numero"] = numero_it
+    env.filters["t"] = grassetto
     env.filters["ancora"] = occhiello
 
     DIST.mkdir(exist_ok=True)
@@ -153,6 +264,9 @@ def main() -> int:
             "c": pagina,
             "loghi": loghi,
             "dati_campagna": dati_campagna,
+            "peso": peso_file,
+            "mappa_svg": mappa_svg,
+            "pagine": pagine_pdf,
             "riepilogo": lambda n: riepilogo(dati_campagna(n), parametri),
         }
         uscita = DIST / f"{nome}.html"

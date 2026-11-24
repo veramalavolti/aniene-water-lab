@@ -19,6 +19,10 @@
       <div>
         {{ parti.testa('2022 – 2023', c.romaup.titolo) }}
         {{ parti.paragrafi(c.romaup.paragrafi) }}
+        <figure class="foto-larga" style="margin-bottom:0">
+          <img src="assets/img/{{ c.romaup.foto }}" alt="{{ c.romaup.foto_descrizione }}" loading="lazy" width="1200" height="800">
+          <figcaption>{{ c.romaup.foto_descrizione }}</figcaption>
+        </figure>
       </div>
     </div>
   </div>
@@ -26,8 +30,8 @@
 
 <section class="sezione" id="luoghi">
   <div class="contenitore">
-    {{ parti.testa('Dove', c.luoghi.titolo, c.luoghi.intro) }}
-    {{ parti.stazioni(c.luoghi.stazioni) }}
+    {{ parti.testa('Dove', c.luoghi.titolo) }}
+    {{ parti.luoghi(c.luoghi) }}
   </div>
 </section>
 
@@ -56,7 +60,7 @@
 
 <section class="sezione" id="report">
   <div class="contenitore">
-    {{ parti.report(c.report) }}
+    {{ parti.report(c.report, peso, pagine) }}
   </div>
 </section>
 

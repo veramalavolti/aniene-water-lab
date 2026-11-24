@@ -1,16 +1,56 @@
 {% extends "base.html.j2" %}
 {% import "parti.html.j2" as parti %}
 
+{% macro capitolo(blocchi) %}
+<div class="capitolo">
+  {% for b in blocchi %}
+  {% if b.get('foto') %}
+  <div class="capitolo-blocco{% if b.lato == 'sinistra' %} rovescio{% endif %}">
+    {% if b.lato == 'sinistra' %}
+    <figure>
+      <img src="assets/img/{{ b.foto.file }}" alt="{{ b.foto.descrizione }}" loading="lazy" width="1200" height="800">
+      <figcaption>{{ b.foto.descrizione }}</figcaption>
+    </figure>
+    {% endif %}
+    <div class="capitolo-testo">
+      <h3 class="sotto-titolo" style="margin-top:0">{{ b.titolo }}</h3>
+      {{ parti.paragrafi(b.paragrafi) }}
+    </div>
+    {% if b.lato != 'sinistra' %}
+    <figure>
+      <img src="assets/img/{{ b.foto.file }}" alt="{{ b.foto.descrizione }}" loading="lazy" width="1200" height="800">
+      <figcaption>{{ b.foto.descrizione }}</figcaption>
+    </figure>
+    {% endif %}
+  </div>
+  {% else %}
+  <div class="capitolo-testo">
+    <h3 class="sotto-titolo" style="margin-top:0">{{ b.titolo }}</h3>
+    {{ parti.paragrafi(b.paragrafi) }}
+  </div>
+  {% endif %}
+  {% endfor %}
+</div>
+{% endmacro %}
+
 {% block contenuto %}
 
-{{ parti.hero(c, 'Il metodo') }}
+{{ parti.hero(c, 'Il metodo', compatto=true) }}
 
 <section class="sezione">
-  <div class="contenitore stretto">
+  <div class="contenitore">
     {{ parti.testa('', c.scienza_partecipata.titolo) }}
-    {{ parti.paragrafi(c.scienza_partecipata.paragrafi) }}
+    {{ parti.foto_larga(c.foto_apertura.file, c.foto_apertura.descrizione) }}
+    {{ capitolo(c.scienza_partecipata.blocchi) }}
     <blockquote class="citazione">{{ c.scienza_partecipata.citazione }}</blockquote>
-    {{ parti.paragrafi(c.scienza_partecipata.paragrafi_due) }}
+    {{ capitolo(c.scienza_partecipata.blocchi_due) }}
+    <div class="riquadro" style="margin-top:1.2rem">
+      <h3>{{ c.scienza_partecipata.riquadro.titolo }}</h3>
+      {{ parti.paragrafi(c.scienza_partecipata.riquadro.paragrafi) }}
+    </div>
+    <div class="capitolo-testo" style="margin-top:1.6rem">
+      {{ parti.paragrafi(c.scienza_partecipata.chiusura) }}
+    </div>
   </div>
 </section>
 
@@ -31,21 +71,39 @@
         <img src="assets/img/{{ s.foto }}" alt="" loading="lazy" width="1200" height="800">
         <div class="parametro-corpo">
           <h3>{{ s.nome }}</h3>
-          <p>{{ s.testo }}</p>
+          <p>{{ s.testo|t }}</p>
         </div>
       </article>
       {% endfor %}
     </div>
 
-    <div class="doppia" style="margin-top:2rem">
-      <div>
-        <h3 class="sotto-titolo" style="margin-top:0">{{ c.metodologia.registrazione.titolo }}</h3>
-        <p>{{ c.metodologia.registrazione.testo }}</p>
-        <p><img src="assets/img/qr-survey123.svg" alt="Codice QR per l'app Survey123 di Fresh Water Watch" width="150" height="150"></p>
+    <div class="affiancate" style="margin-top:2.2rem">
+      <div class="riquadro">
+        <h3>{{ c.metodologia.registrazione.titolo }}</h3>
+        <p>{{ c.metodologia.registrazione.testo|t }}</p>
       </div>
+      <div class="riquadro">
+        <h3>{{ c.metodologia.ossigeno.titolo }}</h3>
+        <p>{{ c.metodologia.ossigeno.testo|t }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sezione" id="fresh-water-watch">
+  <div class="contenitore">
+    <div class="fww">
       <div>
-        <h3 class="sotto-titolo" style="margin-top:0">{{ c.metodologia.ossigeno.titolo }}</h3>
-        <p>{{ c.metodologia.ossigeno.testo }}</p>
+        <p class="etichetta">{{ c.fresh_water_watch.etichetta }}</p>
+        <h3>{{ c.fresh_water_watch.titolo }}</h3>
+        {{ parti.paragrafi(c.fresh_water_watch.paragrafi) }}
+        <p class="bottoni" style="margin-bottom:0">
+          <a class="bottone" href="{{ c.fresh_water_watch.link }}" rel="noopener">{{ c.fresh_water_watch.link_testo }} ↗</a>
+        </p>
+      </div>
+      <div class="fww-qr">
+        <img src="assets/img/qr-survey123.svg" alt="{{ c.fresh_water_watch.qr_descrizione }}" width="150" height="150">
+        <span>{{ c.fresh_water_watch.qr_etichetta }}</span>
       </div>
     </div>
   </div>
@@ -56,7 +114,7 @@
     {{ parti.testa('La sperimentazione', c.macroinvertebrati.titolo, c.macroinvertebrati.intro) }}
     <ul class="elenco-spunte">
       {% for v in c.macroinvertebrati.voci %}
-      <li><b>{{ v.titolo }}.</b> {{ v.testo }}</li>
+      <li><b>{{ v.titolo }}.</b> {{ v.testo|t }}</li>
       {% endfor %}
     </ul>
     <div style="margin-top:2rem">
