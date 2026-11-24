@@ -1129,3 +1129,60 @@ a.rete-card:hover .vai { text-decoration: underline; text-underline-offset: 3px;
   .dash-intestazione { padding: 1rem 1rem .3rem; }
   .dash-intestazione h3 { font-size: 1.3rem; }
 }
+
+/* ======================== schede dei parametri: la parte tecnica a richiesta */
+
+.scheda-soglie { display: flex; flex-wrap: wrap; gap: .35rem; margin: .9rem 0 0; }
+.scheda-tecnica {
+  margin-top: 1rem; border-top: 1px solid var(--border); padding-top: .7rem;
+}
+.scheda-tecnica summary {
+  cursor: pointer; font-size: .88rem; font-weight: 800; color: var(--verde-testo);
+  list-style: none; display: flex; align-items: center; gap: .45rem; min-height: 32px;
+}
+.scheda-tecnica summary::-webkit-details-marker { display: none; }
+.scheda-tecnica summary::before {
+  content: '+'; display: inline-grid; place-items: center;
+  width: 20px; height: 20px; border-radius: 50%;
+  background: var(--lime-soft); border: 1px solid var(--lime-border);
+  font-size: 1rem; line-height: 1; color: var(--verde-testo);
+}
+.scheda-tecnica[open] summary::before { content: '−'; }
+.scheda-tecnica summary:hover { text-decoration: underline; text-underline-offset: 3px; }
+.scheda-tecnica p {
+  margin: .7rem 0 0; font-size: .92rem; line-height: 1.6; color: var(--text-dim);
+}
+
+/* ===================== barra delle sezioni, per pagine lunghe a due metà */
+
+.sottomenu {
+  position: sticky; top: 72px; z-index: 40;
+  background: var(--cream-card); border-bottom: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+}
+.sottomenu-interno {
+  display: flex; align-items: center; gap: .4rem 1.6rem;
+  min-height: 52px; flex-wrap: wrap;
+}
+.sottomenu-titolo {
+  font-family: var(--font-display); font-size: .76rem; font-weight: 800;
+  text-transform: uppercase; letter-spacing: .14em; color: var(--text-dim);
+  margin-right: .4rem;
+}
+.sottomenu a {
+  font-size: .9rem; font-weight: 700; color: var(--teal); text-decoration: none;
+  padding: .55rem 0; border-bottom: 3px solid transparent; white-space: nowrap;
+}
+.sottomenu a:hover { color: var(--verde-testo); border-bottom-color: var(--lime-dark); }
+.sottomenu a[aria-current] { color: var(--verde-testo); border-bottom-color: var(--lime-dark); }
+.sottomenu + .sezione { scroll-margin-top: 130px; }
+.sottomenu ~ * [id] { scroll-margin-top: 136px; }
+#dati-fissi, #dati-gommone, #report, #hotspot { scroll-margin-top: 136px; }
+
+@media (max-width: 1100px) { .sottomenu { top: 110px; } }
+@media (max-width: 760px) {
+  .sottomenu { top: 104px; }
+  .sottomenu-interno { min-height: 46px; gap: .2rem 1.1rem; overflow-x: auto; flex-wrap: nowrap; scrollbar-width: none; }
+  .sottomenu-interno::-webkit-scrollbar { display: none; }
+  .sottomenu-titolo { display: none; }
+}

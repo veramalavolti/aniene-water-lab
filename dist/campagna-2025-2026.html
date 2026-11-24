@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800;900&family=Barlow+Condensed:wght@700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/sito.css?v=be8116ed">
+  <link rel="stylesheet" href="assets/css/sito.css?v=197fec1f">
 </head>
 <body>
 <a class="salta" href="#contenuto">Vai al contenuto principale</a>
@@ -60,6 +60,15 @@
   </div>
 </section>
 
+
+<nav class="sottomenu" aria-label="Le due sezioni della campagna">
+  <div class="contenitore sottomenu-interno">
+    <span class="sottomenu-titolo">In questa pagina</span>
+    <a href="#dati-fissi" data-sezione="dati-fissi">I dati dei punti fissi</a>
+    <a href="#dati-gommone" data-sezione="dati-gommone">I dati in gommone</a>
+    <a href="#report" data-sezione="report">I report</a>
+  </div>
+</nav>
 
 <section class="sezione">
   <div class="contenitore stretto">
@@ -133,13 +142,15 @@
 <span class="stato stato-critico">Critico nel tratto urbano</span>      <dl>
         <dt>Cosa misura</dt>
         <dd>È il gas indispensabile alla vita acquatica e alle reazioni di ossidazione che permettono al fiume di autodepurarsi. Arriva dall&#39;atmosfera e dalla fotosintesi di piante e microrganismi, e diminuisce con la respirazione, le reazioni di ossidazione e il ritorno spontaneo in atmosfera.</dd>
-        <dt>Come leggerlo</dt>
-        <dd>Un valore tra 6 e 12 mg/L è considerato ottimale. Sotto i 5-6 mg/L le forme di vita acquatiche entrano in sofferenza: la carenza favorisce organismi anaerobi, che decompongono male la materia organica e producono sostanze tossiche. Misurarlo dà anche indicazioni sui cicli di azoto, fosforo, carbonio e zolfo.</dd>
         <dt>Cosa abbiamo trovato</dt>
         <dd>L&#39;ossigeno scende con regolarità da monte a valle: la mediana passa da 9,5 mg/L a Subiaco a 6,3–6,9 mg/L nelle stazioni urbane. I minimi più preoccupanti sono a Casale Caletto e Ponte Mammolo, dove si è toccato 1,5 mg/L, e a Ponte delle Valli, con 3,2 mg/L: valori ai quali l&#39;ecosistema è a rischio.</dd>
         <dt>Possibili cause</dt>
         <dd>Un alto carico di sostanza organica e ammonio, che consuma ossigeno durante la decomposizione e l&#39;ossidazione. I minimi coincidono con le stazioni in cui anche ammonio ed Escherichia coli raggiungono i valori più alti.</dd>
       </dl>
+      <details class="scheda-tecnica">
+        <summary>Come si legge, soglia per soglia</summary>
+        <p>Un valore tra 6 e 12 mg/L è considerato ottimale. Sotto i 5-6 mg/L le forme di vita acquatiche entrano in sofferenza: la carenza favorisce organismi anaerobi, che decompongono male la materia organica e producono sostanze tossiche. Misurarlo dà anche indicazioni sui cicli di azoto, fosforo, carbonio e zolfo.</p>
+      </details>
     </div>
   </article>
   <article class="parametro">
@@ -150,13 +161,15 @@
 <span class="stato stato-critico">Critico nel tratto urbano</span>      <dl>
         <dt>Cosa misura</dt>
         <dd>L&#39;azoto è presente in acqua in forma organica e inorganica (ammoniaca, nitriti e nitrati). Lo ione ammonio deriva da attività umane: scarichi organici e reflui urbani, agricoltura e zootecnia, industrie. In concentrazioni alte riduce l&#39;ossigeno disciolto ed è tossico per gli organismi viventi.</dd>
-        <dt>Come leggerlo</dt>
-        <dd>In natura, nelle acque superficiali, sta sotto 0,2 mg/L. I livelli dell&#39;indice LIMeco, in mg/L di azoto ammoniacale, sono: livello 1 (elevato) sotto 0,03; livello 2 (buono) fino a 0,06; livello 3 (sufficiente) fino a 0,12; livello 4 (scarso) fino a 0,24; livello 5 (cattivo) sopra 0,24.</dd>
         <dt>Cosa abbiamo trovato</dt>
         <dd>Fino a Ponte Lucano l&#39;ammonio resta nelle classi migliori, con mediane tra 0,03 e 0,06 mg/L. Nel tratto urbano la situazione cambia: la mediana è 0,43 mg/L a Ponte Mammolo e 0,45 a Ponte Salario, cioè sopra la soglia della classe peggiore del LIMeco, con massimi di 2,1 e 1,9 mg/L.</dd>
         <dt>Possibili cause</dt>
         <dd>Scarichi fognari o reflui trattati in modo inadeguato, attività agricole e zootecniche, scarichi industriali. Valori così alti di ammonio, che in presenza di ossigeno si trasforma rapidamente in nitrato, indicano un apporto continuo e non trattato.</dd>
       </dl>
+      <details class="scheda-tecnica">
+        <summary>Come si legge, soglia per soglia</summary>
+        <p>In natura, nelle acque superficiali, sta sotto 0,2 mg/L. I livelli dell&#39;indice LIMeco, in mg/L di azoto ammoniacale, sono: livello 1 (elevato) sotto 0,03; livello 2 (buono) fino a 0,06; livello 3 (sufficiente) fino a 0,12; livello 4 (scarso) fino a 0,24; livello 5 (cattivo) sopra 0,24.</p>
+      </details>
     </div>
   </article>
   <article class="parametro">
@@ -167,13 +180,15 @@
 <span class="stato stato-attenzione">Da tenere d&#39;occhio</span>      <dl>
         <dt>Cosa misura</dt>
         <dd>Azoto e fosforo sono nutrienti, non veleni: servono alle piante e negli ecosistemi naturali sono presenti in quantità ridotte. Quando ne arrivano troppi, la crescita delle alghe diventa spropositata e l&#39;equilibrio del fiume si altera. I nitrati sono il prodotto finale dell&#39;ossidazione dell&#39;ammoniaca e arrivano anche dal dilavamento dei terreni concimati.</dd>
-        <dt>Come leggerlo</dt>
-        <dd>Attenzione: il kit misura l&#39;azoto nitrico, non i nitrati. Per ottenere la concentrazione di nitrati i valori vanno moltiplicati per 4,427. Per l&#39;acqua potabile il limite è 50 mg/L di nitrati; nelle acque superficiali oltre 25 mg/L indicano una potenziale criticità per l&#39;eutrofizzazione. I livelli LIMeco, in mg/L di azoto nitrico, sono: livello 1 (elevato) sotto 0,6; livello 2 (buono) fino a 1,2; livello 3 (sufficiente) fino a 2,4; livello 4 (scarso) fino a 4,8; livello 5 (cattivo) sopra 4,8.</dd>
         <dt>Cosa abbiamo trovato</dt>
         <dd>I nitrati restano quasi sempre nelle classi buone: la mediana è 0,2 mg/L di azoto nitrico nell&#39;alto corso e 1,0 mg/L nelle stazioni urbane. I massimi, tra 4 e 5 mg/L, si registrano a Ponte Mammolo, Ponte delle Valli e Ponte Salario, cioè in classe «scarsa».</dd>
         <dt>Possibili cause</dt>
         <dd>Dilavamento dei terreni trattati con fertilizzanti, spesso legati all&#39;orticoltura lungo le sponde, e reflui urbani.</dd>
       </dl>
+      <details class="scheda-tecnica">
+        <summary>Come si legge, soglia per soglia</summary>
+        <p>Attenzione: il kit misura l&#39;azoto nitrico, non i nitrati. Per ottenere la concentrazione di nitrati i valori vanno moltiplicati per 4,427. Per l&#39;acqua potabile il limite è 50 mg/L di nitrati; nelle acque superficiali oltre 25 mg/L indicano una potenziale criticità per l&#39;eutrofizzazione. I livelli LIMeco, in mg/L di azoto nitrico, sono: livello 1 (elevato) sotto 0,6; livello 2 (buono) fino a 1,2; livello 3 (sufficiente) fino a 2,4; livello 4 (scarso) fino a 4,8; livello 5 (cattivo) sopra 4,8.</p>
+      </details>
     </div>
   </article>
   <article class="parametro">
@@ -184,13 +199,15 @@
 <span class="stato stato-attenzione">Da tenere d&#39;occhio</span>      <dl>
         <dt>Cosa misura</dt>
         <dd>Il fosforo, come l&#39;azoto, è un macronutriente che limita la crescita delle alghe, e in acqua è normalmente mille volte meno concentrato. Si trova in quasi tutti i detergenti, i saponi e i prodotti per la casa, e deriva anche dalla degradazione di urine, piante e animali.</dd>
-        <dt>Come leggerlo</dt>
-        <dd>L&#39;indice LIMeco si riferisce al fosforo totale e non ai fosfati, quindi il confronto è solo indicativo: il fosforo totale è sempre maggiore o uguale a quello reattivo che misuriamo noi, quindi la classe reale può essere uguale o peggiore di quella mostrata, mai migliore. I livelli, in mg/L di fosforo totale, sono: livello 1 (elevato) sotto 0,05; livello 2 (buono) fino a 0,10; livello 3 (sufficiente) fino a 0,20; livello 4 (scarso) fino a 0,40; livello 5 (cattivo) sopra 0,40.</dd>
         <dt>Cosa abbiamo trovato</dt>
         <dd>Nell&#39;alto corso la mediana è 0,05 mg/L, al limite della classe migliore. Scende di classe a Tivoli (0,15 mg/L) e nelle due stazioni più a valle, Ponte delle Valli e Ponte Salario, dove la mediana è 0,20 mg/L e il massimo arriva a 1,0.</dd>
         <dt>Possibili cause</dt>
         <dd>Scarichi urbani — detergenti, saponi e prodotti per la casa ne contengono molti — insediamenti industriali e attività agricole del bacino.</dd>
       </dl>
+      <details class="scheda-tecnica">
+        <summary>Come si legge, soglia per soglia</summary>
+        <p>L&#39;indice LIMeco si riferisce al fosforo totale e non ai fosfati, quindi il confronto è solo indicativo: il fosforo totale è sempre maggiore o uguale a quello reattivo che misuriamo noi, quindi la classe reale può essere uguale o peggiore di quella mostrata, mai migliore. I livelli, in mg/L di fosforo totale, sono: livello 1 (elevato) sotto 0,05; livello 2 (buono) fino a 0,10; livello 3 (sufficiente) fino a 0,20; livello 4 (scarso) fino a 0,40; livello 5 (cattivo) sopra 0,40.</p>
+      </details>
     </div>
   </article>
   <article class="parametro">
@@ -201,13 +218,15 @@
 <span class="stato stato-critico">Critico da Ponte Lucano in giù</span>      <dl>
         <dt>Cosa misura</dt>
         <dd>Misura la quantità di sali disciolti, in microsiemens per centimetro (µS/cm), ed è un indicatore del grado di mineralizzazione dell&#39;acqua. In un fiume cresce naturalmente da monte a valle.</dd>
-        <dt>Come leggerlo</dt>
-        <dd>Va letta tenendo conto della geologia locale: nelle aree calcaree come il bacino dell&#39;Aniene i valori normali sono tra 250 e 800 µS/cm. Valori oltre i 1.000 µS/cm possono indicare un&#39;intensa attività umana o una forte evaporazione, oltre i 1.500 un possibile inquinamento da scarichi urbani, industriali o agricoli. Il D.Lgs. 31/2001 indica che la conducibilità delle acque dolci non dovrebbe superare i 2.500 µS/cm. Piogge intense la abbassano temporaneamente per diluizione.</dd>
         <dt>Cosa abbiamo trovato</dt>
         <dd>È il parametro che mostra il salto più netto. A Subiaco i valori stanno tra 351 e 418 µS/cm, a Vicovaro e Tivoli intorno a 600. A Ponte Lucano la mediana sale a 1.277 µS/cm, con punte di 2.000, il limite dello strumento, e da lì in poi tutte le stazioni restano sopra i 1.300 µS/cm di mediana.</dd>
         <dt>Possibili cause</dt>
         <dd>Nel tratto di Ponte Lucano pesano le cave di travertino e le sorgenti solfuree, che alzano naturalmente il valore. Più a valle si aggiunge l&#39;apporto di sali legato a scarichi urbani, industriali e agricoli.</dd>
       </dl>
+      <details class="scheda-tecnica">
+        <summary>Come si legge, soglia per soglia</summary>
+        <p>Va letta tenendo conto della geologia locale: nelle aree calcaree come il bacino dell&#39;Aniene i valori normali sono tra 250 e 800 µS/cm. Valori oltre i 1.000 µS/cm possono indicare un&#39;intensa attività umana o una forte evaporazione, oltre i 1.500 un possibile inquinamento da scarichi urbani, industriali o agricoli. Il D.Lgs. 31/2001 indica che la conducibilità delle acque dolci non dovrebbe superare i 2.500 µS/cm. Piogge intense la abbassano temporaneamente per diluizione.</p>
+      </details>
     </div>
   </article>
   <article class="parametro">
@@ -218,13 +237,15 @@
 <span class="stato stato-ok">Nella norma</span>      <dl>
         <dt>Cosa misura</dt>
         <dd>Indica l&#39;acidità o la basicità dell&#39;acqua. I processi vitali funzionano solo entro valori ben precisi. Il pH sale con la fotosintesi, che consuma anidride carbonica, e scende con la respirazione.</dd>
-        <dt>Come leggerlo</dt>
-        <dd>L&#39;intervallo ottimale per un fiume va da 6,5 a 9. Dipende anche dalla geologia del letto: suoli acidi o torbiere possono portarlo sotto 5, mentre in fiumi lenti o sbarrati da dighe l&#39;attività delle alghe può spingerlo fino a 9 o 10.</dd>
         <dt>Cosa abbiamo trovato</dt>
         <dd>Il pH resta quasi sempre tra 7,0 e 9,0, dentro l&#39;intervallo compatibile con la vita del fiume. Fanno eccezione due picchi isolati, a Ponte Lucano (10,4) e alla Tenuta del Cavaliere (9,9), da verificare con nuovi rilievi.</dd>
         <dt>Possibili cause</dt>
         <dd>I valori più alti coincidono con i tratti a maggiore attività algale e con gli apporti delle acque di cava.</dd>
       </dl>
+      <details class="scheda-tecnica">
+        <summary>Come si legge, soglia per soglia</summary>
+        <p>L&#39;intervallo ottimale per un fiume va da 6,5 a 9. Dipende anche dalla geologia del letto: suoli acidi o torbiere possono portarlo sotto 5, mentre in fiumi lenti o sbarrati da dighe l&#39;attività delle alghe può spingerlo fino a 9 o 10.</p>
+      </details>
     </div>
   </article>
   <article class="parametro">
@@ -235,13 +256,15 @@
 <span class="stato stato-critico">Critico</span>      <dl>
         <dt>Cosa misura</dt>
         <dd>È un batterio presente nelle feci umane e animali. La sua presenza, insieme a quella di coliformi ed enterococchi, rivela una contaminazione fecale e la possibile presenza di microrganismi patogeni. Per questo è l&#39;indicatore usato per valutare se un&#39;acqua è adatta alla balneazione: ad oggi l&#39;Aniene non rientra tra i fiumi balneabili.</dd>
-        <dt>Come leggerlo</dt>
-        <dd>Le uniche due soglie ufficiali per le acque interne sono quelle della direttiva 2006/7/CE: 500 UFC/100 mL (qualità elevata) e 1.000 UFC/100 mL (qualità buona), pensate per statistiche pluriennali e non per il singolo prelievo. Oltre queste soglie usiamo i gradini indicativi del LIMeco: fino a 5.000 sufficiente, fino a 20.000 scarso, oltre 20.000 cattivo. Il grafico ha una scala logaritmica, altrimenti valori da zero a oltre un milione sarebbero illeggibili.</dd>
         <dt>Cosa abbiamo trovato</dt>
         <dd>La contaminazione fecale cresce di due ordini di grandezza lungo il fiume: la mediana passa da 200 UFC/100 mL a Subiaco a 650 a Vicovaro, 900 a Tivoli, 2.200–2.800 tra Ponte Lucano e la Tenuta del Cavaliere, fino a 31.900 a Ponte delle Valli e 38.000 a Ponte Salario. I picchi più alti sono 980.000 UFC a Ponte Mammolo, 280.000 a Ponte Salario e 252.000 a Ponte delle Valli.</dd>
         <dt>Possibili cause</dt>
         <dd>Scarichi fognari, impianti di sollevamento e fossi urbani. Le discese in gommone della stessa annualità, qui sotto, hanno permesso di individuare diverse immissioni compatibili con questi valori.</dd>
       </dl>
+      <details class="scheda-tecnica">
+        <summary>Come si legge, soglia per soglia</summary>
+        <p>Le uniche due soglie ufficiali per le acque interne sono quelle della direttiva 2006/7/CE: 500 UFC/100 mL (qualità elevata) e 1.000 UFC/100 mL (qualità buona), pensate per statistiche pluriennali e non per il singolo prelievo. Oltre queste soglie usiamo i gradini indicativi del LIMeco: fino a 5.000 sufficiente, fino a 20.000 scarso, oltre 20.000 cattivo. Il grafico ha una scala logaritmica, altrimenti valori da zero a oltre un milione sarebbero illeggibili.</p>
+      </details>
     </div>
   </article>
   <article class="parametro">
@@ -252,13 +275,15 @@
 <span class="stato stato-critico">Critico</span>      <dl>
         <dt>Cosa misura</dt>
         <dd>Un gruppo di batteri indicatori di contaminazione fecale. Non fanno parte dell&#39;indice LIMeco e seguono lo stesso andamento di Escherichia coli.</dd>
-        <dt>Come leggerlo</dt>
-        <dd>Usiamo l&#39;unica soglia storica disponibile, quella del D.P.R. 470/82 per le acque di balneazione: 100 UFC/100 mL. Oltre questa, i gradini sono indicativi. Anche qui la scala del grafico è logaritmica.</dd>
         <dt>Cosa abbiamo trovato</dt>
         <dd>I coliformi fecali seguono lo stesso andamento di E. coli, con mediane che passano da poche migliaia di UFC nell&#39;alto corso a 152.500 a Ponte delle Valli e 163.500 a Ponte Salario, e massimi di 700.000 e 800.000 UFC/100 mL.</dd>
         <dt>Possibili cause</dt>
         <dd>Contaminazione di origine fecale: scarichi fognari, reflui non depurati, fossi urbani.</dd>
       </dl>
+      <details class="scheda-tecnica">
+        <summary>Come si legge, soglia per soglia</summary>
+        <p>Usiamo l&#39;unica soglia storica disponibile, quella del D.P.R. 470/82 per le acque di balneazione: 100 UFC/100 mL. Oltre questa, i gradini sono indicativi. Anche qui la scala del grafico è logaritmica.</p>
+      </details>
     </div>
   </article>
   <article class="parametro">
@@ -269,11 +294,13 @@
 <span class="stato stato-ok">Nella norma</span>      <dl>
         <dt>Cosa misura</dt>
         <dd>Determina quanto ossigeno può sciogliersi in acqua: a parità di pressione si passa da circa 14 mg/L a 0 °C a circa 9 mg/L a 20 °C. Influenza anche il metabolismo, la velocità di crescita e la composizione delle popolazioni acquatiche.</dd>
-        <dt>Come leggerlo</dt>
-        <dd>Non ha una soglia di qualità: va letta insieme alle stagioni. Quello che si cerca è un andamento regolare, senza salti che indichino inquinamento termico. I pesci, che non hanno una temperatura corporea propria, assumono quella dell&#39;ambiente, e le sue variazioni incidono su comportamento e maturazione sessuale.</dd>
         <dt>Cosa abbiamo trovato</dt>
         <dd>Le temperature seguono le stagioni, da 8,5 °C in inverno a Subiaco a 21,7 °C in estate nelle stazioni urbane, senza salti che facciano pensare a inquinamento termico.</dd>
       </dl>
+      <details class="scheda-tecnica">
+        <summary>Come si legge, soglia per soglia</summary>
+        <p>Non ha una soglia di qualità: va letta insieme alle stagioni. Quello che si cerca è un andamento regolare, senza salti che indichino inquinamento termico. I pesci, che non hanno una temperatura corporea propria, assumono quella dell&#39;ambiente, e le sue variazioni incidono su comportamento e maturazione sessuale.</p>
+      </details>
     </div>
   </article>
   <article class="parametro">
@@ -284,13 +311,15 @@
 <span class="stato stato-ok">Nella norma</span>      <dl>
         <dt>Cosa misura</dt>
         <dd>Misura quanto l&#39;acqua è opaca, cioè quanta materia è in sospensione. Una torbidità elevata scalda l&#39;acqua e riduce l&#39;ossigeno disponibile, limita la fotosintesi e può mettere in sofferenza o far morire specie animali e vegetali.</dd>
-        <dt>Come leggerlo</dt>
-        <dd>La misuriamo con il tubo di Secchi del kit Fresh Water Watch, che dà classi approssimative e non un valore di laboratorio. Per questo non ha una soglia di legge: conta il confronto fra stazioni e fra campagne.</dd>
         <dt>Cosa abbiamo trovato</dt>
         <dd>La torbidità misurata con il tubo di Secchi resta quasi sempre al valore minimo della scala. I picchi, fino a 40, si registrano a Ponte Lucano e alla Tenuta del Cavaliere, in corrispondenza delle piogge e degli apporti dalle cave.</dd>
         <dt>Possibili cause</dt>
         <dd>Attività umane come discariche edilizie, cave e liquami non depurati, oppure cause naturali come l&#39;erosione delle rocce e la crescita di alghe e fitoplancton.</dd>
       </dl>
+      <details class="scheda-tecnica">
+        <summary>Come si legge, soglia per soglia</summary>
+        <p>La misuriamo con il tubo di Secchi del kit Fresh Water Watch, che dà classi approssimative e non un valore di laboratorio. Per questo non ha una soglia di legge: conta il confronto fra stazioni e fra campagne.</p>
+      </details>
     </div>
   </article>
 </div>
@@ -312,6 +341,9 @@
 </div>
 
     </div>
+    <p class="bottoni" style="margin-top:2rem">
+      <a class="bottone" href="#dati-gommone">Vai ai dati in gommone ↓</a>
+    </p>
   </div>
 </section>
 
@@ -375,13 +407,15 @@
 <span class="stato stato-critico">Critico in alcuni punti</span>      <dl>
         <dt>Cosa misura</dt>
         <dd>È il gas indispensabile alla vita acquatica e alle reazioni di ossidazione che permettono al fiume di autodepurarsi. Arriva dall&#39;atmosfera e dalla fotosintesi di piante e microrganismi, e diminuisce con la respirazione, le reazioni di ossidazione e il ritorno spontaneo in atmosfera.</dd>
-        <dt>Come leggerlo</dt>
-        <dd>Un valore tra 6 e 12 mg/L è considerato ottimale. Sotto i 5-6 mg/L le forme di vita acquatiche entrano in sofferenza: la carenza favorisce organismi anaerobi, che decompongono male la materia organica e producono sostanze tossiche. Misurarlo dà anche indicazioni sui cicli di azoto, fosforo, carbonio e zolfo.</dd>
         <dt>Cosa abbiamo trovato</dt>
         <dd>In quasi tutta la rete lo scostamento dalla saturazione è nella fascia «sufficiente». Nessun punto raggiunge la classe «elevata».</dd>
         <dt>Possibili cause</dt>
         <dd>Un forte consumo di ossigeno dovuto alla degradazione batterica di scarichi organici civili o zootecnici, un problema storico del tratto medio-basso dell&#39;Aniene, che attraversa l&#39;area urbana di Roma. Uno scostamento per eccesso indicherebbe invece fioriture algali anomale legate a fosfati e nitrati.</dd>
       </dl>
+      <details class="scheda-tecnica">
+        <summary>Come si legge, soglia per soglia</summary>
+        <p>Un valore tra 6 e 12 mg/L è considerato ottimale. Sotto i 5-6 mg/L le forme di vita acquatiche entrano in sofferenza: la carenza favorisce organismi anaerobi, che decompongono male la materia organica e producono sostanze tossiche. Misurarlo dà anche indicazioni sui cicli di azoto, fosforo, carbonio e zolfo.</p>
+      </details>
     </div>
   </article>
   <article class="parametro">
@@ -392,13 +426,15 @@
 <span class="stato stato-critico">Critico</span>      <dl>
         <dt>Cosa misura</dt>
         <dd>L&#39;azoto è presente in acqua in forma organica e inorganica (ammoniaca, nitriti e nitrati). Lo ione ammonio deriva da attività umane: scarichi organici e reflui urbani, agricoltura e zootecnia, industrie. In concentrazioni alte riduce l&#39;ossigeno disciolto ed è tossico per gli organismi viventi.</dd>
-        <dt>Come leggerlo</dt>
-        <dd>In natura, nelle acque superficiali, sta sotto 0,2 mg/L. I livelli dell&#39;indice LIMeco, in mg/L di azoto ammoniacale, sono: livello 1 (elevato) sotto 0,03; livello 2 (buono) fino a 0,06; livello 3 (sufficiente) fino a 0,12; livello 4 (scarso) fino a 0,24; livello 5 (cattivo) sopra 0,24.</dd>
         <dt>Cosa abbiamo trovato</dt>
         <dd>In molti punti l&#39;ammonio supera la soglia più critica del LIMeco, 0,24 mg/L di azoto.</dd>
         <dt>Possibili cause</dt>
         <dd>Un ammonio elevato indica azoto ridotto, compatibile con apporti organici recenti e con condizioni riducenti. Tra le fonti possibili ci sono scarichi fognari o reflui trattati in modo inadeguato, attività agricole e zootecniche, scarichi industriali.</dd>
       </dl>
+      <details class="scheda-tecnica">
+        <summary>Come si legge, soglia per soglia</summary>
+        <p>In natura, nelle acque superficiali, sta sotto 0,2 mg/L. I livelli dell&#39;indice LIMeco, in mg/L di azoto ammoniacale, sono: livello 1 (elevato) sotto 0,03; livello 2 (buono) fino a 0,06; livello 3 (sufficiente) fino a 0,12; livello 4 (scarso) fino a 0,24; livello 5 (cattivo) sopra 0,24.</p>
+      </details>
     </div>
   </article>
   <article class="parametro">
@@ -409,13 +445,15 @@
 <span class="stato stato-critico">Critico in molti punti</span>      <dl>
         <dt>Cosa misura</dt>
         <dd>Azoto e fosforo sono nutrienti, non veleni: servono alle piante e negli ecosistemi naturali sono presenti in quantità ridotte. Quando ne arrivano troppi, la crescita delle alghe diventa spropositata e l&#39;equilibrio del fiume si altera. I nitrati sono il prodotto finale dell&#39;ossidazione dell&#39;ammoniaca e arrivano anche dal dilavamento dei terreni concimati.</dd>
-        <dt>Come leggerlo</dt>
-        <dd>Attenzione: il kit misura l&#39;azoto nitrico, non i nitrati. Per ottenere la concentrazione di nitrati i valori vanno moltiplicati per 4,427. Per l&#39;acqua potabile il limite è 50 mg/L di nitrati; nelle acque superficiali oltre 25 mg/L indicano una potenziale criticità per l&#39;eutrofizzazione. I livelli LIMeco, in mg/L di azoto nitrico, sono: livello 1 (elevato) sotto 0,6; livello 2 (buono) fino a 1,2; livello 3 (sufficiente) fino a 2,4; livello 4 (scarso) fino a 4,8; livello 5 (cattivo) sopra 4,8.</dd>
         <dt>Cosa abbiamo trovato</dt>
         <dd>I valori sono molto alti già nei primi punti del tratto alto, intorno ai 10 mg/L di azoto, e in gran parte del tratto medio. Valori bassi si trovano in alcuni punti del tratto alto e in diversi punti del tratto urbano, tra 0,5 e 1 mg/L.</dd>
         <dt>Possibili cause</dt>
         <dd>Un eccesso di nitrati proviene in genere dal dilavamento dei terreni trattati con fertilizzanti e dai reflui urbani.</dd>
       </dl>
+      <details class="scheda-tecnica">
+        <summary>Come si legge, soglia per soglia</summary>
+        <p>Attenzione: il kit misura l&#39;azoto nitrico, non i nitrati. Per ottenere la concentrazione di nitrati i valori vanno moltiplicati per 4,427. Per l&#39;acqua potabile il limite è 50 mg/L di nitrati; nelle acque superficiali oltre 25 mg/L indicano una potenziale criticità per l&#39;eutrofizzazione. I livelli LIMeco, in mg/L di azoto nitrico, sono: livello 1 (elevato) sotto 0,6; livello 2 (buono) fino a 1,2; livello 3 (sufficiente) fino a 2,4; livello 4 (scarso) fino a 4,8; livello 5 (cattivo) sopra 4,8.</p>
+      </details>
     </div>
   </article>
   <article class="parametro">
@@ -426,13 +464,15 @@
 <span class="stato stato-critico">Critico in alcuni punti</span>      <dl>
         <dt>Cosa misura</dt>
         <dd>Il fosforo, come l&#39;azoto, è un macronutriente che limita la crescita delle alghe, e in acqua è normalmente mille volte meno concentrato. Si trova in quasi tutti i detergenti, i saponi e i prodotti per la casa, e deriva anche dalla degradazione di urine, piante e animali.</dd>
-        <dt>Come leggerlo</dt>
-        <dd>L&#39;indice LIMeco si riferisce al fosforo totale e non ai fosfati, quindi il confronto è solo indicativo: il fosforo totale è sempre maggiore o uguale a quello reattivo che misuriamo noi, quindi la classe reale può essere uguale o peggiore di quella mostrata, mai migliore. I livelli, in mg/L di fosforo totale, sono: livello 1 (elevato) sotto 0,05; livello 2 (buono) fino a 0,10; livello 3 (sufficiente) fino a 0,20; livello 4 (scarso) fino a 0,40; livello 5 (cattivo) sopra 0,40.</dd>
         <dt>Cosa abbiamo trovato</dt>
         <dd>I fosfati sono alti già nel tratto alto. Nel tratto medio e urbano il valore massimo registrato è 1 mg/L; molti punti si fermano a 0,5 mg/L.</dd>
         <dt>Possibili cause</dt>
         <dd>Un fosfato elevato indica un&#39;alta disponibilità di fosforo reattivo. Le fonti più comuni sono gli scarichi urbani, gli insediamenti industriali e le attività agricole. La causa specifica va verificata caso per caso.</dd>
       </dl>
+      <details class="scheda-tecnica">
+        <summary>Come si legge, soglia per soglia</summary>
+        <p>L&#39;indice LIMeco si riferisce al fosforo totale e non ai fosfati, quindi il confronto è solo indicativo: il fosforo totale è sempre maggiore o uguale a quello reattivo che misuriamo noi, quindi la classe reale può essere uguale o peggiore di quella mostrata, mai migliore. I livelli, in mg/L di fosforo totale, sono: livello 1 (elevato) sotto 0,05; livello 2 (buono) fino a 0,10; livello 3 (sufficiente) fino a 0,20; livello 4 (scarso) fino a 0,40; livello 5 (cattivo) sopra 0,40.</p>
+      </details>
     </div>
   </article>
   <article class="parametro">
@@ -443,13 +483,15 @@
 <span class="stato stato-attenzione">Da tenere d&#39;occhio nel tratto urbano</span>      <dl>
         <dt>Cosa misura</dt>
         <dd>Indica l&#39;acidità o la basicità dell&#39;acqua. I processi vitali funzionano solo entro valori ben precisi. Il pH sale con la fotosintesi, che consuma anidride carbonica, e scende con la respirazione.</dd>
-        <dt>Come leggerlo</dt>
-        <dd>L&#39;intervallo ottimale per un fiume va da 6,5 a 9. Dipende anche dalla geologia del letto: suoli acidi o torbiere possono portarlo sotto 5, mentre in fiumi lenti o sbarrati da dighe l&#39;attività delle alghe può spingerlo fino a 9 o 10.</dd>
         <dt>Cosa abbiamo trovato</dt>
         <dd>Nel tratto alto i valori stanno tra 7,6 e 8,9. Nel tratto medio, a novembre 2025, alcuni punti superano il limite di 9. Nel tratto urbano, a febbraio 2026, tutti i punti campionati hanno un pH di almeno 9,8, ben oltre il limite. A giugno 2026 tornano tra 7,5 e 8,2.</dd>
         <dt>Possibili cause</dt>
         <dd>Un&#39;intensa attività algale legata all&#39;eccesso di nutrienti e, nel tratto urbano, apporti di scarichi con reazione basica.</dd>
       </dl>
+      <details class="scheda-tecnica">
+        <summary>Come si legge, soglia per soglia</summary>
+        <p>L&#39;intervallo ottimale per un fiume va da 6,5 a 9. Dipende anche dalla geologia del letto: suoli acidi o torbiere possono portarlo sotto 5, mentre in fiumi lenti o sbarrati da dighe l&#39;attività delle alghe può spingerlo fino a 9 o 10.</p>
+      </details>
     </div>
   </article>
   <article class="parametro">
@@ -460,13 +502,15 @@
 <span class="stato stato-attenzione">Da leggere con la geologia</span>      <dl>
         <dt>Cosa misura</dt>
         <dd>Misura la quantità di sali disciolti, in microsiemens per centimetro (µS/cm), ed è un indicatore del grado di mineralizzazione dell&#39;acqua. In un fiume cresce naturalmente da monte a valle.</dd>
-        <dt>Come leggerlo</dt>
-        <dd>Va letta tenendo conto della geologia locale: nelle aree calcaree come il bacino dell&#39;Aniene i valori normali sono tra 250 e 800 µS/cm. Valori oltre i 1.000 µS/cm possono indicare un&#39;intensa attività umana o una forte evaporazione, oltre i 1.500 un possibile inquinamento da scarichi urbani, industriali o agricoli. Il D.Lgs. 31/2001 indica che la conducibilità delle acque dolci non dovrebbe superare i 2.500 µS/cm. Piogge intense la abbassano temporaneamente per diluizione.</dd>
         <dt>Cosa abbiamo trovato</dt>
         <dd>I valori vanno da 690 µS/cm fino a oltre 2.000, il limite dello strumento. I più alti si registrano nei punti vicini alle sorgenti solfuree e travertinose di Tivoli.</dd>
         <dt>Possibili cause</dt>
         <dd>In questo contesto la conducibilità non ha soglie ufficiali di qualità, perché dipende molto dalla geologia locale: le sorgenti solfuree e travertinose danno valori naturalmente alti, che non indicano per forza inquinamento.</dd>
       </dl>
+      <details class="scheda-tecnica">
+        <summary>Come si legge, soglia per soglia</summary>
+        <p>Va letta tenendo conto della geologia locale: nelle aree calcaree come il bacino dell&#39;Aniene i valori normali sono tra 250 e 800 µS/cm. Valori oltre i 1.000 µS/cm possono indicare un&#39;intensa attività umana o una forte evaporazione, oltre i 1.500 un possibile inquinamento da scarichi urbani, industriali o agricoli. Il D.Lgs. 31/2001 indica che la conducibilità delle acque dolci non dovrebbe superare i 2.500 µS/cm. Piogge intense la abbassano temporaneamente per diluizione.</p>
+      </details>
     </div>
   </article>
   <article class="parametro">
@@ -477,13 +521,15 @@
 <span class="stato stato-critico">Critico</span>      <dl>
         <dt>Cosa misura</dt>
         <dd>È un batterio presente nelle feci umane e animali. La sua presenza, insieme a quella di coliformi ed enterococchi, rivela una contaminazione fecale e la possibile presenza di microrganismi patogeni. Per questo è l&#39;indicatore usato per valutare se un&#39;acqua è adatta alla balneazione: ad oggi l&#39;Aniene non rientra tra i fiumi balneabili.</dd>
-        <dt>Come leggerlo</dt>
-        <dd>Le uniche due soglie ufficiali per le acque interne sono quelle della direttiva 2006/7/CE: 500 UFC/100 mL (qualità elevata) e 1.000 UFC/100 mL (qualità buona), pensate per statistiche pluriennali e non per il singolo prelievo. Oltre queste soglie usiamo i gradini indicativi del LIMeco: fino a 5.000 sufficiente, fino a 20.000 scarso, oltre 20.000 cattivo. Il grafico ha una scala logaritmica, altrimenti valori da zero a oltre un milione sarebbero illeggibili.</dd>
         <dt>Cosa abbiamo trovato</dt>
         <dd>Il quadro batteriologico è nettamente peggiore di quello chimico. Nel tratto alto la situazione peggiore è a Tivoli-Borgonovo, con 490.000 UFC/100 mL a novembre e 870.000 a maggio. Nel tratto medio e urbano si superano spesso i 100.000 UFC, con punte oltre il milione. I valori più bassi, da zero a poche centinaia di UFC, si trovano solo in alcune campagne e in pochi punti.</dd>
         <dt>Possibili cause</dt>
         <dd>Valori così alti indicano una forte contaminazione di origine fecale. Le fonti più probabili sono scarichi fognari, impianti di sollevamento e fossi urbani, ma la causa specifica va verificata caso per caso.</dd>
       </dl>
+      <details class="scheda-tecnica">
+        <summary>Come si legge, soglia per soglia</summary>
+        <p>Le uniche due soglie ufficiali per le acque interne sono quelle della direttiva 2006/7/CE: 500 UFC/100 mL (qualità elevata) e 1.000 UFC/100 mL (qualità buona), pensate per statistiche pluriennali e non per il singolo prelievo. Oltre queste soglie usiamo i gradini indicativi del LIMeco: fino a 5.000 sufficiente, fino a 20.000 scarso, oltre 20.000 cattivo. Il grafico ha una scala logaritmica, altrimenti valori da zero a oltre un milione sarebbero illeggibili.</p>
+      </details>
     </div>
   </article>
   <article class="parametro">
@@ -494,13 +540,15 @@
 <span class="stato stato-critico">Critico</span>      <dl>
         <dt>Cosa misura</dt>
         <dd>Un gruppo di batteri indicatori di contaminazione fecale. Non fanno parte dell&#39;indice LIMeco e seguono lo stesso andamento di Escherichia coli.</dd>
-        <dt>Come leggerlo</dt>
-        <dd>Usiamo l&#39;unica soglia storica disponibile, quella del D.P.R. 470/82 per le acque di balneazione: 100 UFC/100 mL. Oltre questa, i gradini sono indicativi. Anche qui la scala del grafico è logaritmica.</dd>
         <dt>Cosa abbiamo trovato</dt>
         <dd>Seguono lo stesso andamento di Escherichia coli.</dd>
         <dt>Possibili cause</dt>
         <dd>Contaminazione di origine fecale: scarichi fognari, reflui non depurati, fossi urbani.</dd>
       </dl>
+      <details class="scheda-tecnica">
+        <summary>Come si legge, soglia per soglia</summary>
+        <p>Usiamo l&#39;unica soglia storica disponibile, quella del D.P.R. 470/82 per le acque di balneazione: 100 UFC/100 mL. Oltre questa, i gradini sono indicativi. Anche qui la scala del grafico è logaritmica.</p>
+      </details>
     </div>
   </article>
 </div>
@@ -599,6 +647,9 @@
 </div>
 
     </div>
+    <p class="bottoni" style="margin-top:2rem">
+      <a class="bottone bottone-chiaro" href="#dati-fissi">Torna ai dati dei punti fissi ↑</a>
+    </p>
   </div>
 </section>
 
@@ -659,5 +710,33 @@
 </footer>
 
 <script src="assets/js/dashboard.js?v=15dd3b98" defer></script>
+<script>
+/* Segna nella barra la sezione che si sta leggendo. Senza, in una pagina così
+   lunga non si capisce se si è nei punti fissi o nel gommone. */
+(function () {
+  var barra = document.querySelector('.sottomenu');
+  if (!barra || !('IntersectionObserver' in window)) return;
+  var voci = {};
+  barra.querySelectorAll('a[data-sezione]').forEach(function (a) {
+    voci[a.dataset.sezione] = a;
+  });
+  var sezioni = Object.keys(voci)
+    .map(function (id) { return document.getElementById(id); })
+    .filter(Boolean);
+
+  var osservatore = new IntersectionObserver(function (voci_viste) {
+    voci_viste.forEach(function (v) {
+      var a = voci[v.target.id];
+      if (!a) return;
+      if (v.isIntersecting) {
+        Object.keys(voci).forEach(function (k) { voci[k].removeAttribute('aria-current'); });
+        a.setAttribute('aria-current', 'true');
+      }
+    });
+  }, { rootMargin: '-45% 0px -50% 0px' });
+
+  sezioni.forEach(function (s) { osservatore.observe(s); });
+})();
+</script>
 </body>
 </html>

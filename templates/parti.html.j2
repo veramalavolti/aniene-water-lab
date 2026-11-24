@@ -152,8 +152,6 @@
       <dl>
         <dt>Cosa misura</dt>
         <dd>{{ (v.cosa_misura if v.cosa_misura is defined and v.cosa_misura else p.cosa_misura)|t }}</dd>
-        <dt>Come leggerlo</dt>
-        <dd>{{ (v.come_leggerlo if v.come_leggerlo is defined and v.come_leggerlo else p.come_leggerlo)|t }}</dd>
         {% if v.cosa_trovato %}
         <dt>Cosa abbiamo trovato</dt>
         <dd>{{ v.cosa_trovato|t }}</dd>
@@ -163,6 +161,12 @@
         <dd>{{ v.cause|t }}</dd>
         {% endif %}
       </dl>
+      {# La parte tecnica resta a disposizione ma non occupa la scheda:
+         nove schede aperte tutte insieme diventano un muro. #}
+      <details class="scheda-tecnica">
+        <summary>Come si legge, soglia per soglia</summary>
+        <p>{{ (v.come_leggerlo if v.come_leggerlo is defined and v.come_leggerlo else p.come_leggerlo)|t }}</p>
+      </details>
     </div>
   </article>
   {% endfor %}
@@ -185,13 +189,22 @@
       <dl>
         <dt>Cosa misura</dt>
         <dd>{{ p.cosa_misura|t }}</dd>
-        <dt>Come leggerlo</dt>
-        <dd>{{ p.come_leggerlo|t }}</dd>
         {% if p.soglie %}
         <dt>Possibili cause di superamento</dt>
         <dd>{{ p.soglie[-1].cause|t }}</dd>
         {% endif %}
       </dl>
+      {% if p.soglie %}
+      <p class="scheda-soglie">
+        {% for sg in p.soglie %}
+        <span class="pastiglia lvl-{{ sg.livello }}">{{ sg.etichetta.split('·')[0]|trim }}</span>
+        {% endfor %}
+      </p>
+      {% endif %}
+      <details class="scheda-tecnica">
+        <summary>Come si legge, soglia per soglia</summary>
+        <p>{{ p.come_leggerlo|t }}</p>
+      </details>
     </div>
   </article>
   {% endfor %}

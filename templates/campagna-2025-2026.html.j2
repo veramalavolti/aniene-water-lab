@@ -5,6 +5,16 @@
 
 {{ parti.hero(c, 'Campagna di monitoraggio') }}
 
+<nav class="sottomenu" aria-label="Le due sezioni della campagna">
+  <div class="contenitore sottomenu-interno">
+    <span class="sottomenu-titolo">In questa pagina</span>
+    {% for s in c.introduzione.sezioni %}
+    <a href="#{{ s.ancora }}" data-sezione="{{ s.ancora }}">{{ s.nome }}</a>
+    {% endfor %}
+    <a href="#report" data-sezione="report">I report</a>
+  </div>
+</nav>
+
 <section class="sezione">
   <div class="contenitore stretto">
     {{ parti.paragrafi(c.introduzione.paragrafi) }}
@@ -46,6 +56,9 @@
     <div style="margin-top:2rem">
       {{ parti.galleria(c.fissi.foto) }}
     </div>
+    <p class="bottoni" style="margin-top:2rem">
+      <a class="bottone" href="#dati-gommone">Vai ai dati in gommone ↓</a>
+    </p>
   </div>
 </section>
 
@@ -123,6 +136,9 @@
     <div style="margin-top:2rem">
       {{ parti.galleria(c.gommone.foto) }}
     </div>
+    <p class="bottoni" style="margin-top:2rem">
+      <a class="bottone bottone-chiaro" href="#dati-fissi">Torna ai dati dei punti fissi ↑</a>
+    </p>
   </div>
 </section>
 
@@ -136,4 +152,32 @@
 
 {% block script %}
 <script src="assets/js/dashboard.js?v={{ versione.js }}" defer></script>
+<script>
+/* Segna nella barra la sezione che si sta leggendo. Senza, in una pagina così
+   lunga non si capisce se si è nei punti fissi o nel gommone. */
+(function () {
+  var barra = document.querySelector('.sottomenu');
+  if (!barra || !('IntersectionObserver' in window)) return;
+  var voci = {};
+  barra.querySelectorAll('a[data-sezione]').forEach(function (a) {
+    voci[a.dataset.sezione] = a;
+  });
+  var sezioni = Object.keys(voci)
+    .map(function (id) { return document.getElementById(id); })
+    .filter(Boolean);
+
+  var osservatore = new IntersectionObserver(function (voci_viste) {
+    voci_viste.forEach(function (v) {
+      var a = voci[v.target.id];
+      if (!a) return;
+      if (v.isIntersecting) {
+        Object.keys(voci).forEach(function (k) { voci[k].removeAttribute('aria-current'); });
+        a.setAttribute('aria-current', 'true');
+      }
+    });
+  }, { rootMargin: '-45% 0px -50% 0px' });
+
+  sezioni.forEach(function (s) { osservatore.observe(s); });
+})();
+</script>
 {% endblock %}
