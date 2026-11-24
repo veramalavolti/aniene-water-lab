@@ -177,6 +177,10 @@ scienza_partecipata:
         estrema accelerazione delle crisi ambientali.
 
   chiusura_titolo: Un allargamento dei soggetti
+  chiusura_foto:
+    file: foto/restituzione-pubblica.jpg
+    descrizione: >-
+      La restituzione pubblica dei risultati, con cittadinanza e istituzioni.
   chiusura:
     - >-
       I progetti di citizen science estrema coinvolgono rappresentanti del mondo

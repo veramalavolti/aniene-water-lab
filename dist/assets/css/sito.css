@@ -403,9 +403,19 @@ main { padding-bottom: 4rem; }
 .galleria img { width: 100%; height: 210px; object-fit: cover; }
 .galleria figcaption { padding: .6rem .85rem; font-size: .84rem; color: var(--text-dim); }
 
-.foto-affiancata { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 420px); gap: 2rem; align-items: start; }
-.foto-affiancata figure { margin: 0; border-radius: var(--radius-md); overflow: hidden; background: var(--cream-card); border: 1px solid var(--border); }
-.foto-affiancata img { width: 100%; height: 100%; max-height: 420px; object-fit: cover; }
+.foto-affiancata {
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 420px);
+  gap: 2rem; align-items: stretch; min-height: 260px;
+}
+.foto-affiancata figure {
+  margin: 0; border-radius: var(--radius-md); overflow: hidden;
+  background: var(--cream-card); border: 1px solid var(--border);
+  display: flex; flex-direction: column; min-height: 0;
+}
+/* come nei blocchi del capitolo: l'altezza la decide il testo accanto */
+.foto-affiancata img {
+  width: 100%; flex: 1 1 0; height: 0; min-height: 170px; object-fit: cover;
+}
 .foto-affiancata figcaption { padding: .6rem .85rem; font-size: .84rem; color: var(--text-dim); }
 @media (max-width: 900px) { .foto-affiancata { grid-template-columns: 1fr; } }
 
@@ -630,14 +640,28 @@ td.oltre { font-weight: 800; }
 }
 
 /* Il lungo capitolo sulla scienza partecipata, spezzato in blocchi leggibili */
-.capitolo { display: grid; gap: 1.6rem; }
-.capitolo-blocco { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 360px); gap: 2rem; align-items: start; }
+.capitolo { display: grid; gap: 2rem; }
+.capitolo-blocco {
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 340px);
+  gap: 2rem; align-items: stretch;
+}
 .capitolo-blocco.rovescio { grid-template-columns: minmax(0, 360px) minmax(0, 1fr); }
 .capitolo-blocco.rovescio .capitolo-testo { order: 2; }
 .capitolo-testo > p { max-width: var(--larghezza-testo); }
-.capitolo-blocco figure { margin: 0; border-radius: var(--radius-md); overflow: hidden;
-  background: var(--cream-card); border: 1px solid var(--border); box-shadow: var(--shadow-sm); }
-.capitolo-blocco figure img { width: 100%; height: 300px; object-fit: cover; }
+.capitolo-testo > p:last-child { margin-bottom: 0; }
+.capitolo-blocco figure {
+  margin: 0; border-radius: var(--radius-md); overflow: hidden;
+  background: var(--cream-card); border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+  display: flex; flex-direction: column; min-height: 0;
+}
+/* height:0 toglie all'immagine la sua altezza naturale: l'altezza della riga
+   la decide il testo, e la fotografia la riempie ritagliandosi. */
+.capitolo-blocco figure img {
+  width: 100%; flex: 1 1 0; height: 0; min-height: 150px; object-fit: cover;
+}
+/* una riga non scende sotto un'altezza minima, altrimenti la foto diventa una striscia */
+.capitolo-blocco { min-height: 230px; }
 .capitolo-blocco figcaption { padding: .55rem .85rem; font-size: .84rem; color: var(--text-dim); }
 @media (max-width: 900px) {
   .capitolo-blocco, .capitolo-blocco.rovescio { grid-template-columns: 1fr; }
@@ -670,8 +694,9 @@ td.oltre { font-weight: 800; }
 @media (max-width: 760px) { .fww { grid-template-columns: 1fr; padding: 1.6rem 1.4rem; } }
 
 /* Due colonne di testo che devono partire alla stessa altezza */
-.affiancate { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem 2.6rem; }
+.affiancate { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem 2.6rem; align-items: stretch; }
 .affiancate > div > *:first-child { margin-top: 0; }
+.affiancate > div > *:last-child { margin-bottom: 0; }
 
 /* ==================================================== documenti da scaricare */
 
@@ -998,3 +1023,10 @@ a.rete-card:hover .vai { text-decoration: underline; text-underline-offset: 3px;
 .stazioni-colonne .stazioni-elenco {
   display: grid; grid-template-columns: repeat(auto-fit, minmax(330px, 1fr)); gap: .6rem;
 }
+
+/* il riquadro largo manda il testo su due colonne, per non allungare le righe */
+.riquadro-largo { margin-top: 1.8rem; }
+.riquadro-colonne { columns: 2; column-gap: 2.4rem; }
+.riquadro-colonne p { break-inside: avoid; }
+.riquadro-colonne p:last-child { margin-bottom: 0; }
+@media (max-width: 860px) { .riquadro-colonne { columns: 1; } }

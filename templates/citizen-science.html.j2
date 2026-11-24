@@ -44,14 +44,23 @@
     {{ capitolo(c.scienza_partecipata.blocchi) }}
     <blockquote class="citazione">{{ c.scienza_partecipata.citazione }}</blockquote>
     {{ capitolo(c.scienza_partecipata.blocchi_due) }}
-    <div class="affiancate" style="margin-top:1.6rem">
-      <div class="riquadro">
-        <h3>{{ c.scienza_partecipata.riquadro.titolo }}</h3>
+    <div class="riquadro riquadro-largo">
+      <h3>{{ c.scienza_partecipata.riquadro.titolo }}</h3>
+      <div class="riquadro-colonne">
         {{ parti.paragrafi(c.scienza_partecipata.riquadro.paragrafi) }}
       </div>
-      <div>
-        <h3 class="sotto-titolo" style="margin-top:0">{{ c.scienza_partecipata.chiusura_titolo }}</h3>
-        {{ parti.paragrafi(c.scienza_partecipata.chiusura) }}
+    </div>
+    <div class="capitolo" style="margin-top:2rem">
+      <div class="capitolo-blocco">
+        <div class="capitolo-testo">
+          <h3 class="sotto-titolo" style="margin-top:0">{{ c.scienza_partecipata.chiusura_titolo }}</h3>
+          {{ parti.paragrafi(c.scienza_partecipata.chiusura) }}
+        </div>
+        <figure>
+          <img src="assets/img/{{ c.scienza_partecipata.chiusura_foto.file }}"
+               alt="{{ c.scienza_partecipata.chiusura_foto.descrizione }}" loading="lazy" width="1200" height="800">
+          <figcaption>{{ c.scienza_partecipata.chiusura_foto.descrizione }}</figcaption>
+        </figure>
       </div>
     </div>
   </div>
