@@ -153,31 +153,43 @@
 {% block script %}
 <script src="assets/js/dashboard.js?v={{ versione.js }}" defer></script>
 <script>
-/* Segna nella barra la sezione che si sta leggendo. Senza, in una pagina così
-   lunga non si capisce se si è nei punti fissi o nel gommone. */
+/* Segna nella barra la sezione che si sta leggendo. Le due metà della pagina
+   sono fatte di più sezioni ciascuna, quindi non basta osservare un solo
+   blocco: si guarda quale ancora è l'ultima passata sopra la barra. */
 (function () {
   var barra = document.querySelector('.sottomenu');
-  if (!barra || !('IntersectionObserver' in window)) return;
-  var voci = {};
-  barra.querySelectorAll('a[data-sezione]').forEach(function (a) {
-    voci[a.dataset.sezione] = a;
-  });
-  var sezioni = Object.keys(voci)
-    .map(function (id) { return document.getElementById(id); })
-    .filter(Boolean);
+  if (!barra) return;
+  var voci = Array.prototype.map.call(
+    barra.querySelectorAll('a[data-sezione]'),
+    function (a) { return { link: a, sezione: document.getElementById(a.dataset.sezione) }; }
+  ).filter(function (v) { return v.sezione; });
+  if (!voci.length) return;
 
-  var osservatore = new IntersectionObserver(function (voci_viste) {
-    voci_viste.forEach(function (v) {
-      var a = voci[v.target.id];
-      if (!a) return;
-      if (v.isIntersecting) {
-        Object.keys(voci).forEach(function (k) { voci[k].removeAttribute('aria-current'); });
-        a.setAttribute('aria-current', 'true');
-      }
+  var inAttesa = false;
+  function aggiorna() {
+    inAttesa = false;
+    var soglia = window.scrollY + barra.getBoundingClientRect().height + 90;
+    var attiva = null;
+    voci.forEach(function (v) {
+      if (v.sezione.getBoundingClientRect().top + window.scrollY <= soglia) attiva = v;
     });
-  }, { rootMargin: '-45% 0px -50% 0px' });
-
-  sezioni.forEach(function (s) { osservatore.observe(s); });
+    // in fondo alla pagina l'ultima sezione non arriva mai sotto la barra:
+    // se si è arrivati al fondo, è quella che si sta leggendo
+    var fondo = window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 4;
+    if (fondo) attiva = voci[voci.length - 1];
+    voci.forEach(function (v) {
+      if (v === attiva) v.link.setAttribute('aria-current', 'true');
+      else v.link.removeAttribute('aria-current');
+    });
+  }
+  function chiedi() {
+    if (inAttesa) return;
+    inAttesa = true;
+    window.requestAnimationFrame(aggiorna);
+  }
+  window.addEventListener('scroll', chiedi, { passive: true });
+  window.addEventListener('resize', chiedi);
+  aggiorna();
 })();
 </script>
 {% endblock %}
