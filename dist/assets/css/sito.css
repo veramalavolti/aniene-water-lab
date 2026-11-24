@@ -12,6 +12,9 @@
   --purple-deep: #1E1632;
   --lime: #B8D432;
   --lime-dark: #8CA918;
+  /* il verde del lime non ha contrasto sufficiente come testo su fondo chiaro:
+     per scrivere si usa questo, più scuro, che passa i requisiti WCAG AA */
+  --verde-testo: #5A6E10;
   --lime-light: #D4EC5E;
   --lime-soft: rgba(184, 212, 50, .14);
   --lime-border: rgba(184, 212, 50, .35);
@@ -35,7 +38,15 @@
   --l4: #E0812E;
   --l5: #B03A2E;
   --larghezza: 1180px;
-  --larghezza-testo: 68ch;
+  --larghezza-testo: 66ch;
+  /* scala tipografica: ogni livello si distingue dal successivo */
+  --t-h1: clamp(2.3rem, 4.2vw, 3.8rem);
+  --t-h2: clamp(1.55rem, 2.1vw, 1.95rem);
+  --t-h3: clamp(1.25rem, 1.5vw, 1.45rem);
+  --t-h4: clamp(1.1rem, 1.2vw, 1.2rem);
+  --t-corpo: 1.08rem;
+  --t-piccolo: .92rem;
+  --t-etichetta: .78rem;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -45,8 +56,8 @@ html { scroll-behavior: smooth; }
 body {
   margin: 0;
   font-family: var(--font-body);
-  font-size: 1.06rem;
-  line-height: 1.7;
+  font-size: var(--t-corpo);
+  line-height: 1.72;
   color: var(--text);
   background: var(--cream);
   -webkit-font-smoothing: antialiased;
@@ -65,7 +76,7 @@ strong, b { font-weight: 700; color: var(--grassetto, var(--teal)); }
 .sezione-scura .passi li, .sezione-scura .elenco-numerato li { --grassetto: var(--teal); }
 img { max-width: 100%; height: auto; display: block; }
 a { color: var(--teal); text-decoration-thickness: 1px; text-underline-offset: 3px; }
-a:hover { color: var(--lime-dark); }
+a:hover { color: var(--verde-testo); }
 
 :focus-visible { outline: 3px solid var(--lime-dark); outline-offset: 3px; }
 
@@ -158,10 +169,10 @@ a:hover { color: var(--lime-dark); }
   margin-bottom: .6rem;
 }
 .hero h1 {
-  font-size: clamp(2.3rem, 4.6vw, 3.5rem); font-weight: 900; text-transform: uppercase;
-  margin-bottom: 1.2rem; letter-spacing: .005em;
+  font-size: var(--t-h1); font-weight: 900; text-transform: uppercase;
+  margin-bottom: 1.1rem; letter-spacing: .004em;
 }
-.hero p { font-size: 1.1rem; color: var(--text-inv-dim); max-width: 58ch; }
+.hero p { font-size: 1.06rem; color: var(--text-inv-dim); max-width: 56ch; }
 .hero figure { margin: 0; }
 .hero figure img {
   width: 100%; height: clamp(210px, 24vw, 300px); object-fit: cover;
@@ -188,15 +199,23 @@ main { padding-bottom: 4rem; }
 .sezione-chiara { background: var(--cream-alt); padding-block: 3.6rem; }
 
 .etichetta {
-  font-family: var(--font-display); font-size: .85rem; font-weight: 800;
-  text-transform: uppercase; letter-spacing: .14em; color: var(--lime-dark);
-  margin-bottom: .5rem;
+  font-family: var(--font-display); font-size: var(--t-etichetta); font-weight: 800;
+  text-transform: uppercase; letter-spacing: .16em; color: var(--verde-testo);
+  margin-bottom: .55rem;
 }
 .sezione-scura .etichetta { color: var(--lime); }
 .titolo-sezione {
-  font-size: clamp(1.75rem, 2.8vw, 2.25rem); font-weight: 900; text-transform: uppercase;
-  color: var(--teal); margin-bottom: 1rem; letter-spacing: .01em;
+  font-size: var(--t-h2); font-weight: 900; text-transform: uppercase;
+  color: var(--teal); margin-bottom: 1.1rem; letter-spacing: .015em;
 }
+/* un filetto breve sopra il titolo di sezione: dice a colpo d'occhio
+   che si è a un livello diverso da quello del titolo di pagina */
+.titolo-sezione::before {
+  content: ''; display: block; width: 44px; height: 4px;
+  background: var(--lime-dark); border-radius: 2px; margin-bottom: .8rem;
+}
+.sezione-scura .titolo-sezione::before, .obiettivi .titolo-sezione::before { background: var(--lime); }
+.etichetta + .titolo-sezione::before { display: none; }
 .sezione-scura .titolo-sezione { color: var(--text-inv); }
 .occhiello-testo { font-size: 1.12rem; color: var(--text-dim); max-width: var(--larghezza-testo); margin-bottom: 2rem; }
 .sezione-scura .occhiello-testo { color: var(--text-inv-dim); }
@@ -247,9 +266,9 @@ main { padding-bottom: 4rem; }
 .doppia > div { padding: 2.2rem 2.3rem; }
 .doppia > div + div { border-left: 1px solid var(--border); background: #FBFAF7; }
 .doppia h3, .sotto-titolo {
-  font-family: var(--font-display); font-size: clamp(1.4rem, 1.9vw, 1.7rem);
+  font-family: var(--font-display); font-size: var(--t-h3);
   font-weight: 800; text-transform: uppercase; color: var(--teal);
-  margin: 2rem 0 .9rem; letter-spacing: .02em;
+  margin: 2rem 0 .8rem; letter-spacing: .04em;
 }
 .sezione-scura .sotto-titolo { color: var(--lime); }
 .doppia > div > h2:first-child, .doppia > div > .etichetta:first-child { margin-top: 0; }
@@ -267,7 +286,7 @@ main { padding-bottom: 4rem; }
   content: ''; position: absolute; left: -8.5px; top: .4rem; width: 14px; height: 14px;
   border-radius: 50%; background: var(--cream-card); border: 3px solid var(--lime-dark);
 }
-.cronologia-anni { font-size: .8rem; font-weight: 800; letter-spacing: .08em; color: var(--lime-dark); text-transform: uppercase; }
+.cronologia-anni { font-size: .8rem; font-weight: 800; letter-spacing: .1em; color: var(--verde-testo); text-transform: uppercase; }
 .cronologia-nome {
   display: block; font-family: var(--font-display); font-size: 1.3rem; font-weight: 800;
   text-transform: uppercase; color: var(--teal); line-height: 1.1; margin-bottom: .2rem;
@@ -319,7 +338,7 @@ main { padding-bottom: 4rem; }
 
 .elenco-spunte { list-style: none; padding: 0; margin: 0; display: grid; gap: .7rem; }
 .elenco-spunte li { position: relative; padding-left: 1.5rem; color: var(--text-dim); }
-.elenco-spunte li::before { content: '✓'; position: absolute; left: 0; color: var(--lime-dark); font-weight: 900; }
+.elenco-spunte li::before { content: '✓'; position: absolute; left: 0; color: var(--verde-testo); font-weight: 900; }
 .sezione-scura .elenco-spunte li { color: var(--text-inv-dim); }
 
 .elenco-numerato { counter-reset: n; list-style: none; padding: 0; margin: 0; display: grid; gap: .7rem; }
@@ -331,7 +350,7 @@ main { padding-bottom: 4rem; }
 .elenco-numerato li::before {
   content: counter(n, decimal-leading-zero); position: absolute; left: 1rem; top: .75rem;
   font-family: var(--font-display); font-size: 1.55rem; font-weight: 900;
-  color: var(--lime-dark); line-height: 1;
+  color: var(--verde-testo); line-height: 1;
 }
 
 .stazioni-elenco { list-style: none; padding: 0; margin: 0; display: grid; gap: .6rem; }
@@ -342,8 +361,8 @@ main { padding-bottom: 4rem; }
   padding: .85rem 1.1rem;
 }
 .stazione-codice {
-  font-family: var(--font-display); font-size: 1.6rem; font-weight: 900;
-  color: var(--lime-dark); line-height: 1;
+  font-family: var(--font-display); font-size: 1.55rem; font-weight: 900;
+  color: var(--verde-testo); line-height: 1;
 }
 .stazione-nome { display: block; font-weight: 800; color: var(--teal); }
 .stazioni-elenco p { font-size: .93rem; color: var(--text-dim); margin: .15rem 0 0; }
@@ -440,7 +459,7 @@ main { padding-bottom: 4rem; }
 .partner-gruppo { margin-bottom: 2.4rem; }
 .partner-testa { display: flex; flex-wrap: wrap; gap: .4rem 1rem; align-items: baseline; margin-bottom: .5rem; }
 .partner-testa h3 { font-size: 1.5rem; font-weight: 800; text-transform: uppercase; color: var(--teal); }
-.partner-anni { font-family: var(--font-display); font-size: 1.1rem; font-weight: 800; color: var(--lime-dark); }
+.partner-anni { font-family: var(--font-display); font-size: 1.1rem; font-weight: 800; color: var(--verde-testo); }
 .loghi { display: flex; flex-wrap: wrap; gap: .8rem; margin-top: 1rem; }
 .logo-box {
   display: flex; align-items: center; justify-content: center; gap: .6rem;
@@ -466,7 +485,7 @@ main { padding-bottom: 4rem; }
   border: 1px solid var(--border); border-radius: var(--radius-md); box-shadow: var(--shadow-sm);
 }
 .articolo h3 { font-size: 1.4rem; font-weight: 800; color: var(--teal); }
-.articolo-occhiello { font-size: .76rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: var(--lime-dark); }
+.articolo-occhiello { font-size: .76rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--verde-testo); }
 
 /* -------------------------------------------------------------- piè di pagina */
 
@@ -759,7 +778,7 @@ td.oltre { font-weight: 800; }
   background: var(--cream-card); border: 1px solid var(--border);
   border-top: 4px solid var(--lime-dark); border-radius: var(--radius-md); padding: 1.3rem 1.4rem;
 }
-.numeri-chiari .numero-valore { color: var(--lime-dark); }
+.numeri-chiari .numero-valore { color: var(--verde-testo); }
 .numeri-chiari .numero-etichetta { color: var(--teal); }
 .numeri-chiari .numero-dettaglio { color: var(--text-dim); }
 
@@ -838,7 +857,7 @@ td.oltre { font-weight: 800; }
 .passi li::before {
   content: counter(n, decimal-leading-zero); position: absolute; left: 1rem; top: .85rem;
   font-family: var(--font-display); font-size: 1.5rem; font-weight: 900;
-  color: var(--lime-dark); line-height: 1;
+  color: var(--verde-testo); line-height: 1;
 }
 .passi b { color: var(--teal); }
 .limiti {
@@ -917,7 +936,7 @@ a.rete-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); b
 .rete-card .logo img { max-height: 58px; max-width: 170px; width: auto; object-fit: contain; }
 .rete-card h3 { font-size: 1.1rem; font-weight: 800; color: var(--teal); text-transform: none; line-height: 1.25; }
 .rete-card p { font-size: .9rem; color: var(--text-dim); margin: 0; }
-.rete-card .vai { font-size: .85rem; font-weight: 800; color: var(--lime-dark); }
+.rete-card .vai { font-size: .85rem; font-weight: 800; color: var(--verde-testo); }
 a.rete-card:hover .vai { text-decoration: underline; text-underline-offset: 3px; }
 
 .rete-altri { list-style: none; padding: 0; margin: 1.6rem 0 0; display: grid; gap: .6rem; }
@@ -940,8 +959,8 @@ a.rete-card:hover .vai { text-decoration: underline; text-underline-offset: 3px;
   border-radius: var(--radius-md); box-shadow: var(--shadow-sm);
 }
 .vantaggi b {
-  font-family: var(--font-display); font-size: 1.5rem; font-weight: 900;
-  color: var(--lime-dark); line-height: 1;
+  font-family: var(--font-display); font-size: 1.45rem; font-weight: 900;
+  color: var(--verde-testo); line-height: 1;
 }
 .vantaggi h4 {
   font-family: var(--font-display); font-size: 1.15rem; font-weight: 800;
@@ -970,7 +989,7 @@ a.rete-card:hover .vai { text-decoration: underline; text-underline-offset: 3px;
 
 /* titolo di un blocco interno, più presente di un sottotitolo di paragrafo */
 .titolo-blocco {
-  font-family: var(--font-display); font-size: clamp(1.7rem, 2.4vw, 2.1rem);
+  font-family: var(--font-display); font-size: clamp(1.45rem, 1.8vw, 1.7rem);
   font-weight: 900; text-transform: uppercase; color: var(--teal);
   letter-spacing: .01em; margin: 2.4rem 0 1.1rem;
   padding-bottom: .5rem; border-bottom: 3px solid var(--lime);
@@ -982,6 +1001,13 @@ a.rete-card:hover .vai { text-decoration: underline; text-underline-offset: 3px;
 
 @media (max-width: 760px) {
   body { font-size: 1.02rem; line-height: 1.65; }
+  /* su schermo stretto i livelli si avvicinano: li riapro per tenere
+     distinti titolo di pagina, titolo di sezione e sottotitolo */
+  :root {
+    --t-h1: 2.35rem;
+    --t-h2: 1.5rem;
+    --t-h3: 1.18rem;
+  }
   .contenitore, .stretto { width: min(100% - 2rem, var(--larghezza)); }
   .sezione, .sezione-scura, .sezione-chiara { padding-block: 2.6rem; }
   .sezione-scura + .sezione,
@@ -1005,8 +1031,10 @@ a.rete-card:hover .vai { text-decoration: underline; text-underline-offset: 3px;
 }
 
 @media (max-width: 420px) {
-  .hero h1 { font-size: 2.05rem; }
-  .titolo-sezione { font-size: 1.6rem; }
+  .hero h1 { font-size: 2.2rem; }
+  .titolo-sezione { font-size: 1.38rem; }
+  .sotto-titolo, .doppia h3 { font-size: 1.15rem; }
+  .titolo-blocco { font-size: 1.3rem; }
   .campagna-anni { font-size: 1.6rem; }
   .bottone, .bottone-chiaro { width: 100%; justify-content: center; }
   .bottoni { gap: .6rem; }
