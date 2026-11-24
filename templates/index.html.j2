@@ -174,8 +174,9 @@
           </p>
         </div>
         <div class="fww-qr">
-          <img src="assets/img/qr-survey123.svg" alt="Codice QR dell'archivio Survey123 di Fresh Water Watch" width="150" height="150">
-          <span>Survey123</span>
+          <img src="assets/img/qr-survey123.svg" alt="{{ c.metodologia.fresh_water_watch.qr_descrizione }}" width="150" height="150">
+          <strong>{{ c.metodologia.fresh_water_watch.qr_etichetta }}</strong>
+          <span>{{ c.metodologia.fresh_water_watch.qr_descrizione }}</span>
         </div>
       </aside>
     </div>
@@ -201,7 +202,7 @@
 
 <section class="sezione" id="ringraziamenti">
   <div class="contenitore">
-    {{ parti.testa('La rete', c.ringraziamenti.titolo, c.ringraziamenti.testo) }}
+    {{ parti.testa_doppia('La rete', c.ringraziamenti.titolo, c.ringraziamenti.testo) }}
     <div class="loghi">
       {% for g in loghi %}
       <span class="logo-box"><img src="assets/img/{{ g.logo }}" alt="{{ g.nome }}" loading="lazy"></span>

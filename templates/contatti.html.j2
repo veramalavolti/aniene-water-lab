@@ -9,7 +9,7 @@
 
 <section class="sezione" id="bollettino">
   <div class="contenitore">
-    {{ parti.testa(c.bollettino.etichetta, c.bollettino.titolo, c.bollettino.intro) }}
+    {{ parti.testa_doppia(c.bollettino.etichetta, c.bollettino.titolo, c.bollettino.intro) }}
 
     <article class="articolo-evidenza">
       <div class="testo">
@@ -44,7 +44,7 @@
 
 <section class="sezione sezione-chiara" id="segnalazioni">
   <div class="contenitore">
-    {{ parti.testa('Scrivici', c.segnalazioni.titolo, c.segnalazioni.intro) }}
+    {{ parti.testa_doppia('Scrivici', c.segnalazioni.titolo, c.segnalazioni.intro) }}
     <div class="cs-griglia">
       <form class="modulo" id="modulo-segnalazione" data-destinatario="{{ c.segnalazioni.email }}">
         <label>
@@ -85,7 +85,7 @@
 
 <section class="sezione" id="rete">
   <div class="contenitore">
-    {{ parti.testa(c.rete.etichetta, c.rete.titolo, c.rete.intro) }}
+    {{ parti.testa_doppia(c.rete.etichetta, c.rete.titolo, c.rete.intro) }}
     <div class="rete-griglia">
       {% for r in c.rete.realta %}
       {% if r.get('sito') %}

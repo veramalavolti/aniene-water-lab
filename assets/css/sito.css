@@ -229,6 +229,16 @@ main { padding-bottom: 4rem; }
 .sezione-scura .titolo-sezione::before, .obiettivi .titolo-sezione::before { background: var(--lime); }
 .etichetta + .titolo-sezione::before { display: none; }
 .sezione-scura .titolo-sezione { color: var(--text-inv); }
+.testa-doppia {
+  display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: 1rem 3rem; align-items: start; margin-bottom: 2.2rem;
+}
+.testa-doppia .titolo-sezione { margin-bottom: 0; }
+.testa-doppia .occhiello-testo { margin-bottom: 0; max-width: none; font-size: 1.06rem; }
+@media (max-width: 860px) {
+  .testa-doppia { grid-template-columns: 1fr; gap: .8rem; margin-bottom: 1.6rem; }
+}
+
 .occhiello-testo { font-size: 1.12rem; color: var(--text-dim); max-width: var(--larghezza-testo); margin-bottom: 2rem; }
 .sezione-scura .occhiello-testo { color: var(--text-inv-dim); }
 
@@ -692,8 +702,10 @@ td.oltre { font-weight: 800; }
 }
 .capitolo-blocco.rovescio { grid-template-columns: minmax(0, 360px) minmax(0, 1fr); }
 .capitolo-blocco.rovescio .capitolo-testo { order: 2; }
-.capitolo-testo > p { max-width: var(--larghezza-testo); }
 .capitolo-testo > p:last-child { margin-bottom: 0; }
+/* il limite di larghezza serve solo quando il testo sta da solo nella pagina:
+   dentro una colonna la colonna stessa fa già quel lavoro */
+.capitolo > .capitolo-testo > p { max-width: var(--larghezza-testo); }
 .capitolo-blocco figure {
   margin: 0; border-radius: var(--radius-md); overflow: hidden;
   background: var(--cream-card); border: 1px solid var(--border);
@@ -725,18 +737,28 @@ td.oltre { font-weight: 800; }
 
 /* Fresh Water Watch: la rete internazionale a cui mandiamo i dati */
 .fww {
-  display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 2rem; align-items: center;
+  display: grid; grid-template-columns: minmax(0, 1fr) 230px; gap: 3rem; align-items: center;
   background: var(--teal); color: var(--text-inv);
   border: 1.5px solid var(--lime-border);
   border-radius: var(--radius-lg); padding: 2.2rem 2.4rem;
 }
 .fww .etichetta { color: var(--lime); }
 .fww h3 { font-size: clamp(1.5rem, 2.4vw, 2rem); font-weight: 900; text-transform: uppercase; margin-bottom: .6rem; }
-.fww p { color: var(--text-inv-dim); max-width: 62ch; }
-.fww-qr { background: var(--cream-card); border-radius: var(--radius-md); padding: .9rem; text-align: center; }
-.fww-qr img { width: 150px; height: 150px; }
-.fww-qr span { display: block; margin-top: .4rem; font-size: .76rem; font-weight: 700; color: var(--teal); }
-@media (max-width: 760px) { .fww { grid-template-columns: 1fr; padding: 1.6rem 1.4rem; } }
+.fww p { color: var(--text-inv-dim); max-width: none; }
+.fww-qr {
+  background: var(--cream-card); border-radius: var(--radius-md);
+  padding: 1.2rem 1.1rem; text-align: center; justify-self: stretch;
+}
+.fww-qr img { width: 100%; max-width: 180px; height: auto; aspect-ratio: 1; }
+.fww-qr strong { display: block; margin-top: .6rem; font-size: .92rem; color: var(--teal); }
+.fww-qr span {
+  display: block; margin-top: .2rem; font-size: .78rem; line-height: 1.4;
+  color: var(--text-dim); font-weight: 600;
+}
+@media (max-width: 860px) {
+  .fww { grid-template-columns: 1fr; gap: 1.6rem; padding: 1.6rem 1.4rem; }
+  .fww-qr { justify-self: start; max-width: 230px; }
+}
 
 /* Due colonne di testo che devono partire alla stessa altezza */
 .affiancate { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem 2.6rem; align-items: stretch; }
@@ -1006,7 +1028,8 @@ a.rete-card:hover .vai { text-decoration: underline; text-underline-offset: 3px;
 /* la metodologia: testo a sinistra, la rete internazionale a destra */
 .metodo-griglia { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 2.5rem; align-items: start; }
 .fww-stretto { grid-template-columns: 1fr; gap: 1.4rem; padding: 1.8rem 1.9rem; position: sticky; top: 96px; }
-.fww-stretto .fww-qr { justify-self: start; }
+.fww-stretto .fww-qr { justify-self: stretch; }
+.fww-stretto .fww-qr img { max-width: 150px; }
 .fww-stretto h3 { font-size: 1.45rem; }
 @media (max-width: 980px) {
   .metodo-griglia { grid-template-columns: 1fr; }

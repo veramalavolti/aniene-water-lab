@@ -25,7 +25,7 @@
 
 <section class="sezione" id="luoghi">
   <div class="contenitore">
-    {{ parti.testa('Dove', c.luoghi.titolo, c.luoghi.intro) }}
+    {{ parti.testa_doppia('Dove', c.luoghi.titolo, c.luoghi.intro) }}
     <figure class="mappa mappa-larga">
       {{ mappa_svg(c.dashboard.dati, 400) }}
       <figcaption>{{ c.luoghi.mappa_didascalia }}</figcaption>
@@ -67,14 +67,14 @@
 
 <section class="sezione" id="schede">
   <div class="contenitore">
-    {{ parti.testa('Le schede', c.schede.titolo, c.schede.intro) }}
+    {{ parti.testa_doppia('Le schede', c.schede.titolo, c.schede.intro) }}
     {{ parti.schede_generali(c.schede.ordine, parametri) }}
   </div>
 </section>
 
 <section class="sezione" id="metodologia">
   <div class="contenitore">
-    {{ parti.testa('Come', c.metodologia.titolo, c.metodologia.intro) }}
+    {{ parti.testa_doppia('Come', c.metodologia.titolo, c.metodologia.intro) }}
     <div class="nota">
       <p><b>{{ c.metodologia.ossigeno.titolo }}.</b> {{ c.metodologia.ossigeno.testo }}</p>
     </div>
@@ -89,7 +89,7 @@
 
 <section class="sezione sezione-chiara" id="rete">
   <div class="contenitore">
-    {{ parti.testa('Chi', c.rete.titolo, c.rete.intro) }}
+    {{ parti.testa_doppia('Chi', c.rete.titolo, c.rete.intro) }}
     <div class="schede">
       {% for v in c.rete.voci %}
       <article class="scheda">

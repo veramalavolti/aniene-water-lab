@@ -28,6 +28,19 @@
 {% endmacro %}
 
 
+{# Intestazione di sezione su due colonne: il titolo a sinistra e il testo di
+   apertura a destra, così la riga è piena e il testo non resta sospeso. #}
+{% macro testa_doppia(etichetta, titolo, testo) %}
+<div class="testa-doppia">
+  <div>
+    {% if etichetta %}<p class="etichetta">{{ etichetta }}</p>{% endif %}
+    <h2 class="titolo-sezione">{{ titolo }}</h2>
+  </div>
+  <p class="occhiello-testo">{{ testo|t }}</p>
+</div>
+{% endmacro %}
+
+
 {% macro paragrafi(elenco) %}
 {% for p in elenco %}<p>{{ p|t }}</p>{% endfor %}
 {% endmacro %}

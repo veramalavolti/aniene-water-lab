@@ -68,14 +68,14 @@
 
 <section class="sezione sezione-chiara" id="parametri">
   <div class="contenitore">
-    {{ parti.testa('Le schede', c.parametri.titolo, c.parametri.intro) }}
+    {{ parti.testa_doppia('Le schede', c.parametri.titolo, c.parametri.intro) }}
     {{ parti.schede_generali(c.parametri.ordine, parametri) }}
   </div>
 </section>
 
 <section class="sezione" id="metodologia">
   <div class="contenitore">
-    {{ parti.testa('Sul campo', c.metodologia.titolo, c.metodologia.intro) }}
+    {{ parti.testa_doppia('Sul campo', c.metodologia.titolo, c.metodologia.intro) }}
     <h3 class="titolo-blocco">{{ c.metodologia.strumenti_titolo }}</h3>
     <div class="schede-parametri">
       {% for s in c.metodologia.strumenti %}
@@ -114,8 +114,9 @@
         </p>
       </div>
       <div class="fww-qr">
-        <img src="assets/img/qr-survey123.svg" alt="{{ c.fresh_water_watch.qr_descrizione }}" width="150" height="150">
-        <span>{{ c.fresh_water_watch.qr_etichetta }}</span>
+        <img src="assets/img/qr-survey123.svg" alt="{{ c.fresh_water_watch.qr_descrizione }}" width="180" height="180">
+        <strong>{{ c.fresh_water_watch.qr_etichetta }}</strong>
+        <span>{{ c.fresh_water_watch.qr_descrizione }}</span>
       </div>
     </div>
   </div>
@@ -123,7 +124,7 @@
 
 <section class="sezione-scura" id="macroinvertebrati">
   <div class="contenitore">
-    {{ parti.testa('La sperimentazione', c.macroinvertebrati.titolo, c.macroinvertebrati.intro) }}
+    {{ parti.testa_doppia('La sperimentazione', c.macroinvertebrati.titolo, c.macroinvertebrati.intro) }}
     <ul class="elenco-spunte">
       {% for v in c.macroinvertebrati.voci %}
       <li><b>{{ v.titolo }}.</b> {{ v.testo|t }}</li>
@@ -137,7 +138,7 @@
 
 <section class="sezione">
   <div class="contenitore">
-    {{ parti.testa('I dati', c.campagne.titolo, c.campagne.intro) }}
+    {{ parti.testa_doppia('I dati', c.campagne.titolo, c.campagne.intro) }}
     <div class="campagne-griglia">
       {% for b in impostazioni.menu if b.pagina.startswith('campagna') %}
       <a class="campagna-box" href="{{ b.pagina }}.html" style="color:var(--teal);background:#fff;border-color:var(--border)">
