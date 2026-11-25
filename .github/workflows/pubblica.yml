@@ -66,6 +66,10 @@ jobs:
       # GitHub Pages serve le pagine dallo stesso repository in cui stanno i
       # contenuti: non serve collegare nessun altro servizio e l'indirizzo è
       # pubblico, visibile a chiunque abbia il link.
+      #
+      # Pages va acceso una volta sola a mano, in Settings → Pages del
+      # repository, scegliendo «GitHub Actions» come Source: questo flusso non
+      # ha i permessi per cambiare le impostazioni del repository da solo.
       - name: Prepara GitHub Pages
         uses: actions/configure-pages@v5
         with:
