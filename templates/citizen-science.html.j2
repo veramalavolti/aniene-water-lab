@@ -73,29 +73,41 @@
   </div>
 </section>
 
-{# L'indice LIMeco: il ponte fra i nostri dati e quelli ufficiali. #}
+{# L'indice LIMeco: spiegazione, schema e soglie stanno in un blocco solo,
+   perché sono tre modi di dire la stessa cosa. #}
 <section class="sezione sezione-chiara" id="limeco">
   <div class="contenitore">
     {{ parti.testa_doppia(c.limeco.etichetta, c.limeco.titolo, c.limeco.intro) }}
-    <div class="riquadro riquadro-largo">
-      <div class="riquadro-colonne">
-        {{ parti.paragrafi(c.limeco.paragrafi) }}
+    <div class="limeco">
+      <div class="limeco-testo">
+        <div>{{ parti.paragrafi(c.limeco.paragrafi[:2]) }}</div>
+        <div>
+          {{ parti.paragrafi(c.limeco.paragrafi[2:]) }}
+          {{ parti.schema_limeco() }}
+        </div>
+      </div>
+      <div class="limeco-soglie">
+        <h3>{{ c.limeco.tabella.titolo }}</h3>
+        <div class="tabella-scorrevole">
+          <table class="dati">
+            <thead>
+              <tr>
+                <th>{{ c.limeco.tabella.intestazione[0] }}</th>
+                {% for v in c.limeco.tabella.intestazione[1:] %}
+                <th><span class="classe-tacca lvl-{{ loop.index }}"></span>{{ v }}</th>
+                {% endfor %}
+              </tr>
+            </thead>
+            <tbody>
+              {% for riga in c.limeco.tabella.righe %}
+              <tr>{% for cella in riga %}<td>{{ cella }}</td>{% endfor %}</tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+        <p class="limeco-nota">{{ c.limeco.nota|t }}</p>
       </div>
     </div>
-    <h3 class="sotto-titolo">{{ c.limeco.tabella.titolo }}</h3>
-    <div class="tabella-scorrevole">
-      <table class="dati">
-        <thead>
-          <tr>{% for v in c.limeco.tabella.intestazione %}<th>{{ v }}</th>{% endfor %}</tr>
-        </thead>
-        <tbody>
-          {% for riga in c.limeco.tabella.righe %}
-          <tr>{% for cella in riga %}<td>{{ cella }}</td>{% endfor %}</tr>
-          {% endfor %}
-        </tbody>
-      </table>
-    </div>
-    <div class="nota"><p>{{ c.limeco.nota|t }}</p></div>
   </div>
 </section>
 
@@ -163,7 +175,6 @@
       {% for b in impostazioni.menu if b.pagina.startswith('campagna') %}
       <a class="campagna-box" href="{{ b.pagina }}.html">
         <span class="campagna-anni">{{ b.voce }}</span>
-        <span class="campagna-nome">Vedi i risultati</span>
         <span class="campagna-desc">Dashboard interattiva e report da scaricare.</span>
         <span class="campagna-azione">Vedi i risultati →</span>
       </a>

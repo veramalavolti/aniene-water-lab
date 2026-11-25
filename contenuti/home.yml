@@ -319,12 +319,10 @@ metodologia:
     qr:
       - immagine: qr-survey123.svg
         etichetta: App Survey123
-        descrizione: Inquadra il codice per aprire l'archivio dei rilievi.
+        descrizione: L'archivio dei rilievi, da compilare sul campo.
       - immagine: qr-gruppo-asud.svg
         etichetta: Il gruppo Aniene
-        descrizione: >-
-          Inquadra il codice per aprire la pagina del gruppo A Sud su Fresh
-          Water Watch.
+        descrizione: La pagina del gruppo A Sud su Fresh Water Watch.
 
 obiettivi:
   titolo: In breve, gli obiettivi del progetto

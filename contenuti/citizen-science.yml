@@ -296,12 +296,10 @@ fresh_water_watch:
   qr:
     - immagine: qr-survey123.svg
       etichetta: App Survey123
-      descrizione: Inquadra il codice per aprire l'archivio dei rilievi.
+      descrizione: L'archivio dei rilievi, da compilare sul campo.
     - immagine: qr-gruppo-asud.svg
       etichetta: Il gruppo Aniene
-      descrizione: >-
-        Inquadra il codice per aprire la pagina del gruppo A Sud su Fresh
-        Water Watch.
+      descrizione: La pagina del gruppo A Sud su Fresh Water Watch.
   # I passaggi per entrare nel gruppo e caricare i propri rilievi.
   partecipare:
     titolo: Come caricare i tuoi rilievi
@@ -405,13 +403,11 @@ limeco:
       direttamente i nostri rilievi con i dati che ARPA Lazio pubblica
       periodicamente**.
     - >-
-      Il LIMeco dice anche *perché* un fiume peggiora. L'ammonio viene usato
-      come campanello d'allarme: in corsi d'acqua ben ossigenati si ossida
-      rapidamente in nitrati, quindi trovarne in quantità indica un apporto
-      organico continuo e non trattato, spesso associato a carenza di ossigeno.
-      I nitrati raccontano il dilavamento dei campi coltivati e gli scarichi non
-      depurati; il fosforo, che si muove legato alle particelle di suolo, segnala
-      erosione, fertilizzanti e scarichi urbani.
+      L'indice dice anche **da dove arriva** il peggioramento. L'ammonio fa da
+      campanello d'allarme: in acque ben ossigenate si ossida in fretta, quindi
+      trovarne molto significa apporto organico continuo e non trattato. I
+      nitrati raccontano i campi coltivati e gli scarichi non depurati, il
+      fosforo l'erosione dei suoli e gli scarichi urbani.
   tabella:
     titolo: Le soglie delle cinque classi
     intestazione:
@@ -473,12 +469,10 @@ limeco:
   qr:
     - immagine: qr-survey123.svg
       etichetta: App Survey123
-      descrizione: Inquadra il codice per aprire l'archivio dei rilievi.
+      descrizione: L'archivio dei rilievi, da compilare sul campo.
     - immagine: qr-gruppo-asud.svg
       etichetta: Il gruppo Aniene
-      descrizione: >-
-        Inquadra il codice per aprire la pagina del gruppo A Sud su Fresh
-        Water Watch.
+      descrizione: La pagina del gruppo A Sud su Fresh Water Watch.
   # I passaggi per entrare nel gruppo e caricare i propri rilievi.
   partecipare:
     titolo: Come caricare i tuoi rilievi
@@ -582,13 +576,11 @@ limeco:
       direttamente i nostri rilievi con i dati che ARPA Lazio pubblica
       periodicamente**.
     - >-
-      Il LIMeco dice anche *perché* un fiume peggiora. L'ammonio viene usato
-      come campanello d'allarme: in corsi d'acqua ben ossigenati si ossida
-      rapidamente in nitrati, quindi trovarne in quantità indica un apporto
-      organico continuo e non trattato, spesso associato a carenza di ossigeno.
-      I nitrati raccontano il dilavamento dei campi coltivati e gli scarichi non
-      depurati; il fosforo, che si muove legato alle particelle di suolo, segnala
-      erosione, fertilizzanti e scarichi urbani.
+      L'indice dice anche **da dove arriva** il peggioramento. L'ammonio fa da
+      campanello d'allarme: in acque ben ossigenate si ossida in fretta, quindi
+      trovarne molto significa apporto organico continuo e non trattato. I
+      nitrati raccontano i campi coltivati e gli scarichi non depurati, il
+      fosforo l'erosione dei suoli e gli scarichi urbani.
   tabella:
     titolo: Le soglie delle cinque classi
     intestazione:

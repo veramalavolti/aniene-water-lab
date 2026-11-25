@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800;900&family=Barlow+Condensed:wght@700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/sito.css?v=34b68ec9">
+  <link rel="stylesheet" href="assets/css/sito.css?v=59d3a3ce">
 </head>
 <body>
 <a class="salta" href="#contenuto">Vai al contenuto principale</a>
@@ -358,26 +358,126 @@
   <p class="occhiello-testo">È l&#39;indice con cui la legge italiana misura quanto un fiume è carico di nutrienti. Lo calcoliamo anche noi: è il <strong>ponte tra i dati dei cittadini e quelli delle agenzie ambientali</strong>.</p>
 </div>
 
-    <div class="riquadro riquadro-largo">
-      <div class="riquadro-colonne">
-        <p>Il <strong>LIMeco</strong> (Livello di Inquinamento dai Macrodescrittori per lo stato ecologico) è previsto dal <strong>D.Lgs. 152/2006</strong>, che recepisce la direttiva europea sulle acque 2000/60/CE. Si calcola da quattro parametri soltanto: <strong>ossigeno disciolto</strong>, <strong>azoto ammoniacale</strong>, <strong>azoto nitrico</strong> e <strong>fosforo totale</strong>. A ciascuno viene assegnato un punteggio in base alla concentrazione misurata, e la media dei quattro punteggi colloca il corso d&#39;acqua in una delle cinque classi di qualità, da «elevato» a «cattivo».</p><p>È per arrivare a questo indice che abbiamo introdotto la misura dell&#39;<strong>ossigeno disciolto</strong> con la titolazione di Winkler. L&#39;ossigeno, in condizioni normali intorno ai 10 mg/L, è essenziale per la vita acquatica e per l&#39;autodepurazione del fiume: quando la saturazione scende al 75% è già un segnale di possibile inquinamento. Misurandolo insieme ad ammonio, nitrati e fosforo possiamo calcolare il LIMeco e <strong>confrontare direttamente i nostri rilievi con i dati che ARPA Lazio pubblica periodicamente</strong>.</p><p>Il LIMeco dice anche *perché* un fiume peggiora. L&#39;ammonio viene usato come campanello d&#39;allarme: in corsi d&#39;acqua ben ossigenati si ossida rapidamente in nitrati, quindi trovarne in quantità indica un apporto organico continuo e non trattato, spesso associato a carenza di ossigeno. I nitrati raccontano il dilavamento dei campi coltivati e gli scarichi non depurati; il fosforo, che si muove legato alle particelle di suolo, segnala erosione, fertilizzanti e scarichi urbani.</p>
+    <div class="limeco">
+      <div class="limeco-testo">
+        <div><p>Il <strong>LIMeco</strong> (Livello di Inquinamento dai Macrodescrittori per lo stato ecologico) è previsto dal <strong>D.Lgs. 152/2006</strong>, che recepisce la direttiva europea sulle acque 2000/60/CE. Si calcola da quattro parametri soltanto: <strong>ossigeno disciolto</strong>, <strong>azoto ammoniacale</strong>, <strong>azoto nitrico</strong> e <strong>fosforo totale</strong>. A ciascuno viene assegnato un punteggio in base alla concentrazione misurata, e la media dei quattro punteggi colloca il corso d&#39;acqua in una delle cinque classi di qualità, da «elevato» a «cattivo».</p><p>È per arrivare a questo indice che abbiamo introdotto la misura dell&#39;<strong>ossigeno disciolto</strong> con la titolazione di Winkler. L&#39;ossigeno, in condizioni normali intorno ai 10 mg/L, è essenziale per la vita acquatica e per l&#39;autodepurazione del fiume: quando la saturazione scende al 75% è già un segnale di possibile inquinamento. Misurandolo insieme ad ammonio, nitrati e fosforo possiamo calcolare il LIMeco e <strong>confrontare direttamente i nostri rilievi con i dati che ARPA Lazio pubblica periodicamente</strong>.</p></div>
+        <div>
+          <p>L&#39;indice dice anche <strong>da dove arriva</strong> il peggioramento. L&#39;ammonio fa da campanello d&#39;allarme: in acque ben ossigenate si ossida in fretta, quindi trovarne molto significa apporto organico continuo e non trattato. I nitrati raccontano i campi coltivati e gli scarichi non depurati, il fosforo l&#39;erosione dei suoli e gli scarichi urbani.</p>
+          <figure class="schema-limeco">
+  <svg viewBox="0 0 520 286" role="img" xmlns="http://www.w3.org/2000/svg"
+       aria-label="Come si calcola il LIMeco: dai quattro parametri si ricava un punteggio ciascuno, la media colloca il fiume in una delle cinque classi di qualità."
+       style="width:100%;height:auto;display:block">
+    <g font-family="Barlow, sans-serif" fill="#1A3340">
+      <g>
+        <rect x="4" y="6" width="118" height="52" rx="7"
+              fill="#fff" stroke="#D8D3C8" stroke-width="1.5"/>
+        <text x="63" y="28" text-anchor="middle" font-size="12.5" font-weight="700">Ossigeno</text>
+        <text x="63" y="44" text-anchor="middle" font-size="12.5" font-weight="700">disciolto</text>
+        <path d="M63 60 L63 78" stroke="#8CA918" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M58 72 L63 79 L68 72" fill="none"
+              stroke="#8CA918" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </g>
+      <g>
+        <rect x="134" y="6" width="118" height="52" rx="7"
+              fill="#fff" stroke="#D8D3C8" stroke-width="1.5"/>
+        <text x="193" y="28" text-anchor="middle" font-size="12.5" font-weight="700">Azoto</text>
+        <text x="193" y="44" text-anchor="middle" font-size="12.5" font-weight="700">ammoniacale</text>
+        <path d="M193 60 L193 78" stroke="#8CA918" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M188 72 L193 79 L198 72" fill="none"
+              stroke="#8CA918" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </g>
+      <g>
+        <rect x="264" y="6" width="118" height="52" rx="7"
+              fill="#fff" stroke="#D8D3C8" stroke-width="1.5"/>
+        <text x="323" y="28" text-anchor="middle" font-size="12.5" font-weight="700">Azoto</text>
+        <text x="323" y="44" text-anchor="middle" font-size="12.5" font-weight="700">nitrico</text>
+        <path d="M323 60 L323 78" stroke="#8CA918" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M318 72 L323 79 L328 72" fill="none"
+              stroke="#8CA918" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </g>
+      <g>
+        <rect x="394" y="6" width="118" height="52" rx="7"
+              fill="#fff" stroke="#D8D3C8" stroke-width="1.5"/>
+        <text x="453" y="28" text-anchor="middle" font-size="12.5" font-weight="700">Fosforo</text>
+        <text x="453" y="44" text-anchor="middle" font-size="12.5" font-weight="700">totale</text>
+        <path d="M453 60 L453 78" stroke="#8CA918" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M448 72 L453 79 L458 72" fill="none"
+              stroke="#8CA918" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </g>
+
+      <rect x="4" y="84" width="512" height="42" rx="7" fill="#1A3340"/>
+      <text x="260" y="110" text-anchor="middle" font-size="13.5" font-weight="700" fill="#F0EDE6">
+        a ciascuno un punteggio da 1 a 5, poi se ne fa la media
+      </text>
+      <path d="M260 128 L260 150" stroke="#8CA918" stroke-width="2.5" stroke-linecap="round"/>
+      <path d="M254 144 L260 151 L266 144" fill="none"
+            stroke="#8CA918" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+
+      <rect x="4" y="156" width="99" height="46"
+            rx="7" fill="#2D7A9A"/>
+      <text x="53" y="177" text-anchor="middle" font-size="17" font-weight="900"
+            font-family="Barlow Condensed, sans-serif" fill="#fff">1</text>
+      <text x="53" y="194" text-anchor="middle" font-size="11.5" font-weight="700" fill="#fff">Elevato</text>
+      <rect x="107" y="156" width="99" height="46"
+            rx="3" fill="#8CA918"/>
+      <text x="156" y="177" text-anchor="middle" font-size="17" font-weight="900"
+            font-family="Barlow Condensed, sans-serif" fill="#fff">2</text>
+      <text x="156" y="194" text-anchor="middle" font-size="11.5" font-weight="700" fill="#fff">Buono</text>
+      <rect x="210" y="156" width="99" height="46"
+            rx="3" fill="#E9C23B"/>
+      <text x="259" y="177" text-anchor="middle" font-size="17" font-weight="900"
+            font-family="Barlow Condensed, sans-serif" fill="#4F4310">3</text>
+      <text x="259" y="194" text-anchor="middle" font-size="11.5" font-weight="700" fill="#4F4310">Sufficiente</text>
+      <rect x="313" y="156" width="99" height="46"
+            rx="3" fill="#E0812E"/>
+      <text x="362" y="177" text-anchor="middle" font-size="17" font-weight="900"
+            font-family="Barlow Condensed, sans-serif" fill="#fff">4</text>
+      <text x="362" y="194" text-anchor="middle" font-size="11.5" font-weight="700" fill="#fff">Scarso</text>
+      <rect x="416" y="156" width="99" height="46"
+            rx="7" fill="#B03A2E"/>
+      <text x="465" y="177" text-anchor="middle" font-size="17" font-weight="900"
+            font-family="Barlow Condensed, sans-serif" fill="#fff">5</text>
+      <text x="465" y="194" text-anchor="middle" font-size="11.5" font-weight="700" fill="#fff">Cattivo</text>
+
+      <text x="4" y="224" font-size="11.5" font-weight="700" fill="#6B7A85">↑ fiume in salute</text>
+      <text x="516" y="224" text-anchor="end" font-size="11.5" font-weight="700" fill="#6B7A85">fiume compromesso ↑</text>
+      <text x="260" y="256" text-anchor="middle" font-size="12.5" fill="#4A5568">
+        Lo stesso schema vale per le linee tratteggiate delle dashboard:
+      </text>
+      <text x="260" y="274" text-anchor="middle" font-size="12.5" fill="#4A5568">
+        ogni soglia segna il passaggio da una classe alla successiva.
+      </text>
+    </g>
+  </svg>
+</figure>
+
+        </div>
+      </div>
+      <div class="limeco-soglie">
+        <h3>Le soglie delle cinque classi</h3>
+        <div class="tabella-scorrevole">
+          <table class="dati">
+            <thead>
+              <tr>
+                <th>Parametro</th>
+                <th><span class="classe-tacca lvl-1"></span>1 · Elevato</th>
+                <th><span class="classe-tacca lvl-2"></span>2 · Buono</th>
+                <th><span class="classe-tacca lvl-3"></span>3 · Sufficiente</th>
+                <th><span class="classe-tacca lvl-4"></span>4 · Scarso</th>
+                <th><span class="classe-tacca lvl-5"></span>5 · Cattivo</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Ossigeno disciolto · scostamento dal 100% di saturazione</td><td>≤ 10</td><td>≤ 20</td><td>≤ 40</td><td>≤ 80</td><td>&gt; 80</td></tr>
+              <tr><td>Azoto ammoniacale N-NH₄ · mg/L</td><td>&lt; 0,03</td><td>≤ 0,06</td><td>≤ 0,12</td><td>≤ 0,24</td><td>&gt; 0,24</td></tr>
+              <tr><td>Azoto nitrico N-NO₃ · mg/L</td><td>&lt; 0,6</td><td>≤ 1,2</td><td>≤ 2,4</td><td>≤ 4,8</td><td>&gt; 4,8</td></tr>
+              <tr><td>Fosforo totale · mg/L</td><td>≤ 0,05</td><td>≤ 0,10</td><td>≤ 0,20</td><td>≤ 0,40</td><td>&gt; 0,40</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="limeco-nota"><strong>Due avvertenze</strong>, segnalate dalla relazione scientifica. I valori che rileviamo non sono la concentrazione di nitrati ma quella dell&#39;azoto nitrico contenuto in essi: per passare ai nitrati vanno moltiplicati per 4,427. E il nostro fosforo è l&#39;ortofosfato, non il fosforo totale usato dal LIMeco: il confronto resta indicativo, perché l&#39;ortofosfato è la componente principale del fosforo nelle acque superficiali, ma non è una classificazione formale.</p>
       </div>
     </div>
-    <h3 class="sotto-titolo">Le soglie delle cinque classi</h3>
-    <div class="tabella-scorrevole">
-      <table class="dati">
-        <thead>
-          <tr><th>Parametro</th><th>1 · Elevato</th><th>2 · Buono</th><th>3 · Sufficiente</th><th>4 · Scarso</th><th>5 · Cattivo</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>Ossigeno disciolto · scostamento dal 100% di saturazione</td><td>≤ 10</td><td>≤ 20</td><td>≤ 40</td><td>≤ 80</td><td>&gt; 80</td></tr>
-          <tr><td>Azoto ammoniacale N-NH₄ · mg/L</td><td>&lt; 0,03</td><td>≤ 0,06</td><td>≤ 0,12</td><td>≤ 0,24</td><td>&gt; 0,24</td></tr>
-          <tr><td>Azoto nitrico N-NO₃ · mg/L</td><td>&lt; 0,6</td><td>≤ 1,2</td><td>≤ 2,4</td><td>≤ 4,8</td><td>&gt; 4,8</td></tr>
-          <tr><td>Fosforo totale · mg/L</td><td>≤ 0,05</td><td>≤ 0,10</td><td>≤ 0,20</td><td>≤ 0,40</td><td>&gt; 0,40</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="nota"><p><strong>Due avvertenze</strong>, segnalate dalla relazione scientifica. I valori che rileviamo non sono la concentrazione di nitrati ma quella dell&#39;azoto nitrico contenuto in essi: per passare ai nitrati vanno moltiplicati per 4,427. E il nostro fosforo è l&#39;ortofosfato, non il fosforo totale usato dal LIMeco: il confronto resta indicativo, perché l&#39;ortofosfato è la componente principale del fosforo nelle acque superficiali, ma non è una classificazione formale.</p></div>
   </div>
 </section>
 
@@ -394,14 +494,14 @@
       </div>
       <div class="qr-coppia">
         <div class="fww-qr">
-          <img src="assets/img/qr-survey123.svg" alt="Inquadra il codice per aprire l&#39;archivio dei rilievi." width="180" height="180">
+          <img src="assets/img/qr-survey123.svg" alt="L&#39;archivio dei rilievi, da compilare sul campo." width="180" height="180">
           <strong>App Survey123</strong>
-          <span>Inquadra il codice per aprire l&#39;archivio dei rilievi.</span>
+          <span>L&#39;archivio dei rilievi, da compilare sul campo.</span>
         </div>
         <div class="fww-qr">
-          <img src="assets/img/qr-gruppo-asud.svg" alt="Inquadra il codice per aprire la pagina del gruppo A Sud su Fresh Water Watch." width="180" height="180">
+          <img src="assets/img/qr-gruppo-asud.svg" alt="La pagina del gruppo A Sud su Fresh Water Watch." width="180" height="180">
           <strong>Il gruppo Aniene</strong>
-          <span>Inquadra il codice per aprire la pagina del gruppo A Sud su Fresh Water Watch.</span>
+          <span>La pagina del gruppo A Sud su Fresh Water Watch.</span>
         </div>
       </div>
     </div>
@@ -477,19 +577,16 @@
     <div class="campagne-griglia">
       <a class="campagna-box" href="campagna-2022-2023.html">
         <span class="campagna-anni">2021 | 2022-2023</span>
-        <span class="campagna-nome">Vedi i risultati</span>
         <span class="campagna-desc">Dashboard interattiva e report da scaricare.</span>
         <span class="campagna-azione">Vedi i risultati →</span>
       </a>
       <a class="campagna-box" href="campagna-2023-2024.html">
         <span class="campagna-anni">2023-2024</span>
-        <span class="campagna-nome">Vedi i risultati</span>
         <span class="campagna-desc">Dashboard interattiva e report da scaricare.</span>
         <span class="campagna-azione">Vedi i risultati →</span>
       </a>
       <a class="campagna-box" href="campagna-2025-2026.html">
         <span class="campagna-anni">2025-2026</span>
-        <span class="campagna-nome">Vedi i risultati</span>
         <span class="campagna-desc">Dashboard interattiva e report da scaricare.</span>
         <span class="campagna-azione">Vedi i risultati →</span>
       </a>

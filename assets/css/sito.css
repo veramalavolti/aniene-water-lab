@@ -737,7 +737,7 @@ td.oltre { font-weight: 800; }
 
 /* Fresh Water Watch: la rete internazionale a cui mandiamo i dati */
 .fww {
-  display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: 3rem; align-items: center;
+  display: grid; grid-template-columns: minmax(0, 1fr) 380px; gap: 3rem; align-items: start;
   background: var(--teal); color: var(--text-inv);
   border: 1.5px solid var(--lime-border);
   border-radius: var(--radius-lg); padding: 2.2rem 2.4rem;
@@ -745,14 +745,18 @@ td.oltre { font-weight: 800; }
 .fww .etichetta { color: var(--lime); }
 .fww h3 { font-size: clamp(1.5rem, 2.4vw, 2rem); font-weight: 900; text-transform: uppercase; margin-bottom: .6rem; }
 .fww p { color: var(--text-inv-dim); max-width: none; }
+/* Il codice a sinistra e la sua spiegazione a destra: la scheda è alta
+   quanto il codice e non resta spazio vuoto sotto il testo. */
 .fww-qr {
+  display: grid; grid-template-columns: 118px minmax(0, 1fr);
+  gap: .15rem .9rem; align-content: start; align-items: center;
   background: var(--cream-card); border-radius: var(--radius-md);
-  padding: 1.2rem 1.1rem; text-align: center; justify-self: stretch;
+  padding: 1rem 1.1rem; text-align: left;
 }
-.fww-qr img { width: 100%; max-width: 180px; height: auto; aspect-ratio: 1; }
-.fww-qr strong { display: block; margin-top: .6rem; font-size: .92rem; color: var(--teal); }
+.fww-qr img { grid-row: 1 / span 2; width: 118px; height: 118px; max-width: none; }
+.fww-qr strong { align-self: end; font-size: .95rem; font-weight: 800; color: var(--teal); line-height: 1.2; }
 .fww-qr span {
-  display: block; margin-top: .2rem; font-size: .78rem; line-height: 1.4;
+  align-self: start; font-size: .8rem; line-height: 1.4;
   color: var(--text-dim); font-weight: 600;
 }
 @media (max-width: 860px) {
@@ -1269,9 +1273,7 @@ a.rete-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); b
 .passo .bottone { margin-top: .2rem; }
 
 /* i due codici QR, uno accanto all'altro */
-.qr-coppia { display: grid; grid-template-columns: 1fr 1fr; gap: .8rem; }
-.qr-coppia .fww-qr { margin: 0; }
-@media (max-width: 1100px) { .qr-coppia { grid-template-columns: 1fr; } }
+.qr-coppia { display: grid; gap: .7rem; align-content: start; }
 
 /* ============================================================ mappa verticale */
 
@@ -1333,5 +1335,59 @@ a.rete-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); b
 
 /* nella colonna stretta della home i due codici stanno uno sotto l'altro:
    schiacciati in due colonne diventerebbero troppo piccoli per essere letti */
-.fww-stretto .qr-coppia { grid-template-columns: 1fr; }
-.fww-stretto .qr-coppia .fww-qr img { max-width: 170px; }
+
+
+/* ======================================================= l'indice LIMeco
+
+   Spiegazione, schema e tabella delle soglie sono la stessa cosa detta in tre
+   modi: stanno dentro un blocco solo, separati da una riga, perché si legga
+   come un discorso unico e non come tre sezioni staccate. */
+
+.limeco {
+  background: var(--cream-card); border: 1px solid var(--border);
+  border-left: 5px solid var(--lime-dark); border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm); overflow: hidden;
+}
+.limeco-testo {
+  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 2.6rem; padding: 2rem 2.2rem 1.6rem;
+}
+.limeco-testo > div > *:first-child { margin-top: 0; }
+.limeco-testo > div > *:last-child { margin-bottom: 0; }
+.limeco-testo p { max-width: none; }
+
+.schema-limeco {
+  margin: 1.2rem 0 0; padding: 1.1rem 1.2rem;
+  background: #FBFAF7; border: 1px solid var(--border); border-radius: var(--radius-md);
+}
+
+.limeco-soglie {
+  border-top: 1px solid var(--border); background: #FBFAF7;
+  padding: 1.6rem 2.2rem 1.8rem;
+}
+.limeco-soglie h3 {
+  font-family: var(--font-display); font-size: 1.3rem; font-weight: 800;
+  text-transform: uppercase; color: var(--teal); margin-bottom: .9rem;
+}
+.limeco-soglie .tabella-scorrevole { background: var(--cream-card); margin-bottom: 1rem; }
+/* la tacca colorata lega ogni colonna alla classe corrispondente dello schema */
+.classe-tacca {
+  display: inline-block; width: 9px; height: 9px; border-radius: 2px;
+  margin-right: .4rem; vertical-align: baseline;
+}
+.classe-tacca.lvl-1 { background: var(--l1); }
+.classe-tacca.lvl-2 { background: var(--l2); }
+.classe-tacca.lvl-3 { background: var(--l3); }
+.classe-tacca.lvl-4 { background: var(--l4); }
+.classe-tacca.lvl-5 { background: var(--l5); }
+.limeco-nota {
+  font-size: .9rem; line-height: 1.6; color: #4F4310;
+  background: #FBF6E3; border-left: 4px solid var(--l3);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  padding: .9rem 1.2rem; margin: 0;
+}
+
+@media (max-width: 900px) {
+  .limeco-testo { grid-template-columns: 1fr; gap: 0; padding: 1.5rem 1.4rem 1.2rem; }
+  .limeco-soglie { padding: 1.4rem 1.4rem 1.5rem; }
+}
