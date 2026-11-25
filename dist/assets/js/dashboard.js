@@ -337,9 +337,43 @@
     this.lVista.style.display = this.parametro === this.TUTTI ? 'none' : '';
   };
 
+  /* I pulsanti dei punti di campionamento.
+
+     Con pochi punti stanno tutti in vista. Quando sono molti — le discese in
+     gommone ne hanno più di trenta — diventano un muro: allora si raccolgono
+     in un pannello richiudibile, divisi per tratto di fiume, con una riga che
+     dice sempre quanti se ne stanno guardando. */
   Dashboard.prototype.disegnaStazioni = function () {
     var self = this;
     this.barraStazioni.textContent = '';
+    this.chip = {};
+
+    var stazioni = this.dati.stazioni;
+    var tratti = this.dati.tratti || [];
+    var molti = stazioni.length > 12;
+
+    var dentro = this.barraStazioni;
+    this.riassuntoPunti = null;
+    if (molti) {
+      var piega = html('details', 'dash-punti-piega');
+      this.riassuntoPunti = html('summary');
+      piega.appendChild(this.riassuntoPunti);
+      dentro = html('div', 'dash-punti-corpo');
+      piega.appendChild(dentro);
+      this.barraStazioni.appendChild(piega);
+    }
+
+    dentro.appendChild(html('p', 'dash-punti-aiuto',
+      'Un clic accende o spegne un punto. Doppio clic per vedere solo quello.'));
+
+    function accendi(quali) {
+      self.spente = {};
+      stazioni.forEach(function (x) {
+        if (quali.indexOf(x.id) === -1) self.spente[x.id] = true;
+      });
+      self.aggiornaChip();
+      self.disegna();
+    }
 
     var azioni = html('span', 'dash-punti-azioni');
     var bTutti = html('button', 'dash-mini', 'Mostra tutti');
@@ -351,10 +385,21 @@
       self.disegna();
     });
     azioni.appendChild(bTutti);
-    this.barraStazioni.appendChild(azioni);
 
-    this.chip = {};
-    this.dati.stazioni.forEach(function (s, i) {
+    // un tasto per tratto: si guarda un pezzo di fiume alla volta
+    tratti.forEach(function (t) {
+      var ids = stazioni.filter(function (s) { return s.tratto === t.id; })
+                        .map(function (s) { return s.id; });
+      if (ids.length < 2) return;
+      var b = html('button', 'dash-mini', 'Solo ' + t.nome.toLowerCase());
+      b.type = 'button';
+      b.title = t.dove || '';
+      b.addEventListener('click', function () { accendi(ids); });
+      azioni.appendChild(b);
+    });
+    dentro.appendChild(azioni);
+
+    function pulsante(s, i) {
       var b = html('button', 'stz');
       b.type = 'button';
       b.setAttribute('aria-pressed', 'true');
@@ -365,30 +410,66 @@
       b.addEventListener('click', function (ev) {
         // con alt (o doppio clic) si isola il punto, altrimenti si aggiunge o si toglie
         if (ev.altKey) {
-          self.spente = {};
-          self.dati.stazioni.forEach(function (x) { if (x.id !== s.id) self.spente[x.id] = true; });
-        } else {
-          if (!self.spente[s.id] && self.stazioniVisibili().length === 1) return;
-          self.spente[s.id] = !self.spente[s.id];
+          accendi([s.id]);
+          return;
         }
+        if (!self.spente[s.id] && self.stazioniVisibili().length === 1) return;
+        self.spente[s.id] = !self.spente[s.id];
         self.aggiornaChip();
         self.disegna();
       });
-      b.addEventListener('dblclick', function () {
-        self.spente = {};
-        self.dati.stazioni.forEach(function (x) { if (x.id !== s.id) self.spente[x.id] = true; });
-        self.aggiornaChip();
-        self.disegna();
-      });
+      b.addEventListener('dblclick', function () { accendi([s.id]); });
       b.title = 'Clic per mostrare o nascondere · doppio clic per vedere solo questo punto';
       self.chip[s.id] = b;
-      self.barraStazioni.appendChild(b);
+      return b;
+    }
+
+    // raggruppati per tratto, così si capisce dove sta ciascun punto
+    var gruppi = [];
+    if (tratti.length && stazioni.some(function (s) { return s.tratto; })) {
+      tratti.forEach(function (t) {
+        var dentroTratto = stazioni.filter(function (s) { return s.tratto === t.id; });
+        if (dentroTratto.length) gruppi.push({ titolo: t.nome, dove: t.dove, punti: dentroTratto });
+      });
+      var orfani = stazioni.filter(function (s) {
+        return !tratti.some(function (t) { return t.id === s.tratto; });
+      });
+      if (orfani.length) gruppi.push({ titolo: 'Altri punti', dove: '', punti: orfani });
+    } else {
+      gruppi.push({ titolo: '', dove: '', punti: stazioni });
+    }
+
+    gruppi.forEach(function (g) {
+      if (g.titolo) {
+        var testa = html('p', 'dash-punti-tratto');
+        testa.appendChild(html('b', null, g.titolo));
+        if (g.dove) testa.appendChild(html('span', null, ' · ' + g.dove));
+        dentro.appendChild(testa);
+      }
+      var fila = html('div', 'dash-punti-fila');
+      g.punti.forEach(function (s) {
+        fila.appendChild(pulsante(s, stazioni.indexOf(s)));
+      });
+      dentro.appendChild(fila);
     });
+
+    this.aggiornaRiassuntoPunti();
+  };
+
+  /* La riga del pannello richiudibile: quanti punti si stanno guardando. */
+  Dashboard.prototype.aggiornaRiassuntoPunti = function () {
+    if (!this.riassuntoPunti) return;
+    var totale = this.dati.stazioni.length;
+    var visibili = this.stazioniVisibili().length;
+    this.riassuntoPunti.textContent = totale + ' punti di campionamento · ' +
+      (visibili === totale ? 'tutti visibili' :
+       visibili === 1 ? 'ne stai guardando uno' : 'ne stai guardando ' + visibili);
   };
 
   /* Tiene allineati i pulsanti dei punti e il menu a tendina. */
   Dashboard.prototype.aggiornaChip = function () {
     var self = this;
+    this.aggiornaRiassuntoPunti();
     this.dati.stazioni.forEach(function (s) {
       if (self.chip[s.id]) {
         self.chip[s.id].setAttribute('aria-pressed', self.spente[s.id] ? 'false' : 'true');

@@ -25,6 +25,21 @@ introduzione:
       Due modi diversi di fotografare lo stato di salute del fiume, con un
       obiettivo comune: raccogliere dati indipendenti, segnalare le criticità e
       sollecitare le verifiche ufficiali.
+  spalla:
+    titolo: La campagna in numeri
+    voci:
+      - valore: "9 + 34"
+        testo: >-
+          i **punti campionati**: nove stazioni fisse, dall'alto corso alla
+          confluenza, più trentaquattro immissioni raggiunte in gommone.
+      - valore: "13"
+        testo: >-
+          le **campagne mensili** sui punti fissi, da ottobre 2025 a ottobre
+          2026, sempre negli stessi luoghi e con lo stesso protocollo.
+      - valore: "10"
+        testo: >-
+          i campioni che superano insieme tutti e quattro gli indicatori di
+          **forte pressione organica e fognaria**.
   sezioni:
     - ancora: dati-fissi
       nome: I dati dei punti fissi
@@ -60,6 +75,23 @@ fissi:
     dati: campagna-2025-2026
   sintesi:
     titolo: In breve
+    spalla:
+      titolo: I tre dati da ricordare
+      voci:
+        - valore: "980.000"
+          testo: >-
+            le UFC/100 mL di **Escherichia coli** toccate a Ponte Mammolo. A
+            Subiaco la mediana è 200.
+        - valore: "1.277"
+          testo: >-
+            i µS/cm di **conducibilità** mediana a Ponte Lucano, più del doppio
+            dei 600 misurati appena a monte.
+        - valore: "2"
+          testo: >-
+            i **salti netti** lungo il corso: il primo a Ponte Lucano, il
+            secondo nel tratto urbano, dove crolla l'ossigeno.
+      link: "#report"
+      link_testo: Scarica il report completo
     paragrafi:
       - >-
         Il fiume **peggiora in modo netto e progressivo da monte a valle**. A
@@ -253,6 +285,23 @@ gommone:
     dati: campagna-2025-2026-gommone
   sintesi:
     titolo: In breve
+    spalla:
+      titolo: I tre dati da ricordare
+      voci:
+        - valore: "980.000"
+          testo: >-
+            le UFC/100 mL di **Escherichia coli** toccate a Ponte Mammolo. A
+            Subiaco la mediana è 200.
+        - valore: "1.277"
+          testo: >-
+            i µS/cm di **conducibilità** mediana a Ponte Lucano, più del doppio
+            dei 600 misurati appena a monte.
+        - valore: "2"
+          testo: >-
+            i **salti netti** lungo il corso: il primo a Ponte Lucano, il
+            secondo nel tratto urbano, dove crolla l'ossigeno.
+      link: "#report"
+      link_testo: Scarica il report completo
     voci:
       - titolo: La pressione è più forte nel tratto medio e urbano
         testo: >-
@@ -372,7 +421,10 @@ gommone:
       - E. coli sopra 20.000 UFC/100 mL
       - fosfati pari o superiori a 0,5 mg/L, soglia usata come criterio operativo e non come classe LIMeco formale
       - ossigeno sotto il 40% di saturazione
-    elenco_titolo: Con questo criterio risultano dieci campioni
+    elenco_titolo: I dieci campioni che li superano tutti
+    rimando: >-
+      Il dettaglio campione per campione, con i valori di ciascun indicatore,
+      sta nel **report scientifico** in fondo alla pagina.
     elenco:
       - data: 15 novembre 2025
         punti: Tivoli-Borgonovo, immissione fognature Martellona 1.

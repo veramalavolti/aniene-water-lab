@@ -86,7 +86,9 @@ segnalazioni:
   consigli:
     titolo: Cosa ci aiuta di più
     voci:
-      - Il **punto preciso**: un nome di ponte, una via, o le coordinate del telefono.
+      - >-
+        Il **punto preciso**: un nome di ponte, una via, o le coordinate del
+        telefono.
       - Il **giorno e l'ora** in cui hai visto la cosa.
       - Una o due **fotografie**, che puoi allegare all'email.
 

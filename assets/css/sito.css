@@ -142,14 +142,7 @@ a:hover { color: var(--verde-testo); }
 .menu a:hover { color: var(--lime); }
 .menu a[aria-current="page"] { color: var(--lime); border-bottom-color: var(--lime); }
 
-.testata-azione {
-  flex: none; display: inline-flex; align-items: center; gap: .4rem;
-  padding: .5rem 1rem; border: 1.5px solid var(--lime-border); border-radius: var(--radius-sm);
-  background: var(--lime-soft); color: var(--lime);
-  font-size: .85rem; font-weight: 800; text-decoration: none; white-space: nowrap;
-  transition: background .18s ease, color .18s ease;
-}
-.testata-azione:hover { background: var(--lime); color: var(--teal); border-color: var(--lime); }
+.testata-azione { flex: none; white-space: nowrap; }
 
 @media (max-width: 1100px) {
   .testata-interna { flex-wrap: wrap; gap: .4rem 1rem; }
@@ -266,11 +259,7 @@ main { padding-bottom: 4rem; }
   letter-spacing: .07em; color: var(--verde-testo);
 }
 .campagna-desc { font-size: .92rem; color: var(--text-dim); }
-.campagna-box::after {
-  content: 'Vedi i risultati →'; margin-top: auto; padding-top: .7rem;
-  font-size: .86rem; font-weight: 800; color: var(--verde-testo);
-}
-.campagna-box:hover::after { text-decoration: underline; text-underline-offset: 3px; }
+.campagna-azione { margin-top: auto; align-self: start; }
 
 .numeri { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 1px; margin-top: 2.2rem;
   background: rgba(240, 237, 230, .14); border: 1px solid rgba(240, 237, 230, .14);
@@ -416,18 +405,29 @@ main { padding-bottom: 4rem; }
 
 /* ------------------------------------------------------------------- bottoni */
 
-.bottone {
+/* Un solo bottone per tutto il sito: stesso verde, stesso bordo scuro,
+   stesso raggio. Cambia solo la taglia, mai l'aspetto. */
+.bottone, .testata-azione, .campagna-azione, .report-azione,
+.bottone-sezione, .rete-card .vai, .anni-bottone {
   display: inline-flex; align-items: center; gap: .5rem; padding: .7rem 1.3rem;
   background: var(--lime); color: var(--teal);
   border: 2px solid var(--teal); border-radius: var(--radius-sm);
-  font-weight: 800; font-size: .92rem; text-decoration: none; cursor: pointer;
+  font-family: var(--font-body);
+  font-weight: 800; font-size: .92rem; line-height: 1.2;
+  text-decoration: none; text-align: left; cursor: pointer;
   transition: background .18s ease, transform .18s ease;
 }
-.bottone:hover { background: var(--lime-light); color: var(--teal); transform: translateY(-1px); }
-.bottone-chiaro {
-  background: transparent; color: var(--teal); border: 1.5px solid var(--teal);
+.bottone:hover, .testata-azione:hover, .anni-bottone:hover,
+a.rete-card:hover .vai, .report-card:hover .report-azione,
+.campagna-box:hover .campagna-azione {
+  background: var(--lime-light); color: var(--teal); transform: translateY(-1px);
 }
-.bottone-chiaro:hover { background: var(--teal); color: var(--cream); }
+/* la taglia piccola serve dentro le schede, dove il bottone è un dettaglio */
+.bottone-piccolo, .testata-azione, .campagna-azione, .report-azione,
+.rete-card .vai, .anni-bottone {
+  padding: .45rem .95rem; font-size: .84rem; border-width: 1.5px;
+}
+.bottone-chiaro { background: var(--lime); color: var(--teal); }
 .bottoni { display: flex; flex-wrap: wrap; gap: .8rem; margin-top: 1.4rem; }
 
 .ancore { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; margin-top: 2rem; }
@@ -737,7 +737,7 @@ td.oltre { font-weight: 800; }
 
 /* Fresh Water Watch: la rete internazionale a cui mandiamo i dati */
 .fww {
-  display: grid; grid-template-columns: minmax(0, 1fr) 230px; gap: 3rem; align-items: center;
+  display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: 3rem; align-items: center;
   background: var(--teal); color: var(--text-inv);
   border: 1.5px solid var(--lime-border);
   border-radius: var(--radius-lg); padding: 2.2rem 2.4rem;
@@ -757,7 +757,7 @@ td.oltre { font-weight: 800; }
 }
 @media (max-width: 860px) {
   .fww { grid-template-columns: 1fr; gap: 1.6rem; padding: 1.6rem 1.4rem; }
-  .fww-qr { justify-self: start; max-width: 230px; }
+  .fww-qr { justify-self: stretch; }
 }
 
 /* Due colonne di testo che devono partire alla stessa altezza */
@@ -786,12 +786,8 @@ td.oltre { font-weight: 800; }
 .report-card:hover .report-icona { background: var(--l5); color: #fff; border-color: var(--l5); }
 .report-card h3 { font-size: 1.18rem; font-weight: 800; color: var(--teal); text-transform: none; line-height: 1.25; }
 .report-card p { font-size: .94rem; color: var(--text-dim); margin: 0; }
-.report-azione {
-  display: inline-flex; align-items: center; gap: .45rem; margin-top: .3rem;
-  font-size: .9rem; font-weight: 800; color: var(--l5);
-}
+.report-azione { margin-top: .5rem; justify-self: start; }
 .report-azione::after { content: '↓'; font-size: 1.05rem; }
-.report-card:hover .report-azione { text-decoration: underline; text-underline-offset: 3px; }
 .report-meta { font-size: .8rem; color: var(--text-dim); font-weight: 600; }
 
 /* ===================================================== bottoni di navigazione */
@@ -799,23 +795,20 @@ td.oltre { font-weight: 800; }
 .bottoni-sezione { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; margin-top: 2rem; }
 .bottone-sezione {
   display: grid; grid-template-columns: 2.6rem 1fr; gap: .2rem 1rem; align-items: center;
-  padding: 1.3rem 1.5rem; background: var(--teal); color: var(--text-inv);
-  border: 2px solid var(--teal); border-radius: var(--radius-md); text-decoration: none;
-  transition: background .18s ease, transform .18s ease, color .18s ease;
+  padding: 1.3rem 1.5rem; border-radius: var(--radius-md);
 }
-.bottone-sezione:hover { background: var(--lime); border-color: var(--lime); color: var(--teal); transform: translateY(-3px); }
+.bottone-sezione:hover { transform: translateY(-3px); }
 .bottone-sezione-numero {
   grid-row: 1 / span 2; display: grid; place-items: center;
   width: 2.6rem; height: 2.6rem; border-radius: 50%;
-  background: var(--lime); color: var(--teal);
+  background: var(--teal); color: var(--lime);
   font-family: var(--font-display); font-size: 1.3rem; font-weight: 900;
 }
-.bottone-sezione:hover .bottone-sezione-numero { background: var(--teal); color: var(--lime); }
 .bottone-sezione strong {
   font-family: var(--font-display); font-size: 1.35rem; font-weight: 800;
   text-transform: uppercase; color: inherit; line-height: 1.1;
 }
-.bottone-sezione span { font-size: .9rem; opacity: .85; }
+.bottone-sezione span { font-size: .9rem; color: var(--teal); opacity: .8; }
 .bottone-sezione:hover span { opacity: 1; }
 
 /* ======================================================= numeri di una campagna */
@@ -896,18 +889,6 @@ td.oltre { font-weight: 800; }
 
 .cs-griglia { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 2.5rem; align-items: start; }
 .cs-testo > p { font-size: 1.05rem; }
-.passi { counter-reset: n; list-style: none; padding: 0; margin: 0 0 1.5rem; display: grid; gap: .7rem; }
-.passi li {
-  counter-increment: n; position: relative; padding: .9rem 1.1rem .9rem 3.4rem;
-  background: var(--cream-card); border: 1px solid var(--border); border-radius: var(--radius-md);
-  font-size: .97rem; line-height: 1.55; color: var(--text-dim);
-}
-.passi li::before {
-  content: counter(n, decimal-leading-zero); position: absolute; left: 1rem; top: .85rem;
-  font-family: var(--font-display); font-size: 1.5rem; font-weight: 900;
-  color: var(--verde-testo); line-height: 1;
-}
-.passi b { color: var(--teal); }
 .limiti {
   border-left: 4px solid var(--l3); background: #FBF6E3;
   border-radius: 0 var(--radius-md) var(--radius-md) 0; padding: 1.3rem 1.5rem;
@@ -984,8 +965,7 @@ a.rete-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); b
 .rete-card .logo img { max-height: 58px; max-width: 170px; width: auto; object-fit: contain; }
 .rete-card h3 { font-size: 1.1rem; font-weight: 800; color: var(--teal); text-transform: none; line-height: 1.25; }
 .rete-card p { font-size: .9rem; color: var(--text-dim); margin: 0; }
-.rete-card .vai { font-size: .85rem; font-weight: 800; color: var(--verde-testo); }
-a.rete-card:hover .vai { text-decoration: underline; text-underline-offset: 3px; }
+.rete-card .vai { justify-self: start; margin-top: .3rem; }
 
 .rete-altri { list-style: none; padding: 0; margin: 1.6rem 0 0; display: grid; gap: .6rem; }
 .rete-altri li {
@@ -1085,7 +1065,7 @@ a.rete-card:hover .vai { text-decoration: underline; text-underline-offset: 3px;
   .sotto-titolo, .doppia h3 { font-size: 1.15rem; }
   .titolo-blocco { font-size: 1.3rem; }
   .campagna-anni { font-size: 1.6rem; }
-  .bottone, .bottone-chiaro { width: 100%; justify-content: center; }
+  .bottone { width: 100%; justify-content: center; }
   .bottoni { gap: .6rem; }
 }
 
@@ -1186,3 +1166,172 @@ a.rete-card:hover .vai { text-decoration: underline; text-underline-offset: 3px;
   .sottomenu-interno::-webkit-scrollbar { display: none; }
   .sottomenu-titolo { display: none; }
 }
+
+/* ===================================================== testo con una spalla
+
+   Un testo lungo da solo lascia mezza pagina vuota: queste classi gli mettono
+   accanto una mappa, una fotografia o un riquadro di sintesi. */
+
+.testo-lato {
+  display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr);
+  gap: 2.4rem; align-items: start;
+}
+.testo-lato > div > *:first-child { margin-top: 0; }
+.testo-lato > div > *:last-child { margin-bottom: 0; }
+.testo-lato .spalla { position: sticky; top: 104px; }
+.testo-lato figure {
+  margin: 0; background: var(--cream-card); border: 1px solid var(--border);
+  border-radius: var(--radius-md); overflow: hidden; box-shadow: var(--shadow-sm);
+}
+.testo-lato figure img { display: block; width: 100%; height: auto; }
+.testo-lato figcaption { padding: .7rem 1rem; font-size: .86rem; color: var(--text-dim); }
+.sezione-scura .testo-lato figcaption { color: var(--text-inv-dim); }
+
+/* il riquadro di spalla: due o tre numeri che si leggono in un colpo d'occhio */
+.spalla-numeri {
+  background: var(--cream-card); border: 1px solid var(--border);
+  border-top: 4px solid var(--lime-dark); border-radius: var(--radius-md);
+  padding: 1.5rem 1.6rem; box-shadow: var(--shadow-sm);
+}
+.spalla-numeri h3 {
+  font-family: var(--font-display); font-size: 1.3rem; font-weight: 800;
+  text-transform: uppercase; color: var(--teal); margin-bottom: .9rem;
+}
+.spalla-numeri dl { display: grid; gap: .9rem; margin: 0; }
+.spalla-numeri dt {
+  font-family: var(--font-display); font-size: 1.75rem; font-weight: 900;
+  line-height: 1; color: var(--verde-testo);
+}
+.spalla-numeri dd { margin: .15rem 0 0; font-size: .92rem; color: var(--text-dim); line-height: 1.45; }
+.spalla-numeri .bottone { margin-top: 1.2rem; }
+
+@media (max-width: 900px) {
+  .testo-lato { grid-template-columns: 1fr; gap: 1.6rem; }
+  .testo-lato .spalla { position: static; }
+}
+
+/* ========================================================= tappe e campagne */
+
+/* Gli anni della cronologia portano alla pagina della campagna: sono bottoni,
+   non etichette, e si deve vedere. */
+.anni-bottone { margin-bottom: .45rem; }
+
+/* ================================================== come si usa la dashboard */
+
+.guida-dash {
+  background: var(--cream-card); border: 1px solid var(--border);
+  border-left: 5px solid var(--lime-dark); border-radius: var(--radius-md);
+  padding: 1.5rem 1.7rem; margin-bottom: 1.6rem; box-shadow: var(--shadow-sm);
+}
+.guida-dash h3 {
+  font-family: var(--font-display); font-size: 1.35rem; font-weight: 800;
+  text-transform: uppercase; color: var(--teal); margin-bottom: .6rem;
+}
+.guida-dash p { font-size: .98rem; margin-bottom: .8rem; }
+.guida-dash ol { margin: 0 0 1rem; padding-left: 1.2rem; display: grid; gap: .45rem; }
+.guida-dash li { font-size: .96rem; }
+.guida-dash > details {
+  margin-top: .4rem; border: 1.5px solid var(--teal); border-radius: var(--radius-sm);
+  background: var(--lime-soft); overflow: hidden;
+}
+.guida-dash > details > summary {
+  cursor: pointer; list-style: none; padding: .7rem 1.1rem;
+  font-weight: 800; font-size: .92rem; color: var(--teal);
+  display: flex; align-items: center; gap: .5rem;
+}
+.guida-dash > details > summary::-webkit-details-marker { display: none; }
+.guida-dash > details > summary::before { content: '💡'; }
+.guida-dash > details > summary::after { content: '▸'; margin-left: auto; transition: transform .2s ease; }
+.guida-dash > details[open] > summary::after { transform: rotate(90deg); }
+.guida-dash > details > summary:hover { background: rgba(184, 212, 50, .25); }
+.guida-dash-esempi { padding: 0 1.1rem 1.1rem; display: grid; gap: .9rem; background: var(--cream-card); }
+.guida-dash-esempi article {
+  border-left: 3px solid var(--lime-dark); padding-left: .9rem;
+}
+.guida-dash-esempi h4 { font-size: 1rem; font-weight: 800; color: var(--teal); margin-bottom: .15rem; }
+.guida-dash-esempi p { font-size: .93rem; color: var(--text-dim); margin: 0; }
+
+/* ================================================== i passaggi per contribuire */
+
+.passi { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; margin-top: 1.6rem; }
+.passo {
+  background: var(--cream-card); border: 1px solid var(--border);
+  border-top: 4px solid var(--lime-dark); border-radius: var(--radius-md);
+  padding: 1.3rem 1.4rem; box-shadow: var(--shadow-sm);
+}
+.passo-numero {
+  display: grid; place-items: center; width: 2.2rem; height: 2.2rem; border-radius: 50%;
+  background: var(--teal); color: var(--lime);
+  font-family: var(--font-display); font-size: 1.15rem; font-weight: 900; margin-bottom: .6rem;
+}
+.passo h4 { font-size: 1.05rem; font-weight: 800; color: var(--teal); margin-bottom: .3rem; }
+.passo p { font-size: .93rem; color: var(--text-dim); margin: 0 0 .7rem; }
+.passo .bottone { margin-top: .2rem; }
+
+/* i due codici QR, uno accanto all'altro */
+.qr-coppia { display: grid; grid-template-columns: 1fr 1fr; gap: .8rem; }
+.qr-coppia .fww-qr { margin: 0; }
+@media (max-width: 1100px) { .qr-coppia { grid-template-columns: 1fr; } }
+
+/* ============================================================ mappa verticale */
+
+.mappa-verticale { margin: 0; background: var(--cream-card); border: 1px solid var(--border);
+  border-radius: var(--radius-md); overflow: hidden; box-shadow: var(--shadow-sm); }
+.mappa-verticale svg { display: block; width: 100%; height: auto; }
+.mappa-verticale figcaption { padding: .7rem 1rem; font-size: .86rem; color: var(--text-dim); }
+
+/* una tabella larga, su schermo stretto, scorre invece di spezzarsi */
+.tabella-scorrevole {
+  overflow-x: auto; background: var(--cream-card); border: 1px solid var(--border);
+  border-radius: var(--radius-md); box-shadow: var(--shadow-sm); margin-bottom: 1.2rem;
+}
+.tabella-scorrevole table.dati { min-width: 620px; }
+.tabella-scorrevole table.dati th, .tabella-scorrevole table.dati td { padding: .6rem .9rem; }
+.tabella-scorrevole table.dati tbody tr:last-child td { border-bottom: 0; }
+
+/* la mappa disegnata dai dati sta accanto alle schede dei luoghi */
+.luoghi .mappa svg { display: block; width: 100%; height: auto; }
+
+/* gli hotspot: un elenco compatto, il dettaglio sta nel report */
+.hotspot-box { margin-top: 1.6rem; }
+.hotspot-elenco { list-style: none; margin: 0 0 1rem; padding: 0; display: grid; gap: .55rem; }
+.hotspot-elenco li {
+  display: grid; grid-template-columns: 1fr; gap: .2rem 1rem;
+  padding-bottom: .55rem; border-bottom: 1px solid var(--border); font-size: .94rem;
+}
+.hotspot-elenco li:last-child { border-bottom: 0; padding-bottom: 0; }
+.hotspot-elenco b { color: var(--teal); font-weight: 800; }
+.hotspot-elenco span { color: var(--text-dim); }
+.hotspot-rimando { font-size: .93rem; color: var(--text-dim); margin-bottom: 1rem; }
+@media (max-width: 620px) { .hotspot-elenco li { grid-template-columns: 1fr; } }
+
+/* ============================================ i punti di campionamento in elenco
+
+   Con più di una dozzina di punti l'elenco diventa un muro: si richiude in un
+   pannello e si divide per tratto di fiume. */
+
+.dash-stazioni { display: block; }
+.dash-punti-piega { border: 1px solid var(--border); border-radius: var(--radius-md); background: #FBFAF7; }
+.dash-punti-piega > summary {
+  cursor: pointer; list-style: none; padding: .7rem 1rem;
+  font-size: .88rem; font-weight: 800; color: var(--teal);
+  display: flex; align-items: center; gap: .5rem;
+}
+.dash-punti-piega > summary::-webkit-details-marker { display: none; }
+.dash-punti-piega > summary::after { content: '▸'; margin-left: auto; transition: transform .2s ease; }
+.dash-punti-piega[open] > summary::after { transform: rotate(90deg); }
+.dash-punti-piega > summary:hover { background: var(--lime-soft); }
+.dash-punti-corpo { padding: .2rem 1rem 1rem; }
+.dash-punti-aiuto { font-size: .82rem; color: var(--text-dim); margin: .3rem 0 .6rem; }
+.dash-punti-azioni { display: flex; flex-wrap: wrap; gap: .4rem; margin-bottom: .8rem; }
+.dash-punti-tratto {
+  margin: .9rem 0 .4rem; font-size: .8rem; text-transform: uppercase;
+  letter-spacing: .05em; color: var(--text-dim);
+}
+.dash-punti-tratto b { color: var(--verde-testo); letter-spacing: .05em; }
+.dash-punti-fila { display: flex; flex-wrap: wrap; gap: .4rem; }
+
+/* nella colonna stretta della home i due codici stanno uno sotto l'altro:
+   schiacciati in due colonne diventerebbero troppo piccoli per essere letti */
+.fww-stretto .qr-coppia { grid-template-columns: 1fr; }
+.fww-stretto .qr-coppia .fww-qr img { max-width: 170px; }

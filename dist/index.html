@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800;900&family=Barlow+Condensed:wght@700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/sito.css?v=197fec1f">
+  <link rel="stylesheet" href="assets/css/sito.css?v=34b68ec9">
 </head>
 <body>
 <a class="salta" href="#contenuto">Vai al contenuto principale</a>
@@ -18,11 +18,11 @@
   <div class="contenitore testata-interna">
     <a class="marchio" href="index.html">
       <svg class="marchio-segno" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
-        <path d="M46 8 C38 18, 44 24, 36 32 C28 40, 34 46, 24 56" fill="none"
-              stroke="currentColor" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
-        <circle cx="42.6" cy="18.4" r="3.6" fill="#F0EDE6"/>
-        <circle cx="36" cy="32" r="3.6" fill="#F0EDE6"/>
-        <circle cx="29.4" cy="45.6" r="3.6" fill="#F0EDE6"/>
+        <g fill="none" stroke="currentColor" stroke-width="6.5" stroke-linecap="round">
+          <path d="M9 22 Q15 15 21 22 T33 22 T45 22 T55 22"/>
+          <path d="M9 32 Q15 25 21 32 T33 32 T45 32 T55 32"/>
+          <path d="M9 42 Q15 35 21 42 T33 42 T45 42 T55 42"/>
+        </g>
       </svg>
       <span class="marchio-testo">
         <span class="marchio-nome">Aniene Water Lab</span>
@@ -70,16 +70,19 @@
         <span class="campagna-anni">2021 | 2022-2023</span>
         <span class="campagna-nome">Walk Up Aniene e RomaUp</span>
         <span class="campagna-desc">Le prime mappature e cinque stazioni nel tratto urbano.</span>
+        <span class="campagna-azione">Vedi i risultati →</span>
       </a>
       <a class="campagna-box" href="campagna-2023-2024.html">
         <span class="campagna-anni">2023-2024</span>
         <span class="campagna-nome">Aniene WaterLab</span>
         <span class="campagna-desc">Nove stazioni da Subiaco al Tevere e le prime discese in gommone.</span>
+        <span class="campagna-azione">Vedi i risultati →</span>
       </a>
       <a class="campagna-box" href="campagna-2025-2026.html">
         <span class="campagna-anni">2025-2026</span>
         <span class="campagna-nome">Aniene WaterLab</span>
         <span class="campagna-desc">Punti fissi, immissioni campionate in gommone e macroinvertebrati.</span>
+        <span class="campagna-azione">Vedi i risultati →</span>
       </a>
     </div>
     <div class="numeri numeri-chiari">
@@ -126,22 +129,22 @@
         <p class="sotto-titolo">Dalle passeggiate a una rete di monitoraggio</p>
         <ul class="cronologia">
           <li>
-            <span class="cronologia-anni">2021</span>
+            <a class="anni-bottone" href="campagna-2022-2023.html">2021 →</a>
             <span class="cronologia-nome">Walk Up Aniene</span>
             Il progetto pilota di <strong>A Sud</strong> e <strong>Insieme per l&#39;Aniene</strong> mappa con strumenti GIS le criticità e i punti di pregio ecologico del basso corso, con persone esperte e non, producendo tra i risultati una mappa dello stato ambientale georeferenziata della fascia fluviale.
           </li>
           <li>
-            <span class="cronologia-anni">2022 – 2023</span>
+            <a class="anni-bottone" href="campagna-2022-2023.html">2022 – 2023 →</a>
             <span class="cronologia-nome">RomaUP</span>
             Il progetto di A Sud, sostenuto da Periferiacapitale, monitora il Tevere e dal 2022 anche l&#39;Aniene, in <strong>5 stazioni urbane</strong> da Casale Caletto a Ponte Salario. Con il kit FreshWater Watch si analizzano conducibilità elettrica, nitrati, fosfati, ammonio ed Escherichia coli.
           </li>
           <li>
-            <span class="cronologia-anni">2023 – 2024</span>
+            <a class="anni-bottone" href="campagna-2023-2024.html">2023 – 2024 →</a>
             <span class="cronologia-nome">Aniene WaterLab</span>
             Coordinato da Insieme per l&#39;Aniene, il monitoraggio mensile <strong>esce dalla città</strong>: 9 stazioni da Subiaco al Tevere, tre discese in gommone e una rete di associazioni stabile.
           </li>
           <li>
-            <span class="cronologia-anni">2025 – 2026</span>
+            <a class="anni-bottone" href="campagna-2025-2026.html">2025 – 2026 →</a>
             <span class="cronologia-nome">Aniene WaterLab</span>
             Da ottobre 2025 il monitoraggio riprende in 9 punti fissi, con nuove discese in gommone per <strong>campionare le immissioni nel fiume</strong>. In gommone sono stati campionati i punti lungo l&#39;intero tratto da Ponte Lucano alla confluenza nel Tevere.
           </li>
@@ -297,7 +300,7 @@
       <div class="capitolo-testo">
         <p>Per la misurazione dei parametri abbiamo scelto strumenti <strong>molto semplici ed economici</strong>, intuitivi nel loro utilizzo e alla portata di tutti. I campioni di acqua sono prelevati direttamente dal fiume tramite un secchio legato a una fune, molto utile anche per raggiungere i punti più difficili, oppure usando contenitori e pipette sterili nel caso di analisi microbiologiche.</p><p>Sul campo misuriamo direttamente i parametri chimico-fisici principali, con dispositivi tascabili <strong>HANNA Instruments</strong> per temperatura, conducibilità elettrica e pH. Usiamo poi un fotocolorimetro per l&#39;ammoniaca, il <strong>tubo di Secchi</strong> per la torbidità e le fialette reagenti per nitrati e fosfati. A questi si aggiunge la <strong>titolazione di Winkler</strong> per l&#39;ossigeno disciolto, fondamentale per la vita acquatica e l&#39;autodepurazione del fiume: è grazie alla sua introduzione che oggi possiamo calcolare l&#39;indice ufficiale LIMeco e confrontare i nostri dati con quelli istituzionali di ARPA Lazio.</p><p>Per monitorare la contaminazione fecale e la non balneabilità dell&#39;Aniene effettuiamo inoltre la conta delle colonie di <strong>Escherichia coli</strong> tramite piastre cromogene Compact Dry EC, incubate per 24 ore a 36 °C. Tutti i rilievi vengono annotati su schede cartacee e caricati sull&#39;app Survey123, alimentando un <strong>database aperto e condiviso</strong>.</p>
         <p class="bottoni" style="margin-bottom:0">
-          <a class="bottone" href="citizen-science.html#metodologia">Vai alla pagina Citizen science →</a>
+          <a class="bottone" href="citizen-science.html#parametri">Vedi le schede dei parametri →</a>
         </p>
       </div>
       <aside class="fww fww-stretto">
@@ -309,10 +312,17 @@
             <a class="bottone" href="https://www.freshwaterwatch.org" rel="noopener">Vai a Fresh Water Watch ↗</a>
           </p>
         </div>
-        <div class="fww-qr">
-          <img src="assets/img/qr-survey123.svg" alt="Inquadra il codice per aprire l&#39;archivio dei rilievi." width="150" height="150">
-          <strong>App Survey123</strong>
-          <span>Inquadra il codice per aprire l&#39;archivio dei rilievi.</span>
+        <div class="qr-coppia">
+          <div class="fww-qr">
+            <img src="assets/img/qr-survey123.svg" alt="Inquadra il codice per aprire l&#39;archivio dei rilievi." width="150" height="150">
+            <strong>App Survey123</strong>
+            <span>Inquadra il codice per aprire l&#39;archivio dei rilievi.</span>
+          </div>
+          <div class="fww-qr">
+            <img src="assets/img/qr-gruppo-asud.svg" alt="Inquadra il codice per aprire la pagina del gruppo A Sud su Fresh Water Watch." width="150" height="150">
+            <strong>Il gruppo Aniene</strong>
+            <span>Inquadra il codice per aprire la pagina del gruppo A Sud su Fresh Water Watch.</span>
+          </div>
         </div>
       </aside>
     </div>

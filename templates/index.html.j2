@@ -30,6 +30,7 @@
         <span class="campagna-anni">{{ b.anni }}</span>
         <span class="campagna-nome">{{ b.nome }}</span>
         <span class="campagna-desc">{{ b.descrizione }}</span>
+        <span class="campagna-azione">Vedi i risultati →</span>
       </a>
       {% endfor %}
     </div>
@@ -63,7 +64,7 @@
         <ul class="cronologia">
           {% for t in c.progetto.tappe %}
           <li>
-            <span class="cronologia-anni">{{ t.anni }}</span>
+            <a class="anni-bottone" href="{{ t.pagina }}.html">{{ t.anni }} →</a>
             <span class="cronologia-nome">{{ t.nome }}</span>
             {{ t.testo|t }}
           </li>
@@ -161,7 +162,7 @@
       <div class="capitolo-testo">
         {{ parti.paragrafi(c.metodologia.paragrafi) }}
         <p class="bottoni" style="margin-bottom:0">
-          <a class="bottone" href="citizen-science.html#metodologia">{{ c.metodologia.approfondisci }} →</a>
+          <a class="bottone" href="citizen-science.html#parametri">{{ c.metodologia.approfondisci }} →</a>
         </p>
       </div>
       <aside class="fww fww-stretto">
@@ -173,10 +174,14 @@
             <a class="bottone" href="{{ c.metodologia.fresh_water_watch.link }}" rel="noopener">{{ c.metodologia.fresh_water_watch.link_testo }} ↗</a>
           </p>
         </div>
-        <div class="fww-qr">
-          <img src="assets/img/qr-survey123.svg" alt="{{ c.metodologia.fresh_water_watch.qr_descrizione }}" width="150" height="150">
-          <strong>{{ c.metodologia.fresh_water_watch.qr_etichetta }}</strong>
-          <span>{{ c.metodologia.fresh_water_watch.qr_descrizione }}</span>
+        <div class="qr-coppia">
+          {% for q in c.metodologia.fresh_water_watch.qr %}
+          <div class="fww-qr">
+            <img src="assets/img/{{ q.immagine }}" alt="{{ q.descrizione }}" width="150" height="150">
+            <strong>{{ q.etichetta }}</strong>
+            <span>{{ q.descrizione }}</span>
+          </div>
+          {% endfor %}
         </div>
       </aside>
     </div>

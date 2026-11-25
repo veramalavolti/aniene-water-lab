@@ -80,6 +80,7 @@ progetto:
   sottotitolo: Dalle passeggiate a una rete di monitoraggio
   tappe:
     - anni: 2021
+      pagina: campagna-2022-2023
       nome: Walk Up Aniene
       testo: >-
         Il progetto pilota di **A Sud** e **Insieme per l'Aniene** mappa con
@@ -87,6 +88,7 @@ progetto:
         corso, con persone esperte e non, producendo tra i risultati una mappa
         dello stato ambientale georeferenziata della fascia fluviale.
     - anni: 2022 – 2023
+      pagina: campagna-2022-2023
       nome: RomaUP
       testo: >-
         Il progetto di A Sud, sostenuto da Periferiacapitale, monitora il Tevere
@@ -94,12 +96,14 @@ progetto:
         Ponte Salario. Con il kit FreshWater Watch si analizzano conducibilità
         elettrica, nitrati, fosfati, ammonio ed Escherichia coli.
     - anni: 2023 – 2024
+      pagina: campagna-2023-2024
       nome: Aniene WaterLab
       testo: >-
         Coordinato da Insieme per l'Aniene, il monitoraggio mensile **esce dalla
         città**: 9 stazioni da Subiaco al Tevere, tre discese in gommone e una
         rete di associazioni stabile.
     - anni: 2025 – 2026
+      pagina: campagna-2025-2026
       nome: Aniene WaterLab
       testo: >-
         Da ottobre 2025 il monitoraggio riprende in 9 punti fissi, con nuove
@@ -298,7 +302,7 @@ metodologia:
       piastre cromogene Compact Dry EC, incubate per 24 ore a 36 °C. Tutti i
       rilievi vengono annotati su schede cartacee e caricati sull'app Survey123,
       alimentando un **database aperto e condiviso**.
-  approfondisci: Vai alla pagina Citizen science
+  approfondisci: Vedi le schede dei parametri
   fresh_water_watch:
     etichetta: La rete internazionale
     titolo: I dati entrano in una banca dati mondiale
@@ -308,10 +312,19 @@ metodologia:
       prese con lo stesso protocollo in tutto il mondo si possono confrontare:
       così i dati dell'Aniene si affiancano a quelli di **migliaia di altri
       gruppi**, dall'Europa all'Asia.
-    qr_etichetta: App Survey123
-    qr_descrizione: Inquadra il codice per aprire l'archivio dei rilievi.
     link: https://www.freshwaterwatch.org
     link_testo: Vai a Fresh Water Watch
+    # I due codici da inquadrare: l'app per registrare i rilievi e la pagina
+    # del gruppo Aniene dentro Fresh Water Watch.
+    qr:
+      - immagine: qr-survey123.svg
+        etichetta: App Survey123
+        descrizione: Inquadra il codice per aprire l'archivio dei rilievi.
+      - immagine: qr-gruppo-asud.svg
+        etichetta: Il gruppo Aniene
+        descrizione: >-
+          Inquadra il codice per aprire la pagina del gruppo A Sud su Fresh
+          Water Watch.
 
 obiettivi:
   titolo: In breve, gli obiettivi del progetto

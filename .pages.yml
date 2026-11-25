@@ -136,6 +136,23 @@ content:
           - { name: titolo, label: Titolo, type: string }
           - { name: paragrafi, label: Paragrafi, type: text, list: true }
           - { name: approfondisci, label: Testo del bottone, type: string }
+          - name: fresh_water_watch
+            label: Riquadro Fresh Water Watch
+            type: object
+            fields:
+              - { name: etichetta, label: Sopratitolo, type: string }
+              - { name: titolo, label: Titolo, type: string }
+              - { name: testo, label: Testo, type: text }
+              - { name: link, label: Indirizzo del sito, type: string }
+              - { name: link_testo, label: Testo del collegamento, type: string }
+              - name: qr
+                label: I codici QR
+                type: object
+                list: true
+                fields:
+                  - { name: immagine, label: File del codice, type: string }
+                  - { name: etichetta, label: Titolo, type: string }
+                  - { name: descrizione, label: Descrizione, type: text }
       - name: obiettivi
         label: "Sezione: gli obiettivi"
         type: object
@@ -176,33 +193,47 @@ content:
           - { name: titolo, label: Titolo, type: string }
           - { name: intro, label: Testo introduttivo, type: text }
           - { name: ordine, label: Ordine delle schede, type: string, list: true }
-      - name: metodologia
-        label: "Sezione: metodologia"
+      - name: limeco
+        label: "Sezione: l'indice LIMeco"
         type: object
         fields:
+          - { name: etichetta, label: Sopratitolo, type: string }
           - { name: titolo, label: Titolo, type: string }
           - { name: intro, label: Testo introduttivo, type: text }
-          - { name: strumenti_titolo, label: Titolo degli strumenti, type: string }
-          - name: strumenti
-            label: Gli strumenti
+          - { name: paragrafi, label: Paragrafi, type: text, list: true }
+          - { name: nota, label: Avvertenze, type: text }
+      - name: fresh_water_watch
+        label: "Sezione: Fresh Water Watch"
+        type: object
+        fields:
+          - { name: etichetta, label: Sopratitolo, type: string }
+          - { name: titolo, label: Titolo, type: string }
+          - { name: paragrafi, label: Paragrafi, type: text, list: true }
+          - { name: link, label: Indirizzo del sito, type: string }
+          - { name: link_testo, label: Testo del collegamento, type: string }
+          - name: qr
+            label: I codici QR
             type: object
             list: true
             fields:
-              - { name: nome, label: Nome, type: string }
-              - { name: testo, label: Descrizione, type: text }
-              - { name: foto, label: Foto, type: image, options: { media: fotografie, path: foto } }
-          - name: registrazione
-            label: Come registriamo i dati
+              - { name: immagine, label: File del codice, type: string }
+              - { name: etichetta, label: Titolo, type: string }
+              - { name: descrizione, label: Descrizione, type: text }
+          - name: partecipare
+            label: Come contribuire
             type: object
             fields:
               - { name: titolo, label: Titolo, type: string }
-              - { name: testo, label: Testo, type: text }
-          - name: ossigeno
-            label: Perché l'ossigeno disciolto
-            type: object
-            fields:
-              - { name: titolo, label: Titolo, type: string }
-              - { name: testo, label: Testo, type: text }
+              - { name: intro, label: Testo introduttivo, type: text }
+              - name: passi
+                label: I passaggi
+                type: object
+                list: true
+                fields:
+                  - { name: titolo, label: Titolo, type: string }
+                  - { name: testo, label: Testo, type: text }
+                  - { name: link, label: Indirizzo del collegamento, type: string }
+                  - { name: link_testo, label: Testo del collegamento, type: string }
       - name: macroinvertebrati
         label: "Sezione: macroinvertebrati"
         type: object
@@ -266,6 +297,7 @@ content:
         fields:
           - { name: titolo, label: Titolo, type: string }
           - { name: intro, label: Testo introduttivo, type: text }
+          - { name: mappa_didascalia, label: Didascalia della mappa, type: text }
           - name: stazioni
             label: Le stazioni
             type: object
@@ -393,6 +425,26 @@ content:
         fields:
           - { name: titolo, label: Titolo, type: string }
           - { name: paragrafi, label: Paragrafi, type: text, list: true }
+          - name: spalla
+            label: Riquadro dei dati da ricordare
+            type: object
+            fields:
+              - { name: titolo, label: Titolo, type: string }
+              - name: voci
+                label: I dati
+                type: object
+                list: true
+                fields:
+                  - { name: valore, label: Numero, type: string }
+                  - { name: testo, label: Testo, type: text }
+              - { name: link, label: Collegamento, type: string }
+              - { name: link_testo, label: Testo del collegamento, type: string }
+      - name: introduzione_foto
+        label: "Foto accanto al testo di apertura"
+        type: object
+        fields:
+          - { name: file, label: Foto, type: image, options: { media: fotografie, path: foto } }
+          - { name: descrizione, label: Didascalia, type: text }
       - name: schede
         label: "Sezione: le schede dei parametri"
         type: object
@@ -400,26 +452,6 @@ content:
           - { name: titolo, label: Titolo, type: string }
           - { name: intro, label: Testo introduttivo, type: text }
           - { name: ordine, label: Ordine delle schede, type: string, list: true }
-      - name: metodologia
-        label: "Sezione: la metodologia"
-        type: object
-        fields:
-          - { name: titolo, label: Titolo, type: string }
-          - { name: intro, label: Testo introduttivo, type: text }
-          - { name: rimando, label: Testo del bottone, type: string }
-          - name: ossigeno
-            label: Riquadro sull'ossigeno
-            type: object
-            fields:
-              - { name: titolo, label: Titolo, type: string }
-              - { name: testo, label: Testo, type: text }
-          - name: foto
-            label: Fotografie
-            type: object
-            list: true
-            fields:
-              - { name: file, label: Foto, type: image, options: { media: fotografie, path: foto } }
-              - { name: descrizione, label: Didascalia, type: text }
       - name: rete
         label: "Sezione: la rete territoriale"
         type: object
@@ -464,6 +496,18 @@ content:
         type: object
         fields:
           - { name: paragrafi, label: Paragrafi, type: text, list: true }
+          - name: spalla
+            label: Riquadro dei numeri accanto al testo
+            type: object
+            fields:
+              - { name: titolo, label: Titolo, type: string }
+              - name: voci
+                label: I dati
+                type: object
+                list: true
+                fields:
+                  - { name: valore, label: Numero, type: string }
+                  - { name: testo, label: Testo, type: text }
           - name: sezioni
             label: I due bottoni delle sezioni
             type: object
@@ -495,6 +539,20 @@ content:
             fields:
               - { name: titolo, label: Titolo, type: string }
               - { name: paragrafi, label: Paragrafi, type: text, list: true }
+              - name: spalla
+                label: Riquadro dei dati da ricordare
+                type: object
+                fields:
+                  - { name: titolo, label: Titolo, type: string }
+                  - name: voci
+                    label: I dati
+                    type: object
+                    list: true
+                    fields:
+                      - { name: valore, label: Numero, type: string }
+                      - { name: testo, label: Testo, type: text }
+                  - { name: link, label: Collegamento, type: string }
+                  - { name: link_testo, label: Testo del collegamento, type: string }
           - name: schede
             label: Le schede dei parametri
             type: object
@@ -575,6 +633,7 @@ content:
               - { name: intro, label: Testo introduttivo, type: text }
               - { name: criteri, label: I quattro criteri, type: text, list: true }
               - { name: elenco_titolo, label: Titolo dell'elenco, type: string }
+              - { name: rimando, label: Rimando al report, type: text }
               - name: elenco
                 label: I campioni hotspot
                 type: object
@@ -750,3 +809,24 @@ content:
             fields:
               - { name: voce, label: Testo, type: string }
               - { name: url, label: Indirizzo, type: string }
+      - name: guida_dashboard
+        label: "Come si usa la dashboard (vale per tutte le campagne)"
+        type: object
+        fields:
+          - { name: titolo, label: Titolo, type: string }
+          - { name: intro, label: Testo introduttivo, type: text }
+          - { name: passi, label: I passaggi, type: text, list: true }
+          - { name: esempi_invito, label: Testo del riquadro da aprire, type: string }
+          - name: esempi
+            label: Gli esempi di esplorazione
+            type: object
+            list: true
+            fields:
+              - { name: titolo, label: Domanda, type: string }
+              - { name: testo, label: Risposta, type: text }
+      - name: testata
+        label: Il bottone in alto a destra
+        type: object
+        fields:
+          - { name: voce, label: Testo, type: string }
+          - { name: pagina, label: Pagina, type: string }

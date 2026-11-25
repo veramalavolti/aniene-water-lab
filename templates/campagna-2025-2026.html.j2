@@ -16,9 +16,26 @@
 </nav>
 
 <section class="sezione">
-  <div class="contenitore stretto">
-    {{ parti.paragrafi(c.introduzione.paragrafi) }}
-    {{ parti.bottoni_sezione(c.introduzione.sezioni) }}
+  <div class="contenitore">
+    <div class="testo-lato">
+      <div>
+        {{ parti.paragrafi(c.introduzione.paragrafi) }}
+        {{ parti.bottoni_sezione(c.introduzione.sezioni) }}
+      </div>
+      <div class="spalla">
+        <div class="spalla-numeri">
+          <h3>{{ c.introduzione.spalla.titolo }}</h3>
+          <dl>
+            {% for v in c.introduzione.spalla.voci %}
+            <div>
+              <dt>{{ v.valore }}</dt>
+              <dd>{{ v.testo|t }}</dd>
+            </div>
+            {% endfor %}
+          </dl>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -39,14 +56,14 @@
 
 <section class="sezione">
   <div class="contenitore">
-    {{ parti.dashboard(c.fissi.dashboard, riepilogo) }}
+    {{ parti.dashboard(c.fissi.dashboard, riepilogo, impostazioni.guida_dashboard) }}
   </div>
 </section>
 
 <section class="sezione sezione-chiara">
-  <div class="contenitore stretto">
+  <div class="contenitore">
     {{ parti.testa('', c.fissi.sintesi.titolo) }}
-    {{ parti.paragrafi(c.fissi.sintesi.paragrafi) }}
+    {{ parti.sintesi_con_spalla(c.fissi.sintesi) }}
   </div>
 </section>
 
@@ -80,7 +97,7 @@
 
 <section class="sezione">
   <div class="contenitore">
-    {{ parti.dashboard(c.gommone.dashboard, riepilogo) }}
+    {{ parti.dashboard(c.gommone.dashboard, riepilogo, impostazioni.guida_dashboard) }}
   </div>
 </section>
 
@@ -102,26 +119,30 @@
 </section>
 
 <section class="sezione" id="hotspot">
-  <div class="contenitore stretto">
+  <div class="contenitore">
     {{ parti.testa('Dove guardare', c.gommone.hotspot.titolo, c.gommone.hotspot.intro) }}
-    <ul class="elenco-spunte">
-      {% for criterio in c.gommone.hotspot.criteri %}
-      <li>{{ criterio }}</li>
-      {% endfor %}
-    </ul>
-    <h3 class="sotto-titolo">{{ c.gommone.hotspot.elenco_titolo }}</h3>
-    <ul class="stazioni-elenco">
-      {% for h in c.gommone.hotspot.elenco %}
-      <li>
-        <span class="stazione-codice">H</span>
-        <div>
-          <span class="stazione-nome">{{ h.data }}</span>
-          <p>{{ h.punti }}</p>
+    <div class="testo-lato">
+      <div>
+        <ul class="elenco-spunte">
+          {% for criterio in c.gommone.hotspot.criteri %}
+          <li>{{ criterio }}</li>
+          {% endfor %}
+        </ul>
+        <div style="margin-top:1.6rem">{{ parti.paragrafi(c.gommone.hotspot.chiusura) }}</div>
+      </div>
+      <div class="spalla">
+        <div class="riquadro hotspot-box">
+          <h3>{{ c.gommone.hotspot.elenco_titolo }}</h3>
+          <ul class="hotspot-elenco">
+            {% for h in c.gommone.hotspot.elenco %}
+            <li><b>{{ h.data }}</b> <span>{{ h.punti }}</span></li>
+            {% endfor %}
+          </ul>
+          <p class="hotspot-rimando">{{ c.gommone.hotspot.rimando|t }}</p>
+          <a class="bottone bottone-piccolo" href="#report">Vai ai report →</a>
         </div>
-      </li>
-      {% endfor %}
-    </ul>
-    <div style="margin-top:1.4rem">{{ parti.paragrafi(c.gommone.hotspot.chiusura) }}</div>
+      </div>
+    </div>
   </div>
 </section>
 

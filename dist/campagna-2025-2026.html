@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800;900&family=Barlow+Condensed:wght@700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/sito.css?v=197fec1f">
+  <link rel="stylesheet" href="assets/css/sito.css?v=34b68ec9">
 </head>
 <body>
 <a class="salta" href="#contenuto">Vai al contenuto principale</a>
@@ -18,11 +18,11 @@
   <div class="contenitore testata-interna">
     <a class="marchio" href="index.html">
       <svg class="marchio-segno" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
-        <path d="M46 8 C38 18, 44 24, 36 32 C28 40, 34 46, 24 56" fill="none"
-              stroke="currentColor" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
-        <circle cx="42.6" cy="18.4" r="3.6" fill="#F0EDE6"/>
-        <circle cx="36" cy="32" r="3.6" fill="#F0EDE6"/>
-        <circle cx="29.4" cy="45.6" r="3.6" fill="#F0EDE6"/>
+        <g fill="none" stroke="currentColor" stroke-width="6.5" stroke-linecap="round">
+          <path d="M9 22 Q15 15 21 22 T33 22 T45 22 T55 22"/>
+          <path d="M9 32 Q15 25 21 32 T33 32 T45 32 T55 32"/>
+          <path d="M9 42 Q15 35 21 42 T33 42 T45 42 T55 42"/>
+        </g>
       </svg>
       <span class="marchio-testo">
         <span class="marchio-nome">Aniene Water Lab</span>
@@ -71,9 +71,11 @@
 </nav>
 
 <section class="sezione">
-  <div class="contenitore stretto">
-    <p>Nel 2025–2026 il monitoraggio riprende in 9 punti fissi, dall&#39;alto corso a Subiaco fino alla confluenza nel Tevere, con campionamenti mensili fatti sempre negli stessi luoghi e con lo stesso protocollo. A questi si affiancano le campagne in gommone, pensate per campionare direttamente là dove il fiume incontra scarichi, fossi, impianti di sollevamento e immissioni, che da terra non si vedono.</p><p>Due modi diversi di fotografare lo stato di salute del fiume, con un obiettivo comune: raccogliere dati indipendenti, segnalare le criticità e sollecitare le verifiche ufficiali.</p>
-    <div class="bottoni-sezione">
+  <div class="contenitore">
+    <div class="testo-lato">
+      <div>
+        <p>Nel 2025–2026 il monitoraggio riprende in 9 punti fissi, dall&#39;alto corso a Subiaco fino alla confluenza nel Tevere, con campionamenti mensili fatti sempre negli stessi luoghi e con lo stesso protocollo. A questi si affiancano le campagne in gommone, pensate per campionare direttamente là dove il fiume incontra scarichi, fossi, impianti di sollevamento e immissioni, che da terra non si vedono.</p><p>Due modi diversi di fotografare lo stato di salute del fiume, con un obiettivo comune: raccogliere dati indipendenti, segnalare le criticità e sollecitare le verifiche ufficiali.</p>
+        <div class="bottoni-sezione">
   <a class="bottone-sezione" href="#dati-fissi">
     <span class="bottone-sezione-numero" aria-hidden="true">1</span>
     <strong>I dati dei punti fissi</strong>
@@ -86,6 +88,27 @@
   </a>
 </div>
 
+      </div>
+      <div class="spalla">
+        <div class="spalla-numeri">
+          <h3>La campagna in numeri</h3>
+          <dl>
+            <div>
+              <dt>9 + 34</dt>
+              <dd>i <strong>punti campionati</strong>: nove stazioni fisse, dall&#39;alto corso alla confluenza, più trentaquattro immissioni raggiunte in gommone.</dd>
+            </div>
+            <div>
+              <dt>13</dt>
+              <dd>le <strong>campagne mensili</strong> sui punti fissi, da ottobre 2025 a ottobre 2026, sempre negli stessi luoghi e con lo stesso protocollo.</dd>
+            </div>
+            <div>
+              <dt>10</dt>
+              <dd>i campioni che superano insieme tutti e quattro gli indicatori di <strong>forte pressione organica e fognaria</strong>.</dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -108,6 +131,33 @@
   <div class="contenitore">
     <h2 class="titolo-sezione">I risultati nei punti fissi</h2>
 <p class="occhiello-testo">Scegli un parametro per vederne l&#39;andamento in tutte le stazioni. Le linee orizzontali sono le soglie di qualità: passandoci sopra con il mouse compaiono il valore, cosa significa superarle e le possibili cause.</p>
+<div class="guida-dash">
+  <h3>Come si usa questa dashboard</h3>
+  <p>La dashboard serve a <strong>farle delle domande</strong>: dove peggiora il fiume, quando è successo, quali punti superano le soglie di legge. Si muove in quattro mosse.</p>
+  <ol>
+<li><strong>Scegli un parametro</strong> dal menu in alto. Il grafico mostra solo quello, con le sue soglie e la sua unità di misura.</li><li><strong>Scegli la vista.</strong> *Andamento* mette i prelievi in ordine di tempo, *Profilo* li mette in fila da monte a valle, *Mappa* li dispone sul corso reale del fiume.</li><li><strong>Accendi e spegni i punti</strong> con i tasti colorati sotto il grafico. Il tasto *Mostra tutti* li riaccende tutti insieme, senza doverli riselezionare uno a uno.</li><li><strong>Passa sopra le linee tratteggiate</strong>: sono le soglie di qualità. Il riquadro che compare dice quale valore è stato superato e quali possono esserne le cause.</li>  </ol>
+  <details>
+    <summary>Clicca qui per qualche esempio di esplorazione</summary>
+    <div class="guida-dash-esempi">
+      <article>
+        <h4>Da dove in poi il fiume non è più balneabile?</h4>
+        <p>Scegli <strong>Escherichia coli</strong> e la vista *Profilo*: i punti si allineano da monte a valle e si vede a occhio dove la colonna supera la linea delle 1.000 UFC, il limite di balneabilità.</p>
+      </article>
+      <article>
+        <h4>Quando è arrivato lo scarico?</h4>
+        <p>Scegli <strong>ammonio</strong> e la vista *Andamento*, poi lascia acceso un solo punto. I picchi isolati raccontano un episodio; una riga sempre alta racconta un apporto continuo.</p>
+      </article>
+      <article>
+        <h4>Il fiume respira meglio d&#39;inverno?</h4>
+        <p>Scegli <strong>ossigeno disciolto</strong> in *Andamento* e tieni accesi due o tre punti: l&#39;acqua fredda trattiene più ossigeno, quindi un calo estivo è normale, un calo invernale no.</p>
+      </article>
+      <article>
+        <h4>Dove sta il salto?</h4>
+        <p>Scegli <strong>conducibilità</strong> e la vista *Mappa*: i cerchi si colorano per livello e si individua subito il tratto in cui il valore cambia bruscamente rispetto ai punti vicini.</p>
+      </article>
+    </div>
+  </details>
+</div>
 <div class="dashboard" data-dati="campagna-2025-2026">
   <div class="dash-guida">
     <p><strong>Caricamento dei dati…</strong>
@@ -122,10 +172,33 @@
 </section>
 
 <section class="sezione sezione-chiara">
-  <div class="contenitore stretto">
+  <div class="contenitore">
     <h2 class="titolo-sezione">In breve</h2>
 
-    <p>Il fiume <strong>peggiora in modo netto e progressivo da monte a valle</strong>. A Subiaco e Vicovaro i valori restano buoni su quasi tutti i parametri. Il primo salto avviene a Ponte Lucano, dove la conducibilità passa da circa 600 a 1.277 µS/cm di mediana, con punte al limite dello strumento; il secondo nel tratto urbano, dove crollano l&#39;ossigeno e cresce la contaminazione fecale.</p><p>Il dato più allarmante resta <strong>Escherichia coli</strong>: la mediana passa da 200 UFC/100 mL a Subiaco a 38.000 a Ponte Salario, con punte di 980.000 a Ponte Mammolo e 280.000 a Ponte Salario. Solo Subiaco e Vicovaro restano, nella maggior parte delle campagne, entro valori compatibili con la balneazione.</p><p><strong>Temperatura e pH non mostrano anomalie</strong>: le temperature seguono le stagioni, tra 8,5 e 21,7 °C, e il pH resta quasi sempre nell&#39;intervallo 7–9, con due soli picchi isolati.</p>
+    <div class="testo-lato">
+  <div><p>Il fiume <strong>peggiora in modo netto e progressivo da monte a valle</strong>. A Subiaco e Vicovaro i valori restano buoni su quasi tutti i parametri. Il primo salto avviene a Ponte Lucano, dove la conducibilità passa da circa 600 a 1.277 µS/cm di mediana, con punte al limite dello strumento; il secondo nel tratto urbano, dove crollano l&#39;ossigeno e cresce la contaminazione fecale.</p><p>Il dato più allarmante resta <strong>Escherichia coli</strong>: la mediana passa da 200 UFC/100 mL a Subiaco a 38.000 a Ponte Salario, con punte di 980.000 a Ponte Mammolo e 280.000 a Ponte Salario. Solo Subiaco e Vicovaro restano, nella maggior parte delle campagne, entro valori compatibili con la balneazione.</p><p><strong>Temperatura e pH non mostrano anomalie</strong>: le temperature seguono le stagioni, tra 8,5 e 21,7 °C, e il pH resta quasi sempre nell&#39;intervallo 7–9, con due soli picchi isolati.</p></div>
+  <div class="spalla">
+    <div class="spalla-numeri">
+      <h3>I tre dati da ricordare</h3>
+      <dl>
+        <div>
+          <dt>980.000</dt>
+          <dd>le UFC/100 mL di <strong>Escherichia coli</strong> toccate a Ponte Mammolo. A Subiaco la mediana è 200.</dd>
+        </div>
+        <div>
+          <dt>1.277</dt>
+          <dd>i µS/cm di <strong>conducibilità</strong> mediana a Ponte Lucano, più del doppio dei 600 misurati appena a monte.</dd>
+        </div>
+        <div>
+          <dt>2</dt>
+          <dd>i <strong>salti netti</strong> lungo il corso: il primo a Ponte Lucano, il secondo nel tratto urbano, dove crolla l&#39;ossigeno.</dd>
+        </div>
+      </dl>
+      <a class="bottone bottone-piccolo" href="#report">Scarica il report completo →</a>
+    </div>
+  </div>
+</div>
+
   </div>
 </section>
 
@@ -367,6 +440,33 @@
   <div class="contenitore">
     <h2 class="titolo-sezione">I risultati delle campagne in gommone</h2>
 <p class="occhiello-testo">Scegli un parametro per vedere il profilo del fiume da monte a valle, punto per punto. Le linee orizzontali sono le soglie di qualità: passandoci sopra con il mouse compaiono il valore, cosa significa superarle e le possibili cause.</p>
+<div class="guida-dash">
+  <h3>Come si usa questa dashboard</h3>
+  <p>La dashboard serve a <strong>farle delle domande</strong>: dove peggiora il fiume, quando è successo, quali punti superano le soglie di legge. Si muove in quattro mosse.</p>
+  <ol>
+<li><strong>Scegli un parametro</strong> dal menu in alto. Il grafico mostra solo quello, con le sue soglie e la sua unità di misura.</li><li><strong>Scegli la vista.</strong> *Andamento* mette i prelievi in ordine di tempo, *Profilo* li mette in fila da monte a valle, *Mappa* li dispone sul corso reale del fiume.</li><li><strong>Accendi e spegni i punti</strong> con i tasti colorati sotto il grafico. Il tasto *Mostra tutti* li riaccende tutti insieme, senza doverli riselezionare uno a uno.</li><li><strong>Passa sopra le linee tratteggiate</strong>: sono le soglie di qualità. Il riquadro che compare dice quale valore è stato superato e quali possono esserne le cause.</li>  </ol>
+  <details>
+    <summary>Clicca qui per qualche esempio di esplorazione</summary>
+    <div class="guida-dash-esempi">
+      <article>
+        <h4>Da dove in poi il fiume non è più balneabile?</h4>
+        <p>Scegli <strong>Escherichia coli</strong> e la vista *Profilo*: i punti si allineano da monte a valle e si vede a occhio dove la colonna supera la linea delle 1.000 UFC, il limite di balneabilità.</p>
+      </article>
+      <article>
+        <h4>Quando è arrivato lo scarico?</h4>
+        <p>Scegli <strong>ammonio</strong> e la vista *Andamento*, poi lascia acceso un solo punto. I picchi isolati raccontano un episodio; una riga sempre alta racconta un apporto continuo.</p>
+      </article>
+      <article>
+        <h4>Il fiume respira meglio d&#39;inverno?</h4>
+        <p>Scegli <strong>ossigeno disciolto</strong> in *Andamento* e tieni accesi due o tre punti: l&#39;acqua fredda trattiene più ossigeno, quindi un calo estivo è normale, un calo invernale no.</p>
+      </article>
+      <article>
+        <h4>Dove sta il salto?</h4>
+        <p>Scegli <strong>conducibilità</strong> e la vista *Mappa*: i cerchi si colorano per livello e si individua subito il tratto in cui il valore cambia bruscamente rispetto ai punti vicini.</p>
+      </article>
+    </div>
+  </details>
+</div>
 <div class="dashboard" data-dati="campagna-2025-2026-gommone">
   <div class="dash-guida">
     <p><strong>Caricamento dei dati…</strong>
@@ -557,54 +657,34 @@
 </section>
 
 <section class="sezione" id="hotspot">
-  <div class="contenitore stretto">
+  <div class="contenitore">
     <p class="etichetta">Dove guardare</p><h2 class="titolo-sezione">Gli hotspot: dove la pressione è più forte</h2>
 <p class="occhiello-testo">Per individuare i punti più critici abbiamo incrociato quattro indicatori. Un campione è un «hotspot di forte pressione organica e fognaria» quando li supera tutti insieme.</p>
-    <ul class="elenco-spunte">
-      <li>ammonio sopra 1,5 mg/L di azoto</li>
-      <li>E. coli sopra 20.000 UFC/100 mL</li>
-      <li>fosfati pari o superiori a 0,5 mg/L, soglia usata come criterio operativo e non come classe LIMeco formale</li>
-      <li>ossigeno sotto il 40% di saturazione</li>
-    </ul>
-    <h3 class="sotto-titolo">Con questo criterio risultano dieci campioni</h3>
-    <ul class="stazioni-elenco">
-      <li>
-        <span class="stazione-codice">H</span>
-        <div>
-          <span class="stazione-nome">15 novembre 2025</span>
-          <p>Tivoli-Borgonovo, immissione fognature Martellona 1.</p>
+    <div class="testo-lato">
+      <div>
+        <ul class="elenco-spunte">
+          <li>ammonio sopra 1,5 mg/L di azoto</li>
+          <li>E. coli sopra 20.000 UFC/100 mL</li>
+          <li>fosfati pari o superiori a 0,5 mg/L, soglia usata come criterio operativo e non come classe LIMeco formale</li>
+          <li>ossigeno sotto il 40% di saturazione</li>
+        </ul>
+        <div style="margin-top:1.6rem"><p>Questi campioni non sono distribuiti a caso: sono fortemente associati a scarichi fognari, impianti di sollevamento, fossi urbani e immissioni. I quattro indicatori raccontano la stessa storia da prospettive diverse: non si tratta di semplice inquinamento da nutrienti, ma di un segnale integrato di forte pressione organica e urbana, frequentemente associabile ad apporti di origine fognaria.</p><p>Esistono poi hotspot potenziali, che soddisfano tre criteri su quattro o hanno comunque una combinazione molto forte: per esempio Lanificio a febbraio, Settecamini a maggio, Longarina e Tor Cervara a maggio, per i quali manca però il dato sull&#39;ossigeno.</p></div>
+      </div>
+      <div class="spalla">
+        <div class="riquadro hotspot-box">
+          <h3>I dieci campioni che li superano tutti</h3>
+          <ul class="hotspot-elenco">
+            <li><b>15 novembre 2025</b> <span>Tivoli-Borgonovo, immissione fognature Martellona 1.</span></li>
+            <li><b>18 novembre 2025</b> <span>Immissione del fosso della Longarina.</span></li>
+            <li><b>24 febbraio 2026</b> <span>Scarico diretto di Belvedere Vigna Mangani, impianto di sollevamento di Città Giardino, impianto fosso Sant&#39;Agnese.</span></li>
+            <li><b>27 maggio 2026</b> <span>Fosso Centocelle, fosso GRA di via di Mirtillo.</span></li>
+            <li><b>22 giugno 2026</b> <span>Scarico fogna Lanificio, Città Giardino, Sant&#39;Agnese.</span></li>
+          </ul>
+          <p class="hotspot-rimando">Il dettaglio campione per campione, con i valori di ciascun indicatore, sta nel <strong>report scientifico</strong> in fondo alla pagina.</p>
+          <a class="bottone bottone-piccolo" href="#report">Vai ai report →</a>
         </div>
-      </li>
-      <li>
-        <span class="stazione-codice">H</span>
-        <div>
-          <span class="stazione-nome">18 novembre 2025</span>
-          <p>Immissione del fosso della Longarina.</p>
-        </div>
-      </li>
-      <li>
-        <span class="stazione-codice">H</span>
-        <div>
-          <span class="stazione-nome">24 febbraio 2026</span>
-          <p>Scarico diretto di Belvedere Vigna Mangani, impianto di sollevamento di Città Giardino, impianto fosso Sant&#39;Agnese.</p>
-        </div>
-      </li>
-      <li>
-        <span class="stazione-codice">H</span>
-        <div>
-          <span class="stazione-nome">27 maggio 2026</span>
-          <p>Fosso Centocelle, fosso GRA di via di Mirtillo.</p>
-        </div>
-      </li>
-      <li>
-        <span class="stazione-codice">H</span>
-        <div>
-          <span class="stazione-nome">22 giugno 2026</span>
-          <p>Scarico fogna Lanificio, Città Giardino, Sant&#39;Agnese.</p>
-        </div>
-      </li>
-    </ul>
-    <div style="margin-top:1.4rem"><p>Questi campioni non sono distribuiti a caso: sono fortemente associati a scarichi fognari, impianti di sollevamento, fossi urbani e immissioni. I quattro indicatori raccontano la stessa storia da prospettive diverse: non si tratta di semplice inquinamento da nutrienti, ma di un segnale integrato di forte pressione organica e urbana, frequentemente associabile ad apporti di origine fognaria.</p><p>Esistono poi hotspot potenziali, che soddisfano tre criteri su quattro o hanno comunque una combinazione molto forte: per esempio Lanificio a febbraio, Settecamini a maggio, Longarina e Tor Cervara a maggio, per i quali manca però il dato sull&#39;ossigeno.</p></div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -709,7 +789,7 @@
   </div>
 </footer>
 
-<script src="assets/js/dashboard.js?v=15dd3b98" defer></script>
+<script src="assets/js/dashboard.js?v=43f208f7" defer></script>
 <script>
 /* Segna nella barra la sezione che si sta leggendo. Le due metà della pagina
    sono fatte di più sezioni ciascuna, quindi non basta osservare un solo

@@ -52,9 +52,10 @@ romaup:
       Dopo le prime rilevazioni sul Tevere, l'anno successivo la campagna è
       stata estesa all'Aniene, affiancata dalla supervisione scientifica della
       **Prof.ssa Bruna Gumiero**.
-  foto: foto/fiume-ponte-inverno.jpg
+  foto: foto/ponte-lucano.jpg
   foto_descrizione: >-
-    Il tratto urbano dell'Aniene, dove si trovano le cinque stazioni di RomaUp.
+    L'Aniene a Ponte Lucano: guardare da vicino il fiume è il primo passo di
+    ogni campagna di monitoraggio.
 
 luoghi:
   titolo: I luoghi
@@ -65,12 +66,11 @@ luoghi:
     strategici sia per la vicinanza a punti ritenuti critici, sia per la
     conformazione morfologica che ha reso l'accesso al fiume più agevole,
     trattandosi di un corso d'acqua con sponde non cementificate ma vegetate.
-  mappa:
-    file: mappa-punti-2022-2023.jpg
-    descrizione: >-
-      I cinque punti di campionamento sull'Aniene, da Ponte Salario (a) alla
-      confluenza con il GRA a Casale Caletto (e). Mappa tratta dal report
-      RomaUp 2022-2023.
+  mappa_didascalia: >-
+    I cinque punti alle loro coordinate reali, lungo il corso del fiume: in
+    alto Casale Caletto, vicino al Grande Raccordo Anulare, in basso Ponte
+    Salario, poco prima della confluenza nel Tevere. Passa sopra un punto per
+    leggerne il nome.
   stazioni:
     - codice: A
       nome: Ponte Salario
@@ -132,7 +132,7 @@ analisi:
     Il LIMeco è una sorta di righello che misura la qualità ecologica del fiume
     ed è stato introdotto dall'ultima direttiva europea in tema di acque
     (Direttiva Quadro Acque 2000/60/CE).
-  rimando: Vai alla pagina Citizen science per approfondire parametri e metodologia
+  rimando: Vai alle schede dei parametri
 
 dashboard:
   titolo: Cosa abbiamo analizzato e come

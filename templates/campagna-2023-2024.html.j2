@@ -6,8 +6,17 @@
 {{ parti.hero(c, 'Campagna di monitoraggio') }}
 
 <section class="sezione">
-  <div class="contenitore stretto">
-    {{ parti.paragrafi(c.introduzione.paragrafi) }}
+  <div class="contenitore">
+    <div class="testo-lato">
+      <div>{{ parti.paragrafi(c.introduzione.paragrafi) }}</div>
+      <div class="spalla">
+        <figure>
+          <img src="assets/img/{{ c.introduzione_foto.file }}"
+               alt="{{ c.introduzione_foto.descrizione }}" loading="lazy" width="1200" height="800">
+          <figcaption>{{ c.introduzione_foto.descrizione }}</figcaption>
+        </figure>
+      </div>
+    </div>
   </div>
   <div class="contenitore" style="margin-top:1.4rem">
     <p class="etichetta">{{ c.numeri.titolo }}</p>
@@ -54,14 +63,14 @@
 
 <section class="sezione" id="dashboard">
   <div class="contenitore">
-    {{ parti.dashboard(c.dashboard, riepilogo) }}
+    {{ parti.dashboard(c.dashboard, riepilogo, impostazioni.guida_dashboard) }}
   </div>
 </section>
 
 <section class="sezione sezione-chiara" id="sintesi">
-  <div class="contenitore stretto">
+  <div class="contenitore">
     {{ parti.testa('I risultati', c.sintesi.titolo) }}
-    {{ parti.paragrafi(c.sintesi.paragrafi) }}
+    {{ parti.sintesi_con_spalla(c.sintesi) }}
   </div>
 </section>
 
@@ -69,21 +78,6 @@
   <div class="contenitore">
     {{ parti.testa_doppia('Le schede', c.schede.titolo, c.schede.intro) }}
     {{ parti.schede_generali(c.schede.ordine, parametri) }}
-  </div>
-</section>
-
-<section class="sezione" id="metodologia">
-  <div class="contenitore">
-    {{ parti.testa_doppia('Come', c.metodologia.titolo, c.metodologia.intro) }}
-    <div class="nota">
-      <p><b>{{ c.metodologia.ossigeno.titolo }}.</b> {{ c.metodologia.ossigeno.testo }}</p>
-    </div>
-    <p class="bottoni">
-      <a class="bottone" href="citizen-science.html#metodologia">{{ c.metodologia.rimando }} →</a>
-    </p>
-    <div style="margin-top:1.6rem">
-      {{ parti.galleria(c.metodologia.foto) }}
-    </div>
   </div>
 </section>
 

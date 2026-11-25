@@ -73,32 +73,29 @@
   </div>
 </section>
 
-<section class="sezione" id="metodologia">
+{# L'indice LIMeco: il ponte fra i nostri dati e quelli ufficiali. #}
+<section class="sezione sezione-chiara" id="limeco">
   <div class="contenitore">
-    {{ parti.testa_doppia('Sul campo', c.metodologia.titolo, c.metodologia.intro) }}
-    <h3 class="titolo-blocco">{{ c.metodologia.strumenti_titolo }}</h3>
-    <div class="schede-parametri">
-      {% for s in c.metodologia.strumenti %}
-      <article class="parametro">
-        <img src="assets/img/{{ s.foto }}" alt="" loading="lazy" width="1200" height="800">
-        <div class="parametro-corpo">
-          <h3>{{ s.nome }}</h3>
-          <p>{{ s.testo|t }}</p>
-        </div>
-      </article>
-      {% endfor %}
-    </div>
-
-    <div class="affiancate" style="margin-top:2.2rem">
-      <div class="riquadro">
-        <h3>{{ c.metodologia.registrazione.titolo }}</h3>
-        <p>{{ c.metodologia.registrazione.testo|t }}</p>
-      </div>
-      <div class="riquadro">
-        <h3>{{ c.metodologia.ossigeno.titolo }}</h3>
-        <p>{{ c.metodologia.ossigeno.testo|t }}</p>
+    {{ parti.testa_doppia(c.limeco.etichetta, c.limeco.titolo, c.limeco.intro) }}
+    <div class="riquadro riquadro-largo">
+      <div class="riquadro-colonne">
+        {{ parti.paragrafi(c.limeco.paragrafi) }}
       </div>
     </div>
+    <h3 class="sotto-titolo">{{ c.limeco.tabella.titolo }}</h3>
+    <div class="tabella-scorrevole">
+      <table class="dati">
+        <thead>
+          <tr>{% for v in c.limeco.tabella.intestazione %}<th>{{ v }}</th>{% endfor %}</tr>
+        </thead>
+        <tbody>
+          {% for riga in c.limeco.tabella.righe %}
+          <tr>{% for cella in riga %}<td>{{ cella }}</td>{% endfor %}</tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    <div class="nota"><p>{{ c.limeco.nota|t }}</p></div>
   </div>
 </section>
 
@@ -113,10 +110,33 @@
           <a class="bottone" href="{{ c.fresh_water_watch.link }}" rel="noopener">{{ c.fresh_water_watch.link_testo }} ↗</a>
         </p>
       </div>
-      <div class="fww-qr">
-        <img src="assets/img/qr-survey123.svg" alt="{{ c.fresh_water_watch.qr_descrizione }}" width="180" height="180">
-        <strong>{{ c.fresh_water_watch.qr_etichetta }}</strong>
-        <span>{{ c.fresh_water_watch.qr_descrizione }}</span>
+      <div class="qr-coppia">
+        {% for q in c.fresh_water_watch.qr %}
+        <div class="fww-qr">
+          <img src="assets/img/{{ q.immagine }}" alt="{{ q.descrizione }}" width="180" height="180">
+          <strong>{{ q.etichetta }}</strong>
+          <span>{{ q.descrizione }}</span>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+
+    {# I passaggi per contribuire: scaricare l'app, entrare nel gruppo,
+       registrare il rilievo. #}
+    <div style="margin-top:2.4rem">
+      <h3 class="sotto-titolo" style="margin-top:0">{{ c.fresh_water_watch.partecipare.titolo }}</h3>
+      <p class="occhiello-testo" style="margin-bottom:0">{{ c.fresh_water_watch.partecipare.intro|t }}</p>
+      <div class="passi">
+        {% for v in c.fresh_water_watch.partecipare.passi %}
+        <article class="passo">
+          <span class="passo-numero" aria-hidden="true">{{ loop.index }}</span>
+          <h4>{{ v.titolo }}</h4>
+          <p>{{ v.testo|t }}</p>
+          {% if v.get('link') %}
+          <a class="bottone bottone-piccolo" href="{{ v.link }}" rel="noopener">{{ v.link_testo }} ↗</a>
+          {% endif %}
+        </article>
+        {% endfor %}
       </div>
     </div>
   </div>
@@ -141,10 +161,11 @@
     {{ parti.testa_doppia('I dati', c.campagne.titolo, c.campagne.intro) }}
     <div class="campagne-griglia">
       {% for b in impostazioni.menu if b.pagina.startswith('campagna') %}
-      <a class="campagna-box" href="{{ b.pagina }}.html" style="color:var(--teal);background:#fff;border-color:var(--border)">
-        <span class="campagna-anni" style="color:var(--lime-dark)">{{ b.voce }}</span>
+      <a class="campagna-box" href="{{ b.pagina }}.html">
+        <span class="campagna-anni">{{ b.voce }}</span>
         <span class="campagna-nome">Vedi i risultati</span>
         <span class="campagna-desc">Dashboard interattiva e report da scaricare.</span>
+        <span class="campagna-azione">Vedi i risultati →</span>
       </a>
       {% endfor %}
     </div>

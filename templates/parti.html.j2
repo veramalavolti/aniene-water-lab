@@ -108,10 +108,31 @@
   La dashboard interattiva. Il contenuto viene costruito dal browser a partire
   dal file dati/<nome>.json e dalle soglie in dati/parametri.json.
 #}
-{% macro dashboard(blocco, riepilogo) %}
+{% macro dashboard(blocco, riepilogo, guida=none) %}
 {% set r = riepilogo(blocco.dati) %}
 <h2 class="titolo-sezione">{{ blocco.titolo }}</h2>
 <p class="occhiello-testo">{{ blocco.intro|t }}</p>
+{% if guida %}
+{# Le istruzioni stanno sopra al grafico: si leggono prima di provare. #}
+<div class="guida-dash">
+  <h3>{{ guida.titolo }}</h3>
+  <p>{{ guida.intro|t }}</p>
+  <ol>
+    {% for passo in guida.passi %}<li>{{ passo|t }}</li>{% endfor %}
+  </ol>
+  <details>
+    <summary>{{ guida.esempi_invito }}</summary>
+    <div class="guida-dash-esempi">
+      {% for e in guida.esempi %}
+      <article>
+        <h4>{{ e.titolo }}</h4>
+        <p>{{ e.testo|t }}</p>
+      </article>
+      {% endfor %}
+    </div>
+  </details>
+</div>
+{% endif %}
 <div class="dashboard" data-dati="{{ blocco.dati }}">
   <div class="dash-guida">
     <p><strong>Caricamento dei dati…</strong>
@@ -254,4 +275,29 @@
   {{ svg }}
   <figcaption>{{ didascalia }}</figcaption>
 </figure>
+{% endmacro %}
+
+
+{# "In breve": il testo a sinistra e, accanto, i dati che restano in mente.
+   Serve a non lasciare mezza pagina vuota sotto il titolo. #}
+{% macro sintesi_con_spalla(blocco) %}
+<div class="testo-lato">
+  <div>{{ paragrafi(blocco.paragrafi) }}</div>
+  <div class="spalla">
+    <div class="spalla-numeri">
+      <h3>{{ blocco.spalla.titolo }}</h3>
+      <dl>
+        {% for v in blocco.spalla.voci %}
+        <div>
+          <dt>{{ v.valore }}</dt>
+          <dd>{{ v.testo|t }}</dd>
+        </div>
+        {% endfor %}
+      </dl>
+      {% if blocco.spalla.get('link') %}
+      <a class="bottone bottone-piccolo" href="{{ blocco.spalla.link }}">{{ blocco.spalla.link_testo }} →</a>
+      {% endif %}
+    </div>
+  </div>
+</div>
 {% endmacro %}

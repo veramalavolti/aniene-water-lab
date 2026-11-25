@@ -45,6 +45,11 @@ introduzione:
       scarichi abusivi e altre problematiche che andrebbero propriamente
       indagate.
 
+introduzione_foto:
+  file: foto/studenti-schede.jpg
+  descrizione: >-
+    La compilazione delle schede di rilievo durante un'uscita con le scuole.
+
 numeri:
   titolo: I numeri dell'annualità
   voci:
@@ -157,6 +162,23 @@ dashboard:
 
 sintesi:
   titolo: In breve
+  spalla:
+    titolo: I tre dati da ricordare
+    voci:
+      - valore: "153.000"
+        testo: >-
+          le UFC di **Escherichia coli** toccate dalle stazioni a valle a
+          settembre e ottobre 2024. Il limite di balneabilità è 1.000.
+      - valore: 3,5 mg/L
+        testo: >-
+          l'**ossigeno disciolto** più basso, a Ponte Mammolo: sotto i 4 mg/L
+          l'ecosistema del fiume è a rischio.
+      - valore: "1.301"
+        testo: >-
+          i µS/cm di **conducibilità** a Ponte Lucano, più del doppio di
+          Tivoli: un salto netto, probabilmente legato alle cave.
+    link: "#report"
+    link_testo: Scarica il report completo
   paragrafi:
     - >-
       Dopo un anno di monitoraggio, il quadro è in parte rassicurante e in parte
@@ -205,34 +227,6 @@ schede:
     - nitrati
     - fosfati
     - ecoli
-
-metodologia:
-  titolo: La metodologia
-  intro: >-
-    Strumenti semplici, alla portata di tutti: abbiamo scelto strumenti
-    economici e intuitivi, che chiunque, dopo una formazione, possa usare.
-    L'acqua per quasi tutte le analisi viene prelevata dal fiume con un secchio
-    di plastica legato a una fune, che permette di raggiungere anche i punti più
-    difficili da avvicinare. Fa eccezione l'E. coli, che richiede contenitori
-    sterili.
-  rimando: Vai alla pagina Citizen science per il dettaglio degli strumenti
-  ossigeno:
-    titolo: Perché abbiamo aggiunto l'ossigeno disciolto
-    testo: >-
-      L'ossigeno disciolto è determinante per la vita acquatica e per
-      l'autodepurazione del fiume. In condizioni normali è circa 10 mg/L, pari
-      al 100% di saturazione: quando scende al 75% è già un indizio di possibile
-      inquinamento. Misurarlo insieme ad ammonio, nitrati e fosforo ci permette
-      di calcolare il LIMeco, l'indice previsto dal D.Lgs. 152/2006 per valutare
-      lo stato trofico delle acque correnti. Così possiamo confrontare i nostri
-      risultati con quelli che ARPA Lazio pubblica periodicamente sul suo sito.
-  foto:
-    - file: foto/prelievo-brocca.jpg
-      descrizione: Il prelievo del campione d'acqua.
-    - file: foto/studenti-schede.jpg
-      descrizione: La compilazione delle schede di rilievo con le scuole.
-    - file: foto/laboratorio-studenti.jpg
-      descrizione: Le analisi con studentesse e studenti.
 
 rete:
   titolo: La rete territoriale

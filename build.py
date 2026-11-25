@@ -175,11 +175,15 @@ def corsi_dacqua() -> list:
     return _FIUMI
 
 
-def mappa_svg(nome: str, altezza: int = 420) -> "Markup":
+def mappa_svg(nome: str, altezza: int = 420, verticale: bool = False) -> "Markup":
     """Disegna la mappa dei punti di campionamento sul corso reale del fiume.
 
     L'inquadratura si adatta ai punti della campagna: il fiume entra ed esce
     dai bordi come in una mappa vera, e ogni punto sta alle sue coordinate.
+
+    Con verticale=True la mappa viene ruotata di un quarto di giro, così da
+    stare in una colonna stretta accanto alle schede dei luoghi: il monte
+    finisce in alto, la valle in basso e il nord punta a sinistra.
     """
     dati = dati_campagna(nome)
     punti = [s for s in dati["stazioni"]
@@ -188,30 +192,42 @@ def mappa_svg(nome: str, altezza: int = 420) -> "Markup":
     if not punti:
         return Markup("")
 
-    larghezza = 900
+    larghezza = 520 if verticale else 900
     bordo = 46
 
     lat = [p["lat"] for p in punti]
     lon = [p["lon"] for p in punti]
     k = math.cos((min(lat) + max(lat)) / 2 * math.pi / 180)
 
-    # l'inquadratura segue i punti, con un margine perché il fiume respiri
-    min_x, max_x = min(lon) * k, max(lon) * k
-    min_y, max_y = min(lat), max(lat)
-    margine_x = max((max_x - min_x) * 0.07, 0.004)
-    margine_y = max((max_y - min_y) * 0.30, 0.006)
-    min_x, max_x = min_x - margine_x, max_x + margine_x
-    min_y, max_y = min_y - margine_y, max_y + margine_y
+    # Coordinate già orientate come lo schermo: "a" cresce verso destra,
+    # "b" verso il basso. Ruotare la mappa vuol dire solo scambiarle.
+    def assi(lon_, lat_):
+        if verticale:
+            # un quarto di giro: il monte va in alto e il nord punta a sinistra
+            return (-lat_, -lon_ * k)
+        return (lon_ * k, -lat_)
 
-    # la scala tiene le proporzioni geografiche: niente mappe schiacciate
-    scala = min((larghezza - bordo * 2) / (max_x - min_x),
-                (altezza - bordo * 2) / (max_y - min_y))
-    off_x = bordo + (larghezza - bordo * 2 - (max_x - min_x) * scala) / 2
-    off_y = bordo + (altezza - bordo * 2 - (max_y - min_y) * scala) / 2
+    coppie = [assi(p["lon"], p["lat"]) for p in punti]
+    a_min, a_max = min(c[0] for c in coppie), max(c[0] for c in coppie)
+    b_min, b_max = min(c[1] for c in coppie), max(c[1] for c in coppie)
+
+    # un margine minimo perché i punti agli estremi non tocchino il bordo
+    respiro = max(a_max - a_min, b_max - b_min) * 0.07
+    a_min, a_max = a_min - respiro, a_max + respiro
+    b_min, b_max = b_min - respiro, b_max + respiro
+
+    # la scala tiene le proporzioni geografiche: niente mappe schiacciate.
+    # Poi la finestra si allarga fino a riempire il riquadro, così attorno ai
+    # punti si vede altro fiume invece di fondo vuoto.
+    utile_x, utile_y = larghezza - bordo * 2, altezza - bordo * 2
+    scala = min(utile_x / (a_max - a_min), utile_y / (b_max - b_min))
+    centro_a, centro_b = (a_min + a_max) / 2, (b_min + b_max) / 2
+    a_min, a_max = centro_a - utile_x / scala / 2, centro_a + utile_x / scala / 2
+    b_min, b_max = centro_b - utile_y / scala / 2, centro_b + utile_y / scala / 2
 
     def proietta(lon_, lat_):
-        return (off_x + (lon_ * k - min_x) * scala,
-                off_y + (max_y - lat_) * scala)
+        a, b = assi(lon_, lat_)
+        return (bordo + (a - a_min) * scala, bordo + (b - b_min) * scala)
 
     def dentro(x, y, tolleranza=240):
         return -tolleranza < x < larghezza + tolleranza and -tolleranza < y < altezza + tolleranza
@@ -266,10 +282,18 @@ def mappa_svg(nome: str, altezza: int = 420) -> "Markup":
         if etichette:
             # i nomi si alternano sopra e sotto il punto: nel tratto urbano le
             # stazioni sono vicine e le scritte finirebbero una sull'altra
-            sopra = indice % 2 == 0
-            y_testo = y - 18 if sopra else y + 26
+            if verticale:
+                # in colonna i nomi stanno di fianco, alternati destra e sinistra
+                destra = indice % 2 == 0
+                x_testo = x + 17 if destra else x - 17
+                y_testo = y + 4.5
+                ancora = "start" if destra else "end"
+            else:
+                sopra = indice % 2 == 0
+                x_testo, y_testo = x, (y - 18 if sopra else y + 26)
+                ancora = "middle"
             pezzi.append(
-                f'<text x="{x:.1f}" y="{y_testo:.1f}" text-anchor="middle" '
+                f'<text x="{x_testo:.1f}" y="{y_testo:.1f}" text-anchor="{ancora}" '
                 f'font-family="Barlow, sans-serif" font-size="13" '
                 f'font-weight="700" fill="#1A3340" '
                 f'stroke="#EDF1EE" stroke-width="4" paint-order="stroke" '
@@ -277,16 +301,28 @@ def mappa_svg(nome: str, altezza: int = 420) -> "Markup":
             )
 
     pezzi.append("</g>")
-    pezzi.append(
-        f'<text x="{bordo - 18}" y="{altezza - 14}" font-family="Barlow, sans-serif" '
-        f'font-size="12" font-weight="800" fill="#4A5568" letter-spacing="1.4">VALLE</text>'
-        f'<text x="{larghezza - bordo + 18}" y="{altezza - 14}" text-anchor="end" '
-        f'font-family="Barlow, sans-serif" font-size="12" font-weight="800" '
-        f'fill="#4A5568" letter-spacing="1.4">MONTE</text>'
-        f'<text x="{larghezza - bordo + 18}" y="18" text-anchor="end" '
-        f'font-family="Barlow, sans-serif" font-size="10.5" fill="#6B7A85">'
-        f'Corso del fiume: OpenStreetMap</text>'
-    )
+    stile = ('font-family="Barlow, sans-serif" font-size="12" font-weight="800" '
+             'fill="#4A5568" letter-spacing="1.4"')
+    if verticale:
+        pezzi.append(
+            f'<text x="{larghezza / 2:.0f}" y="24" text-anchor="middle" {stile}>MONTE</text>'
+            f'<text x="{larghezza / 2:.0f}" y="{altezza - 14}" text-anchor="middle" '
+            f'{stile}>VALLE</text>'
+            f'<text x="12" y="{altezza - 14}" font-family="Barlow, sans-serif" '
+            f'font-size="10.5" fill="#6B7A85">← nord</text>'
+            f'<text x="{larghezza - 12}" y="{altezza - 14}" text-anchor="end" '
+            f'font-family="Barlow, sans-serif" font-size="10.5" fill="#6B7A85">'
+            f'Corso del fiume: OpenStreetMap</text>'
+        )
+    else:
+        pezzi.append(
+            f'<text x="{bordo - 18}" y="{altezza - 14}" {stile}>VALLE</text>'
+            f'<text x="{larghezza - bordo + 18}" y="{altezza - 14}" text-anchor="end" '
+            f'{stile}>MONTE</text>'
+            f'<text x="{larghezza - bordo + 18}" y="18" text-anchor="end" '
+            f'font-family="Barlow, sans-serif" font-size="10.5" fill="#6B7A85">'
+            f'Corso del fiume: OpenStreetMap</text>'
+        )
     pezzi.append("</svg>")
     return Markup("".join(pezzi))
 
