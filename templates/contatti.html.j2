@@ -90,14 +90,18 @@
       {% for r in c.rete.realta %}
       {% if r.get('sito') %}
       <a class="rete-card" href="{{ r.sito }}" rel="noopener">
-        <span class="logo"><img src="assets/img/{{ r.logo }}" alt="{{ r.nome }}" loading="lazy"></span>
+        {% set d = dimensioni(r.logo) %}
+        <span class="logo"><img src="assets/img/{{ r.logo }}" alt="{{ r.nome }}"
+              loading="lazy"{% if d[0] %} width="{{ d[0] }}" height="{{ d[1] }}"{% endif %}></span>
         <h3>{{ r.nome }}</h3>
         <p>{{ r.ruolo }}</p>
         <span class="vai">Vai al sito ↗</span>
       </a>
       {% else %}
       <div class="rete-card">
-        <span class="logo"><img src="assets/img/{{ r.logo }}" alt="{{ r.nome }}" loading="lazy"></span>
+        {% set d = dimensioni(r.logo) %}
+        <span class="logo"><img src="assets/img/{{ r.logo }}" alt="{{ r.nome }}"
+              loading="lazy"{% if d[0] %} width="{{ d[0] }}" height="{{ d[1] }}"{% endif %}></span>
         <h3>{{ r.nome }}</h3>
         <p>{{ r.ruolo }}</p>
         <span></span>

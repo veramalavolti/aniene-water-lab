@@ -17,6 +17,7 @@ import re
 import shutil
 import sys
 from pathlib import Path
+from functools import lru_cache
 
 try:
     import yaml
@@ -95,6 +96,23 @@ def peso_file(percorso: str) -> str:
         return ""
     mb = file.stat().st_size / (1024 * 1024)
     return f"{mb:.1f} MB".replace(".", ",") if mb >= 1 else f"{file.stat().st_size // 1024} kB"
+
+
+@lru_cache(maxsize=None)
+def dimensioni_img(percorso: str) -> tuple:
+    """Larghezza e altezza vere di un'immagine in assets/img.
+
+    Servono a scrivere width e height nel tag: il browser riserva lo spazio
+    giusto prima ancora di scaricarla, e la pagina non salta mentre carica.
+    """
+    try:
+        from PIL import Image
+        with Image.open(ASSETS / "img" / percorso) as im:
+            return im.size
+    except Exception:
+        # senza Pillow si rinuncia all'attributo: meglio nessuna misura che
+        # una misura sbagliata, che schiaccerebbe l'immagine a zero
+        return (None, None)
 
 
 def pagine_pdf(percorso: str) -> str:
@@ -369,6 +387,8 @@ def main() -> int:
         trim_blocks=True,
         lstrip_blocks=True,
     )
+    # disponibile anche dentro le macro di parti.html.j2
+    env.globals["dimensioni"] = dimensioni_img
     env.filters["numero"] = numero_it
     env.filters["t"] = grassetto
     env.filters["ancora"] = occhiello

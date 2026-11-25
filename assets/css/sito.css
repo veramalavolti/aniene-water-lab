@@ -97,8 +97,10 @@ a:hover { color: var(--verde-testo); }
 }
 .salta:focus {
   position: fixed; z-index: 100; top: .5rem; left: .5rem;
+  width: auto; height: auto; overflow: visible; clip-path: none;
   background: var(--cream-card); color: var(--teal); padding: .8rem 1.2rem;
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-sm); font-weight: 700;
+  box-shadow: var(--shadow-md); outline: 3px solid var(--lime);
 }
 
 .contenitore { width: min(100% - 3rem, var(--larghezza)); margin-inline: auto; }
@@ -187,11 +189,6 @@ a:hover { color: var(--verde-testo); }
   font-size: var(--t-h1); font-weight: 900; text-transform: uppercase;
   margin-bottom: 1.1rem; letter-spacing: .004em;
 }
-/* Il titolo della home è il titolo di tutta la piattaforma: è il più grande
-   del sito, e il testo accanto cresce con lui perché la colonna resti piena. */
-.hero-principale h1 { font-size: clamp(2.6rem, 5.4vw, 4.9rem); line-height: 1.02; }
-.hero-principale .hero-occhiello { font-size: .95rem; margin-bottom: .8rem; }
-.hero-principale p { font-size: 1.14rem; line-height: 1.68; max-width: 52ch; }
 .hero p { font-size: 1.06rem; color: var(--text-inv-dim); max-width: 56ch; }
 .hero figure { margin: 0; display: flex; flex-direction: column; justify-content: center; }
 .hero figure img {
@@ -549,7 +546,9 @@ footer {
 footer .contenitore { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); gap: 2rem; }
 footer h2 { font-size: 1.4rem; font-weight: 900; text-transform: uppercase; color: var(--text-inv); margin-bottom: .6rem; }
 footer a { color: var(--lime); }
-footer ul { list-style: none; margin: 0; padding: 0; display: grid; gap: .4rem; }
+footer ul { list-style: none; margin: 0; padding: 0; display: grid; gap: .1rem; }
+/* un bersaglio da toccare non scende sotto i 24px, anche col dito */
+footer li a { display: inline-block; padding-block: .35rem; }
 .footer-legale { margin-top: 1.4rem; font-size: .82rem; opacity: .75; }
 @media (max-width: 760px) { footer .contenitore { grid-template-columns: 1fr; } }
 
@@ -832,8 +831,10 @@ td.oltre { font-weight: 800; }
   font-family: var(--font-display); font-size: 1.35rem; font-weight: 800;
   text-transform: uppercase; color: inherit; line-height: 1.1;
 }
-.bottone-sezione span { font-size: .9rem; color: var(--teal); opacity: .8; }
-.bottone-sezione:hover span { opacity: 1; }
+.bottone-sezione span:not(.bottone-sezione-numero) {
+  font-size: .9rem; color: var(--teal); opacity: .8;
+}
+.bottone-sezione:hover span:not(.bottone-sezione-numero) { opacity: 1; }
 
 /* ======================================================= numeri di una campagna */
 

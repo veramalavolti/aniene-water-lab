@@ -372,7 +372,9 @@
     <div class="realta-griglia">
       {% for v in blocco.voci %}
       <a class="realta" href="{{ v.sito }}" rel="noopener">
-        <span class="realta-logo"><img src="assets/img/{{ v.logo }}" alt="{{ v.nome }}" loading="lazy"></span>
+        {% set d = dimensioni(v.logo) %}
+        <span class="realta-logo"><img src="assets/img/{{ v.logo }}" alt="{{ v.nome }}"
+              loading="lazy"{% if d[0] %} width="{{ d[0] }}" height="{{ d[1] }}"{% endif %}></span>
         <strong>{{ v.nome }}</strong>
         <span class="realta-ruolo">{{ v.testo }}</span>
       </a>
