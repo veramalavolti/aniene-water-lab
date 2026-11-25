@@ -77,6 +77,23 @@ Il flusso `.github/workflows/pubblica.yml` ricostruisce `dist/` a ogni modifica
 dei contenuti e lo rimette nel repository. Il sito viene servito da `dist/`
 (`vercel.json` lo indica come cartella di pubblicazione).
 
+Vercel è collegato al repository e ricostruisce a ogni push su `main`. Il
+collegamento vale solo per i commit spinti *dopo* che è stato creato: se viene
+rifatto, il primo push successivo è quello che rimette in moto la pubblicazione.
+
+Il sito sta su `aniene-water-lab.vercel.app`. Finché in Vercel resta attiva
+«Vercel Authentication» (Settings → Deployment Protection) l'indirizzo chiede
+di accedere al team: per renderlo pubblico si imposta su «Only Preview
+Deployments», che lascia protette le sole anteprime di lavoro.
+
+### Accesso a GitHub
+
+Il repository si aggiorna via SSH, non con i token: la chiave sta in
+`~/.ssh/id_ed25519` sul computer di chi pubblica e la parte pubblica è
+registrata su GitHub. I token di accesso personali non servono e non vanno
+incollati da nessuna parte — un token con permesso `repo` vale quanto la
+password di tutti i repository.
+
 ## Dati e fonti
 
 | Campagna | Fonte | Contenuto |
