@@ -30,11 +30,9 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  # Primo lavoro: generare il sito e preparare il pacchetto delle pagine.
   costruisci:
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.pagine.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
 
@@ -62,24 +60,30 @@ jobs:
             git push
           fi
 
-      # ----------------------------------------------- la pubblicazione vera
-      # GitHub Pages serve le pagine dallo stesso repository in cui stanno i
-      # contenuti: non serve collegare nessun altro servizio e l'indirizzo è
-      # pubblico, visibile a chiunque abbia il link.
-      #
-      # Pages va acceso una volta sola a mano, in Settings → Pages del
+      # GitHub Pages va acceso una volta sola a mano, in Settings → Pages del
       # repository, scegliendo «GitHub Actions» come Source: questo flusso non
       # ha i permessi per cambiare le impostazioni del repository da solo.
       - name: Prepara GitHub Pages
         uses: actions/configure-pages@v5
-        with:
-          enablement: true
 
       - name: Carica le pagine
         uses: actions/upload-pages-artifact@v3
         with:
           path: dist
 
-      - name: Pubblica
+  # Secondo lavoro: pubblicare davvero.
+  #
+  # Dev'essere separato dal primo. Il passo di pubblicazione cerca il pacchetto
+  # caricato interrogando le API di GitHub, e un pacchetto creato dal lavoro
+  # ancora in corso non risulta: messi insieme, fallisce con «No artifacts named
+  # github-pages were found».
+  pubblica:
+    needs: costruisci
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.pagine.outputs.page_url }}
+    steps:
+      - name: Pubblica su GitHub Pages
         id: pagine
         uses: actions/deploy-pages@v4
