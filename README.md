@@ -73,18 +73,24 @@ Per vedere il sito in locale:
 
 ## Pubblicazione
 
-Il flusso `.github/workflows/pubblica.yml` ricostruisce `dist/` a ogni modifica
-dei contenuti e lo rimette nel repository. Il sito viene servito da `dist/`
-(`vercel.json` lo indica come cartella di pubblicazione).
+Il sito sta su **GitHub Pages**, all'indirizzo
+`https://veramalavolti.github.io/aniene-water-lab/`. L'indirizzo è pubblico:
+chiunque abbia il link può aprirlo, senza account né password.
 
-Vercel è collegato al repository e ricostruisce a ogni push su `main`. Il
-collegamento vale solo per i commit spinti *dopo* che è stato creato: se viene
-rifatto, il primo push successivo è quello che rimette in moto la pubblicazione.
+Il flusso `.github/workflows/pubblica.yml` fa tutto a ogni push su `main` che
+tocchi contenuti, modelli, fogli di stile o dati: ricostruisce `dist/`, lo
+rimette nel repository e lo pubblica su Pages. Non serve collegare servizi
+esterni — il sito vive nello stesso repository dei contenuti, quindi non c'è
+nessuna autorizzazione da rinnovare.
 
-Il sito sta su `aniene-water-lab.vercel.app`. Finché in Vercel resta attiva
-«Vercel Authentication» (Settings → Deployment Protection) l'indirizzo chiede
-di accedere al team: per renderlo pubblico si imposta su «Only Preview
-Deployments», che lascia protette le sole anteprime di lavoro.
+Le pagine usano solo percorsi relativi, perciò funzionano anche servite da una
+sottocartella come fa Pages.
+
+`vercel.json` resta nel repository: serve soltanto se un giorno si vuole
+pubblicare anche su Vercel. Attenzione, in quel caso, che l'app Vercel su GitHub
+dev'essere installata sull'account **proprietario del repository**: se è
+installata su un altro account vede «Connected» ma non riceve i push, e non
+ricostruisce mai.
 
 ### Accesso a GitHub
 

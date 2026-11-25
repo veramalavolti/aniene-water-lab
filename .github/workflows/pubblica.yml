@@ -1,8 +1,9 @@
 # Ricostruisce e pubblica il sito a ogni modifica dei contenuti.
 #
 # Quando qualcuno salva un testo dal pannello di redazione, Pages CMS scrive il
-# file in contenuti/ e questo flusso rigenera le pagine in dist/ e le rimette
-# nel repository: il sito pubblicato si aggiorna da solo in un paio di minuti.
+# file in contenuti/ e questo flusso rigenera le pagine in dist/, le rimette nel
+# repository e le pubblica su GitHub Pages: il sito si aggiorna da solo in un
+# paio di minuti, senza passare da nessun altro servizio.
 
 name: Pubblica il sito
 
@@ -20,6 +21,9 @@ on:
 
 permissions:
   contents: write
+  # servono a pubblicare le pagine su GitHub Pages
+  pages: write
+  id-token: write
 
 concurrency:
   group: pubblica
@@ -28,6 +32,9 @@ concurrency:
 jobs:
   costruisci:
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.pagine.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
 
@@ -54,3 +61,21 @@ jobs:
             git commit -m "Ricostruisce il sito dai contenuti aggiornati"
             git push
           fi
+
+      # ----------------------------------------------- la pubblicazione vera
+      # GitHub Pages serve le pagine dallo stesso repository in cui stanno i
+      # contenuti: non serve collegare nessun altro servizio e l'indirizzo è
+      # pubblico, visibile a chiunque abbia il link.
+      - name: Prepara GitHub Pages
+        uses: actions/configure-pages@v5
+        with:
+          enablement: true
+
+      - name: Carica le pagine
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+      - name: Pubblica
+        id: pagine
+        uses: actions/deploy-pages@v4
