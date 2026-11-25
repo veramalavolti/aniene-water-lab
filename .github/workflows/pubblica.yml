@@ -36,7 +36,9 @@ jobs:
           python-version: '3.12'
 
       - name: Installa le librerie
-        run: pip install --quiet pyyaml jinja2
+        # pypdfium2 serve a contare le pagine dei report: senza, la ricostruzione
+        # automatica toglierebbe quel dato dalle schede dei documenti
+        run: pip install --quiet pyyaml jinja2 pypdfium2
 
       - name: Costruisci il sito
         run: python3 build.py
