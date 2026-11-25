@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800;900&family=Barlow+Condensed:wght@700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/sito.css?v=5e954773">
+  <link rel="stylesheet" href="assets/css/sito.css?v=0832a8dc">
 </head>
 <body>
 <a class="salta" href="#contenuto">Vai al contenuto principale</a>
@@ -39,9 +39,17 @@
         <li><a href="contatti.html">Contatti</a></li>
       </ul>
     </nav>
-    <a class="testata-azione" href="campagna-2025-2026.html">
-      Esplora i dati ↗
-    </a>
+    <div class="testata-dati">
+      <button type="button" class="testata-azione" aria-expanded="false" aria-controls="menu-dati">
+        Esplora i dati
+        <span class="testata-freccia" aria-hidden="true">▾</span>
+      </button>
+      <ul class="testata-tendina" id="menu-dati">
+        <li><a href="campagna-2022-2023.html#dashboard">2021 | 2022-2023</a></li>
+        <li><a href="campagna-2023-2024.html#dashboard">2023-2024</a></li>
+        <li><a href="campagna-2025-2026.html#dashboard">2025-2026</a></li>
+      </ul>
+    </div>
   </div>
 </header>
 
@@ -567,6 +575,54 @@
     </div>
   </div>
 </footer>
+
+<script>
+/* La tendina dei dati si apre da sola al passaggio del mouse e con il tasto di
+   tabulazione, che sono regole del foglio di stile. Qui si aggiunge il tocco,
+   che sul telefono e sul tablet non ha un «passaggio del mouse», e la
+   chiusura con Esc o cliccando altrove. */
+(function () {
+  var gruppo = document.querySelector('.testata-dati');
+  if (!gruppo) return;
+  var bottone = gruppo.querySelector('.testata-azione');
+
+  function chiudi() { bottone.setAttribute('aria-expanded', 'false'); }
+
+  bottone.addEventListener('click', function () {
+    var aperta = bottone.getAttribute('aria-expanded') === 'true';
+    bottone.setAttribute('aria-expanded', aperta ? 'false' : 'true');
+  });
+  document.addEventListener('click', function (ev) {
+    if (!gruppo.contains(ev.target)) chiudi();
+  });
+  document.addEventListener('keydown', function (ev) {
+    if (ev.key === 'Escape') chiudi();
+  });
+  gruppo.addEventListener('mouseleave', chiudi);
+})();
+
+/* Arrivando con un'ancora nell'indirizzo — per esempio #dashboard — il browser
+   salta al punto giusto subito, ma le dashboard e le fotografie si disegnano
+   dopo e spostano tutto più in basso. Qui si rifà il salto quando la pagina ha
+   finito di caricare, a meno che nel frattempo non si sia già scorso a mano. */
+(function () {
+  if (!location.hash || location.hash.length < 2) return;
+  var mosso = false;
+  function haScorso() { mosso = true; }
+  window.addEventListener('wheel', haScorso, { passive: true, once: true });
+  window.addEventListener('touchmove', haScorso, { passive: true, once: true });
+  window.addEventListener('keydown', haScorso, { once: true });
+
+  window.addEventListener('load', function () {
+    setTimeout(function () {
+      if (mosso) return;
+      var meta;
+      try { meta = document.querySelector(location.hash); } catch (e) { return; }
+      if (meta) meta.scrollIntoView();
+    }, 450);
+  });
+})();
+</script>
 
 <script src="assets/js/dashboard.js?v=5d57571d" defer></script>
 </body>

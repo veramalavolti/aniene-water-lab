@@ -110,17 +110,6 @@
       {% endfor %}
     </div>
 
-    <h3 class="sotto-titolo">{{ c.rete.altri.titolo }}</h3>
-    <ul class="rete-altri">
-      {% for a in c.rete.altri.voci %}
-      <li>
-        <b>{{ a.nome }}</b>
-        <span>{{ a.ruolo }}</span>
-        {% if a.get('sito') %}<a href="{{ a.sito }}" rel="noopener">Vai al sito ↗</a>{% endif %}
-      </li>
-      {% endfor %}
-    </ul>
-
     <div class="nota">
       <p><b>{{ c.rete.supervisione.titolo }}.</b> {{ c.rete.supervisione.testo|t }}</p>
     </div>

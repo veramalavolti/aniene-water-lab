@@ -101,6 +101,9 @@ rete:
     Associazioni, enti e sostenitori che hanno preso parte alle quattro campagne
     di monitoraggio, dal 2021 a oggi. Il monitoraggio civico esiste perché
     esistono loro, e le centinaia di persone che ci hanno messo tempo e mani.
+    Accanto a chi trovi qui lavorano il **Contratto di Fiume Aniene**, **Fresh
+    Water Watch**, la **Rete Orti in Comune** e **ARPA Lazio**, con cui
+    confrontiamo dati e segnalazioni.
   supervisione:
     titolo: Supervisione scientifica
     testo: >-
@@ -143,24 +146,3 @@ rete:
       logo: partner/ottopermille-valdese.png
       ruolo: Sostegno economico alle attività di monitoraggio.
       sito: https://www.ottopermillevaldese.org
-  altri:
-    titolo: E inoltre
-    voci:
-      - nome: Contratto di Fiume Aniene
-        ruolo: >-
-          Il patto che tiene insieme quasi 100 soggetti lungo tutta la valle.
-          Le pagine della Città metropolitana non sono più raggiungibili: il
-          riferimento istituzionale attivo è il portale dei Contratti di Fiume
-          della Regione Lazio.
-        sito: https://progetti.regione.lazio.it/contrattidifiume/
-      - nome: Fresh Water Watch
-        ruolo: Il programma internazionale di Earthwatch che fornisce kit e protocollo.
-        sito: https://www.freshwaterwatch.org
-      - nome: Rete Orti in Comune
-        ruolo: >-
-          Rete informale degli orti urbani comunitari di Roma, coinvolta nelle
-          attività sul territorio.
-        sito: https://www.facebook.com/orticomunitari/
-      - nome: ARPA Lazio
-        ruolo: L'agenzia regionale con cui confrontiamo i dati e le segnalazioni.
-        sito: https://www.arpalazio.it

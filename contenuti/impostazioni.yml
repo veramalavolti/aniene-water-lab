@@ -12,8 +12,10 @@ sito:
 
 # Il bottone in fondo alla barra in alto.
 testata:
-  voce: Esplora i dati ↗
-  pagina: campagna-2025-2026
+  voce: Esplora i dati
+  # passando sopra il bottone si apre l'elenco delle campagne: ogni voce
+  # porta direttamente alla dashboard di quella campagna
+  ancora: dashboard
 
 # L'ordine del menu in alto. "pagina" è il nome del file della pagina.
 menu:

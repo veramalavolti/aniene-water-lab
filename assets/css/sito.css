@@ -160,7 +160,6 @@ a:hover { color: var(--verde-testo); }
 }
 @media (max-width: 560px) {
   :root { --altezza-testata: 112px; }
-  .testata-interna > .testata-azione { display: none; }
   .marchio-segno { width: 36px; height: 36px; }
   .marchio-nome { font-size: 1.4rem; }
   .marchio-claim { font-size: .74rem; }
@@ -986,15 +985,6 @@ a.rete-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); b
 .rete-card p { font-size: .9rem; color: var(--text-dim); margin: 0; }
 .rete-card .vai { justify-self: start; margin-top: .3rem; }
 
-.rete-altri { list-style: none; padding: 0; margin: 1.6rem 0 0; display: grid; gap: .6rem; }
-.rete-altri li {
-  display: flex; flex-wrap: wrap; gap: .3rem .7rem; align-items: baseline;
-  padding: .8rem 1.1rem; background: var(--cream-card);
-  border: 1px solid var(--border); border-left: 4px solid var(--teal-light);
-  border-radius: var(--radius-sm);
-}
-.rete-altri b { color: var(--teal); }
-.rete-altri span { font-size: .93rem; color: var(--text-dim); }
 
 /* ============================== perché la citizen science fa la differenza */
 
@@ -1473,3 +1463,42 @@ a.rete-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); b
 .realta-logo img { max-height: 62px; max-width: 150px; width: auto; object-fit: contain; }
 .realta strong { font-size: .98rem; font-weight: 800; color: var(--teal); line-height: 1.25; }
 .realta-ruolo { font-size: .86rem; line-height: 1.45; color: var(--text-dim); }
+
+/* ================================= il bottone dei dati, con la sua tendina
+
+   Un solo bottone portava a una sola campagna. Ora le elenca tutte e tre e
+   ciascuna voce apre direttamente la dashboard di quell'annualità. */
+
+.testata-dati { position: relative; flex: none; }
+.testata-dati .testata-azione { cursor: pointer; }
+.testata-freccia { font-size: .7em; transition: transform .18s ease; }
+.testata-dati:hover .testata-freccia,
+.testata-dati:focus-within .testata-freccia,
+.testata-azione[aria-expanded="true"] .testata-freccia { transform: rotate(180deg); }
+
+.testata-tendina {
+  position: absolute; top: calc(100% + .5rem); right: 0; z-index: 60;
+  min-width: 15rem; margin: 0; padding: .4rem; list-style: none;
+  background: var(--cream-card); border: 2px solid var(--teal);
+  border-radius: var(--radius-md); box-shadow: var(--shadow-md);
+  display: grid; gap: .15rem;
+  opacity: 0; visibility: hidden; transform: translateY(-.35rem);
+  transition: opacity .16s ease, transform .16s ease, visibility .16s;
+}
+.testata-dati:hover .testata-tendina,
+.testata-dati:focus-within .testata-tendina,
+.testata-azione[aria-expanded="true"] + .testata-tendina {
+  opacity: 1; visibility: visible; transform: none;
+}
+.testata-tendina a {
+  display: block; padding: .6rem .85rem; border-radius: var(--radius-sm);
+  font-size: .95rem; font-weight: 700; color: var(--teal); text-decoration: none;
+}
+.testata-tendina a:hover, .testata-tendina a:focus-visible {
+  background: var(--lime); color: var(--teal);
+}
+
+@media (max-width: 560px) {
+  /* il bottone sparisce: le campagne sono già nel menu qui sopra */
+  .testata-interna > .testata-dati { display: none; }
+}
