@@ -511,3 +511,45 @@ report:
     - titolo: Sintesi del monitoraggio in gommone 2025-2026
       descrizione: La nota di sintesi sul metodo e sui risultati principali.
       file: report/sintesi-gommone-2025-2026-gumiero.pdf
+
+# ------------------------------------------------------------------- la rete
+# L'elenco è quello della comunicazione di campagna: «Una straordinaria rete
+# rende possibile questo percorso».
+
+rete:
+  etichetta: Chi la rende possibile
+  titolo: La rete territoriale
+  intro: >-
+    La campagna 2025-2026 è il lavoro di **A Sud e Insieme per l'Aniene**
+    insieme alle realtà che presidiano la valle, dall'alto corso alla
+    confluenza. Della rete fa parte anche **Rete Orti in Comune**, che lavora
+    con gli orti urbani comunitari lungo il fiume.
+  voci:
+    - nome: A Sud
+      logo: partner/a-sud.png
+      sito: https://asud.net
+      testo: Coordinamento, analisi e advocacy.
+    - nome: Insieme per l'Aniene APS
+      logo: partner/insieme-per-l-aniene.png
+      sito: https://www.aniene.it
+      testo: Monitoraggio sul campo e presidio della Riserva.
+    - nome: Roma Adventure ASD
+      logo: partner/roma-adventure.png
+      sito: https://www.romarafting.com/it/
+      testo: Le discese in gommone lungo tutto il tratto.
+    - nome: Retake Roma Sacco Pastore
+      logo: partner/retake-roma.png
+      sito: https://retake.org/roma/retakeroma-sacco-pastore/
+      testo: Cura del lungofiume e della pista ciclopedonale.
+    - nome: A.D.A. APS
+      logo: partner/ada.png
+      sito: https://www.adadidatticambiente.it
+      testo: Educazione ambientale e raccordo con le scuole.
+    - nome: Collettivo L'Aquila Reale ETS
+      logo: partner/aquila-reale.png
+      sito: https://laquilarealelicenza.org
+      testo: Attivismo ecologista nell'alto corso.
+    - nome: Il Cammino dell'Aniene
+      logo: partner/cammino-aniene-vara.png
+      sito: https://www.facebook.com/ilcamminodellaniene/
+      testo: Percorsi e fruizione lungo tutta la valle.

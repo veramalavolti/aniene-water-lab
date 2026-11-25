@@ -12,6 +12,7 @@
     <a href="#{{ s.ancora }}" data-sezione="{{ s.ancora }}">{{ s.nome }}</a>
     {% endfor %}
     <a href="#report" data-sezione="report">I report</a>
+    <a href="#rete" data-sezione="rete">La rete</a>
   </div>
 </nav>
 
@@ -168,6 +169,8 @@
     {{ parti.report(c.report, peso, pagine) }}
   </div>
 </section>
+
+{{ parti.rete(c.rete) }}
 
 {% endblock %}
 

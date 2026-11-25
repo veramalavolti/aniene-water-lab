@@ -335,3 +335,38 @@ report:
         L'allegato di approfondimento sul rapporto tra i corsi d'acqua e il
         tessuto urbano di Roma.
       file: report/i-fiumi-e-la-citta.pdf
+
+# ------------------------------------------------------------------- la rete
+# Le realtà ringraziate nel report RomaUp 2022-2023 e quelle che hanno
+# promosso Walk Up Aniene nel 2021.
+
+rete:
+  etichetta: Chi l'ha resa possibile
+  titolo: La rete territoriale
+  intro: >-
+    Walk Up Aniene nasce dalla collaborazione fra **A Sud e Insieme per
+    l'Aniene**; RomaUp la prosegue con il sostegno di Periferiacapitale e il
+    contributo delle realtà che presidiano il lungofiume. Nel report sono
+    ringraziati anche ARPA Lazio, il Contratto di Fiume Valle dell'Aniene,
+    RomaNatura e la Regione Lazio.
+  voci:
+    - nome: A Sud
+      logo: partner/a-sud.png
+      sito: https://asud.net
+      testo: Promotrice di Walk Up Aniene e di RomaUp.
+    - nome: Insieme per l'Aniene APS
+      logo: partner/insieme-per-l-aniene.png
+      sito: https://www.aniene.it
+      testo: Co-promotrice e presidio sulla Riserva Naturale.
+    - nome: Retake Roma Sacco Pastore
+      logo: partner/retake-roma.png
+      sito: https://retake.org/roma/retakeroma-sacco-pastore/
+      testo: Cura del lungofiume nel tratto urbano.
+    - nome: Roma Adventure ASD
+      logo: partner/roma-adventure.png
+      sito: https://www.romarafting.com/it/
+      testo: Accesso al fiume e discese in rafting.
+    - nome: Periferiacapitale
+      logo: partner/periferiacapitale.png
+      sito: https://www.periferiacapitale.org
+      testo: Il programma della Fondazione Charlemagne che ha sostenuto RomaUp.

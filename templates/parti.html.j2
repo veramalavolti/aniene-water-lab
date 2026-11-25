@@ -361,3 +361,23 @@
   </svg>
 </figure>
 {% endmacro %}
+
+
+{# La rete di una campagna: chiude la pagina, dopo i dati e i report. Le
+   realtà si riconoscono dal logo, non da un riquadro di testo. #}
+{% macro rete(blocco) %}
+<section class="sezione sezione-chiara" id="rete">
+  <div class="contenitore">
+    {{ testa_doppia(blocco.etichetta, blocco.titolo, blocco.intro) }}
+    <div class="realta-griglia">
+      {% for v in blocco.voci %}
+      <a class="realta" href="{{ v.sito }}" rel="noopener">
+        <span class="realta-logo"><img src="assets/img/{{ v.logo }}" alt="{{ v.nome }}" loading="lazy"></span>
+        <strong>{{ v.nome }}</strong>
+        <span class="realta-ruolo">{{ v.testo }}</span>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endmacro %}

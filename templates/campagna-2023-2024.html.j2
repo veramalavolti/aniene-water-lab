@@ -87,22 +87,7 @@
   </div>
 </section>
 
-{# La rete chiude la pagina: prima i dati e i documenti, poi chi li ha fatti.
-   Le realtà si riconoscono dal logo, non da un riquadro di testo. #}
-<section class="sezione sezione-chiara" id="rete">
-  <div class="contenitore">
-    {{ parti.testa_doppia(c.rete.etichetta, c.rete.titolo, c.rete.intro) }}
-    <div class="realta-griglia">
-      {% for v in c.rete.voci %}
-      <a class="realta" href="{{ v.sito }}" rel="noopener">
-        <span class="realta-logo"><img src="assets/img/{{ v.logo }}" alt="{{ v.nome }}" loading="lazy"></span>
-        <strong>{{ v.nome }}</strong>
-        <span class="realta-ruolo">{{ v.testo }}</span>
-      </a>
-      {% endfor %}
-    </div>
-  </div>
-</section>
+{{ parti.rete(c.rete) }}
 
 {% endblock %}
 
