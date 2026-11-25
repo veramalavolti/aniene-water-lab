@@ -68,8 +68,8 @@ p { margin: 0 0 1.05rem; }
 /* Il colore del grassetto segue il fondo su cui sta: ogni contenitore scuro
    dichiara il proprio, così il testo in evidenza non sparisce mai. */
 strong, b { font-weight: 700; color: var(--grassetto, var(--teal)); }
-.sezione-scura, .hero, footer, .obiettivi, .fww, .bottone-sezione,
-.campagna-box, .numeri, .dash-barra, .suggerimento { --grassetto: var(--lime); }
+.sezione-scura, .hero, footer, .obiettivi, .fww, .numeri,
+.dash-barra, .suggerimento { --grassetto: var(--lime); }
 .sezione-scura .riquadro, .sezione-scura .nota, .sezione-scura .citazione,
 .sezione-scura .scheda, .sezione-scura .parametro, .sezione-scura .mappa,
 .sezione-scura .galleria figure, .sezione-scura .foto-larga,
@@ -158,7 +158,7 @@ a:hover { color: var(--verde-testo); }
 
 .hero { background: var(--teal); color: var(--text-inv); padding-block: 2.6rem 2rem; }
 .hero-griglia {
-  display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
   gap: 3rem; align-items: stretch;
 }
 /* Quando la pagina ha già una fotografia larga sotto il titolo, l'occhiello
@@ -176,11 +176,16 @@ a:hover { color: var(--verde-testo); }
   font-size: var(--t-h1); font-weight: 900; text-transform: uppercase;
   margin-bottom: 1.1rem; letter-spacing: .004em;
 }
+/* Il titolo della home è il titolo di tutta la piattaforma: è il più grande
+   del sito, e il testo accanto cresce con lui perché la colonna resti piena. */
+.hero-principale h1 { font-size: clamp(2.6rem, 5.4vw, 4.9rem); line-height: 1.02; }
+.hero-principale .hero-occhiello { font-size: .95rem; margin-bottom: .8rem; }
+.hero-principale p { font-size: 1.14rem; line-height: 1.68; max-width: 52ch; }
 .hero p { font-size: 1.06rem; color: var(--text-inv-dim); max-width: 56ch; }
 .hero figure { margin: 0; display: flex; flex-direction: column; justify-content: center; }
 .hero figure img {
   /* l'immagine segue l'altezza del testo accanto, come negli altri blocchi */
-  width: 100%; flex: 1 1 0; height: 0; min-height: 230px; max-height: 420px;
+  width: 100%; flex: 1 1 0; height: 0; min-height: 230px; max-height: 500px;
   object-fit: cover; border-radius: var(--radius-lg);
 }
 .hero figcaption { font-size: .78rem; color: var(--text-inv-dim); padding: .5rem 0 0; }
@@ -240,26 +245,32 @@ main { padding-bottom: 4rem; }
 .campagne-griglia { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
 /* I tre riquadri sono la navigazione principale del sito: stanno su fondo
    chiaro perché siano la cosa più evidente della pagina dopo il titolo. */
+/* Sono la porta d'ingresso ai dati: la scheda intera è il bottone, a colore
+   pieno, bassa quanto basta perché le tre stiano in una riga sola di sguardo. */
 .campagna-box {
-  display: flex; flex-direction: column; gap: .35rem; padding: 1.5rem 1.6rem;
-  background: var(--cream-card); border: 1px solid var(--border);
-  border-top: 4px solid var(--lime-dark); border-radius: var(--radius-md);
-  color: var(--teal); text-decoration: none; box-shadow: var(--shadow-sm);
-  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+  display: flex; flex-direction: column; gap: .15rem; padding: 1.15rem 1.4rem 1.05rem;
+  background: var(--lime); border: 2px solid var(--teal);
+  border-radius: var(--radius-md); color: var(--teal); text-decoration: none;
+  box-shadow: var(--shadow-sm);
+  transition: background .18s ease, transform .18s ease, box-shadow .18s ease;
 }
 .campagna-box:hover {
-  transform: translateY(-4px); box-shadow: var(--shadow-md); border-top-color: var(--teal);
+  background: var(--lime-light); transform: translateY(-3px); box-shadow: var(--shadow-md);
 }
 .campagna-anni {
-  font-family: var(--font-display); font-size: 1.9rem; font-weight: 900;
+  font-family: var(--font-display); font-size: 1.75rem; font-weight: 900;
   line-height: 1; color: var(--teal);
 }
 .campagna-nome {
-  font-weight: 800; font-size: .84rem; text-transform: uppercase;
-  letter-spacing: .07em; color: var(--verde-testo);
+  font-weight: 800; font-size: .78rem; text-transform: uppercase;
+  letter-spacing: .07em; color: var(--teal); opacity: .75;
 }
-.campagna-desc { font-size: .92rem; color: var(--text-dim); }
-.campagna-azione { margin-top: auto; align-self: start; }
+.campagna-desc { font-size: .88rem; line-height: 1.45; color: var(--teal); opacity: .85; }
+.campagna-vai {
+  margin-top: .55rem; font-size: .88rem; font-weight: 800; color: var(--teal);
+  display: inline-flex; align-items: center; gap: .35rem;
+}
+.campagna-box:hover .campagna-vai { gap: .6rem; }
 
 .numeri { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 1px; margin-top: 2.2rem;
   background: rgba(240, 237, 230, .14); border: 1px solid rgba(240, 237, 230, .14);
@@ -407,7 +418,7 @@ main { padding-bottom: 4rem; }
 
 /* Un solo bottone per tutto il sito: stesso verde, stesso bordo scuro,
    stesso raggio. Cambia solo la taglia, mai l'aspetto. */
-.bottone, .testata-azione, .campagna-azione, .report-azione,
+.bottone, .testata-azione, .report-azione,
 .bottone-sezione, .rete-card .vai, .anni-bottone {
   display: inline-flex; align-items: center; gap: .5rem; padding: .7rem 1.3rem;
   background: var(--lime); color: var(--teal);
@@ -418,12 +429,11 @@ main { padding-bottom: 4rem; }
   transition: background .18s ease, transform .18s ease;
 }
 .bottone:hover, .testata-azione:hover, .anni-bottone:hover,
-a.rete-card:hover .vai, .report-card:hover .report-azione,
-.campagna-box:hover .campagna-azione {
+a.rete-card:hover .vai, .report-card:hover .report-azione {
   background: var(--lime-light); color: var(--teal); transform: translateY(-1px);
 }
 /* la taglia piccola serve dentro le schede, dove il bottone è un dettaglio */
-.bottone-piccolo, .testata-azione, .campagna-azione, .report-azione,
+.bottone-piccolo, .testata-azione, .report-azione,
 .rete-card .vai, .anni-bottone {
   padding: .45rem .95rem; font-size: .84rem; border-width: 1.5px;
 }
@@ -1432,3 +1442,22 @@ a.rete-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); b
 }
 .richiamo p { font-size: .96rem; line-height: 1.6; max-width: none; }
 .richiamo .bottone { margin-top: .4rem; }
+
+/* ====================================================== le realtà, per logo
+
+   Chi ha lavorato a una campagna si riconosce dal marchio prima che dal nome:
+   il logo è l'elemento che si cerca con l'occhio, il testo viene dopo. */
+
+.realta-griglia { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 1rem; }
+.realta {
+  display: grid; grid-template-rows: 66px auto auto; gap: .45rem; align-content: start;
+  padding: 1.2rem 1.3rem 1.3rem; background: var(--cream-card);
+  border: 1px solid var(--border); border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm); text-decoration: none; color: inherit; text-align: center;
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+.realta:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); border-color: var(--lime-dark); }
+.realta-logo { display: flex; align-items: center; justify-content: center; }
+.realta-logo img { max-height: 62px; max-width: 150px; width: auto; object-fit: contain; }
+.realta strong { font-size: .98rem; font-weight: 800; color: var(--teal); line-height: 1.25; }
+.realta-ruolo { font-size: .86rem; line-height: 1.45; color: var(--text-dim); }

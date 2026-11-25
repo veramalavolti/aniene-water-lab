@@ -229,25 +229,33 @@ schede:
     - ecoli
 
 rete:
+  etichetta: Chi l'ha resa possibile
   titolo: La rete territoriale
-  intro: "La rete di realtà impegnate nel progetto comprende:"
+  intro: >-
+    Il monitoraggio 2023-2024 è il lavoro di **cinque realtà** che si sono
+    divise il campo, la navigazione, le scuole e il rapporto con le
+    istituzioni. Ciascuna con il suo mestiere, tutte sullo stesso fiume.
   voci:
     - nome: Insieme per l'Aniene APS
-      testo: Attiva nella salvaguardia della Riserva Naturale Valle dell'Aniene.
+      logo: partner/insieme-per-l-aniene.png
+      sito: https://www.aniene.it
+      testo: Salvaguardia della Riserva Naturale Valle dell'Aniene.
     - nome: A Sud
-      testo: Organizzazione ecologista focalizzata su giustizia ambientale e climatica.
+      logo: partner/a-sud.png
+      sito: https://asud.net
+      testo: Giustizia ambientale e climatica.
     - nome: Retake Roma Sacco Pastore
-      testo: >-
-        Gruppo locale che si occupa del decoro, del lungofiume e della pista
-        ciclopedonale.
+      logo: partner/retake-roma.png
+      sito: https://retake.org/roma/retakeroma-sacco-pastore/
+      testo: Cura del lungofiume e della pista ciclopedonale.
     - nome: A.D.A. APS
-      testo: >-
-        Associazione dedicata all'educazione ambientale e al raccordo tra scuole
-        e territorio.
+      logo: partner/ada.png
+      sito: https://www.adadidatticambiente.it
+      testo: Educazione ambientale e raccordo con le scuole.
     - nome: Roma Adventure ASD
-      testo: >-
-        Esperti di navigazione fluviale che curano le uscite in gommone a
-        supporto del monitoraggio e di eventi di sensibilizzazione.
+      logo: partner/roma-adventure.png
+      sito: https://www.romarafting.com/it/
+      testo: Navigazione fluviale e uscite in gommone.
 
 report:
   titolo: I report di questa campagna
