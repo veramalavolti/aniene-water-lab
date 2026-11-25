@@ -36,13 +36,26 @@
 </section>
 
 <section class="sezione sezione-chiara" id="analisi">
-  <div class="contenitore stretto">
+  <div class="contenitore">
     {{ parti.testa('Il protocollo', c.analisi.titolo) }}
-    {{ parti.paragrafi(c.analisi.paragrafi) }}
-    <div class="nota"><p>{{ c.analisi.riquadro }}</p></div>
-    <p class="bottoni">
-      <a class="bottone" href="citizen-science.html#parametri">{{ c.analisi.rimando }} →</a>
-    </p>
+    <div class="testo-lato">
+      <div>
+        {{ parti.paragrafi(c.analisi.paragrafi) }}
+        <p class="bottoni" style="margin-bottom:0">
+          <a class="bottone" href="citizen-science.html#parametri">{{ c.analisi.rimando }} →</a>
+        </p>
+      </div>
+      <div class="spalla">
+        {# Il LIMeco torna spesso nel testo: qui si dice che cos'è e si manda
+           alla spiegazione per esteso, invece di lasciare la colonna vuota. #}
+        <aside class="richiamo">
+          <p class="etichetta">{{ c.analisi.limeco.etichetta }}</p>
+          <h3>{{ c.analisi.limeco.titolo }}</h3>
+          {{ parti.paragrafi(c.analisi.limeco.paragrafi) }}
+          <a class="bottone bottone-piccolo" href="{{ c.analisi.limeco.link }}">{{ c.analisi.limeco.link_testo }} →</a>
+        </aside>
+      </div>
+    </div>
   </div>
 </section>
 

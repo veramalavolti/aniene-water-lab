@@ -850,12 +850,6 @@ td.oltre { font-weight: 800; }
 }
 .stz:hover .solo { background: var(--teal); color: var(--cream); }
 
-/* spiegazione delle soglie, sotto la legenda */
-.soglie-spiegate { display: grid; gap: .5rem; padding: 0 1.5rem 1rem; }
-.soglia-riga { display: grid; grid-template-columns: 14px 1fr; gap: .7rem; align-items: start; font-size: .88rem; color: var(--text-dim); }
-.soglia-tacca { width: 14px; height: 14px; border-radius: 3px; margin-top: .25rem; }
-.soglia-riga b { color: var(--teal); }
-
 /* vista con tutti i parametri insieme */
 .piccoli-multipli { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem; padding: 1rem 1.5rem 1.5rem; }
 .mini-grafico { background: #FBFAF7; border: 1px solid var(--border); border-radius: var(--radius-md); padding: .9rem 1rem; }
@@ -866,7 +860,7 @@ td.oltre { font-weight: 800; }
 .mini-grafico:hover { border-color: var(--lime-dark); }
 
 @media (max-width: 760px) {
-  .soglie-spiegate, .piccoli-multipli { padding-inline: 1rem; }
+  .piccoli-multipli { padding-inline: 1rem; }
   .report-card { grid-template-columns: 44px 1fr; gap: .4rem .8rem; padding: 1.2rem 1.2rem; }
   .report-icona { width: 44px; height: 56px; font-size: .75rem; }
 }
@@ -1391,3 +1385,50 @@ a.rete-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); b
   .limeco-testo { grid-template-columns: 1fr; gap: 0; padding: 1.5rem 1.4rem 1.2rem; }
   .limeco-soglie { padding: 1.4rem 1.4rem 1.5rem; }
 }
+
+/* ========================= Fresh Water Watch: il riquadro e i suoi passaggi
+
+   Che cos'è il programma e come ci si entra sono due facce della stessa cosa:
+   stanno in un blocco unico, separati da una riga, invece di sembrare due
+   sezioni senza rapporto fra loro. */
+
+.fww-blocco {
+  background: var(--teal); border: 1.5px solid var(--lime-border);
+  border-radius: var(--radius-lg); overflow: hidden;
+}
+.fww-blocco .fww { background: transparent; border: 0; border-radius: 0; }
+
+.fww-passi {
+  --grassetto: var(--lime);
+  border-top: 1px solid rgba(240, 237, 230, .18);
+  padding: 1.8rem 2.4rem 2.2rem;
+}
+.fww-passi > h3 {
+  font-family: var(--font-display); font-size: 1.5rem; font-weight: 900;
+  text-transform: uppercase; color: var(--lime); margin-bottom: .4rem;
+}
+.fww-passi > p { color: var(--text-inv-dim); max-width: 70ch; margin-bottom: 0; }
+.fww-passi .passi { margin-top: 1.3rem; }
+/* dentro le schede bianche il grassetto torna scuro, altrimenti sparisce */
+.fww-passi .passo { --grassetto: var(--teal); }
+
+@media (max-width: 860px) {
+  .fww-passi { padding: 1.5rem 1.4rem 1.6rem; }
+}
+
+/* ============================================= un richiamo a un'altra pagina
+
+   Sta nella colonna di fianco al testo: dice in breve una cosa che il testo dà
+   per saputa e porta dove è spiegata per esteso. */
+
+.richiamo {
+  background: var(--cream-card); border: 1px solid var(--border);
+  border-top: 4px solid var(--lime-dark); border-radius: var(--radius-md);
+  padding: 1.5rem 1.6rem; box-shadow: var(--shadow-sm);
+}
+.richiamo h3 {
+  font-family: var(--font-display); font-size: 1.45rem; font-weight: 800;
+  text-transform: uppercase; color: var(--teal); margin-bottom: .6rem;
+}
+.richiamo p { font-size: .96rem; line-height: 1.6; max-width: none; }
+.richiamo .bottone { margin-top: .4rem; }

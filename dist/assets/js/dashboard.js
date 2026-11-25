@@ -275,9 +275,6 @@
     this.legenda = html('div', 'dash-legenda');
     this.nodo.appendChild(this.legenda);
 
-    this.spiegaSoglie = html('div', 'soglie-spiegate');
-    this.nodo.appendChild(this.spiegaSoglie);
-
     this.barraStazioni = html('div', 'dash-stazioni');
     this.barraStazioni.setAttribute('role', 'group');
     this.barraStazioni.setAttribute('aria-label', 'Mostra o nascondi le stazioni');
@@ -538,7 +535,6 @@
     if (vecchiMultipli) vecchiMultipli.remove();
     this.areaGrafico.hidden = false;
     this.legenda.hidden = false;
-    this.spiegaSoglie.hidden = false;
     this.guida.hidden = false;
     var p = this.scheda();
     this.intestazione.textContent = '';
@@ -557,7 +553,6 @@
     }
 
     this.disegnaLegenda();
-    this.disegnaSpiegazioneSoglie();
 
     var vecchio = this.areaGrafico.querySelector('svg');
     if (vecchio) vecchio.remove();
@@ -574,7 +569,6 @@
     var self = this;
     this.areaGrafico.hidden = true;
     this.legenda.hidden = true;
-    this.spiegaSoglie.hidden = true;
     this.guida.hidden = true;
 
     this.intestazione.textContent = '';
@@ -627,42 +621,6 @@
     entro.style.background = '#4E7A8C';
     entro.style.color = '#fff';
     this.legenda.appendChild(entro);
-  };
-
-  /* Dice a parole che cosa distingue una soglia dall'altra: il colore da solo
-     non basta a capire quale delle due è quella grave. */
-  Dashboard.prototype.disegnaSpiegazioneSoglie = function () {
-    var p = this.scheda(), self = this;
-    this.spiegaSoglie.textContent = '';
-    if (!p.soglie || !p.soglie.length) return;
-
-    var ordinate = p.soglie.slice().sort(function (a, b) { return a.livello - b.livello; });
-    var quante = ordinate.length;
-    ordinate.forEach(function (s, i) {
-      var riga = html('div', 'soglia-riga');
-      var tacca = html('span', 'soglia-tacca');
-      tacca.style.background = COLORI_LIVELLO[s.livello] || '#B03A2E';
-      riga.appendChild(tacca);
-      var testo = html('div');
-      var ruolo = quante === 1 ? 'Soglia di riferimento'
-        : i === 0 ? 'Prima soglia, di attenzione'
-        : i === quante - 1 ? 'Soglia più grave' : 'Soglia intermedia';
-      testo.appendChild(html('b', null, ruolo + ': ' + s.etichetta + '. '));
-      testo.appendChild(document.createTextNode(s.spiegazione || ''));
-      riga.appendChild(testo);
-      self.spiegaSoglie.appendChild(riga);
-    });
-
-    if (quante > 1) {
-      var nota = html('div', 'soglia-riga');
-      nota.appendChild(html('span', null, ''));
-      var verso = p.verso === 'basso_critico' ? 'più si scende' : 'più si sale';
-      nota.appendChild(html('div', null,
-        'Le linee vanno lette in ordine: ' + verso + ' oltre le linee, peggiore è la ' +
-        'condizione del fiume. La prima segnala che qualcosa non va, l\'ultima che la ' +
-        'situazione è grave. Passando sopra una linea nel grafico compaiono anche le possibili cause.'));
-      self.spiegaSoglie.appendChild(nota);
-    }
   };
 
   /* Disegna le linee di soglia con l'etichetta sempre visibile e il riquadro

@@ -128,11 +128,28 @@ analisi:
       parametri anche per il costo troppo elevato di analisi più specifiche come
       quelle per pesticidi, farmaci o PFAS. Oltre ai parametri del LIMeco sono
       stati analizzati pH, temperatura, conducibilità e torbidità.
-  riquadro: >-
-    Il LIMeco è una sorta di righello che misura la qualità ecologica del fiume
-    ed è stato introdotto dall'ultima direttiva europea in tema di acque
-    (Direttiva Quadro Acque 2000/60/CE).
   rimando: Vai alle schede dei parametri
+  # Il riquadro di fianco al testo: che cos'è il LIMeco, con il rimando alla
+  # spiegazione per esteso nella pagina Citizen science.
+  limeco:
+    etichetta: Il righello
+    titolo: Che cos'è il LIMeco
+    paragrafi:
+      - >-
+        È **una sorta di righello che misura la qualità ecologica del fiume**,
+        introdotto dall'ultima direttiva europea in tema di acque (Direttiva
+        Quadro Acque 2000/60/CE) e recepito in Italia dal D.Lgs. 152/2006.
+      - >-
+        Si calcola da quattro parametri soltanto — ossigeno disciolto, azoto
+        ammoniacale, azoto nitrico e fosforo totale — e colloca il corso d'acqua
+        in una delle **cinque classi di qualità**, da «elevato» a «cattivo». È
+        l'indice che permette di confrontare i dati raccolti dai cittadini con
+        quelli pubblicati da ARPA Lazio.
+      - >-
+        Nella pagina sul metodo trovi lo schema di come si calcola e la tabella
+        delle soglie di ciascuna classe.
+    link: citizen-science.html#limeco
+    link_testo: Vai alla spiegazione del LIMeco
 
 dashboard:
   titolo: Cosa abbiamo analizzato e come

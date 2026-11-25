@@ -113,42 +113,44 @@
 
 <section class="sezione" id="fresh-water-watch">
   <div class="contenitore">
-    <div class="fww">
-      <div>
-        <p class="etichetta">{{ c.fresh_water_watch.etichetta }}</p>
-        <h3>{{ c.fresh_water_watch.titolo }}</h3>
-        {{ parti.paragrafi(c.fresh_water_watch.paragrafi) }}
-        <p class="bottoni" style="margin-bottom:0">
-          <a class="bottone" href="{{ c.fresh_water_watch.link }}" rel="noopener">{{ c.fresh_water_watch.link_testo }} ↗</a>
-        </p>
-      </div>
-      <div class="qr-coppia">
-        {% for q in c.fresh_water_watch.qr %}
-        <div class="fww-qr">
-          <img src="assets/img/{{ q.immagine }}" alt="{{ q.descrizione }}" width="180" height="180">
-          <strong>{{ q.etichetta }}</strong>
-          <span>{{ q.descrizione }}</span>
+    {# Il riquadro e i tre passaggi sono la stessa cosa: che cos'è Fresh Water
+       Watch e come ci si entra. Stanno dentro un blocco solo. #}
+    <div class="fww-blocco">
+      <div class="fww">
+        <div>
+          <p class="etichetta">{{ c.fresh_water_watch.etichetta }}</p>
+          <h3>{{ c.fresh_water_watch.titolo }}</h3>
+          {{ parti.paragrafi(c.fresh_water_watch.paragrafi) }}
+          <p class="bottoni" style="margin-bottom:0">
+            <a class="bottone" href="{{ c.fresh_water_watch.link }}" rel="noopener">{{ c.fresh_water_watch.link_testo }} ↗</a>
+          </p>
         </div>
-        {% endfor %}
+        <div class="qr-coppia">
+          {% for q in c.fresh_water_watch.qr %}
+          <div class="fww-qr">
+            <img src="assets/img/{{ q.immagine }}" alt="{{ q.descrizione }}" width="180" height="180">
+            <strong>{{ q.etichetta }}</strong>
+            <span>{{ q.descrizione }}</span>
+          </div>
+          {% endfor %}
+        </div>
       </div>
-    </div>
 
-    {# I passaggi per contribuire: scaricare l'app, entrare nel gruppo,
-       registrare il rilievo. #}
-    <div style="margin-top:2.4rem">
-      <h3 class="sotto-titolo" style="margin-top:0">{{ c.fresh_water_watch.partecipare.titolo }}</h3>
-      <p class="occhiello-testo" style="margin-bottom:0">{{ c.fresh_water_watch.partecipare.intro|t }}</p>
-      <div class="passi">
-        {% for v in c.fresh_water_watch.partecipare.passi %}
-        <article class="passo">
-          <span class="passo-numero" aria-hidden="true">{{ loop.index }}</span>
-          <h4>{{ v.titolo }}</h4>
-          <p>{{ v.testo|t }}</p>
-          {% if v.get('link') %}
-          <a class="bottone bottone-piccolo" href="{{ v.link }}" rel="noopener">{{ v.link_testo }} ↗</a>
-          {% endif %}
-        </article>
-        {% endfor %}
+      <div class="fww-passi">
+        <h3>{{ c.fresh_water_watch.partecipare.titolo }}</h3>
+        <p>{{ c.fresh_water_watch.partecipare.intro|t }}</p>
+        <div class="passi">
+          {% for v in c.fresh_water_watch.partecipare.passi %}
+          <article class="passo">
+            <span class="passo-numero" aria-hidden="true">{{ loop.index }}</span>
+            <h4>{{ v.titolo }}</h4>
+            <p>{{ v.testo|t }}</p>
+            {% if v.get('link') %}
+            <a class="bottone bottone-piccolo" href="{{ v.link }}" rel="noopener">{{ v.link_testo }} ↗</a>
+            {% endif %}
+          </article>
+          {% endfor %}
+        </div>
       </div>
     </div>
   </div>
