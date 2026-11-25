@@ -38,6 +38,7 @@
   --l4: #E0812E;
   --l5: #B03A2E;
   --larghezza: 1180px;
+  --altezza-testata: 92px;
   --larghezza-testo: 66ch;
   /* scala tipografica: ogni livello si distingue dal successivo */
   --t-h1: clamp(2.3rem, 4.2vw, 3.8rem);
@@ -117,41 +118,51 @@ a:hover { color: var(--verde-testo); }
   border-bottom: 2px solid var(--lime-border);
 }
 .testata-interna {
-  display: flex; align-items: center; gap: 1.5rem;
-  min-height: 72px; padding: .5rem clamp(1.25rem, 4vw, 3.5rem);
+  display: flex; align-items: center; gap: 2rem;
+  min-height: var(--altezza-testata); padding: .7rem clamp(1.25rem, 4vw, 3.5rem);
   width: 100%; max-width: none;
 }
-.marchio { display: flex; align-items: center; gap: .7rem; text-decoration: none; color: inherit; }
-.marchio-segno { width: 34px; height: 34px; color: var(--lime); flex: none; }
-.marchio-testo { display: flex; flex-direction: column; }
+.marchio { display: flex; align-items: center; gap: .85rem; text-decoration: none; color: inherit; }
+.marchio-segno { width: 44px; height: 44px; color: var(--lime); flex: none; }
+.marchio-testo { display: flex; flex-direction: column; gap: .15rem; }
 .marchio-nome {
-  font-family: var(--font-display); font-size: 1.35rem; font-weight: 900;
+  font-family: var(--font-display); font-size: 1.65rem; font-weight: 900;
   text-transform: uppercase; letter-spacing: .02em; line-height: 1;
 }
-.marchio-claim { font-size: .72rem; color: var(--text-inv-dim); letter-spacing: .04em; }
+.marchio-claim { font-size: .8rem; color: var(--text-inv-dim); letter-spacing: .04em; }
 .menu { margin-inline: auto; min-width: 0; }
 .menu ul {
-  display: flex; gap: 1.4rem; list-style: none; margin: 0; padding: 0;
+  display: flex; gap: 1.9rem; list-style: none; margin: 0; padding: 0;
   overflow-x: auto; scrollbar-width: none;
 }
 .menu ul::-webkit-scrollbar { display: none; }
+/* le voci hanno un'area da toccare alta a sufficienza anche sul telefono */
 .menu a {
-  color: var(--text-inv-dim); text-decoration: none; font-size: .88rem; font-weight: 600;
-  white-space: nowrap; padding-block: .3rem; border-bottom: 2px solid transparent;
+  color: var(--text-inv-dim); text-decoration: none; font-size: 1rem; font-weight: 600;
+  white-space: nowrap; padding-block: .6rem; border-bottom: 2px solid transparent;
 }
 .menu a:hover { color: var(--lime); }
 .menu a[aria-current="page"] { color: var(--lime); border-bottom-color: var(--lime); }
 
-.testata-azione { flex: none; white-space: nowrap; }
+.testata-azione {
+  flex: none; white-space: nowrap; padding: .62rem 1.25rem; font-size: .92rem;
+}
 
+/* Sotto i 1100px il menu scende su una riga sua: la testata diventa più alta
+   e la misura va aggiornata, altrimenti il sottomenu ci finisce sotto. */
 @media (max-width: 1100px) {
-  .testata-interna { flex-wrap: wrap; gap: .4rem 1rem; }
+  :root { --altezza-testata: 124px; }
+  .testata-interna { flex-wrap: wrap; gap: .5rem 1.2rem; }
   .menu { order: 3; width: 100%; margin-inline: 0; }
-  .menu ul { gap: 1.1rem; padding-bottom: .4rem; }
+  .menu ul { gap: 1.4rem; padding-bottom: .3rem; }
 }
 @media (max-width: 560px) {
-  .testata-azione { display: none; }
-  .marchio-segno { width: 28px; height: 28px; }
+  :root { --altezza-testata: 112px; }
+  .testata-interna > .testata-azione { display: none; }
+  .marchio-segno { width: 36px; height: 36px; }
+  .marchio-nome { font-size: 1.4rem; }
+  .marchio-claim { font-size: .74rem; }
+  .menu a { font-size: .95rem; }
 }
 
 /* --------------------------------------------------------------------- hero */
@@ -197,7 +208,7 @@ a:hover { color: var(--verde-testo); }
 /* ------------------------------------------------------------------ sezioni */
 
 main { padding-bottom: 4rem; }
-.sezione { padding-block: 3.6rem; scroll-margin-top: 96px; }
+.sezione { padding-block: 3.6rem; scroll-margin-top: calc(var(--altezza-testata) + 24px); }
 .hero-compatto + .sezione { padding-top: 2.4rem; padding-bottom: 2.6rem; }
 .sezione + .sezione { padding-top: .6rem; }
 .sezione-scura { background: var(--teal); color: var(--text-inv); padding-block: 3.6rem; }
@@ -433,8 +444,7 @@ a.rete-card:hover .vai, .report-card:hover .report-azione {
   background: var(--lime-light); color: var(--teal); transform: translateY(-1px);
 }
 /* la taglia piccola serve dentro le schede, dove il bottone è un dettaglio */
-.bottone-piccolo, .testata-azione, .report-azione,
-.rete-card .vai, .anni-bottone {
+.bottone-piccolo, .report-azione, .rete-card .vai, .anni-bottone {
   padding: .45rem .95rem; font-size: .84rem; border-width: 1.5px;
 }
 .bottone-chiaro { background: var(--lime); color: var(--teal); }
@@ -694,7 +704,7 @@ td.oltre { font-weight: 800; }
 
 /* Mappa dei punti di campionamento accanto all'elenco delle stazioni */
 .luoghi { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: 2rem; align-items: start; }
-.luoghi .mappa { position: sticky; top: 96px; margin: 0; background: var(--cream-card);
+.luoghi .mappa { position: sticky; top: calc(var(--altezza-testata) + 24px); margin: 0; background: var(--cream-card);
   border: 1px solid var(--border); border-radius: var(--radius-md); overflow: hidden;
   box-shadow: var(--shadow-sm); }
 .luoghi .mappa img { width: 100%; }
@@ -1015,7 +1025,7 @@ a.rete-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); b
 
 /* la metodologia: testo a sinistra, la rete internazionale a destra */
 .metodo-griglia { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 2.5rem; align-items: start; }
-.fww-stretto { grid-template-columns: 1fr; gap: 1.4rem; padding: 1.8rem 1.9rem; position: sticky; top: 96px; }
+.fww-stretto { grid-template-columns: 1fr; gap: 1.4rem; padding: 1.8rem 1.9rem; position: sticky; top: calc(var(--altezza-testata) + 24px); }
 .fww-stretto .fww-qr { justify-self: stretch; }
 .fww-stretto .fww-qr img { max-width: 150px; }
 .fww-stretto h3 { font-size: 1.45rem; }
@@ -1144,7 +1154,7 @@ a.rete-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); b
 /* ===================== barra delle sezioni, per pagine lunghe a due metà */
 
 .sottomenu {
-  position: sticky; top: 72px; z-index: 40;
+  position: sticky; top: calc(var(--altezza-testata) + 2px); z-index: 40;
   background: var(--cream-card); border-bottom: 1px solid var(--border);
   box-shadow: var(--shadow-sm);
 }
@@ -1163,13 +1173,12 @@ a.rete-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); b
 }
 .sottomenu a:hover { color: var(--verde-testo); border-bottom-color: var(--lime-dark); }
 .sottomenu a[aria-current] { color: var(--verde-testo); border-bottom-color: var(--lime-dark); }
-.sottomenu + .sezione { scroll-margin-top: 130px; }
-.sottomenu ~ * [id] { scroll-margin-top: 136px; }
-#dati-fissi, #dati-gommone, #report, #hotspot { scroll-margin-top: 136px; }
+.sottomenu + .sezione { scroll-margin-top: calc(var(--altezza-testata) + 58px); }
+.sottomenu ~ * [id] { scroll-margin-top: calc(var(--altezza-testata) + 64px); }
+#dati-fissi, #dati-gommone, #report, #hotspot { scroll-margin-top: calc(var(--altezza-testata) + 64px); }
 
-@media (max-width: 1100px) { .sottomenu { top: 110px; } }
+
 @media (max-width: 760px) {
-  .sottomenu { top: 104px; }
   .sottomenu-interno { min-height: 46px; gap: .2rem 1.1rem; overflow-x: auto; flex-wrap: nowrap; scrollbar-width: none; }
   .sottomenu-interno::-webkit-scrollbar { display: none; }
   .sottomenu-titolo { display: none; }
@@ -1186,7 +1195,7 @@ a.rete-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); b
 }
 .testo-lato > div > *:first-child { margin-top: 0; }
 .testo-lato > div > *:last-child { margin-bottom: 0; }
-.testo-lato .spalla { position: sticky; top: 104px; }
+.testo-lato .spalla { position: sticky; top: calc(var(--altezza-testata) + 32px); }
 .testo-lato figure {
   margin: 0; background: var(--cream-card); border: 1px solid var(--border);
   border-radius: var(--radius-md); overflow: hidden; box-shadow: var(--shadow-sm);
