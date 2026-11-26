@@ -110,6 +110,18 @@
       {% endfor %}
     </div>
 
+    {# L'elenco di chi ha collaborato senza avere un logo qui sopra: scuole,
+       circoli, enti. Sta nella stessa sezione perché è lo stesso grazie. #}
+    <div class="grazie">
+      <h3>{{ c.rete.collaborazioni.titolo }}</h3>
+      <p>{{ c.rete.collaborazioni.intro|t }}</p>
+      <ul class="grazie-elenco">
+        {% for v in c.rete.collaborazioni.voci %}
+        <li>{{ v }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+
     <div class="nota">
       <p><b>{{ c.rete.supervisione.titolo }}.</b> {{ c.rete.supervisione.testo|t }}</p>
     </div>

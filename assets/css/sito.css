@@ -985,6 +985,25 @@ a.rete-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); b
 .rete-card p { font-size: .9rem; color: var(--text-dim); margin: 0; }
 .rete-card .vai { justify-self: start; margin-top: .3rem; }
 
+/* Chi ha collaborato senza un logo fra quelli qui sopra: un elenco, non una
+   griglia di riquadri, perché sono nomi e basta. */
+.grazie { margin-top: 2.2rem; }
+.grazie h3 {
+  font-family: var(--font-display); font-size: 1.5rem; font-weight: 800;
+  text-transform: uppercase; letter-spacing: .01em; color: var(--teal); margin: 0 0 .4rem;
+}
+.grazie > p { color: var(--text-dim); max-width: 60ch; margin: 0 0 1.1rem; }
+.grazie-elenco {
+  list-style: none; margin: 0; padding: 0;
+  display: flex; flex-wrap: wrap; gap: .5rem;
+}
+.grazie-elenco li {
+  background: var(--cream-card); border: 1px solid var(--border);
+  border-radius: 999px; padding: .4rem .9rem;
+  font-size: .9rem; font-weight: 500; color: var(--teal);
+  box-shadow: var(--shadow-sm);
+}
+
 
 /* ============================== perché la citizen science fa la differenza */
 

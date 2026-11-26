@@ -101,9 +101,8 @@ rete:
     Associazioni, enti e sostenitori che hanno preso parte alle quattro campagne
     di monitoraggio, dal 2021 a oggi. Il monitoraggio civico esiste perché
     esistono loro, e le centinaia di persone che ci hanno messo tempo e mani.
-    Accanto a chi trovi qui lavorano il **Contratto di Fiume Aniene**, **Fresh
-    Water Watch**, la **Rete Orti in Comune** e **ARPA Lazio**, con cui
-    confrontiamo dati e segnalazioni.
+    Accanto a loro lavorano **Fresh Water Watch**, che fornisce il kit e il
+    protocollo di analisi, e la **Rete Orti in Comune**.
   supervisione:
     titolo: Supervisione scientifica
     testo: >-
@@ -146,3 +145,38 @@ rete:
       logo: partner/ottopermille-valdese.png
       ruolo: Sostegno economico alle attività di monitoraggio.
       sito: https://www.ottopermillevaldese.org
+
+  # L'elenco completo di chi ha collaborato dal 2021: qui stanno anche le
+  # realtà che non hanno un logo fra quelli qui sopra, scuole comprese.
+  collaborazioni:
+    titolo: E con loro, dal 2021
+    intro: >-
+      Alle volontarie e ai volontari, alle scuole e a tutte le realtà che
+      hanno collaborato con Walk Up Aniene, RomaUP e Aniene WaterLab.
+    voci:
+      - Agenda Tevere
+      - Amici dei Monti Ruffi APS
+      - ARPA Lazio
+      - Associazione La Terrazza, Tivoli
+      - Associazione Orti irrigui, Tivoli
+      - Asd UISP Valle del Tevere
+      - Canoanium Sublacense
+      - Circolo Canottieri Tivoli
+      - Contratto di Fiume Tevere da Castel Giubileo alla Foce
+      - Contratto di Fiume Valle dell'Aniene
+      - Ente Regionale RomaNatura
+      - Il Ranch ASD
+      - IIS Pacinotti-Archimede
+      - Istituto Comprensivo Angelucci, Subiaco
+      - Liceo Scientifico L. Spallanzani, Tivoli
+      - Mare Vivo Onlus
+      - Mondo Sommerso
+      - Museo dei Gladiatori, Associazione Storia di Roma, Tivoli
+      - Regina Ciclarum
+      - Retake Roma Sacco Pastore
+      - Roma Adventure ASD
+      - SalvaiCiclisti Roma
+      - Tevere Day
+      - Ufficio di Scopo Piccoli Comuni e Contratti di Fiume – Regione Lazio
+      - V.A.R.A. – Valle Aniene Rete Associazioni
+      - Vivere l'Aniene

@@ -715,6 +715,13 @@ content:
             fields:
               - { name: titolo, label: Titolo, type: string }
               - { name: testo, label: Testo, type: text }
+          - name: collaborazioni
+            label: Chi ha collaborato (elenco senza logo)
+            type: object
+            fields:
+              - { name: titolo, label: Titolo, type: string }
+              - { name: intro, label: Testo introduttivo, type: text }
+              - { name: voci, label: I nomi, type: string, list: true }
       - name: segnalazioni
         label: "Sezione: segnalazioni"
         type: object
