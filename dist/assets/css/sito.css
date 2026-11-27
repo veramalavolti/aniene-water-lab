@@ -799,6 +799,12 @@ td.oltre { font-weight: 800; }
 .fww .etichetta { color: var(--lime); }
 .fww h3 { font-size: clamp(1.5rem, 2.4vw, 2rem); font-weight: 900; text-transform: uppercase; margin-bottom: .6rem; }
 .fww p { color: var(--text-inv-dim); max-width: none; }
+/* La riga che dice che cosa farne, sopra i due codici. */
+.qr-titolo {
+  font-size: .72rem; font-weight: 800; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--lime); margin: 0;
+}
+
 /* Il codice a sinistra e la sua spiegazione a destra. */
 .fww-qr {
   display: grid; grid-template-columns: 118px minmax(0, 1fr);

@@ -199,6 +199,7 @@
    Stessa forma nella home e nella pagina sul metodo: si scrive una volta. #}
 {% macro qr_coppia(codici) %}
 <div class="qr-coppia">
+  <p class="qr-titolo">Inquadra con la fotocamera</p>
   {% for q in codici %}
   <div class="fww-qr">
     <img src="assets/img/{{ q.immagine }}" alt="{{ q.descrizione }}" width="180" height="180">
