@@ -799,24 +799,20 @@ td.oltre { font-weight: 800; }
 .fww .etichetta { color: var(--lime); }
 .fww h3 { font-size: clamp(1.5rem, 2.4vw, 2rem); font-weight: 900; text-transform: uppercase; margin-bottom: .6rem; }
 .fww p { color: var(--text-inv-dim); max-width: none; }
-/* Il codice a sinistra e la sua spiegazione a destra, incolonnata al centro:
-   nome e descrizione stanno insieme invece di galleggiare in alto. */
-.qr-titolo {
-  font-size: .72rem; font-weight: 800; letter-spacing: .12em;
-  text-transform: uppercase; color: var(--lime); margin: 0 0 .1rem;
-}
+/* Il codice a sinistra e la sua spiegazione a destra. La coppia sta al
+   centro della sua colonna, all'altezza del testo accanto, non appesa in
+   cima: così il riquadro non sembra sbilanciato. */
 .fww-qr {
-  display: grid; grid-template-columns: 96px minmax(0, 1fr);
-  gap: .2rem 1rem; align-content: center;
-  background: var(--cream-card); border: 1px solid var(--lime-border);
-  border-radius: var(--radius-md);
-  padding: .9rem 1.1rem; text-align: left;
+  display: grid; grid-template-columns: 118px minmax(0, 1fr);
+  gap: .15rem .9rem; align-content: center;
+  background: var(--cream-card); border-radius: var(--radius-md);
+  padding: 1rem 1.1rem; text-align: left;
 }
 .fww-qr img {
   grid-row: 1 / span 2; align-self: center;
-  width: 96px; height: 96px; max-width: none;
+  width: 118px; height: 118px; max-width: none;
 }
-.fww-qr .qr-nome { align-self: end; font-size: 1rem; font-weight: 800; color: var(--teal); line-height: 1.2; }
+.fww-qr .qr-nome { align-self: end; font-size: .95rem; font-weight: 800; color: var(--teal); line-height: 1.2; }
 .fww-qr .qr-desc {
   align-self: start; font-size: .82rem; line-height: 1.45;
   color: var(--text-dim); font-weight: 600;
@@ -1344,7 +1340,8 @@ a.rete-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); b
 .passo .bottone { margin-top: .2rem; }
 
 /* i due codici QR, uno accanto all'altro */
-.qr-coppia { display: grid; gap: .7rem; align-content: start; }
+/* I due codici stanno al centro dell'altezza del riquadro, non in cima. */
+.qr-coppia { display: grid; gap: .8rem; align-content: center; align-self: center; }
 
 /* ============================================================ mappa verticale */
 
