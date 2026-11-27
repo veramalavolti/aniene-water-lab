@@ -213,6 +213,9 @@ parametri:
     - torbidita
     - ecoli
 
+# ATTENZIONE: questa sezione non è in pagina. È stata tolta dalla pagina il 25
+# novembre 2026, per la decisione della riunione del 6; il testo resta qui
+# d'archivio. Finché il template non la rimette, modificarlo non cambia nulla.
 metodologia:
   titolo: Metodologia
   intro: >-

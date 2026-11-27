@@ -129,8 +129,11 @@ content:
               - { name: testo, label: Testo, type: text }
           - { name: foto, label: Foto, type: image, options: { media: fotografie, path: foto } }
           - { name: foto_descrizione, label: Descrizione della foto, type: text }
+      # Fuori dalla pagina dal 25 novembre 2026, per la decisione della riunione
+      # del 6: il testo resta qui d'archivio ma non compare sul sito, e
+      # modificarlo non cambia niente finché la sezione non viene rimessa.
       - name: metodologia
-        label: "Sezione: la metodologia"
+        label: "Metodologia e strumenti — ARCHIVIO, non in pagina"
         type: object
         fields:
           - { name: titolo, label: Titolo, type: string }
