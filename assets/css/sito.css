@@ -233,12 +233,19 @@ main { padding-bottom: 4rem; }
 .sezione-scura .titolo-sezione::before, .obiettivi .titolo-sezione::before { background: var(--lime); }
 .etichetta + .titolo-sezione::before { display: none; }
 .sezione-scura .titolo-sezione { color: var(--text-inv); }
+/* Titolo a sinistra e testo a destra. Le due colonne erano fisse a 5 e 7
+   dodicesimi: un titolo corto lasciava una fascia vuota larga anche duecento
+   pixel fra sé e il testo. Ora la colonna del titolo si stringe su quanto il
+   titolo è lungo davvero, fino a un tetto di 24rem oltre il quale va a capo,
+   e il testo si prende tutto il resto. */
 .testa-doppia {
-  display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
-  gap: 1rem 3rem; align-items: start; margin-bottom: 2.2rem;
+  display: grid; grid-template-columns: fit-content(24rem) minmax(0, 1fr);
+  gap: 1rem 2.2rem; align-items: start; margin-bottom: 2.2rem;
 }
 .testa-doppia .titolo-sezione { margin-bottom: 0; }
-.testa-doppia .occhiello-testo { margin-bottom: 0; max-width: none; font-size: 1.06rem; }
+/* Un tetto alla riga serve lo stesso: su uno schermo molto largo una riga da
+   cento caratteri non si segue più. */
+.testa-doppia .occhiello-testo { margin-bottom: 0; max-width: 78ch; font-size: 1.06rem; }
 @media (max-width: 860px) {
   .testa-doppia { grid-template-columns: 1fr; gap: .8rem; margin-bottom: 1.6rem; }
 }
