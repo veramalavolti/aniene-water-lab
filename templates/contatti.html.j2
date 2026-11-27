@@ -76,6 +76,9 @@
           <li>{{ v|t }}</li>
           {% endfor %}
         </ul>
+        {# Chi arriva qui dopo aver visto qualcosa di brutto deve sapere subito
+           che questo non è un numero di emergenza. #}
+        <p class="avvertenza">{{ c.segnalazioni.consigli.avvertenza|t }}</p>
       </div>
     </div>
   </div>

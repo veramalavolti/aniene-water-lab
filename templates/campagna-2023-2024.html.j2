@@ -76,8 +76,15 @@
 
 <section class="sezione" id="schede">
   <div class="contenitore">
-    {{ parti.testa_doppia('Le schede', c.schede.titolo, c.schede.intro) }}
-    {{ parti.schede_generali(c.schede.ordine, parametri) }}
+    {{ parti.testa_doppia('Il protocollo', c.schede.titolo, c.schede.intro) }}
+    {# Le schede dei parametri non si ripetono qui: stanno per intero nella
+       pagina sul metodo, e questa sezione dice solo cosa è stato misurato. #}
+    <div class="testo-stretto">
+      {{ parti.paragrafi(c.schede.paragrafi) }}
+      <p class="bottoni" style="margin-bottom:0">
+        <a class="bottone" href="citizen-science.html#parametri">{{ c.schede.rimando }} →</a>
+      </p>
+    </div>
   </div>
 </section>
 

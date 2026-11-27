@@ -420,6 +420,16 @@ main { padding-bottom: 4rem; }
 }
 .nota p:last-child { margin-bottom: 0; }
 
+/* L'avvertenza nel riquadro delle segnalazioni: deve staccarsi dai consigli,
+   perché dice una cosa diversa e più urgente. Il rosso della tavolozza, non
+   un rosso nuovo. */
+.avvertenza {
+  margin: 1.2rem 0 0; padding-top: 1rem;
+  border-top: 2px solid var(--l5);
+  font-size: .92rem; line-height: 1.55; color: var(--text);
+}
+.avvertenza strong { color: var(--l5); }
+
 /* ------------------------------------------------------------------- bottoni */
 
 /* Un solo bottone per tutto il sito: stesso verde, stesso bordo scuro,
@@ -626,6 +636,17 @@ footer li a { display: inline-block; padding-block: .35rem; }
 .lvl-3 { background: var(--l3); color: #14262F; }
 .lvl-4 { background: var(--l4); color: #14262F; }
 .lvl-5 { background: var(--l5); color: #fff; }
+
+/* Un blocco di testo che riassume, senza la griglia di schede accanto: la
+   riga non deve diventare lunghissima sugli schermi larghi. */
+.testo-stretto { max-width: 68ch; }
+.testo-stretto p { max-width: none; }
+
+/* Le due sole pastiglie delle soglie: rossa quella da non superare, gialla il
+   bordo dell'intervallo di accettabilità. Gli stessi colori delle linee nei
+   grafici; le cinque lvl- qui sopra restano per le classi del LIMeco. */
+.soglia-limite { background: var(--l5); color: #fff; }
+.soglia-attenzione { background: var(--l3); color: #14262F; }
 
 .dash-stazioni { display: flex; flex-wrap: wrap; gap: .4rem; padding: 0 1.5rem 1rem; }
 .stz {

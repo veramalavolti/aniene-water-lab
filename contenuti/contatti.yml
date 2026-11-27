@@ -67,11 +67,14 @@ bollettino:
 # ------------------------------------------------------------- segnalazioni
 
 segnalazioni:
-  titolo: Segnalaci quello che vedi
+  titolo: Raccontaci quello che vedi
   intro: >-
     Hai visto uno **scarico**, una **discarica**, una **moria di pesci** o
-    qualcosa che non torna lungo il fiume? Scrivici: ogni segnalazione viene
-    letta e, quando possibile, verificata durante le uscite di monitoraggio.
+    qualcosa che non torna lungo il fiume? Scrivici. Quello che ci mandi entra
+    nell'**archivio del monitoraggio civico**: lo leggiamo, lo teniamo accanto
+    ai dati delle campagne e, quando possiamo, andiamo a verificarlo durante
+    un'uscita. Serve a tenere memoria di come cambia l'Aniene, nel tempo e
+    punto per punto: **non è un canale di pronto intervento.**
   email: segreteria@asud.net
   nota: >-
     Il modulo apre il tuo programma di posta con il messaggio già pronto: il
@@ -82,7 +85,7 @@ segnalazioni:
     email: La tua email
     luogo: Dove l'hai visto
     messaggio: Che cosa hai visto
-    invia: Prepara la segnalazione
+    invia: Prepara il messaggio
   consigli:
     titolo: Cosa ci aiuta di più
     voci:
@@ -91,6 +94,15 @@ segnalazioni:
         telefono.
       - Il **giorno e l'ora** in cui hai visto la cosa.
       - Una o due **fotografie**, che puoi allegare all'email.
+    # Il punto che mancava: siamo un archivio, non un pronto intervento. Sta
+    # nel riquadro e non nella nota in fondo, perché deve vedersi.
+    avvertenza: >-
+      **Se la cosa è urgente, non aspettare noi.** Siamo volontarie e
+      volontari: leggiamo i messaggi quando riusciamo e non abbiamo alcun
+      potere di intervento o di sanzione. Davanti a uno scarico in corso, a una
+      moria di pesci o a un rischio per le persone, chiama i **Carabinieri
+      Forestali, numero 1515**, e avvisa **ARPA Lazio** e il Comune. Poi, se
+      vuoi, raccontalo anche a noi: entrerà comunque nell'archivio.
 
 # ------------------------------------------- la rete (ultima sezione: grazie)
 

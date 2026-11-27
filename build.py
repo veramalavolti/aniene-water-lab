@@ -365,6 +365,37 @@ def riepilogo(dati: dict, parametri: dict) -> dict:
     }
 
 
+def ruoli_soglie(parametri: dict) -> None:
+    """Assegna a ogni soglia il suo ruolo, che nei grafici è il suo colore.
+
+    Nelle dashboard i colori delle soglie seguono una regola sola:
+
+      limite     -> rossa. La soglia da non superare: oltre quella il valore
+                    è nella classe peggiore prevista per il parametro.
+      attenzione -> gialla. Il bordo dell'intervallo di accettabilità: il
+                    valore è ancora leggibile come tollerabile, ma sta
+                    uscendo dalla norma.
+
+    Dove l'intervallo ha due bordi, un minimo e un massimo come il pH fra 6,5
+    e 9, sono gialli entrambi e non c'è nessuna linea rossa: non esiste un
+    «oltre» peggiore, esiste solo il dentro e il fuori.
+
+    Il campo livello resta quello che era, la classe LIMeco del parametro:
+    serve ai testi e alla tabella delle classi, non ai colori dei grafici.
+    """
+    for p in parametri.values():
+        soglie = p.get("soglie") or []
+        if not soglie:
+            continue
+        if p.get("verso") == "intervallo":
+            for s in soglie:
+                s["ruolo"] = "attenzione"
+            continue
+        peggiore = max(s["livello"] for s in soglie)
+        for s in soglie:
+            s["ruolo"] = "limite" if s["livello"] == peggiore else "attenzione"
+
+
 def main() -> int:
     if not TEMPLATES.is_dir():
         return print("Manca la cartella templates/") or 1
@@ -379,6 +410,8 @@ def main() -> int:
             loghi.append(realta)
     parametri_file = leggi("parametri.yml")
     parametri = parametri_file["parametri"]
+    # il colore di ogni soglia, deciso in un punto solo per pagine e dashboard
+    ruoli_soglie(parametri)
 
     env = Environment(
         loader=FileSystemLoader(TEMPLATES),

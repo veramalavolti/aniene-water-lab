@@ -9,7 +9,12 @@
 (function () {
   'use strict';
 
-  var COLORI_LIVELLO = { 1: '#2D7A9A', 2: '#8CA918', 3: '#E9C23B', 4: '#E0812E', 5: '#B03A2E' };
+  /* I colori delle soglie: rossa quella da non superare, gialla il bordo
+     dell'intervallo di accettabilità. Il ruolo di ogni soglia lo decide
+     build.py, così pagine e grafici dicono la stessa cosa. Il blu è il colore
+     dei valori che stanno entro tutte le soglie. */
+  var ROSSO = '#B03A2E', GIALLO = '#E9C23B', DENTRO = '#4E7A8C';
+  var COLORI_RUOLO = { limite: ROSSO, attenzione: GIALLO };
   var COLORI_SERIE = [
     '#1A3340', '#8CA918', '#B03A2E', '#2D7A9A', '#E0812E',
     '#6B4C9A', '#2D586E', '#C2185B', '#4E7A2A', '#8D6E1E'
@@ -62,31 +67,32 @@
     return p.length === 3 ? p[2] + '/' + p[1] + '/' + p[0].slice(2) : iso;
   }
 
-  /* Classe di qualità di un valore, in base alle soglie del parametro. */
-  function livello(parametro, v) {
+  /* La soglia peggiore superata da un valore, null se il valore sta entro
+     tutte. Le soglie elencate non sono per forza una scala completa di
+     qualità, quindi "nessuna soglia superata" non viene mai presentato come
+     "elevato". */
+  function sogliaPeggiore(parametro, v) {
     var n = valore(v);
-    if (n === null || !parametro.soglie || !parametro.soglie.length) return 0;
+    if (n === null || !parametro.soglie || !parametro.soglie.length) return null;
     var verso = parametro.verso || 'alto_critico';
-    var soglie = parametro.soglie.slice();
-    /* Restituisce il livello della soglia peggiore superata, 0 se il valore
-       sta entro tutte le soglie. Le soglie elencate non sono per forza una
-       scala completa di qualità, quindi "nessuna soglia superata" non viene
-       mai presentato come "elevato". */
-    var peggiore = 0;
-    soglie.forEach(function (s) {
+    var peggiore = null;
+    parametro.soglie.forEach(function (s) {
       var superata =
         verso === 'alto_critico' ? n >= s.valore :
         verso === 'basso_critico' ? n <= s.valore :
         verso === 'intervallo' ? (s.valore >= 7.5 ? n > s.valore : n < s.valore) :
         false;
-      if (superata && s.livello > peggiore) peggiore = s.livello;
+      if (superata && (!peggiore || s.livello > peggiore.livello)) peggiore = s;
     });
     return peggiore;
   }
 
+  /* Il colore di un valore è quello della soglia che ha superato: rosso se ha
+     passato il limite, giallo se è uscito dall'intervallo di accettabilità,
+     blu se sta entro tutto. Gli stessi tre colori delle linee. */
   function colore(parametro, v) {
-    var l = livello(parametro, v);
-    return l ? COLORI_LIVELLO[l] : '#4E7A8C';
+    var s = sogliaPeggiore(parametro, v);
+    return s ? (COLORI_RUOLO[s.ruolo] || ROSSO) : DENTRO;
   }
 
   // ---------------------------------------------------------------- scale
@@ -548,8 +554,10 @@
     this.guida.appendChild(g);
     if (p.soglie && p.soglie.length) {
       this.guida.appendChild(html('p', null,
-        'Le linee tratteggiate nel grafico sono le soglie di qualità: passaci sopra con il ' +
-        'mouse, o toccale, per leggere che cosa significa superarle e quali possono essere le cause.'));
+        'Le linee tratteggiate nel grafico sono le soglie di qualità: la rossa è il limite da ' +
+        'non superare, la gialla il bordo dell’intervallo ancora accettabile. Passaci sopra ' +
+        'con il mouse, o toccale, per leggere che cosa significa superarle e quali possono ' +
+        'essere le cause.'));
     }
 
     this.disegnaLegenda();
@@ -613,12 +621,12 @@
     this.legenda.appendChild(html('span', null, 'Soglie di questo parametro:'));
     var verso = p.verso === 'basso_critico' ? 'sotto ' : 'oltre ';
     p.soglie.slice().sort(function (a, b) { return a.livello - b.livello; }).forEach(function (s) {
-      var pastiglia = html('span', 'pastiglia lvl-' + s.livello,
+      var pastiglia = html('span', 'pastiglia soglia-' + s.ruolo,
         verso + formatta(s.valore) + ' ' + (p.unita || ''));
       self.legenda.appendChild(pastiglia);
     });
     var entro = html('span', 'pastiglia', 'entro le soglie');
-    entro.style.background = '#4E7A8C';
+    entro.style.background = DENTRO;
     entro.style.color = '#fff';
     this.legenda.appendChild(entro);
   };
@@ -631,7 +639,7 @@
     (p.soglie || []).forEach(function (s) {
       var py = y(s.valore);
       if (py < 6 || py > altezza - 6) return;
-      var col = COLORI_LIVELLO[s.livello] || '#B03A2E';
+      var col = COLORI_RUOLO[s.ruolo] || ROSSO;
       var gruppo = el('g', { class: 'soglia-gruppo', tabindex: '0', role: 'button',
         'aria-label': 'Soglia ' + s.etichetta + '. ' + s.spiegazione });
 
@@ -653,7 +661,9 @@
         rx: 2, fill: col
       }));
       gruppo.appendChild(el('text', {
-        class: 'soglia-etichetta', x: tx + 7, y: py - 5, fill: s.livello === 3 ? '#14262F' : '#fff'
+        /* sul giallo il testo bianco non si legge */
+        class: 'soglia-etichetta', x: tx + 7, y: py - 5,
+        fill: s.ruolo === 'attenzione' ? '#14262F' : '#fff'
       }, testo));
 
       // area invisibile più alta della linea, per prenderla facilmente col mouse
@@ -837,12 +847,10 @@
   Dashboard.prototype.testoClasse = function (v) {
     var p = this.scheda();
     if (!p.soglie || !p.soglie.length) return '';
-    var l = livello(p, v);
-    if (!l) return 'Entro tutte le soglie di questo parametro.';
-    var peggiore = null;
-    p.soglie.forEach(function (s) { if (s.livello === l) peggiore = s; });
+    var peggiore = sogliaPeggiore(p, v);
+    if (!peggiore) return 'Entro tutte le soglie di questo parametro.';
     var verso = p.verso === 'basso_critico' ? 'Sotto' : 'Oltre';
-    return verso + ' la soglia: ' + (peggiore ? peggiore.etichetta : '') + '.';
+    return verso + ' la soglia: ' + peggiore.etichetta + '.';
   };
 
   /* Vista 2: il profilo del fiume. Monte a destra e valle a sinistra, come
@@ -1005,9 +1013,13 @@
       self.dati.campagne.forEach(function (c) {
         var valori = self.valoriPunto(s.id, c.id);
         var cella = html('td', null, valori.length ? formatta(valori[0]) : '—');
-        if (valori.length && livello(p, valori[0]) >= 4) {
+        /* In tabella si marcano solo i valori davvero fuori norma: quelli che
+           hanno passato il limite rosso, e per i parametri a intervallo
+           quelli usciti dall'intervallo, che è la stessa cosa. */
+        var fuori = valori.length ? sogliaPeggiore(p, valori[0]) : null;
+        if (fuori && (fuori.ruolo === 'limite' || p.verso === 'intervallo')) {
           cella.className = 'oltre';
-          cella.style.color = colore(p, valori[0]);
+          cella.style.color = ROSSO;
         }
         riga.appendChild(cella);
       });

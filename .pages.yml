@@ -446,12 +446,13 @@ content:
           - { name: file, label: Foto, type: image, options: { media: fotografie, path: foto } }
           - { name: descrizione, label: Didascalia, type: text }
       - name: schede
-        label: "Sezione: le schede dei parametri"
+        label: "Sezione: cosa abbiamo misurato e come"
         type: object
         fields:
           - { name: titolo, label: Titolo, type: string }
           - { name: intro, label: Testo introduttivo, type: text }
-          - { name: ordine, label: Ordine delle schede, type: string, list: true }
+          - { name: paragrafi, label: Paragrafi, type: text, list: true }
+          - { name: rimando, label: Testo del bottone verso le schede, type: string }
       - name: rete
         label: "Sezione: la rete territoriale"
         type: object
@@ -739,6 +740,13 @@ content:
               - { name: luogo, label: Campo luogo, type: string }
               - { name: messaggio, label: Campo messaggio, type: string }
               - { name: invia, label: Bottone di invio, type: string }
+          - name: consigli
+            label: Riquadro «Cosa ci aiuta di più»
+            type: object
+            fields:
+              - { name: titolo, label: Titolo, type: string }
+              - { name: voci, label: I consigli, type: text, list: true }
+              - { name: avvertenza, label: Avvertenza sulle urgenze, type: text }
       - name: bollettino
         label: "Sezione: il bollettino dell'Aniene"
         type: object

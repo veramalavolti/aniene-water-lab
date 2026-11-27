@@ -207,26 +207,25 @@ sintesi:
       88.000–153.000 UFC. **Solo la stazione più a monte, a Subiaco, è sempre
       risultata adeguata alla balneazione.**
 
+# Questa sezione riassume e non ripete: la scheda di ogni parametro — cosa
+# misura, come si legge, quali sono le soglie — sta una volta sola nella pagina
+# sul metodo, dove il rimando qui sotto porta.
 schede:
   titolo: Cosa abbiamo misurato e come
   intro: >-
-    Questa sezione spiega quali parametri abbiamo analizzato e con quali
-    strumenti, per aiutarti a leggere i dati della dashboard qui sopra. Nel
-    report in fondo alla pagina trovi informazioni più specifiche su parametri e
-    risultati.
-  # Le schede riprendono le descrizioni generali dei parametri, in
-  # contenuti/parametri.yml. Qui si elencano solo quelli misurati in questa
-  # campagna e nell'ordine in cui devono comparire.
-  ordine:
-    - temperatura
-    - ph
-    - conducibilita
-    - torbidita
-    - ossigeno
-    - ammonio
-    - nitrati
-    - fosfati
-    - ecoli
+    Nove parametri, gli stessi in ogni stazione e in ogni uscita.
+  paragrafi:
+    - >-
+      Quattro formano l'indice LIMeco, il righello di legge per lo stato trofico
+      del fiume: **ossigeno disciolto, azoto ammoniacale, nitrati e fosfati**.
+      **Temperatura, pH, conducibilità e torbidità** descrivono le condizioni
+      fisiche dell'acqua, ed **Escherichia coli** la contaminazione fecale.
+    - >-
+      Tutte le misure sono state fatte in campo con il kit **Fresh Water
+      Watch**, tranne Escherichia coli, coltivato in piastra e incubato. Il
+      protocollo è quello delle altre campagne, sotto la supervisione
+      dell'ecologa fluviale **Bruna Gumiero**.
+  rimando: Che cosa misura ogni parametro, soglia per soglia
 
 rete:
   etichetta: Chi l'ha resa possibile

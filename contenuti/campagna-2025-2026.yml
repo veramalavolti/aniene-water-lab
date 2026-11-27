@@ -113,9 +113,7 @@ fissi:
   schede:
     titolo: I parametri, uno per uno
     intro: >-
-      Cosa misura ogni parametro, come si legge e cosa abbiamo trovato in questa
-      campagna. Nel report in fondo alla pagina trovi informazioni più
-      specifiche.
+      Che cosa hanno detto i punti fissi, parametro per parametro.
     voci:
       - parametro: ossigeno
         stato: Critico nel tratto urbano
@@ -325,9 +323,9 @@ gommone:
   schede:
     titolo: Le schede dei parametri
     intro: >-
-      I primi quattro parametri formano l'indice LIMeco. Gli altri completano il
-      quadro. Nel report in fondo alla pagina trovi il dettaglio di ogni
-      campagna.
+      Che cosa hanno detto le quattro uscite in gommone, parametro per
+      parametro. I primi quattro formano l'indice LIMeco, gli altri completano
+      il quadro.
     voci:
       - parametro: ossigeno
         stato: Critico in alcuni punti

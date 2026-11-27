@@ -218,7 +218,7 @@
       {% if p.soglie %}
       <p class="scheda-soglie">
         {% for sg in p.soglie %}
-        <span class="pastiglia lvl-{{ sg.livello }}">{{ sg.etichetta.split('·')[0]|trim }}</span>
+        <span class="pastiglia soglia-{{ sg.ruolo }}">{{ sg.etichetta.split('·')[0]|trim }}</span>
         {% endfor %}
       </p>
       {% endif %}
