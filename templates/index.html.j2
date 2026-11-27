@@ -175,15 +175,7 @@
             <a class="bottone bottone-chiaro" href="{{ c.metodologia.fresh_water_watch.link_passi }}">{{ c.metodologia.fresh_water_watch.link_passi_testo }} →</a>
           </p>
         </div>
-        <div class="qr-coppia">
-          {% for q in c.metodologia.fresh_water_watch.qr %}
-          <div class="fww-qr">
-            <img src="assets/img/{{ q.immagine }}" alt="{{ q.descrizione }}" width="150" height="150">
-            <strong>{{ q.etichetta }}</strong>
-            <span>{{ q.descrizione }}</span>
-          </div>
-          {% endfor %}
-        </div>
+        {{ parti.qr_coppia(c.metodologia.fresh_water_watch.qr) }}
       </aside>
     </div>
   </div>

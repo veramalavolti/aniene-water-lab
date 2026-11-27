@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800;900&family=Barlow+Condensed:wght@700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/sito.css?v=0cf75ba3">
+  <link rel="stylesheet" href="assets/css/sito.css?v=5f85878b">
 </head>
 <body>
 <a class="salta" href="#contenuto">Vai al contenuto principale</a>
@@ -502,51 +502,95 @@
           </p>
         </div>
         <div class="qr-coppia">
-          <div class="fww-qr">
-            <img src="assets/img/qr-survey123.svg" alt="L&#39;archivio dei rilievi, da compilare sul campo." width="180" height="180">
-            <strong>App Survey123</strong>
-            <span>L&#39;archivio dei rilievi, da compilare sul campo.</span>
-          </div>
-          <div class="fww-qr">
-            <img src="assets/img/qr-gruppo-asud.svg" alt="La pagina del gruppo A Sud su Fresh Water Watch." width="180" height="180">
-            <strong>Il gruppo Aniene</strong>
-            <span>La pagina del gruppo A Sud su Fresh Water Watch.</span>
-          </div>
-        </div>
+  <p class="qr-titolo">Inquadra con la fotocamera</p>
+  <div class="fww-qr">
+    <img src="assets/img/qr-survey123.svg" alt="L&#39;archivio dei rilievi, da compilare sul campo." width="180" height="180">
+    <span class="qr-nome">App Survey123</span>
+    <span class="qr-desc">L&#39;archivio dei rilievi, da compilare sul campo.</span>
+  </div>
+  <div class="fww-qr">
+    <img src="assets/img/qr-gruppo-asud.svg" alt="La pagina del gruppo A Sud su Fresh Water Watch." width="180" height="180">
+    <span class="qr-nome">Il gruppo Aniene</span>
+    <span class="qr-desc">La pagina del gruppo A Sud su Fresh Water Watch.</span>
+  </div>
+</div>
+
       </div>
 
       <div class="fww-passi">
         <h3>Come caricare i tuoi rilievi</h3>
         <p>I dati raccolti sul campo finiscono tutti nello stesso archivio internazionale. Per arrivare a caricarli servono <strong>cinque passaggi</strong>, in quest&#39;ordine: prima l&#39;account su Fresh Water Watch, poi il gruppo dell&#39;Aniene, poi l&#39;app.</p>
-        <div class="passi">
-          <article class="passo">
-            <span class="passo-numero" aria-hidden="true">1</span>
-            <h4>Apri il sito di Fresh Water Watch</h4>
-            <p>Vai su <strong>freshwaterwatch.org</strong> e cerca <strong>Sign in</strong>, nel menu in alto o nella pagina <strong>My Groups</strong>. Tutto passa da qui: finché non hai fatto l&#39;accesso, la pagina del gruppo resta chiusa.</p>
-            <a class="bottone bottone-piccolo" href="https://www.freshwaterwatch.org/pages/my-groups" rel="noopener">Vai a Fresh Water Watch ↗</a>
-          </article>
-          <article class="passo">
-            <span class="passo-numero" aria-hidden="true">2</span>
-            <h4>Crea un account, o accedi se ce l&#39;hai già</h4>
-            <p>Se è la prima volta, <strong>registrati e crea il tuo account</strong>. Se sei già registrata o registrato, fai semplicemente l&#39;accesso con le credenziali di sempre. L&#39;accesso passa per <strong>ArcGIS</strong>, la piattaforma di Esri: è la stessa di Survey123, l&#39;app che userai sul campo, quindi tieni da parte email e password, ti serviranno di nuovo.</p>
-          </article>
-          <article class="passo">
-            <span class="passo-numero" aria-hidden="true">3</span>
-            <h4>Entra nel gruppo dell&#39;Aniene</h4>
-            <p>Una volta dentro, apri <strong>My Groups</strong> e scegli il gruppo dedicato all&#39;Aniene, nella pagina di <strong>A Sud</strong>. Ci arrivi anche inquadrando il secondo codice QR qui sopra. È il passaggio che lega i tuoi rilievi ai punti di monitoraggio dell&#39;Aniene.</p>
-            <a class="bottone bottone-piccolo" href="https://www.freshwaterwatch.org/pages/asud~3b8724c0f5614ce4af9da485634396bb" rel="noopener">Apri il gruppo A Sud ↗</a>
-          </article>
-          <article class="passo">
-            <span class="passo-numero" aria-hidden="true">4</span>
-            <h4>Installa l&#39;app sul telefono</h4>
-            <p>Scarica <strong>Survey123</strong>, gratuita per Android e iPhone, e accedi con <strong>lo stesso account</strong> del passaggio 2. Il primo codice QR qui sopra porta alla scheda di rilievo.</p>
-          </article>
-          <article class="passo">
-            <span class="passo-numero" aria-hidden="true">5</span>
-            <h4>Compila la scheda sul campo</h4>
-            <p>Dopo la formazione puoi compilare la scheda direttamente in riva al fiume. Quando la invii, il rilievo entra nell&#39;archivio internazionale di <strong>Fresh Water Watch</strong> insieme a quelli di tutte le annualità precedenti.</p>
-          </article>
-        </div>
+        <div class="roadmap" data-roadmap>
+  <ol class="roadmap-tappe" hidden>
+    <li>
+      <button type="button" class="roadmap-tappa" data-va="0">
+        <span class="roadmap-pallino">1</span>
+        <span class="roadmap-nome">Apri il sito di Fresh Water Watch</span>
+      </button>
+    </li>
+    <li>
+      <button type="button" class="roadmap-tappa" data-va="1">
+        <span class="roadmap-pallino">2</span>
+        <span class="roadmap-nome">Crea un account, o accedi se ce l&#39;hai già</span>
+      </button>
+    </li>
+    <li>
+      <button type="button" class="roadmap-tappa" data-va="2">
+        <span class="roadmap-pallino">3</span>
+        <span class="roadmap-nome">Entra nel gruppo dell&#39;Aniene</span>
+      </button>
+    </li>
+    <li>
+      <button type="button" class="roadmap-tappa" data-va="3">
+        <span class="roadmap-pallino">4</span>
+        <span class="roadmap-nome">Installa l&#39;app sul telefono</span>
+      </button>
+    </li>
+    <li>
+      <button type="button" class="roadmap-tappa" data-va="4">
+        <span class="roadmap-pallino">5</span>
+        <span class="roadmap-nome">Compila la scheda sul campo</span>
+      </button>
+    </li>
+  </ol>
+
+  <div class="roadmap-pannelli">
+    <article class="passo roadmap-pannello" data-indice="0">
+      <span class="passo-numero" aria-hidden="true">1</span>
+      <h4>Apri il sito di Fresh Water Watch</h4>
+      <p>Vai su <strong>freshwaterwatch.org</strong> e cerca <strong>Sign in</strong>, nel menu in alto o nella pagina <strong>My Groups</strong>. Tutto passa da qui: finché non hai fatto l&#39;accesso, la pagina del gruppo resta chiusa.</p>
+      <a class="bottone bottone-piccolo" href="https://www.freshwaterwatch.org/pages/my-groups" rel="noopener">Vai a Fresh Water Watch ↗</a>
+    </article>
+    <article class="passo roadmap-pannello" data-indice="1">
+      <span class="passo-numero" aria-hidden="true">2</span>
+      <h4>Crea un account, o accedi se ce l&#39;hai già</h4>
+      <p>Se è la prima volta, <strong>registrati e crea il tuo account</strong>. Se sei già registrata o registrato, fai semplicemente l&#39;accesso con le credenziali di sempre. L&#39;accesso passa per <strong>ArcGIS</strong>, la piattaforma di Esri: è la stessa di Survey123, l&#39;app che userai sul campo, quindi tieni da parte email e password, ti serviranno di nuovo.</p>
+    </article>
+    <article class="passo roadmap-pannello" data-indice="2">
+      <span class="passo-numero" aria-hidden="true">3</span>
+      <h4>Entra nel gruppo dell&#39;Aniene</h4>
+      <p>Una volta dentro, apri <strong>My Groups</strong> e scegli il gruppo dedicato all&#39;Aniene, nella pagina di <strong>A Sud</strong>. Ci arrivi anche inquadrando il secondo codice QR qui sopra. È il passaggio che lega i tuoi rilievi ai punti di monitoraggio dell&#39;Aniene.</p>
+      <a class="bottone bottone-piccolo" href="https://www.freshwaterwatch.org/pages/asud~3b8724c0f5614ce4af9da485634396bb" rel="noopener">Apri il gruppo A Sud ↗</a>
+    </article>
+    <article class="passo roadmap-pannello" data-indice="3">
+      <span class="passo-numero" aria-hidden="true">4</span>
+      <h4>Installa l&#39;app sul telefono</h4>
+      <p>Scarica <strong>Survey123</strong>, gratuita per Android e iPhone, e accedi con <strong>lo stesso account</strong> del passaggio 2. Il primo codice QR qui sopra porta alla scheda di rilievo.</p>
+    </article>
+    <article class="passo roadmap-pannello" data-indice="4">
+      <span class="passo-numero" aria-hidden="true">5</span>
+      <h4>Compila la scheda sul campo</h4>
+      <p>Dopo la formazione puoi compilare la scheda direttamente in riva al fiume. Quando la invii, il rilievo entra nell&#39;archivio internazionale di <strong>Fresh Water Watch</strong> insieme a quelli di tutte le annualità precedenti.</p>
+    </article>
+  </div>
+
+  <div class="roadmap-naviga" hidden>
+    <button type="button" class="roadmap-freccia" data-passo="-1">← Indietro</button>
+    <span class="roadmap-conta" aria-live="polite"></span>
+    <button type="button" class="roadmap-freccia" data-passo="1">Avanti →</button>
+  </div>
+</div>
+
       </div>
     </div>
   </div>
@@ -685,5 +729,70 @@
 })();
 </script>
 
+<script>
+/* Il percorso di Fresh Water Watch: senza JavaScript i passaggi si leggono
+   tutti, uno sotto l'altro. Con JavaScript diventano tappe da percorrere. */
+(function () {
+  var r = document.querySelector('[data-roadmap]');
+  if (!r) return;
+  var fila = r.querySelector('.roadmap-tappe');
+  var tappe = [].slice.call(r.querySelectorAll('.roadmap-tappa'));
+  var pannelli = [].slice.call(r.querySelectorAll('.roadmap-pannello'));
+  var naviga = r.querySelector('.roadmap-naviga');
+  var conta = r.querySelector('.roadmap-conta');
+  var frecce = [].slice.call(r.querySelectorAll('.roadmap-freccia'));
+  if (tappe.length < 2 || tappe.length !== pannelli.length) return;
+
+  fila.hidden = false;
+  naviga.hidden = false;
+  fila.setAttribute('role', 'tablist');
+  fila.setAttribute('aria-label', 'I passaggi per caricare i rilievi');
+
+  tappe.forEach(function (t, i) {
+    t.id = 'tappa-' + (i + 1);
+    t.setAttribute('role', 'tab');
+    t.setAttribute('aria-controls', 'pannello-' + (i + 1));
+    pannelli[i].id = 'pannello-' + (i + 1);
+    pannelli[i].setAttribute('role', 'tabpanel');
+    pannelli[i].setAttribute('aria-labelledby', t.id);
+    pannelli[i].setAttribute('tabindex', '0');
+    t.addEventListener('click', function () { vai(i); });
+  });
+
+  var corrente = 0;
+
+  function vai(i, muoviIlFuoco) {
+    corrente = Math.max(0, Math.min(tappe.length - 1, i));
+    tappe.forEach(function (t, n) {
+      var attiva = n === corrente;
+      t.setAttribute('aria-selected', attiva ? 'true' : 'false');
+      t.setAttribute('tabindex', attiva ? '0' : '-1');
+      t.classList.toggle('fatta', n < corrente);
+      pannelli[n].hidden = !attiva;
+    });
+    /* la linea verde arriva fino alla tappa in cui siamo */
+    fila.style.setProperty('--avanzamento', corrente / (tappe.length - 1));
+    conta.textContent = 'Passaggio ' + (corrente + 1) + ' di ' + tappe.length;
+    frecce[0].disabled = corrente === 0;
+    frecce[1].disabled = corrente === tappe.length - 1;
+    if (muoviIlFuoco) tappe[corrente].focus();
+  }
+
+  frecce.forEach(function (f) {
+    f.addEventListener('click', function () {
+      vai(corrente + parseInt(f.dataset.passo, 10));
+    });
+  });
+
+  fila.addEventListener('keydown', function (ev) {
+    var salto = ev.key === 'ArrowRight' ? 1 : ev.key === 'ArrowLeft' ? -1 : 0;
+    if (salto) { ev.preventDefault(); vai(corrente + salto, true); return; }
+    if (ev.key === 'Home') { ev.preventDefault(); vai(0, true); }
+    if (ev.key === 'End') { ev.preventDefault(); vai(tappe.length - 1, true); }
+  });
+
+  vai(0);
+})();
+</script>
 </body>
 </html>

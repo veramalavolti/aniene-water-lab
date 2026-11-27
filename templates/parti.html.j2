@@ -195,6 +195,60 @@
 {% endmacro %}
 
 
+{# I due codici da inquadrare, accanto al riquadro di Fresh Water Watch.
+   Stessa forma nella home e nella pagina sul metodo: si scrive una volta. #}
+{% macro qr_coppia(codici) %}
+<div class="qr-coppia">
+  <p class="qr-titolo">Inquadra con la fotocamera</p>
+  {% for q in codici %}
+  <div class="fww-qr">
+    <img src="assets/img/{{ q.immagine }}" alt="{{ q.descrizione }}" width="180" height="180">
+    <span class="qr-nome">{{ q.etichetta }}</span>
+    <span class="qr-desc">{{ q.descrizione }}</span>
+  </div>
+  {% endfor %}
+</div>
+{% endmacro %}
+
+
+{# I passaggi come percorso: le tappe in fila sopra, con la linea che si
+   riempie, e sotto una tappa per volta. Senza JavaScript la fila di tappe
+   resta nascosta e si leggono tutti i passaggi uno sotto l'altro. #}
+{% macro roadmap(passi) %}
+<div class="roadmap" data-roadmap>
+  <ol class="roadmap-tappe" hidden>
+    {% for v in passi %}
+    <li>
+      <button type="button" class="roadmap-tappa" data-va="{{ loop.index0 }}">
+        <span class="roadmap-pallino">{{ loop.index }}</span>
+        <span class="roadmap-nome">{{ v.titolo }}</span>
+      </button>
+    </li>
+    {% endfor %}
+  </ol>
+
+  <div class="roadmap-pannelli">
+    {% for v in passi %}
+    <article class="passo roadmap-pannello" data-indice="{{ loop.index0 }}">
+      <span class="passo-numero" aria-hidden="true">{{ loop.index }}</span>
+      <h4>{{ v.titolo }}</h4>
+      <p>{{ v.testo|t }}</p>
+      {% if v.get('link') %}
+      <a class="bottone bottone-piccolo" href="{{ v.link }}" rel="noopener">{{ v.link_testo }} ↗</a>
+      {% endif %}
+    </article>
+    {% endfor %}
+  </div>
+
+  <div class="roadmap-naviga" hidden>
+    <button type="button" class="roadmap-freccia" data-passo="-1">← Indietro</button>
+    <span class="roadmap-conta" aria-live="polite"></span>
+    <button type="button" class="roadmap-freccia" data-passo="1">Avanti →</button>
+  </div>
+</div>
+{% endmacro %}
+
+
 {# Schede generali dei parametri, senza il commento sui risultati. #}
 {% macro schede_generali(ordine, parametri) %}
 <div class="schede-parametri">

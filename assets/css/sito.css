@@ -799,18 +799,26 @@ td.oltre { font-weight: 800; }
 .fww .etichetta { color: var(--lime); }
 .fww h3 { font-size: clamp(1.5rem, 2.4vw, 2rem); font-weight: 900; text-transform: uppercase; margin-bottom: .6rem; }
 .fww p { color: var(--text-inv-dim); max-width: none; }
-/* Il codice a sinistra e la sua spiegazione a destra: la scheda è alta
-   quanto il codice e non resta spazio vuoto sotto il testo. */
-.fww-qr {
-  display: grid; grid-template-columns: 118px minmax(0, 1fr);
-  gap: .15rem .9rem; align-content: start; align-items: center;
-  background: var(--cream-card); border-radius: var(--radius-md);
-  padding: 1rem 1.1rem; text-align: left;
+/* Il codice a sinistra e la sua spiegazione a destra, incolonnata al centro:
+   nome e descrizione stanno insieme invece di galleggiare in alto. */
+.qr-titolo {
+  font-size: .72rem; font-weight: 800; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--lime); margin: 0 0 .1rem;
 }
-.fww-qr img { grid-row: 1 / span 2; width: 118px; height: 118px; max-width: none; }
-.fww-qr strong { align-self: end; font-size: .95rem; font-weight: 800; color: var(--teal); line-height: 1.2; }
-.fww-qr span {
-  align-self: start; font-size: .8rem; line-height: 1.4;
+.fww-qr {
+  display: grid; grid-template-columns: 96px minmax(0, 1fr);
+  gap: .2rem 1rem; align-content: center;
+  background: var(--cream-card); border: 1px solid var(--lime-border);
+  border-radius: var(--radius-md);
+  padding: .9rem 1.1rem; text-align: left;
+}
+.fww-qr img {
+  grid-row: 1 / span 2; align-self: center;
+  width: 96px; height: 96px; max-width: none;
+}
+.fww-qr .qr-nome { align-self: end; font-size: 1rem; font-weight: 800; color: var(--teal); line-height: 1.2; }
+.fww-qr .qr-desc {
+  align-self: start; font-size: .82rem; line-height: 1.45;
   color: var(--text-dim); font-weight: 600;
 }
 @media (max-width: 860px) {
@@ -1073,7 +1081,6 @@ a.rete-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); b
 .metodo-griglia { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 2.5rem; align-items: start; }
 .fww-stretto { grid-template-columns: 1fr; gap: 1.4rem; padding: 1.8rem 1.9rem; position: sticky; top: calc(var(--altezza-testata) + 24px); }
 .fww-stretto .fww-qr { justify-self: stretch; }
-.fww-stretto .fww-qr img { max-width: 150px; }
 .fww-stretto h3 { font-size: 1.45rem; }
 @media (max-width: 980px) {
   .metodo-griglia { grid-template-columns: 1fr; }
@@ -1482,8 +1489,84 @@ a.rete-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); b
 /* dentro le schede bianche il grassetto torna scuro, altrimenti sparisce */
 .fww-passi .passo { --grassetto: var(--teal); }
 
+/* ------------------------------------------------- il percorso a tappe
+   Le tappe in fila, unite da una linea che si colora fino a dove siamo
+   arrivati, e sotto una tappa per volta. */
+
+.roadmap { margin-top: 1.5rem; }
+
+.roadmap-tappe {
+  list-style: none; margin: 0 0 1.5rem; padding: 0; position: relative;
+  display: grid; grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr);
+}
+/* la linea: quella spenta per intero, quella accesa fino alla tappa attiva */
+.roadmap-tappe::before, .roadmap-tappe::after {
+  content: ''; position: absolute; top: 21px; left: 10%; height: 3px;
+  border-radius: 3px;
+}
+.roadmap-tappe::before { width: 80%; background: rgba(240, 237, 230, .22); }
+.roadmap-tappe::after {
+  width: calc(80% * var(--avanzamento, 0)); background: var(--lime);
+  transition: width .35s ease;
+}
+
+.roadmap-tappa {
+  position: relative; width: 100%; display: grid; justify-items: center;
+  gap: .55rem; padding: .1rem .3rem .3rem; cursor: pointer;
+  background: none; border: 0; font: inherit; color: var(--text-inv-dim);
+}
+.roadmap-pallino {
+  display: grid; place-items: center; width: 46px; height: 46px;
+  border-radius: 50%; background: var(--teal);
+  border: 3px solid rgba(240, 237, 230, .3);
+  font-family: var(--font-display); font-size: 1.2rem; font-weight: 900;
+  color: var(--text-inv-dim);
+  transition: background .25s ease, border-color .25s ease, color .25s ease;
+}
+.roadmap-nome {
+  font-size: .82rem; font-weight: 700; line-height: 1.25;
+  text-align: center; max-width: 16ch;
+}
+.roadmap-tappa:hover .roadmap-pallino { border-color: var(--lime); }
+.roadmap-tappa.fatta .roadmap-pallino { border-color: var(--lime); color: var(--lime); }
+.roadmap-tappa[aria-selected="true"] { color: var(--lime); }
+.roadmap-tappa[aria-selected="true"] .roadmap-pallino {
+  background: var(--lime); border-color: var(--lime); color: var(--teal);
+}
+
+/* una tappa per volta, ma l'altezza non balla a ogni cambio */
+.roadmap-pannelli { display: grid; min-height: 11rem; }
+.roadmap-pannello { padding: 1.5rem 1.7rem; }
+.roadmap-pannello h4 { font-size: 1.2rem; }
+.roadmap-pannello p { font-size: 1rem; max-width: 80ch; }
+
+.roadmap-naviga { display: flex; align-items: center; gap: 1rem; margin-top: 1.1rem; }
+.roadmap-conta { font-size: .85rem; font-weight: 700; color: var(--text-inv-dim); }
+.roadmap-freccia {
+  padding: .45rem .95rem; border-radius: var(--radius-sm);
+  background: transparent; color: var(--lime);
+  border: 1.5px solid var(--lime-border);
+  font: inherit; font-size: .84rem; font-weight: 800; cursor: pointer;
+  transition: background .18s ease, border-color .18s ease;
+}
+.roadmap-freccia:hover:not(:disabled) { background: rgba(184, 212, 50, .14); border-color: var(--lime); }
+.roadmap-freccia:disabled { opacity: .35; cursor: default; }
+.roadmap-naviga .roadmap-conta { margin-left: auto; }
+
 @media (max-width: 860px) {
   .fww-passi { padding: 1.5rem 1.4rem 1.6rem; }
+  /* sul telefono restano i numeri: cinque nomi in fila non ci stanno */
+  .roadmap-nome { display: none; }
+  .roadmap-pallino { width: 40px; height: 40px; }
+  .roadmap-tappe::before, .roadmap-tappe::after { top: 18px; }
+  .roadmap-pannello { padding: 1.2rem 1.3rem; }
+  .roadmap-naviga { flex-wrap: wrap; gap: .6rem; }
+  .roadmap-naviga .roadmap-conta { margin-left: 0; order: -1; width: 100%; }
+}
+
+/* chi preferisce meno movimento non vede la linea scorrere */
+@media (prefers-reduced-motion: reduce) {
+  .roadmap-tappe::after, .roadmap-pallino { transition: none; }
 }
 
 /* ============================================= un richiamo a un'altra pagina

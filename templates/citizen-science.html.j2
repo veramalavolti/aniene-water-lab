@@ -125,32 +125,13 @@
             <a class="bottone" href="{{ c.fresh_water_watch.link }}" rel="noopener">{{ c.fresh_water_watch.link_testo }} ↗</a>
           </p>
         </div>
-        <div class="qr-coppia">
-          {% for q in c.fresh_water_watch.qr %}
-          <div class="fww-qr">
-            <img src="assets/img/{{ q.immagine }}" alt="{{ q.descrizione }}" width="180" height="180">
-            <strong>{{ q.etichetta }}</strong>
-            <span>{{ q.descrizione }}</span>
-          </div>
-          {% endfor %}
-        </div>
+        {{ parti.qr_coppia(c.fresh_water_watch.qr) }}
       </div>
 
       <div class="fww-passi">
         <h3>{{ c.fresh_water_watch.partecipare.titolo }}</h3>
         <p>{{ c.fresh_water_watch.partecipare.intro|t }}</p>
-        <div class="passi">
-          {% for v in c.fresh_water_watch.partecipare.passi %}
-          <article class="passo">
-            <span class="passo-numero" aria-hidden="true">{{ loop.index }}</span>
-            <h4>{{ v.titolo }}</h4>
-            <p>{{ v.testo|t }}</p>
-            {% if v.get('link') %}
-            <a class="bottone bottone-piccolo" href="{{ v.link }}" rel="noopener">{{ v.link_testo }} ↗</a>
-            {% endif %}
-          </article>
-          {% endfor %}
-        </div>
+        {{ parti.roadmap(c.fresh_water_watch.partecipare.passi) }}
       </div>
     </div>
   </div>
@@ -185,4 +166,72 @@
   </div>
 </section>
 
+{% endblock %}
+
+{% block script %}
+<script>
+/* Il percorso di Fresh Water Watch: senza JavaScript i passaggi si leggono
+   tutti, uno sotto l'altro. Con JavaScript diventano tappe da percorrere. */
+(function () {
+  var r = document.querySelector('[data-roadmap]');
+  if (!r) return;
+  var fila = r.querySelector('.roadmap-tappe');
+  var tappe = [].slice.call(r.querySelectorAll('.roadmap-tappa'));
+  var pannelli = [].slice.call(r.querySelectorAll('.roadmap-pannello'));
+  var naviga = r.querySelector('.roadmap-naviga');
+  var conta = r.querySelector('.roadmap-conta');
+  var frecce = [].slice.call(r.querySelectorAll('.roadmap-freccia'));
+  if (tappe.length < 2 || tappe.length !== pannelli.length) return;
+
+  fila.hidden = false;
+  naviga.hidden = false;
+  fila.setAttribute('role', 'tablist');
+  fila.setAttribute('aria-label', 'I passaggi per caricare i rilievi');
+
+  tappe.forEach(function (t, i) {
+    t.id = 'tappa-' + (i + 1);
+    t.setAttribute('role', 'tab');
+    t.setAttribute('aria-controls', 'pannello-' + (i + 1));
+    pannelli[i].id = 'pannello-' + (i + 1);
+    pannelli[i].setAttribute('role', 'tabpanel');
+    pannelli[i].setAttribute('aria-labelledby', t.id);
+    pannelli[i].setAttribute('tabindex', '0');
+    t.addEventListener('click', function () { vai(i); });
+  });
+
+  var corrente = 0;
+
+  function vai(i, muoviIlFuoco) {
+    corrente = Math.max(0, Math.min(tappe.length - 1, i));
+    tappe.forEach(function (t, n) {
+      var attiva = n === corrente;
+      t.setAttribute('aria-selected', attiva ? 'true' : 'false');
+      t.setAttribute('tabindex', attiva ? '0' : '-1');
+      t.classList.toggle('fatta', n < corrente);
+      pannelli[n].hidden = !attiva;
+    });
+    /* la linea verde arriva fino alla tappa in cui siamo */
+    fila.style.setProperty('--avanzamento', corrente / (tappe.length - 1));
+    conta.textContent = 'Passaggio ' + (corrente + 1) + ' di ' + tappe.length;
+    frecce[0].disabled = corrente === 0;
+    frecce[1].disabled = corrente === tappe.length - 1;
+    if (muoviIlFuoco) tappe[corrente].focus();
+  }
+
+  frecce.forEach(function (f) {
+    f.addEventListener('click', function () {
+      vai(corrente + parseInt(f.dataset.passo, 10));
+    });
+  });
+
+  fila.addEventListener('keydown', function (ev) {
+    var salto = ev.key === 'ArrowRight' ? 1 : ev.key === 'ArrowLeft' ? -1 : 0;
+    if (salto) { ev.preventDefault(); vai(corrente + salto, true); return; }
+    if (ev.key === 'Home') { ev.preventDefault(); vai(0, true); }
+    if (ev.key === 'End') { ev.preventDefault(); vai(tappe.length - 1, true); }
+  });
+
+  vai(0);
+})();
+</script>
 {% endblock %}
