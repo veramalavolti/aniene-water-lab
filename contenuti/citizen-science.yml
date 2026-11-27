@@ -304,27 +304,50 @@ fresh_water_watch:
       etichetta: Il gruppo Aniene
       descrizione: La pagina del gruppo A Sud su Fresh Water Watch.
   # I passaggi per entrare nel gruppo e caricare i propri rilievi.
+  # I passaggi vanno letti nell'ordine in cui si fanno davvero: prima
+  # l'account sul sito di Fresh Water Watch, poi il gruppo dell'Aniene, e
+  # soltanto alla fine l'app sul telefono. Chi parte dall'app si blocca.
   partecipare:
     titolo: Come caricare i tuoi rilievi
     intro: >-
-      I dati raccolti sul campo finiscono tutti nello stesso archivio. Per
-      contribuire bastano **tre passaggi**.
+      I dati raccolti sul campo finiscono tutti nello stesso archivio
+      internazionale. Per arrivare a caricarli servono **cinque passaggi**, in
+      quest'ordine: prima l'account su Fresh Water Watch, poi il gruppo
+      dell'Aniene, poi l'app.
     passi:
-      - titolo: Scarica l'applicazione
+      - titolo: Apri il sito di Fresh Water Watch
         testo: >-
-          Installa **Survey123** sul telefono e crea un account gratuito: è
-          l'app con cui si compilano le schede di rilievo.
-      - titolo: Entra nel gruppo Aniene
+          Vai su **freshwaterwatch.org** e cerca **Sign in**, nel menu in alto
+          o nella pagina **My Groups**. Tutto passa da qui: finché non hai
+          fatto l'accesso, la pagina del gruppo resta chiusa.
+        link: https://www.freshwaterwatch.org/pages/my-groups
+        link_testo: Vai a Fresh Water Watch
+      - titolo: Crea un account, o accedi se ce l'hai già
         testo: >-
-          Inquadra il secondo codice, oppure apri il link: dalla pagina di A
-          Sud scegli **My Groups** e seleziona il gruppo dedicato all'Aniene.
+          Se è la prima volta, **registrati e crea il tuo account**. Se sei già
+          registrata o registrato, fai semplicemente l'accesso con le
+          credenziali di sempre. L'accesso passa per **ArcGIS**, la piattaforma
+          di Esri: è la stessa di Survey123, l'app che userai sul campo, quindi
+          tieni da parte email e password, ti serviranno di nuovo.
+      - titolo: Entra nel gruppo dell'Aniene
+        testo: >-
+          Una volta dentro, apri **My Groups** e scegli il gruppo dedicato
+          all'Aniene, nella pagina di **A Sud**. Ci arrivi anche inquadrando il
+          secondo codice QR qui sopra. È il passaggio che lega i tuoi rilievi
+          ai punti di monitoraggio dell'Aniene.
         link: https://www.freshwaterwatch.org/pages/asud~3b8724c0f5614ce4af9da485634396bb
         link_testo: Apri il gruppo A Sud
-      - titolo: Registra il rilievo
+      - titolo: Installa l'app sul telefono
         testo: >-
-          Dopo la formazione puoi compilare la scheda direttamente sul campo: i
-          dati entrano nell'archivio internazionale di **Fresh Water Watch**
-          insieme a quelli di tutte le annualità precedenti.
+          Scarica **Survey123**, gratuita per Android e iPhone, e accedi con
+          **lo stesso account** del passaggio 2. Il primo codice QR qui sopra
+          porta alla scheda di rilievo.
+      - titolo: Compila la scheda sul campo
+        testo: >-
+          Dopo la formazione puoi compilare la scheda direttamente in riva al
+          fiume. Quando la invii, il rilievo entra nell'archivio internazionale
+          di **Fresh Water Watch** insieme a quelli di tutte le annualità
+          precedenti.
 
 macroinvertebrati:
   titolo: "Macroinvertebrati bentonici: una sperimentazione"

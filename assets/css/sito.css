@@ -1311,7 +1311,10 @@ a.rete-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); b
 
 /* ================================================== i passaggi per contribuire */
 
-.passi { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; margin-top: 1.6rem; }
+/* Con cinque passaggi la misura minima da 240px ne faceva stare quattro per
+   riga e lasciava il quinto solo in fondo: a 300px vanno tre e due. */
+.passi { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+  gap: 1rem; margin-top: 1.6rem; }
 .passo {
   background: var(--cream-card); border: 1px solid var(--border);
   border-top: 4px solid var(--lime-dark); border-radius: var(--radius-md);

@@ -315,6 +315,10 @@ metodologia:
       gruppi**, dall'Europa all'Asia.
     link: https://www.freshwaterwatch.org
     link_testo: Vai a Fresh Water Watch
+    # Dalla home si arriva ai cinque passaggi per caricare i rilievi, che
+    # stanno per esteso nella pagina sul metodo.
+    link_passi: citizen-science.html#fresh-water-watch
+    link_passi_testo: Come caricare i tuoi rilievi
     # I due codici da inquadrare: l'app per registrare i rilievi e la pagina
     # del gruppo Aniene dentro Fresh Water Watch.
     qr:

@@ -148,6 +148,8 @@ content:
               - { name: testo, label: Testo, type: text }
               - { name: link, label: Indirizzo del sito, type: string }
               - { name: link_testo, label: Testo del collegamento, type: string }
+              - { name: link_passi, label: Indirizzo dei passaggi per caricare i rilievi, type: string }
+              - { name: link_passi_testo, label: Testo del secondo collegamento, type: string }
               - name: qr
                 label: I codici QR
                 type: object
