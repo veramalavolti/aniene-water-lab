@@ -116,7 +116,7 @@ fissi:
       Che cosa hanno detto i punti fissi, parametro per parametro.
     voci:
       - parametro: ossigeno
-        stato: Critico nel tratto urbano
+        stato: Critico a valle
         cosa_trovato: >-
           L'ossigeno scende con regolarità da monte a valle: la mediana passa da
           9,5 mg/L a Subiaco a 6,3–6,9 mg/L nelle stazioni urbane. I minimi più
@@ -129,7 +129,7 @@ fissi:
           stazioni in cui anche ammonio ed Escherichia coli raggiungono i valori
           più alti.
       - parametro: ammonio
-        stato: Critico nel tratto urbano
+        stato: Critico a valle
         cosa_trovato: >-
           Fino a Ponte Lucano l'ammonio resta nelle classi migliori, con mediane
           tra 0,03 e 0,06 mg/L. Nel tratto urbano la situazione cambia: la
@@ -142,7 +142,7 @@ fissi:
           ammonio, che in presenza di ossigeno si trasforma rapidamente in
           nitrato, indicano un apporto continuo e non trattato.
       - parametro: nitrati
-        stato: Da tenere d'occhio
+        stato: Da tenere d'occhio a valle
         cosa_trovato: >-
           I nitrati restano quasi sempre nelle classi buone: la mediana è 0,2
           mg/L di azoto nitrico nell'alto corso e 1,0 mg/L nelle stazioni
@@ -152,7 +152,7 @@ fissi:
           Dilavamento dei terreni trattati con fertilizzanti, spesso legati
           all'orticoltura lungo le sponde, e reflui urbani.
       - parametro: fosfati
-        stato: Da tenere d'occhio
+        stato: Da tenere d'occhio a valle
         cosa_trovato: >-
           Nell'alto corso la mediana è 0,05 mg/L, al limite della classe
           migliore. Scende di classe a Tivoli (0,15 mg/L) e nelle due stazioni
@@ -163,7 +163,7 @@ fissi:
           contengono molti — insediamenti industriali e attività agricole del
           bacino.
       - parametro: conducibilita
-        stato: Critico da Ponte Lucano in giù
+        stato: Critico a valle
         cosa_trovato: >-
           È il parametro che mostra il salto più netto. A Subiaco i valori
           stanno tra 351 e 418 µS/cm, a Vicovaro e Tivoli intorno a 600. A Ponte
@@ -185,7 +185,7 @@ fissi:
           I valori più alti coincidono con i tratti a maggiore attività algale e
           con gli apporti delle acque di cava.
       - parametro: ecoli
-        stato: Critico
+        stato: Critico a valle
         cosa_trovato: >-
           La contaminazione fecale cresce di due ordini di grandezza lungo il
           fiume: la mediana passa da 200 UFC/100 mL a Subiaco a 650 a Vicovaro,
@@ -198,7 +198,7 @@ fissi:
           in gommone della stessa annualità, qui sotto, hanno permesso di
           individuare diverse immissioni compatibili con questi valori.
       - parametro: coliformi
-        stato: Critico
+        stato: Critico a valle
         cosa_trovato: >-
           I coliformi fecali seguono lo stesso andamento di E. coli, con mediane
           che passano da poche migliaia di UFC nell'alto corso a 152.500 a Ponte
@@ -328,7 +328,7 @@ gommone:
       il quadro.
     voci:
       - parametro: ossigeno
-        stato: Critico in alcuni punti
+        stato: Critico
         cosa_trovato: >-
           In quasi tutta la rete lo scostamento dalla saturazione è nella fascia
           «sufficiente». Nessun punto raggiunge la classe «elevata».
@@ -349,7 +349,7 @@ gommone:
           sono scarichi fognari o reflui trattati in modo inadeguato, attività
           agricole e zootecniche, scarichi industriali.
       - parametro: nitrati
-        stato: Critico in molti punti
+        stato: Critico
         cosa_trovato: >-
           I valori sono molto alti già nei primi punti del tratto alto, intorno
           ai 10 mg/L di azoto, e in gran parte del tratto medio. Valori bassi si
@@ -359,7 +359,7 @@ gommone:
           Un eccesso di nitrati proviene in genere dal dilavamento dei terreni
           trattati con fertilizzanti e dai reflui urbani.
       - parametro: fosfati
-        stato: Critico in alcuni punti
+        stato: Critico
         cosa_trovato: >-
           I fosfati sono alti già nel tratto alto. Nel tratto medio e urbano il
           valore massimo registrato è 1 mg/L; molti punti si fermano a 0,5 mg/L.
@@ -369,7 +369,7 @@ gommone:
           industriali e le attività agricole. La causa specifica va verificata
           caso per caso.
       - parametro: ph
-        stato: Da tenere d'occhio nel tratto urbano
+        stato: Da tenere d'occhio a valle
         cosa_trovato: >-
           Nel tratto alto i valori stanno tra 7,6 e 8,9. Nel tratto medio, a
           novembre 2025, alcuni punti superano il limite di 9. Nel tratto
@@ -379,7 +379,7 @@ gommone:
           Un'intensa attività algale legata all'eccesso di nutrienti e, nel
           tratto urbano, apporti di scarichi con reazione basica.
       - parametro: conducibilita
-        stato: Da leggere con la geologia
+        stato: Da tenere d'occhio a monte
         cosa_trovato: >-
           I valori vanno da 690 µS/cm fino a oltre 2.000, il limite dello
           strumento. I più alti si registrano nei punti vicini alle sorgenti
