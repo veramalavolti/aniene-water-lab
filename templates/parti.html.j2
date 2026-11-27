@@ -231,11 +231,13 @@
     {% for v in passi %}
     <article class="passo roadmap-pannello" data-indice="{{ loop.index0 }}">
       <span class="passo-numero" aria-hidden="true">{{ loop.index }}</span>
-      <h4>{{ v.titolo }}</h4>
-      <p>{{ v.testo|t }}</p>
-      {% if v.get('link') %}
-      <a class="bottone bottone-piccolo" href="{{ v.link }}" rel="noopener">{{ v.link_testo }} ↗</a>
-      {% endif %}
+      <div class="roadmap-testo">
+        <h4>{{ v.titolo }}</h4>
+        <p>{{ v.testo|t }}</p>
+        {% if v.get('link') %}
+        <a class="bottone bottone-piccolo" href="{{ v.link }}" rel="noopener">{{ v.link_testo }} ↗</a>
+        {% endif %}
+      </div>
     </article>
     {% endfor %}
   </div>

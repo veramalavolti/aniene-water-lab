@@ -1513,7 +1513,10 @@ a.rete-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); b
 }
 
 .roadmap-tappa {
-  position: relative; width: 100%; display: grid; justify-items: center;
+  /* sopra la linea: senza z-index la linea accesa, disegnata dopo, passerebbe
+     sopra i numeri delle tappe già fatte */
+  position: relative; z-index: 1;
+  width: 100%; display: grid; justify-items: center;
   gap: .55rem; padding: .1rem .3rem .3rem; cursor: pointer;
   background: none; border: 0; font: inherit; color: var(--text-inv-dim);
 }
@@ -1536,11 +1539,22 @@ a.rete-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); b
   background: var(--lime); border-color: var(--lime); color: var(--teal);
 }
 
-/* una tappa per volta, ma l'altezza non balla a ogni cambio */
-.roadmap-pannelli { display: grid; min-height: 11rem; }
-.roadmap-pannello { padding: 1.5rem 1.7rem; }
-.roadmap-pannello h4 { font-size: 1.2rem; }
-.roadmap-pannello p { font-size: 1rem; max-width: 80ch; }
+/* Una tappa per volta. Il numero sta di fianco al testo e non sopra, e il
+   testo si allarga per tutta la scheda: così il riquadro è basso e pieno
+   invece che alto e mezzo vuoto. */
+.roadmap-pannelli { display: grid; min-height: 8.5rem; }
+.roadmap-pannello {
+  display: grid; grid-template-columns: auto minmax(0, 1fr);
+  gap: 0 1.1rem; align-items: start; align-content: start;
+  padding: 1.3rem 1.6rem;
+}
+/* display: grid batte il display:none dell'attributo hidden: senza questa
+   riga i pannelli nascosti resterebbero tutti visibili. */
+.roadmap-pannello[hidden] { display: none; }
+.roadmap-pannello .passo-numero { margin-bottom: 0; }
+.roadmap-pannello h4 { font-size: 1.2rem; margin-bottom: .2rem; }
+.roadmap-pannello p { font-size: 1rem; max-width: none; margin-bottom: 0; }
+.roadmap-pannello .bottone { margin-top: .9rem; }
 
 .roadmap-naviga { display: flex; align-items: center; gap: 1rem; margin-top: 1.1rem; }
 .roadmap-conta { font-size: .85rem; font-weight: 700; color: var(--text-inv-dim); }
@@ -1561,7 +1575,9 @@ a.rete-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); b
   .roadmap-nome { display: none; }
   .roadmap-pallino { width: 40px; height: 40px; }
   .roadmap-tappe::before, .roadmap-tappe::after { top: 18px; }
-  .roadmap-pannello { padding: 1.2rem 1.3rem; }
+  .roadmap-pannello { padding: 1.2rem 1.3rem; grid-template-columns: 1fr; gap: .5rem 0; }
+  .roadmap-pannello .passo-numero { margin-bottom: .1rem; }
+  .roadmap-pannelli { min-height: 0; }
   .roadmap-naviga { flex-wrap: wrap; gap: .6rem; }
   .roadmap-naviga .roadmap-conta { margin-left: 0; order: -1; width: 100%; }
 }
